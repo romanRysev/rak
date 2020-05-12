@@ -25,6 +25,10 @@ html {
   box-sizing: border-box;
 }
 
+#__layout {
+  overflow: hidden;
+}
+
 .main-container {
   max-width: 1440px;
   margin: 0 auto;

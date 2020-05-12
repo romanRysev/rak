@@ -44,6 +44,7 @@ export default {
   text-align: left;
   color: #666666;
   padding: 100px 0;
+  position: relative;
 }
 
 .content-container {
