@@ -20,12 +20,14 @@
 
 <style scoped>
 .menu {
-  display: grid;
-  grid-template-columns: repeat(2, min-content) 1fr;
-  grid-gap: 40px;
   font-size: 18px;
   line-height: 24px;
   font-weight: normal;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, min-content) 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 40px;
 }
 
 .menu__link {
@@ -46,9 +48,15 @@
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1399px) {
   .menu {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .menu {
+    grid-gap: 30px;
   }
 }
 </style>

@@ -65,7 +65,7 @@ export default {
   grid-template-rows: repeat(2, min-content);
   grid-template-areas:
     'Thanks Nav Links'
-    'Project-name . Copyright';
+    'Project-name Copyright Copyright';
   justify-content: space-between;
   align-content: space-between;
 }
@@ -122,7 +122,7 @@ export default {
   justify-self: end;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1439px) {
   .footer {
     min-height: 316px;
     width: calc(100% - 100px);
@@ -148,7 +148,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1279px) {
   .footer {
     min-height: 292px;
     width: calc(100% - 100px);
@@ -170,6 +170,78 @@ export default {
   }
   .footer__social {
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .footer__text {
+    width: 268px;
+  }
+  .footer__menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 14px;
+  }
+
+  .footer__social {
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .footer {
+    min-height: 402px;
+    width: calc(100% - 30px);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas:
+      'Thanks'
+      'Nav'
+      'Links'
+      'Project-name'
+      'Copyright';
+    justify-items: start;
+    align-content: start;
+  }
+  .footer__text {
+    width: 100%;
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 50px;
+  }
+  .footer__menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 18px;
+    margin-left: 0;
+    font-size: 13px;
+    line-height: 15px;
+    padding-bottom: 18px;
+  }
+
+  .footer__links {
+    font-size: 13px;
+    line-height: 15px;
+    width: 100%;
+    justify-self: start;
+    padding-bottom: 50px;
+  }
+
+  .footer__social {
+    margin-bottom: 18px;
+  }
+
+  .footer__copyright {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .footer__copyright_project {
+    padding-bottom: 18px;
+  }
+
+  .footer__copyright_authors {
+    justify-self: start;
   }
 }
 </style>

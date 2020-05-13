@@ -6,6 +6,7 @@
     <h1 class="header__logo" v-else>
       Проект Благотворительного Фонда Константина Хабенского
     </h1>
+    <hamburger-menu />
     <main-menu class="header__menu">
       <nuxt-link to="#" class="menu__link header__link_share"
         >Рассказать историю</nuxt-link
@@ -16,10 +17,12 @@
 
 <script>
 import Menu from '@/components/Menu';
+import Hamburger from './ui/Hamburger.vue';
 
 export default {
   components: {
     'main-menu': Menu,
+    'hamburger-menu': Hamburger,
   },
 };
 </script>
@@ -56,13 +59,32 @@ export default {
   color: #121212;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1399px) {
   .header {
     min-height: 72px;
     width: calc(100% - 100px);
   }
   .header__logo {
     line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .header__menu {
+    /*пока спрятала, так как в макете нет, как оно открывается*/
+    display: none;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .header {
+    min-height: 64px;
+    width: calc(100% - 30px);
+  }
+  .header__logo {
+    width: 216px;
+    font-size: 12px;
+    line-height: 14px;
   }
 }
 </style>
