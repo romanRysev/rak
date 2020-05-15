@@ -24,13 +24,32 @@
           <!--            <p class="variant-text">Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p>-->
         </div>
       </div>
-      <button class="form-button" type="button">Заполнить форму</button>
+
+      <Button
+        @custom-click="$store.commit('popup/open')"
+        class="form-button"
+        type="button"
+        >Заполнить форму</Button
+      >
+      <!-- <Button
+            @custom-click="$store.commit('popup/open')"
+            className="popup__button"
+          >
+            <p class="popup__button-description">
+              <slot>Заполнить форму</slot>
+            </p>
+          </Button> -->
     </div>
   </section>
 </template>
 
 <script>
+
+import button from '@/components/button';
 export default {
+  components: {
+    Button: button,
+  },
   name: 'TellYourStory',
 };
 </script>

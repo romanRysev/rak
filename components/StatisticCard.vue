@@ -1,13 +1,10 @@
 <template>
   <div class="stat-card">
-    <p class="stat-card__card-description">
-      Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000
-      человек.
-    </p>
+    <p class="stat-card__card-description" v-text="cardDescription"></p>
     <div class="stat-card__bar-container">
-      <stats-bar />
-      <p class="stat-card__bars-numpers">1 из 3</p>
-      <p class="stat-card__bars-author">Левада-Центр 2018</p>
+      <slot></slot>
+      <p class="stat-card__bars-numbers" v-text="barsNumbers"></p>
+      <p class="stat-card__bars-author" v-text="barsAuthor"></p>
     </div>
   </div>
 </template>
@@ -17,6 +14,11 @@ import Bar from '@/components/ui/Bar';
 export default {
   components: {
     'stats-bar': Bar,
+  },
+  props: {
+    cardDescription: String,
+    barsNumbers: String,
+    barsAuthor: String,
   },
 };
 </script>
@@ -33,8 +35,9 @@ export default {
 }
 .stat-card__bar-container {
   text-align: right;
+  position: relative;
 }
-.stat-card__bars-numpers {
+.stat-card__bars-numbers {
   padding: 20px 0;
   font-weight: 600;
   font-size: 38px;
@@ -57,6 +60,14 @@ export default {
     width: 265px;
     height: 265px;
     padding: 18px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .stat-card {
+    width: 208px;
+    height: 208px;
+    padding: 10px;
   }
 }
 </style>

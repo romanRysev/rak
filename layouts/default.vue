@@ -1,6 +1,8 @@
 <template>
   <div class="main-container">
     <main-header />
+
+    <popup v-if="this.$store.state.popup.popupShown"></popup>
     <nuxt />
     <main-footer />
   </div>
@@ -8,11 +10,13 @@
 
 <script>
 import Header from '@/components/Header';
+import popup from '@/components/popup';
 import Footer from '@/components/Footer';
 
 export default {
   components: {
     'main-header': Header,
+    popup,
     'main-footer': Footer,
   },
 };

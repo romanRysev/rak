@@ -30,7 +30,8 @@ export default {};
 .head-banner__arrow {
   position: absolute;
   bottom: 40px;
-  left: 48.5%;
+  left: calc(50% - 19px);
+  margin-right: 19px;
 }
 
 @media screen and (max-width: 1399px) {
@@ -38,12 +39,37 @@ export default {};
     font-size: 78px;
     line-height: 94px;
   }
+
+  .head-banner {
+    height: 620px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .head-banner {
+    height: 540px;
+  }
 }
 
 @media screen and (max-width: 1023px) {
   .head-banner__title {
     font-size: 64px;
     line-height: 77px;
+  }
+
+  .head-banner {
+    height: 780px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .head-banner__title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .head-banner {
+    height: 480px;
   }
 }
 </style>
