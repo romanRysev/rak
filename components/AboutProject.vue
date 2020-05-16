@@ -134,9 +134,6 @@ export default {
   text-align: right;
   color: #c9c9c9;
 }
-.about-project__name:not(:last-of-type) {
-  margin-bottom: 10px;
-}
 .about-project__name:hover {
   /*font-weight: 500;*/
   color: #ffffff;
@@ -224,6 +221,9 @@ export default {
     font-size: 15px;
     line-height: 19px;
   }
+  .about-project__name_active {
+    border-bottom: 2px solid currentColor;
+  }
   .about-project__paragraph {
     font-size: 15px;
     line-height: 19px;
@@ -231,7 +231,7 @@ export default {
 }
 @media screen and (max-width: 767px) {
   .about-project {
-    min-height: 630px;
+    min-height: 660px;
     padding: 80px 0 80px 0;
   }
   .about-project__container {
@@ -251,9 +251,6 @@ export default {
   .about-project__place-container {
     display: flex;
     flex-direction: column;
-  }
-  .about-project__name:hover {
-    border-bottom: 2px solid #ffffff;
   }
 
   .about-project__place-container_information {
@@ -290,9 +287,6 @@ export default {
   .about-project__place-container {
     display: flex;
     flex-direction: column;
-  }
-  .about-project__name:hover {
-    border-bottom: 2px solid #ffffff;
   }
 
   .about-project__place-container_information {
