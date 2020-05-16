@@ -1,9 +1,9 @@
 <template>
-  <div class="stories">
+  <section class="stories">
     <h3 class="stories__title">Истории неизлечимых привычек</h3>
     <stories-grid />
-    <a href="" class="stories__link-all">Больше статей</a>
-  </div>
+    <a href="/stories" class="stories__link-all">Больше статей</a>
+  </section>
 </template>
 
 <script>
@@ -19,6 +19,7 @@ export default {
 .stories {
   max-width: 1320px;
   padding: 100px 0;
+  margin: 0 60px;
 }
 .stories__title {
   font-family: 'Inter';
@@ -49,5 +50,52 @@ export default {
 }
 .stories__link-all:visited {
   color: #000000;
+}
+@media screen and (max-width: 1279px) {
+  .stories {
+    margin: 0 50px;
+    padding: 90px 0;
+  }
+  .stories__title {
+    margin-bottom: 60px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .stories {
+    padding: 80px 0;
+  }
+  .stories__title {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 46px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .stories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+  }
+  .stories__title {
+    max-width: 380px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 455px) {
+  .stories {
+    padding: 50px 0;
+    margin: 0 15px;
+  }
+  .stories__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 40px;
+    text-align: start;
+    margin-right: auto;
+  }
 }
 </style>

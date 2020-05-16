@@ -10,28 +10,95 @@
             навязчивых идей и болезненных привязанностей.
           </p>
           <div class="variant-toggler">
-            <p class="variant variant_active">1-й вариант</p>
-            <p class="variant">2-й вариант</p>
+            <p
+              ref="variantOne"
+              @click="variantToggler"
+              class="variant variant_active"
+            >
+              1-й вариант
+            </p>
+            <p ref="variantTwo" @click="variantToggler" class="variant">
+              2-й вариант
+            </p>
           </div>
         </div>
         <div class="variant-side">
-          <p class="variant-text">
+          <p v-if="variantOneShown" class="variant-text">
             Заполнить подробную форму прямо на сайте и мы опубликуем вашу
             историю после проверки. Пожалуйста, заполняйте все пункты корректно,
             если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м
             вариантом.
           </p>
-          <!--            <p class="variant-text">Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p>-->
+          <p v-if="variantTwoShown" class="variant-text">
+            Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+            зададим вопросы, уточним детали вашей истории.
+          </p>
         </div>
       </div>
-      <button class="form-button" type="button">Заполнить форму</button>
+
+      <!--<Button
+        v-if="variantOneShown"
+        @custom-click="$store.commit('popup/open')"
+        class="form-button"
+        type="button"
+        >Заполнить форму</Button
+      >
+
+      <Button
+        v-if="variantTwoShown"
+        @custom-click="$store.commit('popup/open')"
+        class="form-button"
+        type="button"
+        >Оставить контакт</Button
+      >-->
+
+      <Button
+        v-if="variantOneShown"
+        @custom-click="$store.commit('popup/open')"
+        className="popup__button"
+        class="form-button"
+      >
+        <p class="popup__button-description">
+          <slot>Заполнить форму</slot>
+        </p>
+      </Button>
+
+      <Button
+        v-if="variantTwoShown"
+        @custom-click="$store.commit('popup/open')"
+        className="popup__button"
+        class="form-button"
+      >
+        <p class="popup__button-description">
+          <slot>Оставить контакт</slot>
+        </p>
+      </Button>
     </div>
   </section>
 </template>
 
 <script>
+import button from '@/components/button';
 export default {
-  name: 'TellYourStory',
+  components: {
+    Button: button,
+  },
+  methods: {
+    variantToggler(e) {
+      if (!e.target.classList.contains('variant_active')) {
+        this.variantOneShown = !this.variantOneShown;
+        this.variantTwoShown = !this.variantTwoShown;
+        this.$refs.variantOne.classList.toggle('variant_active');
+        this.$refs.variantTwo.classList.toggle('variant_active');
+      }
+    },
+  },
+  data() {
+    return {
+      variantOneShown: true,
+      variantTwoShown: false,
+    };
+  },
 };
 </script>
 
@@ -44,6 +111,7 @@ export default {
   text-align: left;
   color: #666666;
   padding: 100px 0;
+  position: relative;
 }
 
 .content-container {
@@ -89,13 +157,17 @@ export default {
 }
 
 .variant {
-  /* Оставил пока пустым. Пока не уверен, как именно здесь будет выглядеть переключение отображаемых абзацев.
-    Если модификатором, то нужен и блок. Если без мдоификатора, то нужно будет слегка изменить. */
+  cursor: pointer;
+}
+
+.variant:hover {
+  color: black;
 }
 
 .variant_active {
   font-weight: 500;
   color: black;
+  cursor: default;
 }
 
 .form-button {
@@ -110,6 +182,11 @@ export default {
   line-height: 19px;
   position: absolute;
   left: calc(50% + 20px);
+  cursor: pointer;
+}
+
+.form-button:hover {
+  opacity: 0.9;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
@@ -248,6 +325,7 @@ export default {
 
   .variant-side {
     width: 100%;
+    min-height: 95px;
   }
 
   .form-button {
@@ -314,6 +392,7 @@ export default {
 
   .variant-side {
     width: 100%;
+    min-height: 95px;
   }
 
   .form-button {
@@ -374,6 +453,7 @@ export default {
 
   .variant-side {
     width: 100%;
+    min-height: 95px;
   }
 
   .form-button {
