@@ -1,8 +1,8 @@
 <template>
   <div class="main-container">
     <main-header />
-    <popup v-if="this.$store.state.popup.popupShown"></popup>
 
+    <popup v-if="this.$store.state.popup.popupShown"></popup>
     <nuxt />
     <main-footer />
   </div>

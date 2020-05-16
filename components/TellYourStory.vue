@@ -24,6 +24,7 @@
           <!--            <p class="variant-text">Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p>-->
         </div>
       </div>
+
       <Button
         @custom-click="$store.commit('popup/open')"
         class="form-button"
@@ -43,6 +44,7 @@
 </template>
 
 <script>
+
 import button from '@/components/button';
 export default {
   components: {
