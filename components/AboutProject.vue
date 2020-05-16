@@ -12,13 +12,25 @@
           </p>
 
           <ul class="about-project__list-names">
-            <li class="about-project__name">Рак Лечится</li>
-            <li class="about-project__name">Фонд Хабенского</li>
+            <li
+              ref="rakToggle"
+              @click="toggleText"
+              class="about-project__name about-project__name_active"
+            >
+              Рак Лечится
+            </li>
+            <li
+              ref="fondToggle"
+              @click="toggleText"
+              class="about-project__name"
+            >
+              Фонд Хабенского
+            </li>
           </ul>
         </div>
 
         <ul class="about-project__description">
-          <li class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__paragraph">
             Есть вещи, которые не лечатся. Особенности характера, страстные
             увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
             приобрели в детстве. Список можно продолжать до бесконечности, но
@@ -26,11 +38,19 @@
             и лучшее доказательство — люди с их неизлечимыми особенностями,
             которые сумели победить рак.
           </li>
-          <li class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__paragraph">
             Рак лечится — проект Благотворительного Фонда Константина Хабенского
             и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение
             людей к раку и заставить каждого поверить: онкологическое
             заболевание — это не приговор.
+          </li>
+          <li v-if="fondKhabenskogo" class="about-project__paragraph">
+            Благотворительный Фонд Константина Хабенского с 2008 года помогает
+            детям с онкологическими и другими тяжелыми заболеваниями головного
+            мозга. Фонд не только поддерживает семью заболевшего ребенка в самый
+            сложный момент, оплачивая обследования, лечение и медицинские
+            препараты, но и в целом меняет систему оказания помощи детям с
+            опухолями мозга в России.
           </li>
         </ul>
       </div>
@@ -39,7 +59,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleText(e) {
+      if (!e.target.classList.contains('about-project__name_active')) {
+        this.rakLechitsa = !this.rakLechitsa;
+        this.fondKhabenskogo = !this.fondKhabenskogo;
+        this.$refs.rakToggle.classList.toggle('about-project__name_active');
+        this.$refs.fondToggle.classList.toggle('about-project__name_active');
+      }
+    },
+  },
+  data() {
+    return {
+      rakLechitsa: true,
+      fondKhabenskogo: false,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -51,6 +88,7 @@ export default {};
 
   width: 100vw;
   padding: 90px 60px 100px 60px;
+  min-height: 650px;
 }
 .about-project__container {
   max-width: 100%;
@@ -96,14 +134,18 @@ export default {};
   text-align: right;
   color: #c9c9c9;
 }
+.about-project__name:not(:last-of-type) {
+  margin-bottom: 10px;
+}
 .about-project__name:hover {
-  font-weight: 500;
+  /*font-weight: 500;*/
   color: #ffffff;
   cursor: pointer;
 }
-.about-project__name_company {
-  font-weight: normal;
-  color: #c9c9c9;
+.about-project__name_active {
+  font-weight: 500;
+  color: white;
+  cursor: default;
 }
 .about-project__description {
   padding-left: 0;
@@ -137,9 +179,16 @@ export default {};
   max-width: 640px;
 }
 
+@media screen and (max-width: 1439px) {
+  .about-project {
+    min-height: 620px;
+  }
+}
+
 @media screen and (max-width: 1279px) {
   .about-project {
-    padding: 80px 50 90px 50;
+    padding: 80px 50px 90px 50px;
+    min-height: 570px;
   }
 
   .about-project__title {
@@ -156,6 +205,9 @@ export default {};
   }
 }
 @media screen and (max-width: 1023px) {
+  .about-project {
+    min-height: 660px;
+  }
   .about-project__title {
     font-size: 52px;
     line-height: 63px;
@@ -179,6 +231,7 @@ export default {};
 }
 @media screen and (max-width: 767px) {
   .about-project {
+    min-height: 630px;
     padding: 80px 0 80px 0;
   }
   .about-project__container {
