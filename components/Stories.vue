@@ -2,15 +2,17 @@
   <section class="stories">
     <h3 class="stories__title">Истории неизлечимых привычек</h3>
     <stories-grid />
-    <a href="/stories" class="stories__link-all">Больше статей</a>
+    <more-articles />
   </section>
 </template>
 
 <script>
 import StoryGrid from '@/components/ui/StoryGrid';
+import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 export default {
   components: {
     'stories-grid': StoryGrid,
+    'more-articles': MoreArticlesButton,
   },
 };
 </script>
@@ -32,7 +34,8 @@ export default {
   max-width: 413px;
   margin-bottom: 70px;
 }
-.stories__link-all {
+/** Эти стили отпали при выносе кнопки "Больше статей" в отдельный элемент */
+/*.stories__link-all {
   display: block;
   text-decoration: none;
   font-family: 'Inter';
@@ -50,7 +53,7 @@ export default {
 }
 .stories__link-all:visited {
   color: #000000;
-}
+}*/
 @media screen and (max-width: 1279px) {
   .stories {
     margin: 0 50px;

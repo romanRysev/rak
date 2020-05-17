@@ -3,15 +3,16 @@
     <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
       >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
     >
-    <h1 class="header__logo" v-else>
+    <p class="header__logo" v-else>
       Проект Благотворительного Фонда Константина Хабенского
-    </h1>
+    </p>
     <hamburger-menu />
     <main-menu class="header__menu">
       <nuxt-link to="#" class="menu__link header__link_share"
         >Рассказать историю</nuxt-link
       >
     </main-menu>
+    <hamburger-menu class="header__mobile-icon" />
   </header>
 </template>
 
@@ -59,7 +60,11 @@ export default {
   color: #121212;
 }
 
-@media screen and (max-width: 1399px) {
+.header__mobile-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1429px) {
   .header {
     min-height: 72px;
     width: calc(100% - 100px);
@@ -71,8 +76,11 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .header__menu {
-    /*пока спрятала, так как в макете нет, как оно открывается*/
     display: none;
+  }
+
+  .header__mobile-icon {
+    display: block;
   }
 }
 
