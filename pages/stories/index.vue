@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="page-container">
     Страница с историями
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style scoped>
-.container {
+.page-container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;

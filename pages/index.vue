@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="page-container">
     <banner />
     <videoBlock />
     <stories />
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.page-container {
   margin: 0 auto;
   min-height: 100vh;
   max-width: 1440px;
