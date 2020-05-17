@@ -2,15 +2,17 @@
   <section class="stories">
     <h3 class="stories__title">Истории неизлечимых привычек</h3>
     <stories-grid />
-    <a href="/stories" class="stories__link-all">Больше статей</a>
+    <more-articles />
   </section>
 </template>
 
 <script>
 import StoryGrid from '@/components/ui/StoryGrid';
+import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 export default {
   components: {
     'stories-grid': StoryGrid,
+    'more-articles': MoreArticlesButton,
   },
 };
 </script>
