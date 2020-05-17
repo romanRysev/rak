@@ -34,7 +34,8 @@ export default {
   max-width: 413px;
   margin-bottom: 70px;
 }
-.stories__link-all {
+/** Эти стили отпали при выносе кнопки "Больше статей" в отдельный элемент */
+/*.stories__link-all {
   display: block;
   text-decoration: none;
   font-family: 'Inter';
@@ -52,7 +53,7 @@ export default {
 }
 .stories__link-all:visited {
   color: #000000;
-}
+}*/
 @media screen and (max-width: 1279px) {
   .stories {
     margin: 0 50px;

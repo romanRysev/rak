@@ -201,7 +201,6 @@ export default {
 }
 
 .more-button {
-  height: 82px;
   margin-bottom: 100px;
 }
 
@@ -244,7 +243,6 @@ export default {
   }
 
   .more-button {
-    height: 78px;
     margin-bottom: 90px;
   }
 }
@@ -300,9 +298,6 @@ export default {
 
   .more-button {
     margin-bottom: 80px;
-    font-size: 13px;
-    line-height: 20px;
-    height: 50px;
   }
 }
 
@@ -368,9 +363,6 @@ export default {
 
   .more-button {
     margin-bottom: 80px;
-    font-size: 13px;
-    line-height: 20px;
-    height: 50px;
   }
 }
 
@@ -436,9 +428,6 @@ export default {
 
   .more-button {
     margin-bottom: 50px;
-    font-size: 13px;
-    line-height: 20px;
-    height: 50px;
   }
 }
 </style>
