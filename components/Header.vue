@@ -6,7 +6,6 @@
     <p class="header__logo" v-else>
       Проект Благотворительного Фонда Константина Хабенского
     </p>
-    <hamburger-menu />
     <main-menu class="header__menu">
       <nuxt-link to="#" class="menu__link header__link_share"
         >Рассказать историю</nuxt-link
