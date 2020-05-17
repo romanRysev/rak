@@ -10,7 +10,7 @@
           />
         </div>
       </div>
-      <div class="story-header story-header__text-content">
+      <!--<div class="story-header story-header__text-content">
         <h1 class="story-title">
           <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
           могу победить свою пунктуальность в отличии от рака»
@@ -27,7 +27,23 @@
             <p>20 апреля 2018</p>
           </li>
         </ul>
-      </div>
+      </div>-->
+      <h1 class="story-title">
+        <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
+        могу победить свою пунктуальность в отличии от рака»
+      </h1>
+      <ul class="story-header story-header__bottom-string">
+        <li>
+          <share-link
+            class="share-link"
+            :url="links[0].url"
+            :text="links[0].text"
+          />
+        </li>
+        <li>
+          <p>20 апреля 2018</p>
+        </li>
+      </ul>
     </div>
 
     <article class="story-article">
@@ -194,5 +210,160 @@ export default {
 
 .more-button {
   margin-bottom: 100px;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+  .page-container {
+    max-width: 1180px;
+  }
+
+  .photo-wrapper {
+    max-width: 518px;
+  }
+
+  .story-header__text-content {
+    max-width: 600px;
+  }
+
+  .story-title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .story-article {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 720px;
+    padding: 120px 0 80px;
+  }
+
+  .story-article__paragraph {
+    padding: 0;
+  }
+
+  .share-link {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .story-grid {
+    margin: 180px 0 60px;
+  }
+
+  .more-button {
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1279px) {
+  .page-container {
+    max-width: 924px;
+  }
+
+  .photo-wrapper {
+    max-width: 407px;
+  }
+
+  .story-header__text-content {
+    max-width: 477px;
+    padding: 20px 0 0 0;
+  }
+
+  .story-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .story-header__bottom-string {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+
+  .story-article {
+    font-size: 18px;
+    line-height: 27px;
+    max-width: 640px;
+    padding: 90px 0 70px;
+  }
+
+  .story-article__paragraph {
+    padding: 0;
+  }
+
+  .story-article__paragraph:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  .share-link {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .story-grid {
+    margin: 140px 0 30px;
+  }
+
+  .more-button {
+    margin-bottom: 65px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 730px) and (max-width: 1022px) {
+  .page-container {
+    max-width: 688px;
+  }
+
+  .photo-wrapper {
+    max-width: 407px;
+  }
+
+  .story-header__text-content {
+    max-width: 477px;
+    padding: 20px 0 0 0;
+  }
+
+  .story-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .story-header__bottom-string {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+
+  .story-article {
+    font-size: 18px;
+    line-height: 27px;
+    max-width: 640px;
+    padding: 90px 0 70px;
+  }
+
+  .story-article__paragraph {
+    padding: 0;
+  }
+
+  .story-article__paragraph:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  .share-link {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .story-grid {
+    margin: 140px 0 30px;
+  }
+
+  .more-button {
+    margin-bottom: 65px;
+    font-size: 13px;
+    line-height: 20px;
+  }
 }
 </style>
