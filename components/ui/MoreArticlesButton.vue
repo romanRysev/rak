@@ -11,7 +11,6 @@ export default {
 <style scoped>
 .more-articles-button {
   width: 100%;
-  min-height: 82px;
   display: flex;
   justify-content: center;
   align-items: center;

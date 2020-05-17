@@ -10,7 +10,7 @@
           />
         </div>
       </div>
-      <!--<div class="story-header story-header__text-content">
+      <div class="story-header story-header__text-content">
         <h1 class="story-title">
           <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
           могу победить свою пунктуальность в отличии от рака»
@@ -27,23 +27,7 @@
             <p>20 апреля 2018</p>
           </li>
         </ul>
-      </div>-->
-      <h1 class="story-title">
-        <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
-        могу победить свою пунктуальность в отличии от рака»
-      </h1>
-      <ul class="story-header story-header__bottom-string">
-        <li>
-          <share-link
-            class="share-link"
-            :url="links[0].url"
-            :text="links[0].text"
-          />
-        </li>
-        <li>
-          <p>20 апреля 2018</p>
-        </li>
-      </ul>
+      </div>
     </div>
 
     <article class="story-article">
@@ -130,6 +114,7 @@ export default {
 .page-container {
   margin: 0 auto;
   max-width: 1320px;
+  min-width: 290px;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -141,6 +126,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding-top: 100px;
+  position: relative;
 }
 
 .photo-wrapper {
@@ -167,6 +153,8 @@ export default {
   flex-direction: column;
   max-width: 680px;
   padding: 30px 0 0 0;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 
 .story-title {
@@ -204,11 +192,16 @@ export default {
   margin-bottom: 30px;
 }
 
+.share-link {
+  color: #121212;
+}
+
 .story-grid {
   margin-top: 190px;
 }
 
 .more-button {
+  height: 82px;
   margin-bottom: 100px;
 }
 
@@ -251,6 +244,7 @@ export default {
   }
 
   .more-button {
+    height: 78px;
     margin-bottom: 90px;
   }
 }
@@ -301,13 +295,14 @@ export default {
   }
 
   .story-grid {
-    margin: 140px 0 30px;
+    margin: 140px 0 45px;
   }
 
   .more-button {
-    margin-bottom: 65px;
+    margin-bottom: 80px;
     font-size: 13px;
     line-height: 20px;
+    height: 50px;
   }
 }
 
@@ -317,12 +312,23 @@ export default {
   }
 
   .photo-wrapper {
-    max-width: 407px;
+    width: 420px;
+    max-width: 580px;
+    position: absolute;
+    top: calc(50% - 140px);
+    left: calc(50% - 210px);
+  }
+
+  .story-header {
+    padding-top: 80px;
   }
 
   .story-header__text-content {
-    max-width: 477px;
+    max-width: 640px;
     padding: 20px 0 0 0;
+    text-align: center;
+    height: 675px;
+    margin: 0 auto;
   }
 
   .story-title {
@@ -340,7 +346,7 @@ export default {
     font-size: 18px;
     line-height: 27px;
     max-width: 640px;
-    padding: 90px 0 70px;
+    padding: 100px 0;
   }
 
   .story-article__paragraph {
@@ -348,7 +354,7 @@ export default {
   }
 
   .story-article__paragraph:not(:last-of-type) {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   .share-link {
@@ -357,13 +363,82 @@ export default {
   }
 
   .story-grid {
-    margin: 140px 0 30px;
+    margin: 145px 0 40px;
   }
 
   .more-button {
-    margin-bottom: 65px;
+    margin-bottom: 80px;
     font-size: 13px;
     line-height: 20px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 729px) {
+  .page-container {
+    max-width: 290px;
+  }
+
+  .photo-wrapper {
+    width: 290px;
+    max-width: 580px;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: 0;
+  }
+
+  .story-header {
+    padding-top: 50px;
+  }
+
+  .story-header__text-content {
+    max-width: 640px;
+    padding: 20px 0 0 0;
+    text-align: center;
+    height: 465px;
+    margin: 0 auto;
+  }
+
+  .story-title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .story-header__bottom-string {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 15px;
+  }
+
+  .story-article {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 40px 0 60px;
+  }
+
+  .story-article__paragraph {
+    padding: 0;
+  }
+
+  .story-article__paragraph:not(:last-of-type) {
+    margin-bottom: 25px;
+  }
+
+  .share-link {
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .story-grid {
+    margin: 125px 0 40px;
+  }
+
+  .more-button {
+    margin-bottom: 50px;
+    font-size: 13px;
+    line-height: 20px;
+    height: 50px;
   }
 }
 </style>
