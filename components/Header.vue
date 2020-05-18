@@ -12,6 +12,7 @@
         >Рассказать историю</nuxt-link
       >
     </main-menu>
+    <hamburger-menu class="header__mobile-icon" />
   </header>
 </template>
 
@@ -59,7 +60,11 @@ export default {
   color: #121212;
 }
 
-@media screen and (max-width: 1399px) {
+.header__mobile-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1429px) {
   .header {
     min-height: 72px;
     width: calc(100% - 100px);
@@ -71,8 +76,11 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .header__menu {
-    /*пока спрятала, так как в макете нет, как оно открывается*/
     display: none;
+  }
+
+  .header__mobile-icon {
+    display: block;
   }
 }
 
