@@ -1,37 +1,46 @@
 <template>
-  <footer class="footer">
-    <p class="footer__text">Спасибо всем, кто помог состояться этому проекту</p>
+  <container>
+    <footer class="footer">
+      <p class="footer__text">
+        Спасибо всем, кто помог состояться этому проекту
+      </p>
 
-    <main-menu class="footer__menu" />
+      <main-menu class="footer__menu" />
 
-    <ul class="footer__links">
-      <li class="footer__social">
-        Мы в
-        <page-link class="link" :url="links[0].url" :text="links[0].text" /> и
-        <page-link class="link" :url="links[1].url" :text="links[1].text" />
-      </li>
-      <li class="footer__link_share">
-        <page-link class="link" :url="links[2].url" :text="links[2].text" />
-      </li>
-    </ul>
+      <ul class="footer__links">
+        <li class="footer__social">
+          Мы в
+          <page-link class="link" :url="links[0].url" :text="links[0].text" />
+          и
+          <page-link class="link" :url="links[1].url" :text="links[1].text" />
+        </li>
+        <li class="footer__link_share">
+          <page-link class="link" :url="links[2].url" :text="links[2].text" />
+        </li>
+      </ul>
 
-    <p class="footer__copyright footer__copyright_project">Рак Лечится 2020</p>
-    <a
-      href="https://praktikum.yandex.ru/"
-      target="_blank"
-      class="footer__copyright footer__copyright_authors"
-    >
-      Сделано студентами Яндекс Практикум
-    </a>
-  </footer>
+      <p class="footer__copyright footer__copyright_project">
+        Рак Лечится 2020
+      </p>
+      <a
+        href="https://praktikum.yandex.ru/"
+        target="_blank"
+        class="footer__copyright footer__copyright_authors"
+      >
+        Сделано студентами Яндекс Практикум
+      </a>
+    </footer>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import Menu from '@/components/Menu';
 import Link from '@/components/ui/Link';
 export default {
   name: 'Link',
   components: {
+    container: Container,
     'main-menu': Menu,
     'page-link': Link,
   },
@@ -60,8 +69,7 @@ export default {
 <style scoped>
 .footer {
   min-height: 356px;
-  width: calc(100% - 120px);
-  margin: 0 auto;
+  width: 100%;
   padding: 60px 0;
   box-sizing: border-box;
   display: grid;
@@ -130,7 +138,6 @@ export default {
 @media screen and (max-width: 1439px) {
   .footer {
     min-height: 316px;
-    width: calc(100% - 100px);
     padding: 50px 0;
   }
 
@@ -156,7 +163,6 @@ export default {
 @media screen and (max-width: 1279px) {
   .footer {
     min-height: 292px;
-    width: calc(100% - 100px);
     padding: 50px 0;
   }
 
@@ -196,7 +202,6 @@ export default {
 @media screen and (max-width: 730px) {
   .footer {
     min-height: 402px;
-    width: calc(100% - 30px);
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, min-content);
     grid-template-areas:

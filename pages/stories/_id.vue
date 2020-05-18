@@ -1,34 +1,36 @@
 <template>
   <div class="page-container">
-    <div class="story-header">
-      <div class="photo-wrapper">
-        <div class="inner-wrapper">
-          <img
-            src="/images/card__photo/photo1.jpg"
-            alt=""
-            class="story-photo"
-          />
+    <container class="container">
+      <div class="story-header">
+        <div class="photo-wrapper">
+          <div class="inner-wrapper">
+            <img
+              src="/images/card__photo/photo1.jpg"
+              alt=""
+              class="story-photo"
+            />
+          </div>
+        </div>
+        <div class="story-header story-header__text-content">
+          <h1 class="story-title">
+            <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
+            могу победить свою пунктуальность в отличии от рака»
+          </h1>
+          <ul class="story-header story-header__bottom-string">
+            <li>
+              <share-link
+                class="share-link"
+                :url="links[0].url"
+                :text="links[0].text"
+              />
+            </li>
+            <li>
+              <p>20 апреля 2018</p>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="story-header story-header__text-content">
-        <h1 class="story-title">
-          <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
-          могу победить свою пунктуальность в отличии от рака»
-        </h1>
-        <ul class="story-header story-header__bottom-string">
-          <li>
-            <share-link
-              class="share-link"
-              :url="links[0].url"
-              :text="links[0].text"
-            />
-          </li>
-          <li>
-            <p>20 апреля 2018</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </container>
 
     <article class="story-article">
       <p class="story-article story-article__paragraph">
@@ -77,17 +79,22 @@
 
     <share-link class="share-link" :url="links[1].url" :text="links[1].text" />
 
-    <story-grid class="story-grid" />
+    <container>
+      <story-grid class="story-grid" />
+    </container>
+
     <more-articles class="more-button" />
   </div>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
 export default {
   components: {
+    container: Container,
     'share-link': Link,
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
@@ -113,12 +120,17 @@ export default {
 <style scoped>
 .page-container {
   margin: 0 auto;
-  max-width: 1320px;
-  min-width: 290px;
-  color: #000;
+  /*max-width: 1320px;*/
+  /*min-width: 290px;*/
+  /*color: #000;*/
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*justify-content: center;*/
+}
+
+.container {
+  padding: 0;
 }
 
 .story-header {
@@ -201,7 +213,7 @@ export default {
 }
 
 .more-button {
-  margin-bottom: 100px;
+  margin: 70px 0 100px;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
@@ -243,7 +255,7 @@ export default {
   }
 
   .more-button {
-    margin-bottom: 90px;
+    margin: 0 0 90px 0;
   }
 }
 
@@ -297,7 +309,7 @@ export default {
   }
 
   .more-button {
-    margin-bottom: 80px;
+    margin: 0 0 80px 0;
   }
 }
 
@@ -362,7 +374,7 @@ export default {
   }
 
   .more-button {
-    margin-bottom: 80px;
+    margin: 0 0 80px 0;
   }
 }
 
@@ -427,7 +439,7 @@ export default {
   }
 
   .more-button {
-    margin-bottom: 50px;
+    margin: 0 0 50px 0;
   }
 }
 </style>
