@@ -131,7 +131,7 @@ export default {
     max-width: 288px;
   }
 
-  .stats-container {
+  .stats__container {
     column-gap: 30px;
   }
 }
@@ -147,7 +147,7 @@ export default {
     max-width: 380px;
   }
 
-  .stats-container {
+  .stats__container {
     column-gap: 20px;
     max-width: 100vw;
     overflow-x: scroll;
@@ -168,7 +168,7 @@ export default {
     line-height: 21px;
   }
 
-  .stats-container {
+  .stats__container {
     column-gap: 10px;
     overflow-x: scroll;
   }

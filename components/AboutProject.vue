@@ -203,7 +203,7 @@ export default {};
     border-bottom: 2px solid #ffffff;
   }
 
-  .about-project__place-container_information {
+  .about-project__place-container-information {
     flex-direction: column;
   }
   .about-project__name {
@@ -242,7 +242,7 @@ export default {};
     border-bottom: 2px solid #ffffff;
   }
 
-  .about-project__place-container_information {
+  .about-project__place-container-information {
     flex-direction: column;
   }
   .about-project__name {

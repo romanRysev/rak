@@ -1,0 +1,532 @@
+[33mcommit dd4c2f34153af23a8cf8dcd618bdcb1977fadaae[m[33m ([m[1;36mHEAD -> [m[1;32mroman[m[33m)[m
+Merge: c0bd5d2 e450c10
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Mon May 18 19:16:56 2020 +0300
+
+    Merge branch 'develop' into roman
+
+[33mcommit c0bd5d22f5fc3847cc8e28f01e3a71aa24e80289[m
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Mon May 18 19:16:02 2020 +0300
+
+    адаптив для блока статистика
+
+[33mcommit e450c10925fba619db206fcc4aaa28d401b8bc3f[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: 275794a 81b5ed5
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Mon May 18 10:14:58 2020 +0300
+
+    Merge pull request #42 from romanRysev/dmitry
+    
+    Сверстал страничу с Историями + адаптив
+
+[33mcommit 81b5ed51f8c169f9f10d6e10386f233cd1122270[m[33m ([m[1;31morigin/dmitry[m[33m)[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Mon May 18 09:38:08 2020 +0300
+
+    fixed number button for 320 size
+
+[33mcommit bbcabf39438b820cdcc005b5b773fe26f7e0fb31[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Mon May 18 09:22:28 2020 +0300
+
+    fixed button number pages
+
+[33mcommit 65d7e47778bf6a683fe6eeb1c46d2557a747cff3[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 19:29:57 2020 +0300
+
+    fixed again shit
+
+[33mcommit d7069fbb86092623026c325c0691624c74601480[m
+Merge: b29e8e5 df32b5e
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 19:22:55 2020 +0300
+
+    fixed conflict
+
+[33mcommit b29e8e5754e41fc3b7fdc5c29ee24912612e8e3f[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:52:41 2020 +0300
+
+    add file lobster
+
+[33mcommit 364ce8d5eaf8ca7a7aab1aa9ee7c6aa175bc9933[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:40:15 2020 +0300
+
+    add changes
+
+[33mcommit 35b349430fb1ad7262b425db1ab9abdf6230ee18[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 6e9601290357b7c35cb660e8880bf5d89ed30fae[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 23:57:23 2020 +0300
+
+    add adaptiv for about
+
+[33mcommit d54f19a56a3b2715978c61cd85c854bafa05375e[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 6632939cc1a0d4a55b1542f2a011218e4c0014c2[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 17:36:04 2020 +0300
+
+    add adaptiv for stories page
+
+[33mcommit 8041879f620584f4e31763e003023cb5ccfa89ff[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:59:25 2020 +0300
+
+    add propertu for cursor
+
+[33mcommit bbb6d3c2769b4439cf32e6c97b9a024c3f2fbb99[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:56:02 2020 +0300
+
+    add page stories
+
+[33mcommit 7604f1d85223b9b7683470bc445e185756de978c[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:52:41 2020 +0300
+
+    add file lobster
+
+[33mcommit c22af9d3872e1ac321295870f50145ce0432d9f7[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:40:15 2020 +0300
+
+    add changes
+
+[33mcommit 08d52b59f172639130be0b157516f01871320f2e[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 94c5af4b7294d5f24109f97f87678db1311712ab[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 23:57:23 2020 +0300
+
+    add adaptiv for about
+
+[33mcommit 389695bc19d7d102abe0f7b4d5599d8215d98460[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit df32b5ee851e3b01aadf6661e6261f5a837d570d[m
+Merge: 5d7be3c 2802fb2
+Author: dimamurugov <48417556+dimamurugov@users.noreply.github.com>
+Date:   Sun May 17 18:10:28 2020 +0300
+
+    Merge pull request #41 from dimamurugov/dmitry
+    
+    Dmitry
+
+[33mcommit 2802fb20b634656655265f5cad745f65f86216e5[m
+Merge: fef5c5a 5d7be3c
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 18:07:38 2020 +0300
+
+    fixed conflict
+
+[33mcommit fef5c5a8590d450f372b9c13f3ec7784e21c13bb[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 17:36:04 2020 +0300
+
+    add adaptiv for stories page
+
+[33mcommit 248e161a7b4114fdc137bbf10c9ad0a4d6363fab[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:59:25 2020 +0300
+
+    add propertu for cursor
+
+[33mcommit d12e5d8ca3c834936c24392176b51380a185d3fc[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:56:02 2020 +0300
+
+    add page stories
+
+[33mcommit 0a473746820f665ad989374c6b1339bd5fb637f5[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:52:41 2020 +0300
+
+    add file lobster
+
+[33mcommit 51b9798229f1d07e57262b7cf6e8bc7c7e210dc7[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:40:15 2020 +0300
+
+    add changes
+
+[33mcommit e5ee66e81df785b752b0dfb6ba48e1b95816aaa5[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit c2bec2066fd95147b6e87bd1f7eebb1bdc174798[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 23:57:23 2020 +0300
+
+    add adaptiv for about
+
+[33mcommit 35ea58892d3ec116025a01da023b602cfd32a744[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 5d7be3ca383f7e273a83e93195e636cd98489877[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sun May 17 17:36:04 2020 +0300
+
+    add adaptiv for stories page
+
+[33mcommit 275794a8c78c8a27441db760ae7494907b85abf0[m
+Merge: 066175a bdc2a72
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Sun May 17 12:29:26 2020 +0300
+
+    Merge pull request #33 from romanRysev/svetlana
+    
+    Мобильное меню
+
+[33mcommit bdc2a7286903767196e20e4b51eb812b8509c701[m
+Merge: 2e9537e 066175a
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Sun May 17 12:28:22 2020 +0300
+
+    Merge branch 'develop' into svetlana
+
+[33mcommit 066175a9d27b2ff4a4d41ebdacf08de67a014caa[m
+Merge: 3f2f197 3958022
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Sun May 17 12:22:08 2020 +0300
+
+    Merge pull request #38 from romanRysev/roman
+    
+    Переделал классы по БЭМ
+
+[33mcommit 39580227f4f0745cdd3a71f9c1a9401fd9803f03[m[33m ([m[1;31morigin/roman[m[33m)[m
+Author: romanRysev <peley@yandex.ru>
+Date:   Sat May 16 23:03:34 2020 +0300
+
+    куча мелких правок по первому спинту
+
+[33mcommit e1ac34f3219b86ff50f231ed8092456db4d56aa8[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:59:25 2020 +0300
+
+    add propertu for cursor
+
+[33mcommit 8b0e6d84b5375dfcf96e0e4e1a800d86f33e801c[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 21:56:02 2020 +0300
+
+    add page stories
+
+[33mcommit fd62e0f0eee3d7e9b6152e6dde2e718030f34dcd[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:52:41 2020 +0300
+
+    add file lobster
+
+[33mcommit 3c342bb5c6b73491b66477c8f7d103c93c15ffa6[m
+Merge: e91b337 1296710
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:47:42 2020 +0300
+
+    add file
+
+[33mcommit e91b33789aa3f58d9ce7afb7f7e4226f0960c606[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Sat May 16 18:40:15 2020 +0300
+
+    add changes
+
+[33mcommit 2e9537e14893b6f2184eb2245393c9cbfd5892bd[m
+Author: Svetlana Antipova <die-chimaere@yandex.ru>
+Date:   Fri May 15 15:13:48 2020 +0300
+
+    fix: поправить отступы в меню
+
+[33mcommit 59485157aa0eb7a836ad959d9e71b8c9cb7e6d0e[m
+Author: Svetlana Antipova <die-chimaere@yandex.ru>
+Date:   Fri May 15 14:28:00 2020 +0300
+
+    feat: добавить мобильное меню + позже разобраться с отступами
+
+[33mcommit 5668c1d3eccc6c9b52a75ec917132d95e51f59db[m
+Merge: 678e6f4 3f2f197
+Author: svetanti <61235826+svetanti@users.noreply.github.com>
+Date:   Fri May 15 10:13:24 2020 +0300
+
+    Merge pull request #32 from romanRysev/develop
+    
+    Изменения после первого спринта
+
+[33mcommit 3f2f197055da4c9b8b16db8b6d146dfea1a4f4ec[m
+Merge: 61ad8ae 8fccca7
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Wed May 13 22:28:41 2020 +0300
+
+    Merge pull request #30 from romanRysev/roman
+    
+    Roman
+
+[33mcommit 8fccca77d0dd5c95a03a01396e2db7c5c9d45934[m
+Merge: bc6e0b9 61ad8ae
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Wed May 13 22:22:05 2020 +0300
+
+    Merge branch 'develop' into roman
+
+[33mcommit bc6e0b9ed06c674ea2f371c61715e37fbd8966f3[m
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Wed May 13 22:20:30 2020 +0300
+
+    доделал блок статистики (адаптив не полный) и добалим страницу про персональные данные
+
+[33mcommit 61ad8ae85c28c29e136b14ddbacedb06987cedea[m
+Merge: fa8825a 9e0e8ce
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Wed May 13 22:18:37 2020 +0300
+
+    Merge pull request #26 from romanRysev/alexandr
+    
+    Добавил блок popup. Исправил правки из комментариев.
+
+[33mcommit 9e0e8cedb88b0e964847c48b1264c0ab57d43c57[m[33m ([m[1;31morigin/alexandr[m[33m)[m
+Merge: ef63abd fa8825a
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Wed May 13 22:18:12 2020 +0300
+
+    Merge branch 'develop' into alexandr
+
+[33mcommit ef63abd2610b44efc30db89a2d98c28a74c16655[m
+Merge: 5431ab7 cafff0a
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 22:02:23 2020 +0300
+
+    Merge pull request #29 from AleksandrHexlet/alexandr
+    
+    Added blocks
+
+[33mcommit cafff0aa6c9e4f76e0be9ce45251381662c85a3c[m
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 22:00:30 2020 +0300
+
+    Added blocks
+
+[33mcommit 4a4d829e1bfc5b4051cb7e81acd0a6900aa0290e[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Wed May 13 12:17:48 2020 +0300
+
+    add adaptiv stories
+
+[33mcommit 9488596d1ede3c54ecee50fb8d015be5a12870e6[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit fa8825aa9dec6b6941b6c1909739d18e4c9f758c[m
+Merge: 6e7d7c7 1296710
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Wed May 13 19:42:40 2020 +0300
+
+    Merge pull request #27 from dimamurugov/dmitry
+    
+    блок "О проекте" с адаптивом + адаптив для блока "сторис"
+
+[33mcommit 5431ab7f52a37041879f21d6e31b7b5b2330d9cd[m
+Merge: 18baf00 d58505a
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 19:20:44 2020 +0300
+
+    Merge pull request #28 from AleksandrHexlet/alexandr
+    
+    Fifth commit.Added function open/close popup.
+
+[33mcommit d58505a8a43656fb00412b43979a35477067ba7d[m
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 19:09:44 2020 +0300
+
+    Fifth commit.Added function open/close popup.
+
+[33mcommit ff246fc4825327414b7083fa94f9e632d4774a15[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 23:57:23 2020 +0300
+
+    add adaptiv for about
+
+[33mcommit 014354410a48d5c6a94dd1c725ed3888bf0cac2c[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 1296710c8372803008c1ec25a730348f94a6abff[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Wed May 13 12:17:48 2020 +0300
+
+    add adaptiv stories
+
+[33mcommit 18baf00bcd1c52808bd3539d30cca7f249acf111[m
+Merge: 5685018 81617b3
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 09:55:26 2020 +0300
+
+    Merge pull request #4 from AleksandrHexlet/alexandr
+    
+    Добавил блок с видео  (вместе с полосой #этонелечится)
+
+[33mcommit 81617b377e086a723d2a7f3c67c451bdc2a722ef[m
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Wed May 13 09:50:26 2020 +0300
+
+    Fourth commit. Added block popup.
+
+[33mcommit ca4783b2d53def5b28d0fe25538f90e7ac3e4e7b[m
+Merge: 164b9a6 2d548d3
+Author: murbook <dimamurugov@gmail.com>
+Date:   Wed May 13 00:07:17 2020 +0300
+
+    fixed conflig
+
+[33mcommit 164b9a6ac11eaac6e12fb08e57e809381a27674d[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 23:57:23 2020 +0300
+
+    add adaptiv for about
+
+[33mcommit 6e7d7c7500dcb45da038807c59f3a4cf0c3d10b0[m
+Merge: a4f6264 678e6f4
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Tue May 12 19:56:13 2020 +0300
+
+    Merge pull request #25 from romanRysev/svetlana
+    
+    Добавила адаптив под новые размеры
+
+[33mcommit a4f6264d944308e0e29733eb33ed5dada66a9e50[m
+Merge: be2f4b3 47835ee
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Tue May 12 19:50:51 2020 +0300
+
+    Merge pull request #22 from romanRysev/alexey
+    
+    блоки Инстаграм и Расскажите-свою-историю – адаптив полностью
+
+[33mcommit aea24bf451ad6d9b0c3558fbb1ed1034983ce5c3[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 678e6f46f8c2accc00ae244e50a18c8688710788[m
+Merge: c7ed698 857ac4f
+Author: Svetlana Antipova <die-chimaere@yandex.ru>
+Date:   Tue May 12 13:17:32 2020 +0300
+
+    "fix: вернула случайно удаленную картинку"
+    Merge branch 'svetlana' of https://github.com/romanRysev/rak into svetlana
+
+[33mcommit 857ac4f09d077c19247c239d2ca1cbe9c526a169[m
+Merge: 14eff35 be2f4b3
+Author: svetanti <61235826+svetanti@users.noreply.github.com>
+Date:   Tue May 12 13:17:03 2020 +0300
+
+    Merge pull request #24 from romanRysev/develop
+    
+    pull Roman changes
+
+[33mcommit c7ed6981d1d5a3834d18d328600859fba9e83291[m
+Author: Svetlana Antipova <die-chimaere@yandex.ru>
+Date:   Tue May 12 13:12:48 2020 +0300
+
+    feat: добавить адаптив на 1024 768 320
+
+[33mcommit be2f4b3398dc7c1a715c00009502e67a9667a038[m
+Merge: e94ce1a e2ef4e2
+Author: romanRysev <58311141+romanRysev@users.noreply.github.com>
+Date:   Tue May 12 13:08:30 2020 +0300
+
+    Merge pull request #20 from romanRysev/roman
+    
+    Roman
+
+[33mcommit 2d548d3dbe631bb288f669378fa78d186321b3ec[m
+Author: murbook <dimamurugov@gmail.com>
+Date:   Tue May 12 12:46:42 2020 +0300
+
+    new block about
+
+[33mcommit 14eff35ec5df40e255a9942d84f78bafef2d6fe6[m
+Merge: ff2c419 e94ce1a
+Author: svetanti <61235826+svetanti@users.noreply.github.com>
+Date:   Tue May 12 10:23:12 2020 +0300
+
+    Merge pull request #23 from romanRysev/develop
+    
+    Pull last changes
+
+[33mcommit 47835eed080b5055e5178b2aa86cab91ebf100b3[m
+Merge: e38aec6 65b2ce5
+Author: NaH <53092643+ncaatl@users.noreply.github.com>
+Date:   Tue May 12 01:46:30 2020 +0300
+
+    Merge pull request #21 from ncaatl/develop
+    
+    блоки Инстаграм и Расскажите-свою-историю – адаптив полностью
+
+[33mcommit 65b2ce581c830b435e50185d31e723d55e64eb70[m
+Merge: 4eca8f3 0578d1d
+Author: NaH <53092643+ncaatl@users.noreply.github.com>
+Date:   Tue May 12 01:44:22 2020 +0300
+
+    Merge pull request #4 from ncaatl/instagram+your-story_adaptive
+    
+    Instagram+your-story_adaptive
+
+[33mcommit 0578d1de362d46481cbbe07f0d10746ddb3060ca[m
+Author: ncaatl <alncaatl@gmail.com>
+Date:   Tue May 12 01:41:59 2020 +0300
+
+    блоки Инстаграм и Рассажите-свою-историю - адаптив полностью
+
+[33mcommit e2ef4e2a7585a88f94faada329e44a053b1bfd92[m
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Mon May 11 11:16:01 2020 +0300
+
+    fix horizontal scroll bar and add head-banner #раклечится
+
+[33mcommit 7eca5bec7c43fed21ca32f1fcc1ebc95b41642b3[m
+Author: Roman Rysev <roman.rysev@gmail.com>
+Date:   Sun May 10 19:39:55 2020 +0300
+
+    add block Statistic for 1440px and 1280px
+
+[33mcommit 8ed7ea5581abfc793f2563d873379586eee0662a[m
+Author: AleksandrHexlet <46378431+AleksandrHexlet@users.noreply.github.com>
+Date:   Sun May 10 18:42:06 2020 +0300
+
+    Fird commit. Added Tellstory block with popup.
+
+[33mcommit 131f60a5b69f2fd5d3c43b6b2417ceea2e7d86a5[m
+Merge: 93b26a5 e94ce1a
+Author: ncaatl <alncaatl@gmail.com>
+Date:   Sun May 10 17:11:30 2020 +0300
+
+    Merge branch 'develop' of https://github.com/romanRysev/rak into develop
