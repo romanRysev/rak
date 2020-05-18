@@ -143,13 +143,12 @@ export default {
 }
 
 .description-text {
-  width: 55%;
+  width: 340px;
 }
 
 .variant-toggler {
   text-align: right;
-  min-width: 110px;
-  width: 21%;
+  width: 110px;
   line-height: 1.7em;
 }
 
@@ -168,7 +167,7 @@ export default {
 }
 
 .form-button {
-  width: 20%;
+  width: 280px;
   max-width: 280px;
   min-width: 180px;
   height: 52px;
@@ -204,7 +203,7 @@ export default {
   .description-text {
     font-size: 16px;
     line-height: 20px;
-    width: 54%;
+    width: 305px;
   }
 
   .variant-toggler {
@@ -213,7 +212,7 @@ export default {
 
   .form-button {
     height: 48px;
-    width: 18%;
+    width: 230px;
   }
 }
 
@@ -236,12 +235,16 @@ export default {
   }
 
   .description-text {
-    width: 60%;
+    width: 260px;
   }
 
   .variant-toggler {
     font-size: 15px;
     line-height: 23px;
+  }
+
+  .variant-side {
+    width: calc(50% - 15px);
   }
 
   .variant-text {
@@ -251,8 +254,8 @@ export default {
 
   .form-button {
     height: 46px;
-    width: 23%;
-    left: calc(50% + 14px);
+    width: 230px;
+    left: calc(50% + 15px);
     font-size: 15px;
     line-height: 18px;
   }
@@ -262,6 +265,7 @@ export default {
   .container {
     width: 380px;
     padding: 0;
+    align-items: center;
   }
 
   .your-story {
@@ -274,13 +278,12 @@ export default {
     font-size: 24px;
     line-height: 28px;
     text-align: center;
+    width: 100%;
   }
 
   .description-container {
     display: flex;
     flex-direction: column;
-    margin-left: 12px;
-    width: 95%;
     margin-bottom: 45px;
   }
 
@@ -318,74 +321,12 @@ export default {
 
   .form-button {
     position: inherit;
-    margin-left: 12px;
-    width: 57%;
+    width: 230px;
+    height: 46px;
     font-size: 15px;
     line-height: 18px;
-    height: 50px;
   }
 }
-
-/*@media screen and (min-width: 400px) and (max-width: 729px) {
-  .your-story {
-    font-size: 15px;
-    line-height: 19px;
-    padding: 60px 0;
-  }
-
-  .your-story-header {
-    font-size: 24px;
-    line-height: 28px;
-    max-width: 85%;
-  }
-
-  .description-container {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    margin-bottom: 45px;
-  }
-
-  .description-side {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .description-text {
-    width: 100%;
-    font-size: 13px;
-    line-height: 16px;
-  }
-
-  .variant-toggler {
-    width: 100%;
-    display: flex;
-    margin: 55px 0 20px;
-    line-height: 1.8em;
-  }
-
-  .variant:not(:last-of-type) {
-    margin-right: 30px;
-  }
-
-  .variant_active {
-    border-bottom: 2px solid currentColor;
-  }
-
-  .variant-side {
-    width: 100%;
-    min-height: 95px;
-  }
-
-  .form-button {
-    position: inherit;
-    width: 57%;
-    font-size: 15px;
-    line-height: 18px;
-    height: 50px;
-  }
-}*/
 
 @media screen and (max-width: 729px) {
   .container {
