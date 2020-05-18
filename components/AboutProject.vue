@@ -139,11 +139,11 @@ export default {
   line-height: 22px;
   text-align: right;
   color: #c9c9c9;
+  cursor: pointer;
 }
 .about-project__name:hover {
   /*font-weight: 500;*/
   color: #fff;
-  cursor: pointer;
 }
 .about-project__name_active {
   font-weight: 500;
