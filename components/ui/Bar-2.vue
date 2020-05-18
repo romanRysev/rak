@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .stat-card__bar-content {
-  width: 260px;
+  width: 160px;
   height: 40px;
   background: linear-gradient(#f4f4f4 50%, white 50%);
   background-position-y: 50%;
@@ -27,7 +27,6 @@ export default {
 .stat-card__bar-fill {
   background: #613a93;
   height: 20px;
-  width: 26px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -36,24 +35,22 @@ export default {
 @media screen and (max-width: 1399px) {
   .stat-card__bar-content {
     width: 229px;
-    height: 18px;
+    height: 36px;
   }
 
   .stat-card__bar-fill {
     height: 18px;
-    width: 26px;
   }
 }
 
 @media screen and (max-width: 1279px) {
   .stat-card__bar-content {
-    width: 229px;
-    height: 14px;
+    width: 115px;
+    height: 28px;
   }
 
   .stat-card__bar-fill {
     height: 14px;
-    width: 26px;
   }
 }
 </style>

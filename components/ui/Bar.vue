@@ -33,19 +33,27 @@ export default {
 
   .stat-card__bar-fill {
     height: 35px;
-    width: 26px;
   }
 }
 
 @media screen and (max-width: 1279px) {
   .stat-card__bar-content {
-    width: 229px;
+    width: 188px;
     height: 28px;
   }
 
   .stat-card__bar-fill {
     height: 28px;
-    width: 26px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .stat-card__bar-content {
+    width: 196px;
+  }
+
+  .stat-card__bar-fill {
+    height: 28px;
   }
 }
 </style>

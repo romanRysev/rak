@@ -61,7 +61,7 @@ export default {
         },
         {
           id: 3,
-          upperWidth: 'width: 160px',
+          upperWidth: 'width: 55%',
           lowerWidth: 'width: 128%',
           cardDescription:
             'На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.',
@@ -70,7 +70,7 @@ export default {
         },
         {
           id: 4,
-          upperWidth: 'width: 190px',
+          upperWidth: 'width: 70%',
           lowerWidth: 'width: 75%',
           cardDescription:
             'На 25% снизилась смертность в течение первого года после постановки диагноза.',
@@ -145,6 +145,28 @@ export default {
 
   .stats-container {
     column-gap: 20px;
+    max-width: 100vw;
+    overflow-x: scroll;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .stats {
+    padding: 50px 10px;
+    text-align: left;
+  }
+
+  .stats__header {
+    margin: 0 auto 30px;
+    max-width: 280px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .stats-container {
+    column-gap: 10px;
+    overflow-x: scroll;
   }
 }
 </style>
