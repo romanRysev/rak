@@ -41,11 +41,11 @@
 }
 
 .header__menu .menu__link_active {
-  border-bottom: 1.5px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 .header__menu .menu__link_active:hover {
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 1399px) {

@@ -1,7 +1,7 @@
 <template>
   <section class="stats">
     <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
-    <div class="stats-container">
+    <div class="stats__container">
       <stats-card
         :cardDescription="bars[0].cardDescription"
         :barsNumbers="bars[0].barsNumbers"
@@ -18,13 +18,17 @@
         :cardDescription="bars[2].cardDescription"
         :barsNumbers="bars[2].barsNumbers"
         :barsAuthor="bars[2].barsAuthor"
-        ><bar2 :upperWidth="bars[2].upperWidth" :lowerWidth="bars[2].lowerWidth"
+        ><DoubleBar
+          :upperWidth="bars[2].upperWidth"
+          :lowerWidth="bars[2].lowerWidth"
       /></stats-card>
       <stats-card
         :cardDescription="bars[3].cardDescription"
         :barsNumbers="bars[3].barsNumbers"
         :barsAuthor="bars[3].barsAuthor"
-        ><bar2 :upperWidth="bars[3].upperWidth" :lowerWidth="bars[3].lowerWidth"
+        ><DoubleBar
+          :upperWidth="bars[3].upperWidth"
+          :lowerWidth="bars[3].lowerWidth"
       /></stats-card>
     </div>
   </section>
@@ -33,12 +37,12 @@
 <script>
 import StatCard from '@/components/StatisticCard';
 import Bar from '@/components/ui/Bar';
-import Bar2 from '@/components/ui/Bar-2';
+import DoubleBar from '@/components/ui/DoubleBar';
 export default {
   components: {
     'stats-card': StatCard,
     bar: Bar,
-    bar2: Bar2,
+    DoubleBar: DoubleBar,
   },
 
   data() {
@@ -88,7 +92,7 @@ export default {
   max-width: 1440px;
   padding: 100px 60px;
 }
-.stats-container {
+.stats__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;

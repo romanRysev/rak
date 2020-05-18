@@ -5,7 +5,7 @@
       <p class="about-project__subtitle">О проекте</p>
 
       <div class="about-project__place-container">
-        <div class="about-project__place-container_information">
+        <div class="about-project__place-container-information">
           <p class="about-project__company-creator">
             Этот проект был создан благотворительным фондом Константина
             Хабенского.
@@ -130,7 +130,7 @@ export default {};
   grid-row-gap: 0px;
 }
 
-.about-project__place-container_information {
+.about-project__place-container-information {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

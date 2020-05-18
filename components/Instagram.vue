@@ -6,7 +6,12 @@
     </h3>
     <div class="content-container">
       <div class="text-content">
-        <p class="subtitle">Инстаграм</p>
+        <a
+          class="subtitle"
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+          >Инстаграм</a
+        >
         <p class="paragraph">
           Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
           Все истории, где нет нецензурных выражений и запрещенного контента
@@ -37,7 +42,7 @@ export default {
 <style scoped>
 .instagram {
   max-width: 1320px;
-  color: #666666;
+  color: #666;
 }
 
 .instagram-header {
@@ -74,7 +79,7 @@ export default {
   line-height: 36px;
   color: black;
   margin-bottom: 30px;
-  border-bottom: 3px solid currentColor;
+  text-decoration: underline;
   width: max-content;
 }
 
@@ -91,7 +96,7 @@ export default {
 }
 
 .insta-card {
-  background-image: url('../static/Images/shitty_lobster_photo.jpeg');
+  background-image: url('/Images/shitty_lobster_photo.jpeg');
   background-size: cover;
   background-position: center;
 }

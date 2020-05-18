@@ -3,9 +3,9 @@
     <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
       >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
     >
-    <h1 class="header__logo" v-else>
+    <p class="header__logo" v-else>
       Проект Благотворительного Фонда Константина Хабенского
-    </h1>
+    </p>
     <hamburger-menu />
     <main-menu class="header__menu">
       <nuxt-link to="#" class="menu__link header__link_share"

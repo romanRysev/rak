@@ -3,7 +3,7 @@
     <div class="card__photo-contaimer">
       <img
         class="card__photo"
-        src="../../static/images/card__photo/photo1.jpg"
+        src="/images/card__photo/photo1.jpg"
         alt="Фото автора"
       />
     </div>
