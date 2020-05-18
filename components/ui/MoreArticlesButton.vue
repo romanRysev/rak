@@ -1,10 +1,15 @@
 <template>
-  <a href="/stories" class="more-articles-button">Больше статей</a>
+  <container>
+    <a href="/stories" class="more-articles-button">Больше статей</a>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 export default {
-  name: 'MoreArticlesButton',
+  components: {
+    container: Container,
+  },
 };
 </script>
 

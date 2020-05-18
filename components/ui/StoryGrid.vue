@@ -28,8 +28,8 @@ export default {
   grid-template-rows: repeat(2, 1fr);
   row-gap: 70px;
   column-gap: 40px;
-  max-width: 1320px;
-  margin-bottom: 70px;
+  /*max-width: 1320px;*/
+  /*margin-bottom: 70px;*/
 }
 @media screen and (max-width: 1024px) {
   .story-grid {
@@ -39,7 +39,7 @@ export default {
 }
 @media screen and (max-width: 1279px) {
   .story-grid {
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
   }
 }
 @media screen and (max-width: 767px) {
@@ -48,7 +48,7 @@ export default {
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 40px;
-    margin-bottom: 46px;
+    /*margin-bottom: 46px;*/
   }
 }
 @media screen and (max-width: 455px) {
@@ -57,7 +57,7 @@ export default {
     grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
   }
 }
 </style>

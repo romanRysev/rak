@@ -1,6 +1,6 @@
 <template>
   <section class="your-story">
-    <div class="content-container">
+    <container class="container">
       <h3 class="your-story-header">Расскажите свою историю</h3>
       <div class="description-container">
         <div class="description-side">
@@ -73,15 +73,17 @@
           <slot>Оставить контакт</slot>
         </p>
       </Button>
-    </div>
+    </container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import button from '@/components/button';
 export default {
   components: {
     Button: button,
+    container: Container,
   },
   methods: {
     variantToggler(e) {
@@ -112,11 +114,6 @@ export default {
   color: #666666;
   padding: 100px 0;
   position: relative;
-}
-
-.content-container {
-  max-width: 1320px;
-  margin: 0 auto;
 }
 
 .your-story-header {
@@ -194,10 +191,6 @@ export default {
     padding: 90px 0;
   }
 
-  .content-container {
-    max-width: 1180px;
-  }
-
   .your-story-header {
     font-size: 28px;
     line-height: 32px;
@@ -229,11 +222,6 @@ export default {
     font-size: 13px;
     line-height: 16px;
     padding: 75px 0;
-  }
-
-  .content-container {
-    width: 90%;
-    max-width: 924px;
   }
 
   .your-story-header {
@@ -271,6 +259,11 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
+  .container {
+    width: 380px;
+    padding: 0;
+  }
+
   .your-story {
     font-size: 15px;
     line-height: 19px;
@@ -281,11 +274,6 @@ export default {
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-  }
-
-  .content-container {
-    width: 53%;
-    max-width: 688px;
   }
 
   .description-container {
@@ -338,7 +326,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 729px) {
+/*@media screen and (min-width: 400px) and (max-width: 729px) {
   .your-story {
     font-size: 15px;
     line-height: 19px;
@@ -349,11 +337,6 @@ export default {
     font-size: 24px;
     line-height: 28px;
     max-width: 85%;
-  }
-
-  .content-container {
-    width: 80%;
-    max-width: 688px;
   }
 
   .description-container {
@@ -402,18 +385,18 @@ export default {
     line-height: 18px;
     height: 50px;
   }
-}
+}*/
 
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 729px) {
+  .container {
+    width: 290px;
+    padding: 0;
+  }
+
   .your-story {
     font-size: 13px;
     line-height: 16px;
     padding: 45px 0 50px;
-  }
-
-  .content-container {
-    width: 90%;
-    min-width: 240px;
   }
 
   .your-story-header {

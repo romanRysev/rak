@@ -1,6 +1,7 @@
 <template>
   <section class="about-project">
-    <div class="about-project__container">
+    <container>
+      <!--      <div class="about-project__container">-->
       <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
       <p class="about-project__subtitle">О проекте</p>
 
@@ -54,12 +55,17 @@
           </li>
         </ul>
       </div>
-    </div>
+      <!--      </div>-->
+    </container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/Container';
 export default {
+  components: {
+    container: Container,
+  },
   methods: {
     toggleText(e) {
       if (!e.target.classList.contains('about-project__name_active')) {
@@ -81,9 +87,9 @@ export default {
 
 <style scoped>
 .about-project {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
   background-color: #613a93;
 
   width: 100vw;
@@ -91,10 +97,10 @@ export default {
   min-height: 650px;
 }
 .about-project__container {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /*max-width: 100%;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
 }
 .about-project__title {
   font-style: normal;
@@ -133,11 +139,11 @@ export default {
   line-height: 22px;
   text-align: right;
   color: #c9c9c9;
+  cursor: pointer;
 }
 .about-project__name:hover {
   /*font-weight: 500;*/
-  color: #ffffff;
-  cursor: pointer;
+  color: #fff;
 }
 .about-project__name_active {
   font-weight: 500;
