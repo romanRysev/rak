@@ -1,26 +1,30 @@
 <template>
-  <header class="header">
-    <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
-      >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
-    >
-    <p class="header__logo" v-else>
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <main-menu class="header__menu">
-      <nuxt-link to="#" class="menu__link header__link_share"
-        >Рассказать историю</nuxt-link
-      >
-    </main-menu>
-    <hamburger-menu class="header__mobile-icon" />
-  </header>
+  <container>
+    <header class="header">
+      <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
+        >Проект Благотворительного Фонда Константина Хабенского
+      </nuxt-link>
+      <p class="header__logo" v-else>
+        Проект Благотворительного Фонда Константина Хабенского
+      </p>
+      <main-menu class="header__menu">
+        <nuxt-link to="#" class="menu__link header__link_share"
+          >Рассказать историю
+        </nuxt-link>
+      </main-menu>
+      <hamburger-menu class="header__mobile-icon" />
+    </header>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import Menu from '@/components/Menu';
 import Hamburger from './ui/Hamburger.vue';
 
 export default {
   components: {
+    container: Container,
     'main-menu': Menu,
     'hamburger-menu': Hamburger,
   },
@@ -30,8 +34,7 @@ export default {
 <style scoped>
 .header {
   min-height: 76px;
-  width: calc(100% - 120px);
-  margin: 0 auto;
+  width: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -66,7 +69,6 @@ export default {
 @media screen and (max-width: 1429px) {
   .header {
     min-height: 72px;
-    width: calc(100% - 100px);
   }
   .header__logo {
     line-height: 18px;
@@ -86,7 +88,6 @@ export default {
 @media screen and (max-width: 730px) {
   .header {
     min-height: 64px;
-    width: calc(100% - 30px);
   }
   .header__logo {
     width: 216px;

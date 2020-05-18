@@ -1,16 +1,20 @@
 <template>
-  <section class="stories">
-    <h3 class="stories__title">Истории неизлечимых привычек</h3>
-    <stories-grid />
-    <more-articles />
-  </section>
+  <container>
+    <section class="stories">
+      <h3 class="stories__title">Истории неизлечимых привычек</h3>
+      <stories-grid />
+      <more-articles class="more-button" />
+    </section>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StoryGrid from '@/components/ui/StoryGrid';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 export default {
   components: {
+    container: Container,
     'stories-grid': StoryGrid,
     'more-articles': MoreArticlesButton,
   },
@@ -19,9 +23,7 @@ export default {
 
 <style scoped>
 .stories {
-  max-width: 1320px;
   padding: 100px 0;
-  margin: 0 60px;
 }
 .stories__title {
   font-family: 'Inter';
@@ -54,15 +56,23 @@ export default {
 .stories__link-all:visited {
   color: #000000;
 }*/
+
+.more-button {
+  padding: 0;
+  margin-top: 70px;
+}
+
 @media screen and (max-width: 1279px) {
   .stories {
-    margin: 0 50px;
     padding: 90px 0;
   }
   .stories__title {
     margin-bottom: 60px;
     font-size: 28px;
     line-height: 32px;
+  }
+  .more-button {
+    margin-top: 40px;
   }
 }
 @media screen and (max-width: 1023px) {
@@ -74,13 +84,15 @@ export default {
     line-height: 28px;
     margin-bottom: 46px;
   }
+  .more-button {
+    margin-top: 40px;
+  }
 }
 @media screen and (max-width: 767px) {
   .stories {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 40px;
   }
   .stories__title {
     max-width: 380px;
@@ -91,7 +103,6 @@ export default {
 @media screen and (max-width: 455px) {
   .stories {
     padding: 50px 0;
-    margin: 0 15px;
   }
   .stories__title {
     font-size: 18px;

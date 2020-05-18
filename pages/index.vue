@@ -34,11 +34,11 @@ export default {
 
 <style scoped>
 .page-container {
-  margin: 0 auto;
-  min-height: 100vh;
-  max-width: 1440px;
+  /*  margin: 0 auto;*/
+  /*  min-height: 100vh;*/
+  /*  max-width: 1440px;*/
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
   flex-direction: column;
 }

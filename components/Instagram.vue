@@ -1,47 +1,52 @@
 <template>
-  <section class="instagram">
-    <h3 class="instagram-header">
-      Рассказывайте ваши истории в инстаграм
-      <span class="instagram-header-tag">#этонелечится</span>
-    </h3>
-    <div class="content-container">
-      <div class="text-content">
-        <a
-          class="subtitle"
-          href="https://www.instagram.com/raklechitsa/"
-          target="_blank"
-          >Инстаграм</a
-        >
-        <p class="paragraph">
-          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-          Все истории, где нет нецензурных выражений и запрещенного контента
-          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-          пропустили вашу историю.
-        </p>
+  <container>
+    <section class="instagram">
+      <h3 class="instagram-header">
+        Рассказывайте ваши истории в инстаграм
+        <span class="instagram-header-tag">#этонелечится</span>
+      </h3>
+      <div class="content-container">
+        <div class="text-content">
+          <a
+            class="subtitle"
+            href="https://www.instagram.com/raklechitsa/"
+            target="_blank"
+            >Инстаграм</a
+          >
+          <p class="paragraph">
+            Два раза в неделю мы просматриваем все посты по хештегу
+            #этонелечится. Все истории, где нет нецензурных выражений и
+            запрещенного контента попадают сюда. Следите за правильным
+            написанием хештега, чтобы мы не пропустили вашу историю.
+          </p>
+        </div>
+        <div class="insta-grid">
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+        </div>
       </div>
-      <div class="insta-grid">
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 export default {
-  name: 'Instagram',
+  components: {
+    container: Container,
+  },
 };
 </script>
 
 <style scoped>
 .instagram {
-  max-width: 1320px;
+  width: 100%;
   color: #666;
 }
 
@@ -78,14 +83,16 @@ export default {
   font-size: 32px;
   line-height: 36px;
   color: black;
-  margin-bottom: 30px;
-  text-decoration: underline;
+  /*margin-bottom: 30px;*/
+  text-decoration: none;
+  border-bottom: 2px solid;
   width: max-content;
 }
 
 .paragraph {
   font-size: 18px;
   line-height: 22px;
+  margin: 30px 0 0 0;
 }
 
 .insta-grid {
@@ -107,10 +114,6 @@ export default {
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .instagram {
-    max-width: 1180px;
-  }
-
   .instagram-header {
     font-size: 28px;
   }
@@ -141,10 +144,6 @@ export default {
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .instagram {
-    max-width: 924px;
-  }
-
   .instagram-header {
     font-size: 24px;
     line-height: 40px;
@@ -181,11 +180,6 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .instagram {
-    width: 90%;
-    max-width: 688px;
-  }
-
   .instagram-header {
     font-size: 22px;
     line-height: 34px;
@@ -230,10 +224,6 @@ export default {
 }
 
 @media screen and (min-width: 400px) and (max-width: 729px) {
-  .instagram {
-    width: 90%;
-  }
-
   .instagram-header {
     font-size: 22px;
     line-height: 30px;
@@ -265,11 +255,6 @@ export default {
 }
 
 @media screen and (max-width: 399px) {
-  .instagram {
-    width: 90%;
-    min-width: 240px;
-  }
-
   .instagram-header {
     font-size: 16px;
     line-height: 18px;
