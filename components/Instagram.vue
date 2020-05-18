@@ -83,14 +83,16 @@ export default {
   font-size: 32px;
   line-height: 36px;
   color: black;
-  margin-bottom: 30px;
-  text-decoration: underline;
+  /*margin-bottom: 30px;*/
+  text-decoration: none;
+  border-bottom: 2px solid;
   width: max-content;
 }
 
 .paragraph {
   font-size: 18px;
   line-height: 22px;
+  margin: 30px 0 0 0;
 }
 
 .insta-grid {
