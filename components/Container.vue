@@ -10,19 +10,27 @@ export default {};
 
 <style scoped>
 .container {
+  width: 100%;
   max-width: 1320px;
-  margin: 0 60px;
+  min-width: 240px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 1439px) {
   .container {
-    margin: 0 50px;
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 0 40px;
   }
 }
 
 @media screen and (max-width: 730px) {
   .container {
-    margin: 0 15px;
+    padding: 0 15px;
   }
 }
 </style>

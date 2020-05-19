@@ -1,47 +1,52 @@
 <template>
   <section class="instagram">
-    <h3 class="instagram-header">
-      Рассказывайте ваши истории в инстаграм
-      <span class="instagram-header-tag">#этонелечится</span>
-    </h3>
-    <div class="content-container">
-      <div class="text-content">
-        <a
-          class="subtitle"
-          href="https://www.instagram.com/raklechitsa/"
-          target="_blank"
-          >Инстаграм</a
-        >
-        <p class="paragraph">
-          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-          Все истории, где нет нецензурных выражений и запрещенного контента
-          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-          пропустили вашу историю.
-        </p>
+    <container>
+      <h3 class="instagram-header">
+        Рассказывайте ваши истории в инстаграм
+        <span class="instagram-header-tag">#этонелечится</span>
+      </h3>
+      <div class="content-container">
+        <div class="text-content">
+          <a
+            class="subtitle"
+            href="https://www.instagram.com/raklechitsa/"
+            target="_blank"
+            >Инстаграм</a
+          >
+          <p class="paragraph">
+            Два раза в неделю мы просматриваем все посты по хештегу
+            #этонелечится. Все истории, где нет нецензурных выражений и
+            запрещенного контента попадают сюда. Следите за правильным
+            написанием хештега, чтобы мы не пропустили вашу историю.
+          </p>
+        </div>
+        <div class="insta-grid">
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+          <div class="insta-card"></div>
+        </div>
       </div>
-      <div class="insta-grid">
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-        <div class="insta-card"></div>
-      </div>
-    </div>
+    </container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/Container';
 export default {
-  name: 'Instagram',
+  components: {
+    container: Container,
+  },
 };
 </script>
 
 <style scoped>
 .instagram {
-  max-width: 1320px;
+  width: 100%;
   color: #666;
 }
 
@@ -70,7 +75,7 @@ export default {
 }
 
 .text-content {
-  width: 26%;
+  width: 340px;
 }
 
 .subtitle {
@@ -78,18 +83,19 @@ export default {
   font-size: 32px;
   line-height: 36px;
   color: black;
-  margin-bottom: 30px;
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 2px solid;
   width: max-content;
 }
 
 .paragraph {
   font-size: 18px;
   line-height: 22px;
+  margin: 30px 0 0 0;
 }
 
 .insta-grid {
-  width: 66%;
+  width: 870px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 30px;
@@ -107,10 +113,6 @@ export default {
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .instagram {
-    max-width: 1180px;
-  }
-
   .instagram-header {
     font-size: 28px;
   }
@@ -121,6 +123,11 @@ export default {
 
   .content-container {
     margin: 90px 0;
+  }
+
+  .text-content {
+    width: 305px;
+    padding: 10px 0 0 0;
   }
 
   .subtitle {
@@ -135,16 +142,12 @@ export default {
   }
 
   .insta-grid {
-    width: 65%;
+    width: 770px;
     grid-gap: 27px;
   }
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .instagram {
-    max-width: 924px;
-  }
-
   .instagram-header {
     font-size: 24px;
     line-height: 40px;
@@ -159,12 +162,12 @@ export default {
   }
 
   .text-content {
-    width: 28%;
+    width: 260px;
+    padding: 10px 0 0 0;
   }
 
   .subtitle {
     margin-top: 10px;
-    margin-bottom: 15px;
     font-size: 24px;
     line-height: 28px;
   }
@@ -172,20 +175,17 @@ export default {
   .paragraph {
     font-size: 13px;
     line-height: 16px;
+    margin: 15px 0 0 0;
   }
 
   .insta-grid {
+    width: 610px;
     grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
     grid-gap: 20px;
   }
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .instagram {
-    width: 90%;
-    max-width: 688px;
-  }
-
   .instagram-header {
     font-size: 22px;
     line-height: 34px;
@@ -203,7 +203,7 @@ export default {
   }
 
   .text-content {
-    width: 56%;
+    width: 380px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: column;
@@ -211,7 +211,6 @@ export default {
   }
 
   .subtitle {
-    margin-bottom: 23px;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
@@ -220,6 +219,7 @@ export default {
   .paragraph {
     font-size: 13px;
     line-height: 16px;
+    margin: 20px 0 0 0;
   }
 
   .insta-grid {
@@ -230,46 +230,6 @@ export default {
 }
 
 @media screen and (min-width: 400px) and (max-width: 729px) {
-  .instagram {
-    width: 90%;
-  }
-
-  .instagram-header {
-    font-size: 22px;
-    line-height: 30px;
-  }
-
-  .instagram-header-tag {
-    font-size: 30px;
-    line-height: 40px;
-  }
-
-  .content-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .text-content {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  .insta-grid {
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-  }
-}
-
-@media screen and (max-width: 399px) {
-  .instagram {
-    width: 90%;
-    min-width: 240px;
-  }
-
   .instagram-header {
     font-size: 16px;
     line-height: 18px;
@@ -283,7 +243,45 @@ export default {
 
   .content-container {
     flex-direction: column;
-    margin: 60px 0;
+    align-items: center;
+  }
+
+  .text-content {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .paragraph {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .insta-grid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .instagram-header {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 10px;
+  }
+
+  .instagram-header-tag {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    margin: 50px 0;
   }
 
   .text-content {
@@ -301,6 +299,7 @@ export default {
   .paragraph {
     font-size: 13px;
     line-height: 16px;
+    margin: 15px 0 0 0;
   }
 
   .insta-grid {
