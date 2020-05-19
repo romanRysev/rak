@@ -3,7 +3,7 @@
     <container>
       <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
       <div class="stats__container">
-        <stats-card
+        <statscard
           v-for="bar in bars"
           :key="bar.id"
           :cardDescription="bar.cardDescription"
@@ -11,12 +11,12 @@
           :barsAuthor="bar.barsAuthor"
         >
           <bar v-if="!bar.doubleBar" :fill="bar.fill" />
-          <DoubleBar
+          <doublebar
             v-if="bar.doubleBar"
             :upperWidth="bar.upperWidth"
             :lowerWidth="bar.lowerWidth"
           />
-        </stats-card>
+        </statscard>
       </div>
     </container>
   </section>
@@ -30,9 +30,9 @@ import DoubleBar from '@/components/ui/DoubleBar';
 export default {
   components: {
     container: Container,
-    'stats-card': StatCard,
+    statscard: StatCard,
     bar: Bar,
-    DoubleBar: DoubleBar,
+    doublebar: DoubleBar,
   },
 
   data() {

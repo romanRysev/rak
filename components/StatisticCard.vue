@@ -12,9 +12,6 @@
 <script>
 import Bar from '@/components/ui/Bar';
 export default {
-  components: {
-    'stats-bar': Bar,
-  },
   props: {
     cardDescription: String,
     barsNumbers: String,

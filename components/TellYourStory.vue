@@ -52,7 +52,7 @@
         >Оставить контакт</Button
       >-->
 
-      <Button
+      <button
         v-if="variantOneShown"
         @custom-click="$store.commit('popup/open')"
         className="popup__button"
@@ -61,9 +61,9 @@
         <p class="popup__button-description">
           <slot>Заполнить форму</slot>
         </p>
-      </Button>
+      </button>
 
-      <Button
+      <button
         v-if="variantTwoShown"
         @custom-click="$store.commit('popup/open')"
         className="popup__button"
@@ -72,7 +72,7 @@
         <p class="popup__button-description">
           <slot>Оставить контакт</slot>
         </p>
-      </Button>
+      </button>
     </container>
   </section>
 </template>
@@ -82,7 +82,7 @@ import Container from '~/components/Container';
 import button from '@/components/button';
 export default {
   components: {
-    Button: button,
+    button: button,
     container: Container,
   },
   methods: {

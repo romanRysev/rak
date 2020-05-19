@@ -2,8 +2,8 @@
   <section class="stories">
     <container>
       <h3 class="stories__title">Истории неизлечимых привычек</h3>
-      <stories-grid />
-      <more-articles class="more-button" />
+      <storiesgrid />
+      <morearticles class="more-button" />
     </container>
   </section>
 </template>
@@ -15,8 +15,8 @@ import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 export default {
   components: {
     container: Container,
-    'stories-grid': StoryGrid,
-    'more-articles': MoreArticlesButton,
+    storiesgrid: StoryGrid,
+    morearticles: MoreArticlesButton,
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="stat-card__bar-content" :style="upperWidth">
-      <div class="stat-card__bar-fill" :style="lowerWidth"></div>
+    <div class="bar-content" :style="upperWidth">
+      <div class="bar-fill" :style="lowerWidth"></div>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-.stat-card__bar-content {
+.bar-content {
   width: 160px;
   height: 40px;
   background: linear-gradient(#f4f4f4 50%, white 50%);
@@ -24,7 +24,7 @@ export default {
   position: relative;
 }
 
-.stat-card__bar-fill {
+.bar-fill {
   background: #613a93;
   height: 20px;
   position: absolute;
@@ -33,23 +33,23 @@ export default {
 }
 
 @media screen and (max-width: 1399px) {
-  .stat-card__bar-content {
+  .bar-content {
     width: 229px;
     height: 36px;
   }
 
-  .stat-card__bar-fill {
+  .bar-fill {
     height: 18px;
   }
 }
 
 @media screen and (max-width: 1279px) {
-  .stat-card__bar-content {
+  .bar-content {
     width: 115px;
     height: 28px;
   }
 
-  .stat-card__bar-fill {
+  .bar-fill {
     height: 14px;
   }
 }
