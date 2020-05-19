@@ -1,6 +1,6 @@
 <template>
   <div class="popupQuiz">
-    <h3 v-if="currentQuestion.questionAdditional" class="popup__step">
+    <h3 class="popup__step">
       {{ currentQuestion.step }}
     </h3>
     <img
@@ -11,13 +11,12 @@
     />
 
     <p class="popup__questions_block">
-      <span v-if="currentQuestion.questionAdditional" class="popup__question">{{
-        currentQuestion.question
-      }}</span>
+      <span class="popup__question">{{ currentQuestion.question }}</span>
       <span
         v-if="currentQuestion.questionAdditional"
         class="popup__questionAdditional"
-        >{{ currentQuestion.questionAdditional }}</span
+      >
+        {{ currentQuestion.questionAdditional }}</span
       >
     </p>
 
