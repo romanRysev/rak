@@ -139,7 +139,6 @@ export default {
 }
 .about-project__description {
   padding-left: 0;
-
   list-style-type: none;
 }
 .about-project__paragraph:first-child {
@@ -243,9 +242,10 @@ export default {
     flex-direction: column;
   }
 
-  /*.about-project__place-container_information {*/
-  /*  flex-direction: column;*/
-  /*}*/
+  .about-project__place-container-information {
+    flex-direction: column;
+  }
+
   .about-project__name {
     margin: 0 30px 30px 0;
   }
@@ -276,9 +276,10 @@ export default {
     flex-direction: column;
   }
 
-  /*.about-project__place-container_information {*/
-  /*  flex-direction: column;*/
-  /*}*/
+  .about-project__place-container-information {
+    flex-direction: column;
+  }
+
   .about-project__name {
     margin: 0 30px 30px 0;
   }
