@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <footer class="footer">
+  <footer class="footer">
+    <container class="container container_footer">
       <p class="footer__text">
         Спасибо всем, кто помог состояться этому проекту
       </p>
@@ -29,8 +29,8 @@
       >
         Сделано студентами Яндекс Практикум
       </a>
-    </footer>
-  </container>
+    </container>
+  </footer>
 </template>
 
 <script>
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-.footer {
+.container_footer {
   min-height: 356px;
   width: 100%;
   padding: 60px 0;
@@ -136,9 +136,9 @@ export default {
 }
 
 @media screen and (max-width: 1439px) {
-  .footer {
+  .container_footer {
     min-height: 316px;
-    padding: 50px 0;
+    padding: 50px 50px;
   }
 
   .footer__text {
@@ -161,9 +161,9 @@ export default {
 }
 
 @media screen and (max-width: 1279px) {
-  .footer {
+  .container_footer {
     min-height: 292px;
-    padding: 50px 0;
+    padding: 50px 50px;
   }
 
   .footer__text {
@@ -200,7 +200,7 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .footer {
+  .container_footer {
     min-height: 402px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, min-content);

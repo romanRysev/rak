@@ -1,5 +1,6 @@
 <template>
   <container>
+    <!-- todo: Здесь container в section вместе с адаптивом. -->
     <section class="video">
       <div class="video__description">
         <h2 class="video__description-title">

@@ -1,11 +1,11 @@
 <template>
-  <container>
-    <section class="stories">
+  <section class="stories">
+    <container>
       <h3 class="stories__title">Истории неизлечимых привычек</h3>
       <stories-grid />
       <more-articles class="more-button" />
-    </section>
-  </container>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -36,27 +36,6 @@ export default {
   max-width: 413px;
   margin-bottom: 70px;
 }
-/** Эти стили отпали при выносе кнопки "Больше статей" в отдельный элемент */
-/*.stories__link-all {
-  display: block;
-  text-decoration: none;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-
-  max-width: 100%;
-  height: 82px;
-  text-align: center;
-  padding: 31px 0;
-  background-color: #fbfbfb;
-  color: #000000;
-}
-.stories__link-all:visited {
-  color: #000000;
-}*/
-
 .more-button {
   padding: 0;
   margin-top: 70px;

@@ -1,6 +1,6 @@
 <template>
   <section class="your-story">
-    <container class="container">
+    <container class="container container_your-story">
       <h3 class="your-story-header">Расскажите свою историю</h3>
       <div class="description-container">
         <div class="description-side">
@@ -262,7 +262,7 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .container {
+  .container_your-story {
     width: 380px;
     padding: 0;
     align-items: center;
@@ -329,7 +329,7 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .container {
+  .container_your-story {
     width: 290px;
     padding: 0;
   }
