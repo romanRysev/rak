@@ -37,8 +37,7 @@ export default {
 .overlay {
   width: 100vw;
   height: 100vh;
-  opacity: 0.5;
-  background: black;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +71,7 @@ export default {
   line-height: 36px;
   display: flex;
   align-items: flex-end;
-  color: #000000;
+  color: #000;
 }
 /* .icon__close {
   width: 20px;
@@ -90,7 +89,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
 }
 .popup__input {
   display: flex;
@@ -102,7 +101,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #666666;
+  color: #666;
   border: 0;
 }
 .input__underline {
@@ -153,7 +152,7 @@ export default {
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   margin: auto;
   padding: 0;
 }
