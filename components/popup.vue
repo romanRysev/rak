@@ -44,8 +44,8 @@ export default {
   z-index: 12;
 }
 .popup {
-  /* width: 920px;
-  height: 600px;*/
+  width: 920px;
+  height: 600px;
   position: fixed;
   display: flex;
   align-items: center;
@@ -157,6 +157,3 @@ export default {
   padding: 0;
 }
 </style>
-
-// step="Шаг 7 из 12" // question="Существуют ли какие-то ритуалы/действия,
-которые Вы совершаете регулярно? Кроме необходимых, таких, как чистка зубов."
