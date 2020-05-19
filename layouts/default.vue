@@ -1,20 +1,60 @@
 <template>
-  <div>
+  <div class="main-container">
+    <container class="container__mobile-menu">
+      <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu">
+        <nuxt-link to="#" class="mobile-menu__link header__link_share"
+          >Рассказать историю</nuxt-link
+        >
+      </mobile-menu>
+    </container>
+    <break-line class="break-line" />
+    <main-header />
+
+    <popup v-if="this.$store.state.popup.popupShown"></popup>
     <nuxt />
+    <main-footer />
   </div>
 </template>
 
+<script>
+import Container from '@/components/Container';
+import BreakLine from '@/components/ui/BreakLine';
+import MobileMenu from '@/components/MobileMenu';
+import Header from '@/components/Header';
+import popup from '@/components/popup';
+import Footer from '@/components/Footer';
+
+export default {
+  components: {
+    container: Container,
+    'break-line': BreakLine,
+    'mobile-menu': MobileMenu,
+    'main-header': Header,
+    popup,
+    'main-footer': Footer,
+  },
+  computed: {
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', 'Arial', sans-serif;
+  text-rendering: optimizeLegibility;
   box-sizing: border-box;
+}
+
+#__layout {
+  overflow: hidden;
+}
+
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 *,
@@ -24,32 +64,50 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+.mobile-menu {
+  display: none;
+}
+
+.break-line {
+  display: none;
+}
+
+.mobile-menu__link {
   text-decoration: none;
-  padding: 10px 30px;
+  transition: 0.3s;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.mobile-menu__link:hover {
+  opacity: 0.8;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.header__link_share {
+  color: #121212;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media screen and (max-width: 1023px) {
+  .mobile-menu {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: normal;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, min-content) max-content;
+    grid-gap: 30px;
+    margin: 18px 0;
+  }
+
+  .break-line {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .mobile-menu {
+    font-size: 13px;
+    grid-template-columns: 1fr;
+    grid-gap: 18px;
+  }
 }
 </style>
