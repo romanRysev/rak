@@ -1,12 +1,19 @@
 <template>
   <section class="head-banner">
-    <h1 class="head-banner__title">#РАКЛЕЧИТСЯ</h1>
-    <img class="head-banner__arrow" src="/banner-arrow.svg" alt="" />
+    <container>
+      <h1 class="head-banner__title">#РАКЛЕЧИТСЯ</h1>
+      <img class="head-banner__arrow" src="/banner-arrow.svg" alt="" />
+    </container>
   </section>
 </template>
 
 <script>
-export default {};
+import Container from '~/components/Container';
+export default {
+  components: {
+    container: Container,
+  },
+};
 </script>
 
 <style scoped>

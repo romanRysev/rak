@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <container>
+    <!-- todo: Здесь container в section вместе с адаптивом. -->
     <section class="video">
       <div class="video__description">
         <h2 class="video__description-title">
@@ -53,16 +54,21 @@
         И В ОТЛИЧИЕ ОТ РАКА, <span class="bold">&nbsp;#ЭТОНЕЛЕЧИТСЯ</span>
       </p>
     </div>
-  </div>
+  </container>
 </template>
 
 <script>
-export default {};
+import Container from '~/components/Container';
+export default {
+  components: {
+    container: Container,
+  },
+};
 </script>
 
 <style scoped>
 .video {
-  width: 1440px;
+  width: 100%;
   height: 650px;
   background-color: white;
   display: flex;
@@ -208,10 +214,6 @@ export default {};
 }
 
 @media all and (min-width: 1024px) and (max-width: 1440px) {
-  .video {
-    width: 100vw;
-  }
-
   .video__description {
     width: 29vw;
   }
