@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <section class="instagram">
+  <section class="instagram">
+    <container>
       <h3 class="instagram-header">
         Рассказывайте ваши истории в инстаграм
         <span class="instagram-header-tag">#этонелечится</span>
@@ -31,8 +31,8 @@
           <div class="insta-card"></div>
         </div>
       </div>
-    </section>
-  </container>
+    </container>
+  </section>
 </template>
 
 <script>

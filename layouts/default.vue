@@ -1,12 +1,10 @@
 <template>
   <div class="main-container">
-    <container class="container__mobile-menu">
-      <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu">
-        <nuxt-link to="#" class="mobile-menu__link header__link_share"
-          >Рассказать историю</nuxt-link
-        >
-      </mobile-menu>
-    </container>
+    <mobile-menu v-if="isMobileMenuOpened" class="container_mobile-menu">
+      <nuxt-link to="#" class="mobile-menu__link header__link_share"
+        >Рассказать историю
+      </nuxt-link>
+    </mobile-menu>
     <break-line class="break-line" />
     <main-header />
 
@@ -52,11 +50,6 @@ html {
   overflow: hidden;
 }
 
-.main-container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
 *,
 *:before,
 *:after {
@@ -64,7 +57,7 @@ html {
   margin: 0;
 }
 
-.mobile-menu {
+.container_mobile-menu {
   display: none;
 }
 
@@ -86,7 +79,7 @@ html {
 }
 
 @media screen and (max-width: 1023px) {
-  .mobile-menu {
+  .container_mobile-menu {
     width: 100%;
     font-size: 16px;
     line-height: 1;
@@ -104,7 +97,7 @@ html {
 }
 
 @media screen and (max-width: 730px) {
-  .mobile-menu {
+  .container_mobile-menu {
     font-size: 13px;
     grid-template-columns: 1fr;
     grid-gap: 18px;

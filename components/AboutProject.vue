@@ -1,7 +1,6 @@
 <template>
   <section class="about-project">
     <container>
-      <!--      <div class="about-project__container">-->
       <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
       <p class="about-project__subtitle">О проекте</p>
 
@@ -55,7 +54,6 @@
           </li>
         </ul>
       </div>
-      <!--      </div>-->
     </container>
   </section>
 </template>
@@ -87,20 +85,10 @@ export default {
 
 <style scoped>
 .about-project {
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-items: center;*/
   background-color: #613a93;
-
   width: 100vw;
   padding: 90px 60px 100px 60px;
   min-height: 650px;
-}
-.about-project__container {
-  /*max-width: 100%;*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-items: center;*/
 }
 .about-project__title {
   font-style: normal;
@@ -108,7 +96,7 @@ export default {
   font-size: 64px;
   line-height: 77px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   margin: 0 0 70px 0;
 }
 .about-project__subtitle {
@@ -116,7 +104,7 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #ffffff;
+  color: #fff;
   margin-right: auto;
   margin-bottom: 32px;
 }
@@ -142,7 +130,6 @@ export default {
   cursor: pointer;
 }
 .about-project__name:hover {
-  /*font-weight: 500;*/
   color: #fff;
 }
 .about-project__name_active {
@@ -240,9 +227,6 @@ export default {
     min-height: 660px;
     padding: 80px 0 80px 0;
   }
-  .about-project__container {
-    max-width: 380px;
-  }
   .about-project__title {
     display: none;
   }
@@ -259,9 +243,9 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__place-container_information {
-    flex-direction: column;
-  }
+  /*.about-project__place-container_information {*/
+  /*  flex-direction: column;*/
+  /*}*/
   .about-project__name {
     margin: 0 30px 30px 0;
   }
@@ -276,9 +260,6 @@ export default {
   .about-project {
     padding: 80px 0 80px 0;
   }
-  .about-project__container {
-    max-width: 380px;
-  }
   .about-project__title {
     display: none;
   }
@@ -295,9 +276,9 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__place-container_information {
-    flex-direction: column;
-  }
+  /*.about-project__place-container_information {*/
+  /*  flex-direction: column;*/
+  /*}*/
   .about-project__name {
     margin: 0 30px 30px 0;
   }
@@ -312,9 +293,6 @@ export default {
 @media screen and (max-width: 457px) {
   .about-project {
     padding: 80px 15px 80px 15px;
-  }
-  .about-project__container {
-    max-width: 100%;
   }
   .about-project__subtitle {
     margin-left: 0;
