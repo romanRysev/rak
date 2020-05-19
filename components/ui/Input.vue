@@ -4,11 +4,14 @@
       type="type"
       :class="[
         'popup__input',
+        className,
         {
           'input_bottom-border': bottomBorder,
         },
       ]"
       :placeholder="placeholder"
+      v-model="content"
+      @input="handleInput"
     />
   </div>
 </template>
@@ -16,6 +19,10 @@
 <script>
 export default {
   props: {
+    value: {
+      type: String,
+      default: '',
+    },
     type: {
       type: String,
       default: 'text',
@@ -23,6 +30,16 @@ export default {
     //  className:string,
     bottomBorder: Boolean,
     placeholder: String,
+  },
+  data() {
+    return {
+      content: this.value,
+    };
+  },
+  methods: {
+    handleInput(content) {
+      this.$emit('inputContent', this.content);
+    },
   },
 };
 </script>

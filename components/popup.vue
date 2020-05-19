@@ -1,16 +1,10 @@
 <template>
   <div>
     <div>
-      <div
-        :class="['modalWindow', className]"
-        @click="$store.commit('popup/close')"
-      >
+      <div :class="['modalWindow', className]">
         <div class="overlay"></div>
         <div :class="['popup', className]">
-          <popupQuiz
-            step="Шаг 7 из 12"
-            question="Существуют ли какие-то ритуалы/действия, которые Вы совершаете регулярно? Кроме необходимых, таких, как чистка зубов."
-          />
+          <popupQuiz />
         </div>
       </div>
     </div>
@@ -23,6 +17,7 @@ import popupQuiz from '@/components/popupQuiz';
 // import optionFirst from '@/components/ui/optionFirst';
 // import optionSecond from '@/components/ui/optionSecond';
 export default {
+  props: ['className'],
   components: {
     popupQuiz,
   },
@@ -163,3 +158,6 @@ export default {
   padding: 0;
 }
 </style>
+
+// step="Шаг 7 из 12" // question="Существуют ли какие-то ритуалы/действия,
+которые Вы совершаете регулярно? Кроме необходимых, таких, как чистка зубов."

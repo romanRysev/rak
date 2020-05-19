@@ -8,9 +8,12 @@
     </h1>
     <hamburger-menu />
     <main-menu class="header__menu">
-      <nuxt-link to="#" class="menu__link header__link_share"
-        >Рассказать историю</nuxt-link
+      <p
+        class="menu__link header__link_share"
+        @click="$store.commit('popup/open')"
       >
+        Рассказать историю
+      </p>
     </main-menu>
   </header>
 </template>
@@ -57,6 +60,7 @@ export default {
 
 .header__link_share {
   color: #121212;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1399px) {

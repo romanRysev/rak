@@ -31,20 +31,11 @@
         type="button"
         >Заполнить форму</Button
       >
-      <!-- <Button
-            @custom-click="$store.commit('popup/open')"
-            className="popup__button"
-          >
-            <p class="popup__button-description">
-              <slot>Заполнить форму</slot>
-            </p>
-          </Button> -->
     </div>
   </section>
 </template>
 
 <script>
-
 import button from '@/components/button';
 export default {
   components: {

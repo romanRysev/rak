@@ -1,6 +1,8 @@
 <template>
   <div class="popupQuiz">
-    <h3 class="popup__step">{{ step }}</h3>
+    <h3 v-if="currentQuestion.questionAdditional" class="popup__step">
+      {{ currentQuestion.step }}
+    </h3>
     <img
       class="icon__close"
       @click="$store.commit('popup/close')"
@@ -8,20 +10,33 @@
       alt="Кнопка закрытия формы отправки сообщения"
     />
 
-    <p class="popup__question">{{ question }}</p>
+    <p class="popup__questions_block">
+      <span v-if="currentQuestion.questionAdditional" class="popup__question">{{
+        currentQuestion.question
+      }}</span>
+      <span
+        v-if="currentQuestion.questionAdditional"
+        class="popup__questionAdditional"
+        >{{ currentQuestion.questionAdditional }}</span
+      >
+    </p>
 
-    <Input placeholder="Напишите тут" :bottomBorder="true" />
+    <Input v-model="answer" placeholder="Напишите тут" :bottomBorder="true" />
     <div class="button__block">
-      <popupButtonBack />
-      <popupButtonNext>Далее</popupButtonNext>
+      <Button @custom-click="prevQuestion" class="buttonBack" type="button"
+        >Назад</Button
+      >
+
+      <Button @custom-click="nextQuestion" class="buttonNext" type="button">
+        <p class="buttonNext__description">Далее</p>
+      </Button>
     </div>
   </div>
 </template>
 
 <script>
 import Input from '~/components/ui/Input';
-import popupButtonNext from '~/components/ui/popupButtonNext';
-import popupButtonBack from '~/components/ui/popupButtonBack';
+import button from '~/components/button';
 
 export default {
   props: {
@@ -37,8 +52,36 @@ export default {
   },
   components: {
     Input,
-    popupButtonNext,
-    popupButtonBack,
+    Button: button,
+  },
+  data() {
+    return {
+      answer: '',
+    };
+  },
+  computed: {
+    currentQuestion() {
+      const { popupQuiz } = this.$store.state;
+      const { currentQuestion, questions } = popupQuiz;
+      return questions[currentQuestion] || '';
+    },
+    initialAnswer() {
+      const { popupQuiz } = this.$store.state;
+      const { currentQuestion, answers } = popupQuiz;
+      return answers[currentQuestion] || '';
+    },
+  },
+  methods: {
+    async nextQuestion() {
+      await this.$store.dispatch('popupQuiz/NEXT_QUESTION', {
+        answer: this.answer,
+      });
+      this.answer = this.initialAnswer;
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('popupQuiz/PREV_QUESTION');
+      this.answer = this.initialAnswer;
+    },
   },
 };
 </script>
@@ -51,7 +94,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  z-index: 113;
+  z-index: 123;
   position: fixed;
 }
 
@@ -69,8 +112,8 @@ export default {
   align-items: flex-end;
   color: #000000;
 }
-.popup__question {
-  display: flex;
+.popup__questions_block {
+  display: inline-block;
   width: 840px;
   height: 24px;
   margin: 0px 40px 134px 40px;
@@ -81,6 +124,25 @@ export default {
   line-height: 24px;
   color: #000000;
   text-align: left;
+}
+.popup__question {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  text-align: left;
+}
+.popup__questionAdditional {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  text-align: left;
+  opacity: 0.5;
 }
 .button__block {
   display: flex;
@@ -102,6 +164,7 @@ export default {
   background: white;
   padding: 0;
   border: 0;
+  cursor: pointer;
 }
 .buttonNext {
   display: flex;
@@ -111,11 +174,12 @@ export default {
   background: #613a93;
   padding: 0;
   border: 0;
+  cursor: pointer;
 }
 .buttonNext__description {
   display: flex;
-  width: 66px;
-  height: 20px;
+  /* width: 16px;
+  height: 10px; */
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -126,6 +190,7 @@ export default {
   margin: auto;
   padding: 0;
 }
+
 .icon__close {
   width: 20px;
   height: 20px;
@@ -133,5 +198,6 @@ export default {
   bottom: 79px;
   left: 870px;
   border: 0;
+  cursor: pointer;
 }
 </style>
