@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <section class="stats">
+  <section class="stats">
+    <container>
       <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
       <div class="stats__container">
         <stats-card
@@ -38,8 +38,8 @@
           />
         </stats-card>
       </div>
-    </section>
-  </container>
+    </container>
+  </section>
 </template>
 
 <script>

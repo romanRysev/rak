@@ -1,22 +1,31 @@
 <template>
   <nav class="mobile-menu">
-    <nuxt-link
-      to="/"
-      class="mobile-menu__link"
-      :class="{ menu__link_active: $route.path == '/' }"
-      >Главная</nuxt-link
-    >
-    <nuxt-link
-      to="/stories"
-      class="mobile-menu__link"
-      :class="{ menu__link_active: $route.path == '/stories' }"
-      >Истории</nuxt-link
-    >
-    <slot></slot>
+    <container class="container container_mobile-menu">
+      <nuxt-link
+        to="/"
+        class="mobile-menu__link"
+        :class="{ menu__link_active: $route.path == '/' }"
+        >Главная
+      </nuxt-link>
+      <nuxt-link
+        to="/stories"
+        class="mobile-menu__link"
+        :class="{ menu__link_active: $route.path == '/stories' }"
+        >Истории
+      </nuxt-link>
+      <slot></slot>
+    </container>
   </nav>
 </template>
 
-<script></script>
+<script>
+import Container from '~/components/Container';
+export default {
+  components: {
+    container: Container,
+  },
+};
+</script>
 
 <style scoped>
 .mobile-menu__link {

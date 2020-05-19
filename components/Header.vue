@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <header class="header">
+  <header class="header">
+    <container class="container container_header">
       <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
         >Проект Благотворительного Фонда Константина Хабенского
       </nuxt-link>
@@ -13,8 +13,8 @@
         </nuxt-link>
       </main-menu>
       <hamburger-menu class="header__mobile-icon" />
-    </header>
-  </container>
+    </container>
+  </header>
 </template>
 
 <script>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.header {
+.container_header {
   min-height: 76px;
   width: 100%;
   background-color: #fff;
@@ -67,7 +67,7 @@ export default {
 }
 
 @media screen and (max-width: 1429px) {
-  .header {
+  .container_header {
     min-height: 72px;
   }
   .header__logo {
@@ -86,7 +86,7 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .header {
+  .container_header {
     min-height: 64px;
   }
   .header__logo {
