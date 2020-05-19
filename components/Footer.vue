@@ -26,7 +26,7 @@
       </ul>
 
       <p class="footer__copyright footer__copyright_project">
-        Рак Лечится 2020
+        Рак Лечится {{ date }}
       </p>
       <a
         href="https://praktikum.yandex.ru/"
@@ -50,6 +50,14 @@ export default {
     'main-menu': Menu,
     'page-link': Link,
   },
+
+  computed: {
+    date() {
+      const date = new Date();
+      return date.getFullYear();
+    },
+  },
+
   data() {
     return {
       links: [

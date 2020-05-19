@@ -1,13 +1,6 @@
 <template>
   <div class="story-grid">
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
+    <card v-for="card in storyCards" :key="card.id" />
   </div>
 </template>
 
@@ -16,7 +9,22 @@ import Card from '@/components/ui/Card';
 
 export default {
   components: {
-    'story-grid__card': Card,
+    card: Card,
+  },
+
+  data() {
+    return {
+      storyCards: [
+        { id: 1, photo: '' },
+        { id: 2, photo: '' },
+        { id: 3, photo: '' },
+        { id: 4, photo: '' },
+        { id: 5, photo: '' },
+        { id: 6, photo: '' },
+        { id: 7, photo: '' },
+        { id: 8, photo: '' },
+      ],
+    };
   },
 };
 </script>
