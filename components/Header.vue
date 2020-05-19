@@ -8,9 +8,13 @@
         Проект Благотворительного Фонда Константина Хабенского
       </p>
       <main-menu class="header__menu">
-        <nuxt-link to="#" class="menu__link header__link_share"
-          >Рассказать историю
-        </nuxt-link>
+        <button
+          type="button"
+          class="menu__link header__share"
+          @click="$store.commit('popup/open')"
+        >
+          Рассказать историю
+        </button>
       </main-menu>
       <hamburger-menu class="header__mobile-icon" />
     </container>
