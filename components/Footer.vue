@@ -15,7 +15,13 @@
           <page-link class="link" :url="links[1].url" :text="links[1].text" />
         </li>
         <li class="footer__link_share">
-          <page-link class="link" :url="links[2].url" :text="links[2].text" />
+          <button
+            class="footer__share"
+            type="button"
+            @click="$emit('shareClick')"
+          >
+            Поделитесь &#8599;
+          </button>
         </li>
       </ul>
 
@@ -64,10 +70,6 @@ export default {
             'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
           text: 'Youtube',
         },
-        {
-          url: '#',
-          text: 'Поделитесь <span>&#8599;</span>',
-        },
       ],
     };
   },
@@ -104,6 +106,7 @@ export default {
   grid-area: Nav;
   align-self: start;
   margin-left: 113px;
+  z-index: 0;
 }
 
 .footer__links {
@@ -122,8 +125,20 @@ export default {
 }
 
 .footer__share {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+  width: fit-content;
   grid-area: Share;
+  background-color: #fff;
   color: #121212;
+}
+
+.footer__share:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .footer__copyright {
@@ -163,6 +178,10 @@ export default {
     width: 265px;
   }
 
+  .footer__share {
+    font-size: 16px;
+  }
+
   .footer__copyright {
     font-size: 16px;
   }
@@ -184,7 +203,6 @@ export default {
   }
 
   .footer__links {
-    font-size: 16px;
     width: fit-content;
   }
   .footer__social {
@@ -243,6 +261,10 @@ export default {
     width: 100%;
     justify-self: start;
     padding-bottom: 50px;
+  }
+  .footer__share {
+    font-size: 13px;
+    line-height: 15px;
   }
 
   .footer__social {
