@@ -16,9 +16,13 @@
     </ul>
 
     <p class="footer__copyright footer__copyright_project">Рак Лечится 2020</p>
-    <p class="footer__copyright footer__copyright_authors">
+    <a
+      href="https://praktikum.yandex.ru/"
+      target="_blank"
+      class="footer__copyright footer__copyright_authors"
+    >
       Сделано студентами Яндекс Практикум
-    </p>
+    </a>
   </footer>
 </template>
 
@@ -45,7 +49,7 @@ export default {
         },
         {
           url: '#',
-          text: 'Поделитесь <span>&#8599</span>',
+          text: 'Поделитесь <span>&#8599;</span>',
         },
       ],
     };
@@ -120,6 +124,7 @@ export default {
 .footer__copyright_authors {
   grid-area: Copyright;
   justify-self: end;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1439px) {

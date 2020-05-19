@@ -1,27 +1,30 @@
 <template>
   <div>
     <section class="video">
-      <div class="description__block">
-        <h2 class="description-title">
+      <div class="video__description">
+        <h2 class="video__description-title">
           Истории людей, победивших рак, но не свои привычки
         </h2>
-        <h3 class="description-subtitle">
+        <h3 class="video__description-subtitle">
           Есть вещи, которые не лечатся. Вещи<br />
           ставшие частью нашего «я», фобии,<br />
           страхи. Но это точно не рак. Рак<br />
           лечится. Лучшее доказательство — <br />люди с их историями.
         </h3>
-        <div class="selector">
-          <button class="button__left">
-            <img class="button__left_opacity" src="/images/button_left.svg" />
+        <div class="video__selector">
+          <button class="video__button_left">
+            <img
+              class="video__button_left_opacity"
+              src="/images/button_left.svg"
+            />
           </button>
-          <button class="button__right">
+          <button class="video__button_right">
             <img src="/images/button_right.svg" />
           </button>
         </div>
       </div>
 
-      <div class="video__block">
+      <div class="video__frame">
         <div class="video__container">
           <iframe
             class="iframe"
@@ -34,11 +37,11 @@
           />
         </div>
         <div class="video__notation">
-          <p class="notation__description">
+          <p class="video__notation-text">
             Все видео вы можете найте на нашем
           </p>
           <a
-            class="notation__link"
+            class="video__notation-link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             >YouTube канале.</a
           >
@@ -66,7 +69,7 @@ export default {};
   flex-direction: row;
 }
 
-.description__block {
+.video__description {
   width: 413px;
   margin: 110px 40px 100px 60px;
   height: 450px;
@@ -75,34 +78,29 @@ export default {};
   flex-direction: column;
 }
 
-.description-title {
+.video__description-title {
   color: #fff;
   width: 413px;
   height: 108px;
   margin: 0px 0px 32px 0px;
   text-align: left;
   background-color: white;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
   color: #000000;
 }
-.description-subtitle {
+.video__description-subtitle {
   margin: 0px 73px 150px 0px;
   text-align: left;
   width: 340px;
   height: 110px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   color: #666666;
 }
 
-.selector {
+.video__selector {
   display: flex;
   flex-direction: row;
   width: 80px;
@@ -111,22 +109,22 @@ export default {};
   background: #fbfbfb;
 }
 
-.button__left {
+.video__button_left {
   width: 40px;
   height: 40px;
   margin: 0px;
 }
 
-.button__left_opacity {
+.video__button_left_opacity {
   opacity: 0.2;
 }
-.button__right {
+.video__button_right {
   width: 40px;
   height: 40px;
   margin: 0px;
 }
 
-.video__block {
+.video__frame {
   width: 864px;
   height: 450px;
   margin: 100px 60px 74px 0px;
@@ -155,25 +153,19 @@ export default {};
   border-radius: 50%;
 }
 
-.notation__description {
+.video__notation-text {
   display: flex;
   flex-direction: row;
   height: 16px;
   margin-right: 5px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 16px;
   color: #666666;
 }
-.notation__link {
+.video__notation-link {
   display: flex;
   flex-direction: row;
   height: 16px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 16px;
   color: #666666;
@@ -184,9 +176,6 @@ export default {};
   width: 867px;
   height: 16px;
   margin: 0px 0px 74px 0px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 16px;
   color: #666666;
@@ -208,9 +197,6 @@ export default {};
   width: 750px;
   height: 46px;
   justify-content: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
   font-size: 30px;
   line-height: 46px;
   text-align: center;
@@ -226,38 +212,38 @@ export default {};
     width: 100vw;
   }
 
-  .description__block {
+  .video__description {
     width: 29vw;
   }
 
-  .description-title {
+  .video__description-title {
     display: flex;
     width: 100%;
   }
 
-  .description-subtitle {
+  .video__description-subtitle {
     display: flex;
     width: 80%;
   }
 
-  .selector {
+  .video__selector {
     display: flex;
     width: 20%;
   }
 
-  .button__left {
+  .video__button_left {
     display: flex;
     width: 100%;
     height: 100%;
   }
 
-  .button__right {
+  .video__button_right {
     display: flex;
     width: 100%;
     height: 100%;
   }
 
-  .video__block {
+  .video__frame {
     width: 60vw;
   }
 

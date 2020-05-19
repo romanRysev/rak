@@ -44,7 +44,6 @@
 </template>
 
 <script>
-
 import button from '@/components/button';
 export default {
   components: {
