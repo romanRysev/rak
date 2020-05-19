@@ -48,7 +48,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1429px) {
   .menu {
     font-size: 16px;
   }
