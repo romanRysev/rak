@@ -4,37 +4,17 @@
       <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
       <div class="stats__container">
         <stats-card
-          :cardDescription="bars[0].cardDescription"
-          :barsNumbers="bars[0].barsNumbers"
-          :barsAuthor="bars[0].barsAuthor"
+          v-for="bar in bars"
+          :key="bar.id"
+          :cardDescription="bar.cardDescription"
+          :barsNumbers="bar.barsNumbers"
+          :barsAuthor="bar.barsAuthor"
         >
-          <bar :fill="bars[0].fill" />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[1].cardDescription"
-          :barsNumbers="bars[1].barsNumbers"
-          :barsAuthor="bars[1].barsAuthor"
-        >
-          <bar :fill="bars[1].fill" />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[2].cardDescription"
-          :barsNumbers="bars[2].barsNumbers"
-          :barsAuthor="bars[2].barsAuthor"
-        >
+          <bar v-if="!bar.doubleBar" :fill="bar.fill" />
           <DoubleBar
-            :upperWidth="bars[2].upperWidth"
-            :lowerWidth="bars[2].lowerWidth"
-          />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[3].cardDescription"
-          :barsNumbers="bars[3].barsNumbers"
-          :barsAuthor="bars[3].barsAuthor"
-        >
-          <DoubleBar
-            :upperWidth="bars[3].upperWidth"
-            :lowerWidth="bars[3].lowerWidth"
+            v-if="bar.doubleBar"
+            :upperWidth="bar.upperWidth"
+            :lowerWidth="bar.lowerWidth"
           />
         </stats-card>
       </div>
@@ -60,6 +40,7 @@ export default {
       bars: [
         {
           id: 1,
+          doubleBar: false,
           fill: 'width: 33%',
           cardDescription:
             'Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.',
@@ -68,6 +49,7 @@ export default {
         },
         {
           id: 2,
+          doubleBar: false,
           fill: 'width: 2.6%',
           cardDescription: '2,6% Россиян имеют онкозаболевания.',
           barsNumbers: '3 700 000',
@@ -75,6 +57,7 @@ export default {
         },
         {
           id: 3,
+          doubleBar: true,
           upperWidth: 'width: 55%',
           lowerWidth: 'width: 128%',
           cardDescription:
@@ -84,6 +67,7 @@ export default {
         },
         {
           id: 4,
+          doubleBar: true,
           upperWidth: 'width: 70%',
           lowerWidth: 'width: 75%',
           cardDescription:
