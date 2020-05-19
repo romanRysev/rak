@@ -1,45 +1,55 @@
 <template>
   <section class="stats">
-    <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
-    <div class="stats__container">
-      <stats-card
-        :cardDescription="bars[0].cardDescription"
-        :barsNumbers="bars[0].barsNumbers"
-        :barsAuthor="bars[0].barsAuthor"
-        ><bar :fill="bars[0].fill"
-      /></stats-card>
-      <stats-card
-        :cardDescription="bars[1].cardDescription"
-        :barsNumbers="bars[1].barsNumbers"
-        :barsAuthor="bars[1].barsAuthor"
-        ><bar :fill="bars[1].fill"
-      /></stats-card>
-      <stats-card
-        :cardDescription="bars[2].cardDescription"
-        :barsNumbers="bars[2].barsNumbers"
-        :barsAuthor="bars[2].barsAuthor"
-        ><DoubleBar
-          :upperWidth="bars[2].upperWidth"
-          :lowerWidth="bars[2].lowerWidth"
-      /></stats-card>
-      <stats-card
-        :cardDescription="bars[3].cardDescription"
-        :barsNumbers="bars[3].barsNumbers"
-        :barsAuthor="bars[3].barsAuthor"
-        ><DoubleBar
-          :upperWidth="bars[3].upperWidth"
-          :lowerWidth="bars[3].lowerWidth"
-      /></stats-card>
-    </div>
+    <container>
+      <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
+      <div class="stats__container">
+        <stats-card
+          :cardDescription="bars[0].cardDescription"
+          :barsNumbers="bars[0].barsNumbers"
+          :barsAuthor="bars[0].barsAuthor"
+        >
+          <bar :fill="bars[0].fill" />
+        </stats-card>
+        <stats-card
+          :cardDescription="bars[1].cardDescription"
+          :barsNumbers="bars[1].barsNumbers"
+          :barsAuthor="bars[1].barsAuthor"
+        >
+          <bar :fill="bars[1].fill" />
+        </stats-card>
+        <stats-card
+          :cardDescription="bars[2].cardDescription"
+          :barsNumbers="bars[2].barsNumbers"
+          :barsAuthor="bars[2].barsAuthor"
+        >
+          <DoubleBar
+            :upperWidth="bars[2].upperWidth"
+            :lowerWidth="bars[2].lowerWidth"
+          />
+        </stats-card>
+        <stats-card
+          :cardDescription="bars[3].cardDescription"
+          :barsNumbers="bars[3].barsNumbers"
+          :barsAuthor="bars[3].barsAuthor"
+        >
+          <DoubleBar
+            :upperWidth="bars[3].upperWidth"
+            :lowerWidth="bars[3].lowerWidth"
+          />
+        </stats-card>
+      </div>
+    </container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StatCard from '@/components/StatisticCard';
 import Bar from '@/components/ui/Bar';
 import DoubleBar from '@/components/ui/DoubleBar';
 export default {
   components: {
+    container: Container,
     'stats-card': StatCard,
     bar: Bar,
     DoubleBar: DoubleBar,
@@ -89,8 +99,9 @@ export default {
 
 <style scoped>
 .stats {
-  max-width: 1440px;
-  padding: 100px 60px;
+  /*max-width: 1440px;*/
+  width: 100%;
+  padding: 100px 0;
 }
 .stats__container {
   display: grid;
@@ -108,7 +119,7 @@ export default {
 
 @media screen and (max-width: 1399px) {
   .stats {
-    padding: 90px 50px;
+    padding: 90px 0;
   }
 
   .stats__header {
@@ -121,7 +132,7 @@ export default {
 
 @media screen and (max-width: 1279px) {
   .stats {
-    padding: 90px 50px;
+    padding: 90px 0;
   }
 
   .stats__header {
@@ -138,7 +149,7 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .stats {
-    padding: 80px 50px;
+    padding: 80px 0;
     text-align: center;
   }
 

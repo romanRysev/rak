@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="page-container">
     <banner />
     <videoBlock />
     <stories />
@@ -33,13 +33,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  max-width: 1440px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.page-container {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
 }
 </style>
