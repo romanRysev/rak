@@ -1,25 +1,29 @@
 <template>
   <section class="stories">
-    <h3 class="stories__title">Истории неизлечимых привычек</h3>
-    <stories-grid />
-    <a href="/stories" class="stories__link-all">Больше статей</a>
+    <container>
+      <h3 class="stories__title">Истории неизлечимых привычек</h3>
+      <stories-grid />
+      <more-articles class="more-button" />
+    </container>
   </section>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StoryGrid from '@/components/ui/StoryGrid';
+import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 export default {
   components: {
+    container: Container,
     'stories-grid': StoryGrid,
+    'more-articles': MoreArticlesButton,
   },
 };
 </script>
 
 <style scoped>
 .stories {
-  max-width: 1320px;
   padding: 100px 0;
-  margin: 0 60px;
 }
 .stories__title {
   font-family: 'Inter';
@@ -32,34 +36,22 @@ export default {
   max-width: 413px;
   margin-bottom: 70px;
 }
-.stories__link-all {
-  display: block;
-  text-decoration: none;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+.more-button {
+  padding: 0;
+  margin-top: 70px;
+}
 
-  max-width: 100%;
-  height: 82px;
-  text-align: center;
-  padding: 31px 0;
-  background-color: #fbfbfb;
-  color: #000000;
-}
-.stories__link-all:visited {
-  color: #000000;
-}
 @media screen and (max-width: 1279px) {
   .stories {
-    margin: 0 50px;
     padding: 90px 0;
   }
   .stories__title {
     margin-bottom: 60px;
     font-size: 28px;
     line-height: 32px;
+  }
+  .more-button {
+    margin-top: 40px;
   }
 }
 @media screen and (max-width: 1023px) {
@@ -71,13 +63,15 @@ export default {
     line-height: 28px;
     margin-bottom: 46px;
   }
+  .more-button {
+    margin-top: 40px;
+  }
 }
 @media screen and (max-width: 767px) {
   .stories {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 40px;
   }
   .stories__title {
     max-width: 380px;
@@ -88,7 +82,6 @@ export default {
 @media screen and (max-width: 455px) {
   .stories {
     padding: 50px 0;
-    margin: 0 15px;
   }
   .stories__title {
     font-size: 18px;

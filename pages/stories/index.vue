@@ -1,7 +1,6 @@
 <template>
   <div class="stories-page__container">
     <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
-
     <div class="stories-page__search">
       <input class="stories-page__space" type="text" />
       <button class="stories-page__button">Поиск</button>
