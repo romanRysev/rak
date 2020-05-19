@@ -1,35 +1,39 @@
 <template>
   <section class="your-story">
     <container class="container container_your-story">
-      <h3 class="your-story-header">Расскажите свою историю</h3>
-      <div class="description-container">
-        <div class="description-side">
-          <p class="description-text">
+      <h3 class="your-story__header">Расскажите свою историю</h3>
+      <div class="your-story__description-container">
+        <div class="your-story__description-side">
+          <p class="your-story__description-text">
             Мы публикуем новые истории на сайте раз в неделю. Есть
             2&nbsp;варианта поделиться своей историей неизлечимых привычек,
             навязчивых идей и болезненных привязанностей.
           </p>
-          <div class="variant-toggler">
+          <div class="your-story__variant-toggler">
             <p
               ref="variantOne"
               @click="variantToggler"
-              class="variant variant_active"
+              class="your-story__variant your-story__variant_active"
             >
               1-й вариант
             </p>
-            <p ref="variantTwo" @click="variantToggler" class="variant">
+            <p
+              ref="variantTwo"
+              @click="variantToggler"
+              class="your-story__variant"
+            >
               2-й вариант
             </p>
           </div>
         </div>
-        <div class="variant-side">
-          <p v-if="variantOneShown" class="variant-text">
+        <div class="your-story__variant-side">
+          <p v-if="variantOneShown" class="your-story__variant-text">
             Заполнить подробную форму прямо на сайте и мы опубликуем вашу
             историю после проверки. Пожалуйста, заполняйте все пункты корректно,
             если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м
             вариантом.
           </p>
-          <p v-if="variantTwoShown" class="variant-text">
+          <p v-if="variantTwoShown" class="your-story__variant-text">
             Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
             зададим вопросы, уточним детали вашей истории.
           </p>
@@ -39,7 +43,7 @@
       <!--<Button
         v-if="variantOneShown"
         @custom-click="$store.commit('popup/open')"
-        class="form-button"
+        class="popup__button"
         type="button"
         >Заполнить форму</Button
       >
@@ -47,7 +51,7 @@
       <Button
         v-if="variantTwoShown"
         @custom-click="$store.commit('popup/open')"
-        class="form-button"
+        class="popup__button"
         type="button"
         >Оставить контакт</Button
       >-->
@@ -55,8 +59,7 @@
       <popupbutton
         v-if="variantOneShown"
         @custom-click="$store.commit('popup/open')"
-        className="popup__button"
-        class="form-button"
+        class="popup__button"
       >
         <p class="popup__button-description">
           <slot>Заполнить форму</slot>
@@ -66,8 +69,7 @@
       <popupbutton
         v-if="variantTwoShown"
         @custom-click="$store.commit('popup/open')"
-        className="popup__button"
-        class="form-button"
+        class="popup__button"
       >
         <p class="popup__button-description">
           <slot>Оставить контакт</slot>
@@ -87,11 +89,11 @@ export default {
   },
   methods: {
     variantToggler(e) {
-      if (!e.target.classList.contains('variant_active')) {
+      if (!e.target.classList.contains('your-story__variant_active')) {
         this.variantOneShown = !this.variantOneShown;
         this.variantTwoShown = !this.variantTwoShown;
-        this.$refs.variantOne.classList.toggle('variant_active');
-        this.$refs.variantTwo.classList.toggle('variant_active');
+        this.$refs.variantOne.classList.toggle('your-story__variant_active');
+        this.$refs.variantTwo.classList.toggle('your-story__variant_active');
       }
     },
   },
@@ -106,7 +108,7 @@ export default {
 
 <style scoped>
 .your-story {
-  width: 100vw;
+  width: 100%;
   background-color: #f7f7f7;
   font-size: 18px;
   line-height: 22px;
@@ -116,7 +118,7 @@ export default {
   position: relative;
 }
 
-.your-story-header {
+.your-story__header {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
@@ -125,48 +127,48 @@ export default {
   margin-bottom: 30px;
 }
 
-.description-container {
+.your-story__description-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
 }
 
-.description-side {
+.your-story__description-side {
   width: calc(50% - 20px);
   display: flex;
   justify-content: space-between;
 }
 
-.variant-side {
+.your-story__variant-side {
   width: calc(50% - 20px);
   display: block;
 }
 
-.description-text {
+.your-story__description-text {
   width: 340px;
 }
 
-.variant-toggler {
+.your-story__variant-toggler {
   text-align: right;
   width: 110px;
   line-height: 1.7em;
 }
 
-.variant {
+.your-story__variant {
   cursor: pointer;
 }
 
-.variant:hover {
+.your-story__variant:hover {
   color: black;
 }
 
-.variant_active {
+.your-story__variant_active {
   font-weight: 500;
   color: black;
   cursor: default;
 }
 
-.form-button {
+.popup__button {
   width: 280px;
   max-width: 280px;
   min-width: 180px;
@@ -181,7 +183,7 @@ export default {
   cursor: pointer;
 }
 
-.form-button:hover {
+.popup__button:hover {
   opacity: 0.9;
 }
 
@@ -190,27 +192,27 @@ export default {
     padding: 90px 0;
   }
 
-  .your-story-header {
+  .your-story__header {
     font-size: 28px;
     line-height: 32px;
     width: 380px;
   }
 
-  .description-container {
+  .your-story__description-container {
     margin-bottom: 65px;
   }
 
-  .description-text {
+  .your-story__description-text {
     font-size: 16px;
     line-height: 20px;
     width: 305px;
   }
 
-  .variant-toggler {
+  .your-story__variant-toggler {
     line-height: 1.5em;
   }
 
-  .form-button {
+  .popup__button {
     height: 48px;
     width: 230px;
   }
@@ -223,36 +225,36 @@ export default {
     padding: 75px 0;
   }
 
-  .your-story-header {
+  .your-story__header {
     width: 320px;
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 20px;
   }
 
-  .description-container {
+  .your-story__description-container {
     margin-bottom: 75px;
   }
 
-  .description-text {
+  .your-story__description-text {
     width: 260px;
   }
 
-  .variant-toggler {
+  .your-story__variant-toggler {
     font-size: 15px;
     line-height: 23px;
   }
 
-  .variant-side {
+  .your-story__variant-side {
     width: calc(50% - 15px);
   }
 
-  .variant-text {
+  .your-story__variant-text {
     font-size: 15px;
     line-height: 19px;
   }
 
-  .form-button {
+  .popup__button {
     height: 46px;
     width: 230px;
     left: calc(50% + 15px);
@@ -274,52 +276,52 @@ export default {
     padding: 80px 0;
   }
 
-  .your-story-header {
+  .your-story__header {
     font-size: 24px;
     line-height: 28px;
     text-align: center;
     width: 100%;
   }
 
-  .description-container {
+  .your-story__description-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 45px;
   }
 
-  .description-side {
+  .your-story__description-side {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  .description-text {
+  .your-story__description-text {
     width: 100%;
     font-size: 13px;
     line-height: 16px;
   }
 
-  .variant-toggler {
+  .your-story__variant-toggler {
     width: 100%;
     display: flex;
     margin: 75px 0 25px;
     line-height: 1.8em;
   }
 
-  .variant:not(:last-of-type) {
+  .your-story__variant:not(:last-of-type) {
     margin-right: 30px;
   }
 
-  .variant_active {
+  .your-story__variant_active {
     border-bottom: 2px solid currentColor;
   }
 
-  .variant-side {
+  .your-story__variant-side {
     width: 100%;
     min-height: 95px;
   }
 
-  .form-button {
+  .popup__button {
     position: inherit;
     width: 230px;
     height: 46px;
@@ -340,47 +342,47 @@ export default {
     padding: 45px 0 50px;
   }
 
-  .your-story-header {
+  .your-story__header {
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 16px;
   }
 
-  .description-container {
+  .your-story__description-container {
     flex-direction: column;
     margin-bottom: 30px;
   }
 
-  .description-side {
+  .your-story__description-side {
     flex-direction: column;
     width: 100%;
   }
 
-  .description-text {
+  .your-story__description-text {
     width: 100%;
   }
 
-  .variant-toggler {
+  .your-story__variant-toggler {
     width: 100%;
     display: flex;
     margin: 36px 0 17px;
     line-height: 1.8em;
   }
 
-  .variant:not(:last-of-type) {
+  .your-story__variant:not(:last-of-type) {
     margin-right: 20px;
   }
 
-  .variant_active {
+  .your-story__variant_active {
     border-bottom: 2px solid currentColor;
   }
 
-  .variant-side {
+  .your-story__variant-side {
     width: 100%;
     min-height: 95px;
   }
 
-  .form-button {
+  .popup__button {
     position: inherit;
     width: 100%;
     max-width: 100%;
