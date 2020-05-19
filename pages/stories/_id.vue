@@ -4,17 +4,14 @@
       <div class="story-header">
         <div class="photo-wrapper">
           <div class="inner-wrapper">
-            <img
-              src="/images/card__photo/photo1.jpg"
-              alt=""
-              class="story-photo"
-            />
+            <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
           </div>
         </div>
         <div class="story-header story-header__text-content">
           <h1 class="story-title">
-            <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
-            могу победить свою пунктуальность в отличии от рака»
+            <span class="story-title semi-bold"
+              >{{ getCurrentStory.title }}: </span
+            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
           </h1>
           <ul class="story-header story-header__bottom-string">
             <li>
@@ -25,7 +22,7 @@
               />
             </li>
             <li>
-              <p>20 апреля 2018</p>
+              <p>{{ getCurrentStory.date }}</p>
             </li>
           </ul>
         </div>
@@ -88,7 +85,6 @@
     <container>
       <story-grid class="story-grid" />
     </container>
-
     <more-articles class="more-button" />
   </div>
 </template>
@@ -105,6 +101,15 @@ export default {
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
   },
+  created() {
+    return this.$store.commit('data/stories/setCurrentStory', this.$route);
+  },
+  computed: {
+    getCurrentStory() {
+      return this.$store.getters['data/stories/getCurrentStory'];
+    },
+  },
+
   data() {
     return {
       links: [

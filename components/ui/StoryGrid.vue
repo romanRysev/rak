@@ -1,6 +1,12 @@
 <template>
   <div class="story-grid">
-    <card v-for="card in storyCards" :key="card.id" />
+    <card
+      v-for="card in storyCards"
+      :key="card.id"
+      :title="card.title"
+      :subtitle="card.subtitle"
+      :photo="card.photo"
+    />
   </div>
 </template>
 
@@ -12,19 +18,10 @@ export default {
     card: Card,
   },
 
-  data() {
-    return {
-      storyCards: [
-        { id: 1, photo: '' },
-        { id: 2, photo: '' },
-        { id: 3, photo: '' },
-        { id: 4, photo: '' },
-        { id: 5, photo: '' },
-        { id: 6, photo: '' },
-        { id: 7, photo: '' },
-        { id: 8, photo: '' },
-      ],
-    };
+  computed: {
+    storyCards() {
+      return this.$store.getters['data/stories/getStories'];
+    },
   },
 };
 </script>
