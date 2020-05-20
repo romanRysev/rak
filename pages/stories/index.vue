@@ -8,40 +8,23 @@
         <img src="/Images/lupa.svg" />
       </button>
     </div>
-
     <storyGrid />
-
-    <ul class="stories-page__page-list-container">
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">1</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">2</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">3</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">4</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">5</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">6</span>
-      </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">7</span>
-      </li>
-    </ul>
+    <pagination :totalElements="storyCards.length" :elementsPerPage="3" />
   </div>
 </template>
 
 <script>
 import StoryGrid from '@/components/ui/StoryGrid';
+import pagination from '@/components/ui/pagination';
 export default {
   components: {
     storyGrid: StoryGrid,
+    pagination: pagination,
+  },
+  computed: {
+    storyCards() {
+      return this.$store.getters['data/stories/getStories'];
+    },
   },
 };
 </script>
@@ -125,32 +108,6 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-.stories-page__page-list-container {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  margin-top: 140px;
-  padding: 0;
-}
-.stories-page__element-list {
-  display: block;
-  width: 58px;
-  height: 58px;
-  margin-right: 10px;
-  background-color: #fbfbfb;
-  padding: 20px;
-  cursor: pointer;
-}
-.stories-page__element-list:hover {
-  background-color: #f4f4f4;
-}
-.stories-page__number {
-  color: #181818;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-}
 
 @media screen and (max-width: 1279px) {
   .stories-page__container {
@@ -163,14 +120,6 @@ export default {
   }
   .stories-page__search {
     margin-bottom: 60px;
-  }
-  .stories-page__page-list-container {
-    margin-top: 130px;
-  }
-  .stories-page__element-list {
-    width: 56px;
-    height: 56px;
-    padding: 19px;
   }
 }
 @media screen and (max-width: 1023px) {
@@ -191,14 +140,6 @@ export default {
   .stories-page__search {
     margin-bottom: 46px;
   }
-  .stories-page__page-list-container {
-    margin-top: 110px;
-  }
-  .stories-page__element-list {
-    width: 50px;
-    height: 50px;
-    padding: 15px;
-  }
 }
 @media screen and (max-width: 767px) {
   .stories-page__container {
@@ -209,9 +150,6 @@ export default {
     margin-bottom: 50px;
     max-width: 380px;
     text-align: center;
-  }
-  .stories-page__page-list-container {
-    margin-top: 130px;
   }
 }
 @media screen and (max-width: 600px) {
