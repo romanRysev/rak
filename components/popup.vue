@@ -1,16 +1,18 @@
 <template>
   <div>
     <div>
-      <div
-        :class="['modalWindow', className]"
-        @click="$store.commit('popup/close')"
-      >
+      <div :class="['modalWindow', className]">
         <div class="overlay"></div>
         <div :class="['popup', className]">
-          <popupQuiz
-            step="Шаг 7 из 12"
-            question="Существуют ли какие-то ритуалы/действия, которые Вы совершаете регулярно? Кроме необходимых, таких, как чистка зубов."
+          <img
+            v-if="isLastPage"
+            class="icon__close"
+            @click="$store.commit('popup/close')"
+            src="/images/icon__close.svg"
+            alt="Кнопка закрытия формы отправки сообщения"
           />
+          <!-- <popupQuiz /> -->
+          <slot></slot>
         </div>
       </div>
     </div>
@@ -18,13 +20,24 @@
 </template>
 
 <script>
-import popupQuiz from '@/components/popupQuiz';
-
+// import popupQuiz from '@/components/popupQuiz';
 // import optionFirst from '@/components/ui/optionFirst';
 // import optionSecond from '@/components/ui/optionSecond';
 export default {
-  components: {
-    popupQuiz,
+  props: ['className'],
+  // components: {
+  //   popupQuiz,
+  // },
+  computed: {
+    isLastPage() {
+      const { popupQuiz } = this.$store.state;
+      const { questions, currentQuestion } = popupQuiz;
+      const questionsLength = Object.keys(questions).length;
+      if (questionsLength === currentQuestion) {
+        return false;
+      }
+      return true;
+    },
   },
 };
 </script>
@@ -38,7 +51,6 @@ export default {
   left: 0;
   z-index: 10;
 }
-
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -49,8 +61,8 @@ export default {
   z-index: 12;
 }
 .popup {
-  /* width: 920px;
-  height: 600px;*/
+  width: 920px;
+  height: 600px;
   position: fixed;
   display: flex;
   align-items: center;
@@ -60,7 +72,6 @@ export default {
   width: 100vw;
   height: 100vh;
 }
-
 .popup__header {
   display: flex;
 }
@@ -113,7 +124,6 @@ export default {
   width: 840px;
   height: 0px;
   margin: 0px 40px 200px 40px;
-
   border: 1px solid #e7e7e7;
   box-sizing: border-box;
 }
@@ -121,7 +131,6 @@ export default {
   display: flex;
   padding: 0;
 }
-
 .popupBack__button {
   display: flex;
   width: 48px;
@@ -160,5 +169,49 @@ export default {
   color: #fff;
   margin: auto;
   padding: 0;
+}
+.icon__close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 739px;
+  right: 299px;
+  border: 0;
+  cursor: pointer;
+  z-index: 9999;
+}
+@media all and (max-width: 1279px) {
+  .icon__close {
+    width: 17.36px;
+    top: 265px;
+    left: 977px;
+    position: absolute;
+  }
+}
+@media all and (max-width: 1023px) {
+  .icon__close {
+    width: 17.36px;
+    top: 278px;
+    left: 857px;
+    position: absolute;
+  }
+}
+@media all and (max-width: 767px) {
+  .icon__close {
+    width: 20px;
+    height: 20px;
+    top: 267px;
+    left: 617px;
+    position: absolute;
+  }
+}
+@media all and (max-width: 455px) {
+  .icon__close {
+    width: 20px;
+    height: 20px;
+    top: 250px;
+    left: 335px;
+    position: absolute;
+  }
 }
 </style>
