@@ -15,13 +15,17 @@
           <page-link class="link" :url="links[1].url" :text="links[1].text" />
         </li>
         <li class="footer__link_share">
-          <button
+          <!--<button
             class="footer__share"
             type="button"
             @click="$emit('shareClick')"
           >
             Поделитесь &#8599;
-          </button>
+          </button>-->
+          <button-share
+            :text="links[2].text"
+            @shareClick="$emit('shareClick')"
+          />
         </li>
       </ul>
 
@@ -43,12 +47,14 @@
 import Container from '~/components/Container';
 import Menu from '@/components/Menu';
 import Link from '@/components/ui/Link';
+import ButtonShare from '@/components/ui/ButtonShare';
 export default {
   name: 'Link',
   components: {
     container: Container,
     'main-menu': Menu,
     'page-link': Link,
+    'button-share': ButtonShare,
   },
 
   computed: {
@@ -69,6 +75,9 @@ export default {
           url:
             'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
           text: 'Youtube',
+        },
+        {
+          text: 'Поделитесь <span>&#8599;</span>',
         },
       ],
     };

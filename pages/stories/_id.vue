@@ -18,11 +18,7 @@
           </h1>
           <ul class="story-header story-header__bottom-string">
             <li>
-              <share-link
-                class="share-link"
-                :url="links[0].url"
-                :text="links[0].text"
-              />
+              <button-share :text="links[0].text" @shareClick="showSocial" />
             </li>
             <li>
               <p>20 апреля 2018</p>
@@ -77,11 +73,10 @@
           лечится».
         </p>
       </article>
-
-      <share-link
+      <button-share
         class="share-link share-link_article"
-        :url="links[1].url"
         :text="links[1].text"
+        @shareClick="showSocial"
       />
     </container>
 
@@ -96,6 +91,7 @@
 <script>
 import Container from '~/components/Container';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
+import ButtonShare from '@/components/ui/ButtonShare';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
 export default {
@@ -104,21 +100,30 @@ export default {
     'share-link': Link,
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
+    'button-share': ButtonShare,
   },
   data() {
     return {
       links: [
         {
-          url: '#',
           text: 'Поделитесь <span>&#8599</span>',
         },
         {
-          url: '#',
           text:
             'Поделитесь этой статьей в своих социальных сетях <span>&#8599</span>',
         },
       ],
     };
+  },
+  computed: {
+    socialShown() {
+      return this.$store.getters['data/social/getSocialShown'];
+    },
+  },
+  methods: {
+    showSocial() {
+      this.$store.commit('data/social/toggleSocial');
+    },
   },
 };
 </script>
@@ -222,8 +227,6 @@ export default {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
   height: 84px;
-  display: inline-grid;
-  align-items: center;
   text-align: center;
   margin-top: 70px;
   font-size: 18px;
