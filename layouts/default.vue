@@ -12,7 +12,7 @@
     <break-line class="break-line_mobile-menu" />
     <main-header />
     <break-line class="break-line" v-if="$route.path !== '/'" />
-    <popup v-if="this.$store.state.popup.popupShown"></popup>
+    <popup v-if="this.$store.state.popup.popupShown"><popupQuiz /></popup>
     <nuxt />
     <social v-if="socialShown" />
     <main-footer @shareClick="showSocial" />
@@ -27,6 +27,7 @@ import Header from '@/components/Header';
 import popup from '@/components/popup';
 import Social from '@/components/Social';
 import Footer from '@/components/Footer';
+import popupQuiz from '@/components/popupQuiz';
 
 export default {
   components: {
@@ -35,6 +36,7 @@ export default {
     'mobile-menu': MobileMenu,
     'main-header': Header,
     popup,
+    popupQuiz,
     social: Social,
     'main-footer': Footer,
   },
