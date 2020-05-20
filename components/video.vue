@@ -18,7 +18,7 @@
         />
         <button class="selector selector__button selector__button_right" />
       </div>
-      
+
       <div class="frame-container">
         <iframe
           class="frame"
@@ -167,6 +167,7 @@ export default {
 
 .play-button:hover {
   background-image: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+}
 
 .video-notation {
   font-size: 12px;
@@ -252,8 +253,6 @@ export default {
   .video {
     padding: 80px 0 0 0;
   }
-
-=======
 }
 
 @media all and (min-width: 1280px) and (max-width: 1439px) {
@@ -423,9 +422,6 @@ export default {
 @media all and (max-width: 729px) {
   .video {
     padding: 40px 0 0 0;
-  }
-
-=======
   }
 
   .frame-container {
