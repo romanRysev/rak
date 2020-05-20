@@ -1,35 +1,24 @@
 <template>
-  <a :href="href" class="card__link">
-    <div class="card">
-      <div class="card__photo-contaimer">
-        <img class="card__photo" :src="photo" alt="Фото автора" />
-      </div>
-
-      <h3 class="card__title">{{ title }}</h3>
-      <p class="card__subtitle">{{ subtitle }}</p>
+  <div class="card">
+    <div class="card__photo-contaimer">
+      <img
+        class="card__photo"
+        src="/images/card__photo/photo1.jpg"
+        alt="Фото автора"
+      />
     </div>
-  </a>
+
+    <h3 class="card__title">Владимир Тен</h3>
+    <p class="card__subtitle">
+      Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
+    </p>
+  </div>
 </template>
 
 <script>
-export default {
-  props: {
-    photo: String,
-    title: String,
-    subtitle: String,
-    href: String,
-  },
-};
+export default {};
 </script>
 <style scoped>
-.card {
-  text-align: left;
-}
-
-.card__link {
-  text-decoration: none;
-}
-
 .card__title {
   margin-bottom: 14px;
   font-style: normal;

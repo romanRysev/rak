@@ -28,10 +28,6 @@ export default {
 </script>
 
 <style scoped>
-.mobile-menu {
-  padding: 18px 0;
-}
-
 .mobile-menu__link {
   color: #000;
   text-decoration: none;

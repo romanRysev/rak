@@ -86,7 +86,7 @@ export default {
 <style scoped>
 .about-project {
   background-color: #613a93;
-  width: 100%;
+  width: 100vw;
   padding: 90px 60px 100px 60px;
   min-height: 650px;
 }

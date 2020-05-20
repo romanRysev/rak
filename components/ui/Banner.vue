@@ -20,7 +20,7 @@ export default {
 .head-banner {
   background: #613a93;
   min-height: calc(100vh - 76px);
-  width: 100%;
+  width: 100vw;
   position: relative;
   text-align: center;
   display: flex;
