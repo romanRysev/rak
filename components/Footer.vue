@@ -1,40 +1,63 @@
 <template>
   <footer class="footer">
-    <p class="footer__text">Спасибо всем, кто помог состояться этому проекту</p>
+    <container class="container container_footer">
+      <p class="footer__text">
+        Спасибо всем, кто помог состояться этому проекту
+      </p>
 
-    <main-menu class="footer__menu" />
+      <main-menu class="footer__menu" />
 
-    <ul class="footer__links">
-      <li class="footer__social">
-        Мы в
-        <page-link class="link" :url="links[0].url" :text="links[0].text" /> и
-        <page-link class="link" :url="links[1].url" :text="links[1].text" />
-      </li>
-      <li class="footer__link_share">
-        <page-link class="link" :url="links[2].url" :text="links[2].text" />
-      </li>
-    </ul>
+      <ul class="footer__links">
+        <li class="footer__social">
+          Мы в
+          <page-link class="link" :url="links[0].url" :text="links[0].text" />
+          и
+          <page-link class="link" :url="links[1].url" :text="links[1].text" />
+        </li>
+        <li class="footer__link_share">
+          <button
+            class="footer__share"
+            type="button"
+            @click="$emit('shareClick')"
+          >
+            Поделитесь &#8599;
+          </button>
+        </li>
+      </ul>
 
-    <p class="footer__copyright footer__copyright_project">Рак Лечится 2020</p>
-    <a
-      href="https://praktikum.yandex.ru/"
-      target="_blank"
-      class="footer__copyright footer__copyright_authors"
-    >
-      Сделано студентами Яндекс Практикум
-    </a>
+      <p class="footer__copyright footer__copyright_project">
+        Рак Лечится {{ date }}
+      </p>
+      <a
+        href="https://praktikum.yandex.ru/"
+        target="_blank"
+        class="footer__copyright footer__copyright_authors"
+      >
+        Сделано студентами Яндекс Практикум
+      </a>
+    </container>
   </footer>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import Menu from '@/components/Menu';
 import Link from '@/components/ui/Link';
 export default {
   name: 'Link',
   components: {
+    container: Container,
     'main-menu': Menu,
     'page-link': Link,
   },
+
+  computed: {
+    date() {
+      const date = new Date();
+      return date.getFullYear();
+    },
+  },
+
   data() {
     return {
       links: [
@@ -47,10 +70,6 @@ export default {
             'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
           text: 'Youtube',
         },
-        {
-          url: '#',
-          text: 'Поделитесь <span>&#8599;</span>',
-        },
       ],
     };
   },
@@ -58,10 +77,9 @@ export default {
 </script>
 
 <style scoped>
-.footer {
+.container_footer {
   min-height: 356px;
-  width: calc(100% - 120px);
-  margin: 0 auto;
+  width: 100%;
   padding: 60px 0;
   box-sizing: border-box;
   display: grid;
@@ -88,6 +106,7 @@ export default {
   grid-area: Nav;
   align-self: start;
   margin-left: 113px;
+  z-index: 0;
 }
 
 .footer__links {
@@ -106,8 +125,20 @@ export default {
 }
 
 .footer__share {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+  width: fit-content;
   grid-area: Share;
+  background-color: #fff;
   color: #121212;
+}
+
+.footer__share:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .footer__copyright {
@@ -128,10 +159,9 @@ export default {
 }
 
 @media screen and (max-width: 1439px) {
-  .footer {
+  .container_footer {
     min-height: 316px;
-    width: calc(100% - 100px);
-    padding: 50px 0;
+    padding: 50px 50px;
   }
 
   .footer__text {
@@ -148,16 +178,19 @@ export default {
     width: 265px;
   }
 
+  .footer__share {
+    font-size: 16px;
+  }
+
   .footer__copyright {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 1279px) {
-  .footer {
+  .container_footer {
     min-height: 292px;
-    width: calc(100% - 100px);
-    padding: 50px 0;
+    padding: 50px 50px;
   }
 
   .footer__text {
@@ -170,7 +203,6 @@ export default {
   }
 
   .footer__links {
-    font-size: 16px;
     width: fit-content;
   }
   .footer__social {
@@ -194,9 +226,8 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .footer {
+  .container_footer {
     min-height: 402px;
-    width: calc(100% - 30px);
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, min-content);
     grid-template-areas:
@@ -230,6 +261,10 @@ export default {
     width: 100%;
     justify-self: start;
     padding-bottom: 50px;
+  }
+  .footer__share {
+    font-size: 13px;
+    line-height: 15px;
   }
 
   .footer__social {

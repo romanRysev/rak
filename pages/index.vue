@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div class="page-container">
     <banner />
-    <videoBlock />
+    <videoblock />
     <stories />
     <instagram />
-    <your_story />
+    <tellstory />
     <statistic />
     <about />
   </div>
@@ -21,10 +21,10 @@ import AboutProject from '~/components/AboutProject';
 
 export default {
   components: {
-    videoBlock: video,
+    videoblock: video,
     stories: Stories,
     instagram: Instagram,
-    your_story: TellYourStory,
+    tellstory: TellYourStory,
     statistic: Statistic,
     banner: Banner,
     about: AboutProject,
@@ -33,13 +33,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  max-width: 1440px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.page-container {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
 }
 </style>

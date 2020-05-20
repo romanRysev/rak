@@ -2,14 +2,12 @@
   <nav class="menu">
     <nuxt-link
       to="/"
-      class="menu__link"
-      :class="{ menu__link_active: $route.path == '/' }"
+      :class="['menu__link', { menu__link_active: $route.path == '/' }]"
       >Главная</nuxt-link
     >
     <nuxt-link
       to="/stories"
-      class="menu__link"
-      :class="{ menu__link_active: $route.path == '/stories' }"
+      :class="['menu__link', { menu__link_active: $route.path == '/stories' }]"
       >Истории</nuxt-link
     >
     <slot></slot>
@@ -40,15 +38,15 @@
   opacity: 0.8;
 }
 
-.header__menu .menu__link_active {
-  border-bottom: 1px solid #000;
+.menu__link_active {
+  border-bottom: 2px solid #000;
 }
 
-.header__menu .menu__link_active:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+.menu__link_active:hover {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1429px) {
   .menu {
     font-size: 16px;
   }

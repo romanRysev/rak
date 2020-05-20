@@ -12,9 +12,6 @@
 <script>
 import Bar from '@/components/ui/Bar';
 export default {
-  components: {
-    'stats-bar': Bar,
-  },
   props: {
     cardDescription: String,
     barsNumbers: String,
@@ -46,7 +43,7 @@ export default {
 .stat-card__bars-author {
   font-size: 12px;
   line-height: 16px;
-  color: #666666;
+  color: #666;
 }
 
 .stat-card__card-description {
@@ -61,6 +58,13 @@ export default {
     height: 265px;
     padding: 18px;
   }
+
+  .stat-card__bars-numbers {
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 40px;
+  }
 }
 
 @media screen and (max-width: 1279px) {
@@ -69,5 +73,31 @@ export default {
     height: 208px;
     padding: 10px;
   }
+
+  .stat-card__bars-numbers {
+    padding: 10px 0;
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .stat-card__bars-author {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .stat-card__card-description {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .stat-card {
+    width: 216px;
+    height: 216px;
+  }
+}
+
+@media screen and (max-width: 320px) {
 }
 </style>

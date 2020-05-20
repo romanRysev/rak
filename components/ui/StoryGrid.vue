@@ -1,13 +1,6 @@
 <template>
   <div class="story-grid">
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
-    <story-grid__card />
+    <card v-for="card in storyCards" :key="card.id" />
   </div>
 </template>
 
@@ -16,7 +9,22 @@ import Card from '@/components/ui/Card';
 
 export default {
   components: {
-    'story-grid__card': Card,
+    card: Card,
+  },
+
+  data() {
+    return {
+      storyCards: [
+        { id: 1, photo: '' },
+        { id: 2, photo: '' },
+        { id: 3, photo: '' },
+        { id: 4, photo: '' },
+        { id: 5, photo: '' },
+        { id: 6, photo: '' },
+        { id: 7, photo: '' },
+        { id: 8, photo: '' },
+      ],
+    };
   },
 };
 </script>
@@ -28,8 +36,6 @@ export default {
   grid-template-rows: repeat(2, 1fr);
   row-gap: 70px;
   column-gap: 40px;
-  max-width: 1320px;
-  margin-bottom: 70px;
 }
 @media screen and (max-width: 1024px) {
   .story-grid {
@@ -38,9 +44,6 @@ export default {
   }
 }
 @media screen and (max-width: 1279px) {
-  .story-grid {
-    margin-bottom: 60px;
-  }
 }
 @media screen and (max-width: 767px) {
   .story-grid {
@@ -48,7 +51,6 @@ export default {
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 40px;
-    margin-bottom: 46px;
   }
 }
 @media screen and (max-width: 455px) {
@@ -57,7 +59,6 @@ export default {
     grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
-    margin-bottom: 40px;
   }
 }
 </style>

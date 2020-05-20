@@ -1,30 +1,34 @@
 <template>
   <header class="header">
-    <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
-      >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
-    >
-    <p class="header__logo" v-else>
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <hamburger-menu />
-    <main-menu class="header__menu">
-      <p
-        class="menu__link header__link_share"
-        @click="$store.commit('popup/open')"
-      >
-        Рассказать историю
+    <container class="container container_header">
+      <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
+        >Проект Благотворительного Фонда Константина Хабенского
+      </nuxt-link>
+      <p class="header__logo" v-else>
+        Проект Благотворительного Фонда Константина Хабенского
       </p>
-    </main-menu>
-    <hamburger-menu class="header__mobile-icon" />
+      <main-menu class="header__menu">
+        <button
+          type="button"
+          class="menu__link header__share"
+          @click="$store.commit('popup/open')"
+        >
+          Рассказать историю
+        </button>
+      </main-menu>
+      <hamburger-menu class="header__mobile-icon" />
+    </container>
   </header>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import Menu from '@/components/Menu';
 import Hamburger from './ui/Hamburger.vue';
 
 export default {
   components: {
+    container: Container,
     'main-menu': Menu,
     'hamburger-menu': Hamburger,
   },
@@ -32,10 +36,9 @@ export default {
 </script>
 
 <style scoped>
-.header {
+.container_header {
   min-height: 76px;
-  width: calc(100% - 120px);
-  margin: 0 auto;
+  width: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -59,9 +62,26 @@ export default {
   color: #000;
 }
 
-.header__link_share {
+.header__share {
+  width: fit-content;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
   color: #121212;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+  transition: 0.3s;
+}
+
+.header__share:hover {
+  cursor: pointer;
+  opacity: 0.8;
+>>>>>>> romanRysev-develop
 }
 
 .header__mobile-icon {
@@ -69,12 +89,14 @@ export default {
 }
 
 @media screen and (max-width: 1429px) {
-  .header {
+  .container_header {
     min-height: 72px;
-    width: calc(100% - 100px);
   }
   .header__logo {
     line-height: 18px;
+  }
+  .header__share {
+    font-size: 16px;
   }
 }
 
@@ -89,9 +111,8 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .header {
+  .container_header {
     min-height: 64px;
-    width: calc(100% - 30px);
   }
   .header__logo {
     width: 216px;
