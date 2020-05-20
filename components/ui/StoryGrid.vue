@@ -6,6 +6,7 @@
       :title="card.title"
       :subtitle="card.subtitle"
       :photo="card.photo"
+      :href="storyHref(card.id)"
     />
   </div>
 </template>
@@ -18,6 +19,11 @@ export default {
     card: Card,
   },
 
+  methods: {
+    storyHref(id) {
+      return 'stories/' + id;
+    },
+  },
   computed: {
     storyCards() {
       return this.$store.getters['data/stories/getStories'];
