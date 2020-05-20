@@ -1,24 +1,22 @@
 <template>
   <section class="video">
     <container class="container container_video">
-      <div class="description-side">
-        <div class="description-side__text">
-          <h3 class="section-title">
-            Истории людей, победивших рак, но не свои привычки
-          </h3>
-          <p class="section-description">
-            Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я»,
-            фобии, страхи. Но это точно не рак. Рак лечится. Лучшее
-            доказательство — люди с их историями.
-          </p>
-        </div>
+      <div class="description-side__text">
+        <h3 class="section-title">
+          Истории людей, победивших рак, но не свои привычки
+        </h3>
+        <p class="section-description">
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями.
+        </p>
+      </div>
 
-        <div class="selector">
-          <button
-            class="selector selector__button selector__button_left selector__button_left_disabled"
-          />
-          <button class="selector selector__button selector__button_right" />
-        </div>
+      <div class="selector">
+        <button
+          class="selector selector__button selector__button_left selector__button_left_disabled"
+        />
+        <button class="selector selector__button selector__button_right" />
       </div>
 
       <div class="frame-container">
@@ -32,21 +30,21 @@
           allowfullscreen
         />
         <button class="play-button" />
-      </div>
 
-      <p class="video-notation">
-        Все видео вы можете найти на нашем
-        <a
-          class="video-notation__link"
-          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          >YouTube канале</a
-        >.
-      </p>
+        <p class="video-notation">
+          Все видео вы можете найти на нашем
+          <a
+            class="video-notation__link"
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            >YouTube канале</a
+          >.
+        </p>
+      </div>
     </container>
 
     <container>
       <h3 class="hashtag-band">
-        и в отличие от рака,<span class="hashtag">&nbsp;#этонелечится</span>
+        и в отличие от рака, <span class="hashtag">#этонелечится</span>
       </h3>
     </container>
   </section>
@@ -66,18 +64,19 @@ export default {
   padding: 100px 0 0 0;
   color: #666;
 }
+
 .container_video {
-  margin-bottom: 74px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(2, min-content);
+  grid-template-rows: repeat(3, min-content);
 }
-.description-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+.description-side__text {
+  grid-column-start: span 1;
   padding: 10px 0 0 0;
 }
+
 .section-title {
   margin-bottom: 32px;
   font-weight: 600;
@@ -85,19 +84,25 @@ export default {
   line-height: 36px;
   color: #000;
 }
+
 .section-description {
   font-size: 18px;
   line-height: 22px;
   max-width: 340px;
 }
+
 .selector {
+  grid-column: 1/2;
+  grid-row: 2/3;
   display: flex;
   flex-direction: row;
   width: 80px;
   height: 40px;
+  align-self: end;
 }
+
 .selector__button {
-  width: 50%;
+  max-width: 40px;
   height: 40px;
   margin: 0px;
   background-repeat: no-repeat;
@@ -131,6 +136,8 @@ export default {
 }
 
 .frame-container {
+  grid-column: 2/3;
+  grid-row: 1/3;
   width: 100%;
   max-width: 867px;
   height: 450px;
@@ -147,7 +154,6 @@ export default {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,18 +162,21 @@ export default {
   background-image: url("data:image/svg+xml,%3Csvg fill='none' height='90' viewBox='0 0 90 90' width='90' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath clip-rule='evenodd' d='m45 90c24.8528 0 45-20.1472 45-45s-20.1472-45-45-45-45 20.1472-45 45 20.1472 45 45 45zm-8.9341-26.1464 27.2472-17.1613c1.2455-.7845 1.2455-2.6001 0-3.3846l-27.2472-17.1613c-1.3319-.8388-3.0659.1183-3.0659 1.6923v34.3226c0 1.574 1.734 2.5311 3.0659 1.6923z' fill='%23cecece' fill-rule='evenodd' opacity='.8'/%3E%3C/svg%3E");
   cursor: pointer;
 }
+
 .video-notation {
   font-size: 12px;
   line-height: 16px;
   grid-column: 2 / span 1;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
   max-width: 867px;
   justify-self: end;
 }
+
 .video-notation__link {
   color: #666;
 }
+
 .hashtag-band {
   height: 86px;
   background: #613a93;
@@ -176,57 +185,221 @@ export default {
   display: flex;
   font-size: 30px;
   line-height: 46px;
+  font-weight: normal;
   color: #fff;
   text-transform: uppercase;
 }
 
 .hashtag {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 40px;
+  display: contents;
 }
 
-@media all and (min-width: 1024px) and (max-width: 1439px) {
+@media all and (min-width: 1280px) and (max-width: 1439px) {
+  .video {
+    padding: 90px 0 0 0;
+  }
+
+  .container_video {
+    margin-bottom: 90px;
+  }
+
   .section-title {
-    /*display: flex;*/
-    /*width: 100%;*/
+    font-size: 28px;
+    line-height: 32px;
+    max-width: 370px;
   }
 
   .section-description {
-    /*display: flex;*/
-    /*width: 80%;*/
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 310px;
   }
 
-  .selector {
-    display: flex;
-    width: 20%;
-  }
-
-  .selector__button_left {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
-
-  .selector__button_right {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
-
-  .video-frame {
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*display: flex;*/
-  }
-
-  .video-notation {
-    /*width: 60%;*/
+  .frame-container {
+    max-width: 773px;
+    height: 400px;
+    justify-self: end;
   }
 
   .hashtag-band {
-    /*width: 92vw;*/
-    /*height: 86px;*/
-    /*display: flex;*/
+    font-size: 28px;
+    line-height: 46px;
+  }
+
+  .hashtag {
+    font-size: 38px;
+  }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1279px) {
+  .video {
+    padding: 80px 0 0 0;
+  }
+
+  .container_video {
+    margin-bottom: 80px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    line-height: 28px;
+    max-width: 290px;
+    margin-bottom: 20px;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 260px;
+  }
+
+  .frame-container {
+    max-width: 606px;
+    height: 314px;
+    justify-self: end;
+  }
+
+  .hashtag-band {
+    height: 80px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .hashtag {
+    font-size: 34px;
+  }
+}
+
+@media all and (min-width: 730px) and (max-width: 1023px) {
+  .video {
+    padding: 80px 0 0 0;
+  }
+
+  .container_video {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    margin-bottom: 80px;
+  }
+
+  .description-side__text {
+    grid-column-start: span 3;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 60px;
+    padding: 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 25px;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 380px;
+  }
+
+  .selector {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    width: 100%;
+    justify-content: space-between;
+    align-self: center;
+  }
+
+  .frame-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 580px;
+    height: 300px;
+  }
+
+  .video-notation {
+    margin-top: 15px;
+  }
+
+  .hashtag-band {
+    height: 100px;
+    font-size: 22px;
+    line-height: 36px;
+    flex-direction: column;
+  }
+
+  .hashtag {
+    display: inline-block;
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 729px) {
+  .video {
+    padding: 40px 0 0 0;
+  }
+
+  .container_video {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    margin-bottom: 45px;
+  }
+
+  .description-side__text {
+    grid-column-start: span 3;
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto 40px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 15px;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 100%;
+  }
+
+  .selector {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 100%;
+    justify-content: space-between;
+    align-self: center;
+  }
+
+  .selector__button {
+    width: 20px;
+    background-color: transparent;
+    z-index: 2;
+  }
+
+  .frame-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 290px;
+    height: 150px;
+  }
+
+  .video-notation {
+    display: none;
+  }
+
+  .hashtag-band {
+    font-size: 16px;
+    line-height: 24px;
+    flex-direction: column;
+  }
+
+  .hashtag {
+    display: inline-block;
+    font-size: 22px;
   }
 }
 </style>
