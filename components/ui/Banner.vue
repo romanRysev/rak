@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .head-banner {
   background: #613a93;
-  height: 689px;
+  min-height: calc(100vh - 76px);
   width: 100vw;
   position: relative;
   text-align: center;
@@ -37,8 +37,8 @@ export default {
 .head-banner__arrow {
   position: absolute;
   bottom: 40px;
-  left: calc(50% - 19px);
-  margin-right: 19px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media screen and (max-width: 1399px) {
@@ -48,7 +48,7 @@ export default {
   }
 
   .head-banner {
-    height: 620px;
+    min-height: calc(100vh - 72px);
   }
 }
 
@@ -76,7 +76,7 @@ export default {
   }
 
   .head-banner {
-    height: 480px;
+    min-height: calc(100vh - 64px);
   }
 }
 </style>

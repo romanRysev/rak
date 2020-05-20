@@ -3,40 +3,20 @@
     <container>
       <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
       <div class="stats__container">
-        <stats-card
-          :cardDescription="bars[0].cardDescription"
-          :barsNumbers="bars[0].barsNumbers"
-          :barsAuthor="bars[0].barsAuthor"
+        <statscard
+          v-for="bar in bars"
+          :key="bar.id"
+          :cardDescription="bar.cardDescription"
+          :barsNumbers="bar.barsNumbers"
+          :barsAuthor="bar.barsAuthor"
         >
-          <bar :fill="bars[0].fill" />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[1].cardDescription"
-          :barsNumbers="bars[1].barsNumbers"
-          :barsAuthor="bars[1].barsAuthor"
-        >
-          <bar :fill="bars[1].fill" />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[2].cardDescription"
-          :barsNumbers="bars[2].barsNumbers"
-          :barsAuthor="bars[2].barsAuthor"
-        >
-          <DoubleBar
-            :upperWidth="bars[2].upperWidth"
-            :lowerWidth="bars[2].lowerWidth"
+          <bar v-if="!bar.doubleBar" :fill="bar.fill" />
+          <doublebar
+            v-if="bar.doubleBar"
+            :upperWidth="bar.upperWidth"
+            :lowerWidth="bar.lowerWidth"
           />
-        </stats-card>
-        <stats-card
-          :cardDescription="bars[3].cardDescription"
-          :barsNumbers="bars[3].barsNumbers"
-          :barsAuthor="bars[3].barsAuthor"
-        >
-          <DoubleBar
-            :upperWidth="bars[3].upperWidth"
-            :lowerWidth="bars[3].lowerWidth"
-          />
-        </stats-card>
+        </statscard>
       </div>
     </container>
   </section>
@@ -50,9 +30,9 @@ import DoubleBar from '@/components/ui/DoubleBar';
 export default {
   components: {
     container: Container,
-    'stats-card': StatCard,
+    statscard: StatCard,
     bar: Bar,
-    DoubleBar: DoubleBar,
+    doublebar: DoubleBar,
   },
 
   data() {
@@ -60,6 +40,7 @@ export default {
       bars: [
         {
           id: 1,
+          doubleBar: false,
           fill: 'width: 33%',
           cardDescription:
             'Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.',
@@ -68,6 +49,7 @@ export default {
         },
         {
           id: 2,
+          doubleBar: false,
           fill: 'width: 2.6%',
           cardDescription: '2,6% Россиян имеют онкозаболевания.',
           barsNumbers: '3 700 000',
@@ -75,7 +57,8 @@ export default {
         },
         {
           id: 3,
-          upperWidth: 'width: 160px',
+          doubleBar: true,
+          upperWidth: 'width: 55%',
           lowerWidth: 'width: 128%',
           cardDescription:
             'На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.',
@@ -84,7 +67,8 @@ export default {
         },
         {
           id: 4,
-          upperWidth: 'width: 190px',
+          doubleBar: true,
+          upperWidth: 'width: 70%',
           lowerWidth: 'width: 75%',
           cardDescription:
             'На 25% снизилась смертность в течение первого года после постановки диагноза.',
@@ -142,7 +126,7 @@ export default {
     max-width: 288px;
   }
 
-  .stats-container {
+  .stats__container {
     column-gap: 30px;
   }
 }
@@ -158,8 +142,30 @@ export default {
     max-width: 380px;
   }
 
-  .stats-container {
+  .stats__container {
     column-gap: 20px;
+    max-width: 100vw;
+    overflow-x: scroll;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .stats {
+    padding: 50px 10px;
+    text-align: left;
+  }
+
+  .stats__header {
+    margin: 0 auto 30px;
+    max-width: 280px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .stats__container {
+    column-gap: 10px;
+    overflow-x: scroll;
   }
 }
 </style>

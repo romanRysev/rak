@@ -8,9 +8,13 @@
         Проект Благотворительного Фонда Константина Хабенского
       </p>
       <main-menu class="header__menu">
-        <nuxt-link to="#" class="menu__link header__link_share"
-          >Рассказать историю
-        </nuxt-link>
+        <button
+          type="button"
+          class="menu__link header__share"
+          @click="$store.commit('popup/open')"
+        >
+          Рассказать историю
+        </button>
       </main-menu>
       <hamburger-menu class="header__mobile-icon" />
     </container>
@@ -58,8 +62,22 @@ export default {
   color: #000;
 }
 
-.header__link_share {
+.header__share {
+  width: fit-content;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
   color: #121212;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+  transition: 0.3s;
+}
+
+.header__share:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .header__mobile-icon {
@@ -72,6 +90,9 @@ export default {
   }
   .header__logo {
     line-height: 18px;
+  }
+  .header__share {
+    font-size: 16px;
   }
 }
 
