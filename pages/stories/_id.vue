@@ -66,12 +66,6 @@ export default {
   created() {
     return this.$store.commit('data/stories/setCurrentStory', this.$route);
   },
-  computed: {
-    getCurrentStory() {
-      return this.$store.getters['data/stories/getCurrentStory'];
-    },
-  },
-
   data() {
     return {
       links: [
@@ -88,6 +82,9 @@ export default {
   computed: {
     socialShown() {
       return this.$store.getters['data/social/getSocialShown'];
+    },
+    getCurrentStory() {
+      return this.$store.getters['data/stories/getCurrentStory'];
     },
   },
   methods: {
