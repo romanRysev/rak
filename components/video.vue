@@ -1,7 +1,7 @@
 <template>
   <section class="video">
     <container class="container container_video">
-      <div class="description-side__text">
+      <div class="text-content">
         <h3 class="section-title">
           Истории людей, победивших рак, но не свои привычки
         </h3>
@@ -21,7 +21,7 @@
 
       <div class="frame-container">
         <iframe
-          class="video-frame"
+          class="frame"
           id="ytplayer"
           type="text/html"
           width="100%"
@@ -29,12 +29,29 @@
           src="https://www.youtube.com/embed/coOppM34GtI"
           allowfullscreen
         />
-        <button class="play-button" />
+        <button class="play-button">
+          <svg
+            class="playsvg"
+            width="100%"
+            height="100%"
+            viewBox="0 0 90 90"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.8"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z"
+              fill="#CECECE"
+            />
+          </svg>
+        </button>
 
         <p class="video-notation">
           Все видео вы можете найти на нашем
           <a
-            class="video-notation__link"
+            class="video-notation video-notation__link"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             >YouTube канале</a
           >.
@@ -72,7 +89,7 @@ export default {
   grid-template-rows: repeat(3, min-content);
 }
 
-.description-side__text {
+.text-content {
   grid-column-start: span 1;
   padding: 10px 0 0 0;
 }
@@ -145,21 +162,24 @@ export default {
   position: relative;
 }
 
-.video-frame {
+.frame {
   border: 0;
 }
 
 .play-button {
-  margin: auto;
   width: 90px;
-  height: 90px;
+  /*height: 90px;*/
   border-radius: 50%;
+  padding: 0;
+  border: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ff5894;
-  background-image: url("data:image/svg+xml,%3Csvg fill='none' height='90' viewBox='0 0 90 90' width='90' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath clip-rule='evenodd' d='m45 90c24.8528 0 45-20.1472 45-45s-20.1472-45-45-45-45 20.1472-45 45 20.1472 45 45 45zm-8.9341-26.1464 27.2472-17.1613c1.2455-.7845 1.2455-2.6001 0-3.3846l-27.2472-17.1613c-1.3319-.8388-3.0659.1183-3.0659 1.6923v34.3226c0 1.574 1.734 2.5311 3.0659 1.6923z' fill='%23cecece' fill-rule='evenodd' opacity='.8'/%3E%3C/svg%3E");
+  background-color: transparent;
+}
+
+.playsvg {
   cursor: pointer;
 }
 
@@ -223,6 +243,10 @@ export default {
     justify-self: end;
   }
 
+  .play-button {
+    width: 76px;
+  }
+
   .hashtag-band {
     font-size: 28px;
     line-height: 46px;
@@ -261,6 +285,10 @@ export default {
     justify-self: end;
   }
 
+  .play-button {
+    width: 76px;
+  }
+
   .hashtag-band {
     height: 80px;
     font-size: 24px;
@@ -283,7 +311,7 @@ export default {
     margin-bottom: 80px;
   }
 
-  .description-side__text {
+  .text-content {
     grid-column-start: span 3;
     width: 100%;
     max-width: 380px;
@@ -319,6 +347,10 @@ export default {
     height: 300px;
   }
 
+  .play-button {
+    width: 76px;
+  }
+
   .video-notation {
     margin-top: 15px;
   }
@@ -347,7 +379,7 @@ export default {
     margin-bottom: 45px;
   }
 
-  .description-side__text {
+  .text-content {
     grid-column-start: span 3;
     width: 100%;
     max-width: 290px;
@@ -385,6 +417,10 @@ export default {
     grid-row: 2/3;
     width: 290px;
     height: 150px;
+  }
+
+  .play-button {
+    width: 38px;
   }
 
   .video-notation {
