@@ -21,6 +21,7 @@ export default {
   components: {
     container: Container,
   },
+  props: ['error'],
 };
 </script>
 
