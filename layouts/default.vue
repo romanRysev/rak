@@ -1,16 +1,21 @@
 <template>
   <div class="main-container">
-    <mobile-menu v-if="isMobileMenuOpened" class="container_mobile-menu">
-      <nuxt-link to="#" class="mobile-menu__link header__link_share"
-        >Рассказать историю
-      </nuxt-link>
+    <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu">
+      <button
+        type="button"
+        class="menu__link header__share"
+        @click="$store.commit('popup/open')"
+      >
+        Рассказать историю
+      </button>
     </mobile-menu>
-    <break-line class="break-line" />
+    <break-line class="break-line_mobile-menu" />
     <main-header />
-
+    <break-line class="break-line" v-if="$route.path !== '/'" />
     <popup v-if="this.$store.state.popup.popupShown"></popup>
     <nuxt />
-    <main-footer />
+    <social v-if="socialShown" />
+    <main-footer @shareClick="showSocial" />
   </div>
 </template>
 
@@ -20,6 +25,7 @@ import BreakLine from '@/components/ui/BreakLine';
 import MobileMenu from '@/components/MobileMenu';
 import Header from '@/components/Header';
 import popup from '@/components/popup';
+import Social from '@/components/Social';
 import Footer from '@/components/Footer';
 
 export default {
@@ -29,11 +35,20 @@ export default {
     'mobile-menu': MobileMenu,
     'main-header': Header,
     popup,
+    social: Social,
     'main-footer': Footer,
   },
   computed: {
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+    socialShown() {
+      return this.$store.getters['data/social/getSocialShown'];
+    },
+  },
+  methods: {
+    showSocial() {
+      this.$store.commit('data/social/toggleSocial');
     },
   },
 };
@@ -61,7 +76,7 @@ html {
   display: none;
 }
 
-.break-line {
+.break-line_mobile-menu {
   display: none;
 }
 
@@ -72,10 +87,6 @@ html {
 
 .mobile-menu__link:hover {
   opacity: 0.8;
-}
-
-.header__link_share {
-  color: #121212;
 }
 
 @media screen and (max-width: 1023px) {
@@ -91,7 +102,25 @@ html {
     margin: 18px 0;
   }
 
-  .break-line {
+  .header__share {
+    width: fit-content;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #121212;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: normal;
+    transition: 0.3s;
+  }
+
+  .header__share:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .break-line_mobile-menu {
     display: block;
   }
 }
@@ -101,6 +130,10 @@ html {
     font-size: 13px;
     grid-template-columns: 1fr;
     grid-gap: 18px;
+  }
+
+  .header__share {
+    font-size: 13px;
   }
 }
 </style>

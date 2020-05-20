@@ -30,7 +30,7 @@ export default {
   background-repeat: no-repeat;
 }
 
-.mobile-button.mobile-button_type_close {
+.mobile-button_type_close {
   background-image: url('../../static/images/menu-close.svg');
 }
 
