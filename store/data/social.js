@@ -55,7 +55,6 @@ export const getters = {
   getSocial(state) {
     return state.social;
   },
-
   getSocialShown(state) {
     return state.socialShown;
   },

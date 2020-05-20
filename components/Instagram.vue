@@ -38,10 +38,20 @@ export default {
   components: {
     container: Container,
   },
-  computed: {
-    instaCards() {
-      return this.$store.getters['data/instagram/getinstaCards'];
-    },
+
+  data() {
+    return {
+      instaCards: [
+        { id: 1, photo: '' },
+        { id: 2, photo: '' },
+        { id: 3, photo: '' },
+        { id: 4, photo: '' },
+        { id: 5, photo: '' },
+        { id: 6, photo: '' },
+        { id: 7, photo: '' },
+        { id: 8, photo: '' },
+      ],
+    };
   },
 };
 </script>
