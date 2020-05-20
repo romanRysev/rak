@@ -3,7 +3,7 @@
     <container class="container container_your-story">
       <h3 class="your-story-header">Расскажите свою историю</h3>
       <div class="description-container">
-        <div class="description-side">
+        <div class="text-content">
           <p class="description-text">
             Мы публикуем новые истории на сайте раз в неделю. Есть
             2&nbsp;варианта поделиться своей историей неизлечимых привычек,
@@ -131,7 +131,7 @@ export default {
   margin-bottom: 60px;
 }
 
-.description-side {
+.text-content {
   width: calc(50% - 20px);
   display: flex;
   justify-content: space-between;
@@ -287,7 +287,7 @@ export default {
     margin-bottom: 45px;
   }
 
-  .description-side {
+  .text-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -351,7 +351,7 @@ export default {
     margin-bottom: 30px;
   }
 
-  .description-side {
+  .text-content {
     flex-direction: column;
     width: 100%;
   }
