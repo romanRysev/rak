@@ -102,6 +102,9 @@ export default {
     'story-grid': StoryGrid,
     'button-share': ButtonShare,
   },
+  created() {
+    return this.$store.commit('data/stories/setCurrentStory', this.$route);
+  },
   data() {
     return {
       links: [
@@ -119,6 +122,9 @@ export default {
     socialShown() {
       return this.$store.getters['data/social/getSocialShown'];
     },
+    getCurrentStory() {
+      return this.$store.getters['data/stories/getCurrentStory'];
+    },
   },
   methods: {
     showSocial() {
@@ -131,13 +137,9 @@ export default {
 <style scoped>
 .page-container {
   margin: 0 auto;
-  /*max-width: 1320px;*/
-  /*min-width: 290px;*/
-  /*color: #000;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: center;*/
 }
 
 .container {
