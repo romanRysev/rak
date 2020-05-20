@@ -69,9 +69,6 @@ export default {
   padding: 0;
   background-color: #fff;
   color: #121212;
-<<<<<<< HEAD
-  cursor: pointer;
-=======
   font-size: 18px;
   line-height: 24px;
   font-weight: normal;
@@ -81,7 +78,6 @@ export default {
 .header__share:hover {
   cursor: pointer;
   opacity: 0.8;
->>>>>>> romanRysev-develop
 }
 
 .header__mobile-icon {

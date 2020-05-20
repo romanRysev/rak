@@ -1,17 +1,22 @@
 <template>
   <div class="popupQuiz">
-    <h3 class="popup__step">
+    <h3 v-if="isLastPage" class="popup__step">
       {{ currentQuestion.step }}
     </h3>
-    <img
+    <h3 v-if="!isLastPage" class="popup__thanks">
+      Спасибо что приняли участие!
+    </h3>
+    <!-- <img v-if="isLastPage"
       class="icon__close"
       @click="$store.commit('popup/close')"
       src="/images/icon__close.svg"
       alt="Кнопка закрытия формы отправки сообщения"
-    />
+    /> -->
 
     <p class="popup__questions_block">
-      <span class="popup__question">{{ currentQuestion.question }}</span>
+      <span v-if="isLastPage" class="popup__question">{{
+        currentQuestion.question
+      }}</span>
       <span
         v-if="currentQuestion.questionAdditional"
         class="popup__questionAdditional"
@@ -20,14 +25,38 @@
       >
     </p>
 
-    <Input placeholder="Напишите тут" :bottomBorder="true" v-model="answer" />
+    <Input
+      v-if="isLastPage"
+      placeholder="Напишите тут"
+      :bottomBorder="true"
+      v-model="answer"
+    />
     <div class="button__block">
-      <Button @custom-click="prevQuestion" class="buttonBack" type="button"
+      <Button
+        v-if="isLastPage"
+        @custom-click="prevQuestion"
+        class="buttonBack"
+        type="button"
         >Назад</Button
       >
-
-      <Button @custom-click="nextQuestion" class="buttonNext" type="button">
-        <p class="buttonNext__description">Далее</p>
+      <!-- :disabled='this.$store.state.popupQuiz.currentQuestion === 13' -->
+      <Button
+        v-if="isLastPage"
+        @custom-click="nextQuestion"
+        class="buttonNext"
+        type="button"
+      >
+        <p v-if="isLastPage" class="buttonNext__description">
+          {{ isLastQuestion ? 'Далее' : 'Отправить' }}
+        </p>
+      </Button>
+      <Button
+        v-if="!isLastPage"
+        @custom-click="$store.commit('popup/close')"
+        class="buttonLast"
+        type="button"
+      >
+        <p v-if="!isLastPage" class="buttonNext__description">Закрыть</p>
       </Button>
     </div>
   </div>
@@ -36,7 +65,6 @@
 <script>
 import Input from '~/components/ui/Input';
 import button from '~/components/button';
-
 export default {
   props: {
     step: {
@@ -56,6 +84,8 @@ export default {
   data() {
     return {
       answer: '',
+      nextButton: true,
+      sendButton: false,
     };
   },
   computed: {
@@ -69,7 +99,30 @@ export default {
       const { currentQuestion, answers } = popupQuiz;
       return answers[currentQuestion] || '';
     },
+    isLastQuestion() {
+      const { popupQuiz } = this.$store.state;
+      const { questions, currentQuestion } = popupQuiz;
+      const questionsLength = Object.keys(questions).length;
+      console.log(currentQuestion);
+      console.log(questionsLength);
+      if (questionsLength - 1 === currentQuestion) {
+        return false;
+      }
+      return true;
+    },
+    isLastPage() {
+      const { popupQuiz } = this.$store.state;
+      const { questions, currentQuestion } = popupQuiz;
+      const questionsLength = Object.keys(questions).length;
+      console.log(currentQuestion);
+      console.log(questionsLength);
+      if (questionsLength === currentQuestion) {
+        return false;
+      }
+      return true;
+    },
   },
+
   methods: {
     async nextQuestion() {
       await this.$store.dispatch('popupQuiz/NEXT_QUESTION', {
@@ -96,7 +149,6 @@ export default {
   z-index: 123;
   position: fixed;
 }
-
 .popup__step {
   display: flex;
   width: 177px;
@@ -111,6 +163,21 @@ export default {
   align-items: flex-end;
   color: #000000;
 }
+.popup__thanks {
+  width: 840px;
+  height: 36px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 0px;
+  color: #000000;
+}
+
 .popup__questions_block {
   display: inline-block;
   width: 840px;
@@ -146,8 +213,8 @@ export default {
 .button__block {
   display: flex;
   padding: 0;
+  justify-content: center;
 }
-
 .buttonBack {
   display: flex;
   width: 48px;
@@ -190,6 +257,16 @@ export default {
   padding: 0;
 }
 
+.buttonLast {
+  display: flex;
+  width: 226px;
+  height: 52px;
+  margin: 280px 0px 40px 0px;
+  background: #613a93;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
 .icon__close {
   width: 20px;
   height: 20px;
@@ -199,7 +276,6 @@ export default {
   border: 0;
   cursor: pointer;
 }
-
 @media all and (max-width: 1279px) {
   .popupQuiz {
     max-width: 800px;
@@ -207,7 +283,6 @@ export default {
     display: flex;
     flex-direction: column;
   }
-
   .popup__step {
     height: 32px;
     max-width: 155px;
@@ -217,7 +292,20 @@ export default {
     font-size: 24px;
     line-height: 32px;
   }
-
+  .popup__thanks {
+    width: 840px;
+    height: 36px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto 0px;
+    color: #000000;
+  }
   .popup__questions_block {
     max-width: 720px;
     height: 20px;
@@ -234,14 +322,22 @@ export default {
   .button__block {
     display: flex;
     padding: 0;
+    justify-content: center;
   }
-
   .buttonBack {
     margin: 16px 30px 54px 40px;
     max-width: 48px;
     height: 20px;
     font-size: 16px;
     line-height: 19px;
+  }
+  .buttonLast {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    max-width: 200px;
+    height: 48px;
+    margin-top: 234px;
   }
   .buttonNext {
     max-width: 200px;
@@ -254,14 +350,17 @@ export default {
     font-size: 16px;
     line-height: 19px;
   }
-
   .icon__close {
     width: 17.36px;
-    /* left: 757px;
-bottom: 87.82px; */
-    top: 35px;
-    left: 757px;
     position: absolute;
+    top: 310px;
+    left: 757px;
+
+    /* top: 165px;
+    left: 997px; */
+  }
+  .display_none {
+    display: none;
   }
 }
 
@@ -270,7 +369,6 @@ bottom: 87.82px; */
     max-width: 800px;
     height: 520px;
   }
-
   .popup__step {
     width: 720px;
     height: 20px;
@@ -300,8 +398,8 @@ bottom: 87.82px; */
   .button__block {
     display: flex;
     padding: 0;
+    justify-content: center;
   }
-
   .buttonBack {
     margin: 16px 30px 53px 40px;
     max-width: 48px;
@@ -322,21 +420,47 @@ bottom: 87.82px; */
     font-size: 15px;
     line-height: 18px;
   }
-
+  .buttonLast {
+    margin: auto;
+    display: flex;
+    width: 226px;
+    height: 52px;
+    background: #613a93;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    top: 270px;
+    left: 0px;
+  }
   .icon__close {
     width: 17.36px;
     top: 35px;
     left: 757px;
     position: absolute;
   }
+  .popup__thanks {
+    display: contents;
+  }
+  .buttonLast {
+    margin: auto;
+    display: flex;
+    width: 226px;
+    height: 52px;
+    background: #613a93;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    left: 0px;
+    top: 110px;
+  }
 }
-
 @media all and (max-width: 767px) {
   .popupQuiz {
     max-width: 580px;
     height: 520px;
   }
-
   .popup__step {
     max-width: 144px;
     height: 30px;
@@ -345,7 +469,6 @@ bottom: 87.82px; */
     line-height: 30px;
     margin: 40px 396px 40px 40px;
   }
-
   .popup__questions_block {
     margin: 0px 40px 100px 40px;
     max-width: 500px;
@@ -367,8 +490,8 @@ bottom: 87.82px; */
   .button__block {
     display: flex;
     padding: 0;
+    justify-content: center;
   }
-
   .buttonBack {
     margin: 16px 30px 53px 40px;
     max-width: 48px;
@@ -389,7 +512,6 @@ bottom: 87.82px; */
     font-size: 15px;
     line-height: 18px;
   }
-
   .icon__close {
     width: 20px;
     height: 20px;
@@ -397,14 +519,18 @@ bottom: 87.82px; */
     left: 537px;
     position: absolute;
   }
+  .popup__thanks {
+    display: contents;
+  }
+  .buttonLast {
+    margin: auto;
+  }
 }
-
 @media all and (max-width: 455px) {
   .popupQuiz {
     max-width: 290px;
     height: 520px;
   }
-
   .popup__step {
     max-width: 100px;
     height: 21px;
@@ -434,8 +560,8 @@ bottom: 87.82px; */
   .button__block {
     display: flex;
     padding: 0;
+    justify-content: center;
   }
-
   .buttonBack {
     margin: 16px 15px 27px 15px;
     max-width: 39px;
@@ -456,13 +582,21 @@ bottom: 87.82px; */
     line-height: 16px;
     margin: auto;
   }
-
   .icon__close {
     width: 20px;
     height: 20px;
     top: 23px;
     left: 257px;
     position: absolute;
+  }
+  .popup__thanks {
+    display: contents;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 19px;
+  }
+  .buttonLast {
+    margin: auto;
   }
 }
 </style>
