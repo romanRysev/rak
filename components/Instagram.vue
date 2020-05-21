@@ -262,7 +262,7 @@ export default {
     line-height: 16px;
   }
 
-  .instagram__insta-grid {
+  .instagram__grid {
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     grid-gap: 20px;
