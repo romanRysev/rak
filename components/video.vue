@@ -1,60 +1,54 @@
 <template>
-  <container>
-    <!-- todo: Здесь container в section вместе с адаптивом. -->
-    <section class="video">
-      <div class="video__description">
-        <h2 class="video__description-title">
+  <section class="video">
+    <container class="container container_video">
+      <div class="text-content">
+        <h3 class="section-title">
           Истории людей, победивших рак, но не свои привычки
-        </h2>
-        <h3 class="video__description-subtitle">
-          Есть вещи, которые не лечатся. Вещи<br />
-          ставшие частью нашего «я», фобии,<br />
-          страхи. Но это точно не рак. Рак<br />
-          лечится. Лучшее доказательство — <br />люди с их историями.
         </h3>
-        <div class="video__selector">
-          <button class="video__button_left">
-            <img
-              class="video__button_left_opacity"
-              src="/images/button_left.svg"
-            />
-          </button>
-          <button class="video__button_right">
-            <img src="/images/button_right.svg" />
-          </button>
-        </div>
+        <p class="section-description">
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями.
+        </p>
       </div>
 
-      <div class="video__frame">
-        <div class="video__container">
-          <iframe
-            class="iframe"
-            id="ytplayer"
-            type="text/html"
-            width="100%"
-            height="450"
-            src="https://www.youtube.com/embed/coOppM34GtI"
-            allowfullscreen
-          />
-        </div>
-        <div class="video__notation">
-          <p class="video__notation-text">
-            Все видео вы можете найте на нашем
-          </p>
-          <a
-            class="video__notation-link"
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >YouTube канале.</a
-          >
-        </div>
+      <div class="selector">
+        <button
+          class="selector selector__button selector__button_left selector__button_left_disabled"
+        />
+        <button class="selector selector__button selector__button_right" />
       </div>
-    </section>
-    <div class="video__rectangle">
-      <p class="rectangle__description">
-        И В ОТЛИЧИЕ ОТ РАКА, <span class="bold">&nbsp;#ЭТОНЕЛЕЧИТСЯ</span>
-      </p>
-    </div>
-  </container>
+
+      <div class="frame-container">
+        <iframe
+          class="frame"
+          id="ytplayer"
+          type="text/html"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/coOppM34GtI"
+          allowfullscreen
+        />
+
+        <button class="play-button" />
+
+        <p class="video-notation">
+          Все видео вы можете найти на нашем
+          <a
+            class="video-notation video-notation__link"
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            >YouTube канале</a
+          >.
+        </p>
+      </div>
+    </container>
+
+    <container>
+      <h3 class="hashtag-band">
+        и в отличие от рака, <span class="hashtag">#этонелечится</span>
+      </h3>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -68,206 +62,390 @@ export default {
 
 <style scoped>
 .video {
-  width: 100%;
-  height: 650px;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
+  padding: 100px 0 0 0;
+  color: #666;
 }
 
-.video__description {
-  width: 413px;
-  margin: 110px 40px 100px 60px;
-  height: 450px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
+.container_video {
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3, min-content);
 }
 
-.video__description-title {
-  color: #fff;
-  width: 413px;
-  height: 108px;
-  margin: 0px 0px 32px 0px;
-  text-align: left;
-  background-color: white;
+.text-content {
+  grid-column-start: span 1;
+  padding: 10px 0 0 0;
+}
+
+.section-title {
+  margin-bottom: 32px;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
-}
-.video__description-subtitle {
-  margin: 0px 73px 150px 0px;
-  text-align: left;
-  width: 340px;
-  height: 110px;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666666;
+  color: #000;
 }
 
-.video__selector {
+.section-description {
+  font-size: 18px;
+  line-height: 22px;
+  max-width: 340px;
+}
+
+.selector {
+  grid-column: 1/2;
+  grid-row: 2/3;
   display: flex;
   flex-direction: row;
   width: 80px;
   height: 40px;
-  margin: 0px 333px 0px 0px;
-  background: #fbfbfb;
+  align-self: end;
 }
 
-.video__button_left {
-  width: 40px;
+.selector__button {
+  max-width: 40px;
   height: 40px;
   margin: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fbfbfb;
+  border: none;
+  cursor: pointer;
+}
+.selector__button_left {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='black'/%3E%3C/svg%3E");
 }
 
-.video__button_left_opacity {
-  opacity: 0.2;
-}
-.video__button_right {
-  width: 40px;
-  height: 40px;
-  margin: 0px;
+/*
+  .video__button_left_opacity {
+    opacity: 0.2;
+  }
+  */
+
+.selector__button_right {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17L9 9L1 1' stroke='black'/%3E%3C/svg%3E%0A");
 }
 
-.video__frame {
-  width: 864px;
+.selector__button_left_disabled {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
+  cursor: default;
+}
+
+.selector__button_right_disabled {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17L9 9L1 1' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
+  cursor: default;
+}
+
+.frame-container {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  width: 100%;
+  max-width: 867px;
   height: 450px;
-  margin: 100px 60px 74px 0px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+  justify-self: end;
+  position: relative;
 }
 
-.video__container {
-  display: flex;
-  width: 867px;
-  height: 450px;
-  display: block;
-  background: #ededed;
-  background-size: cover;
-  margin: 0px 0px 10px 0px;
-}
-.iframe {
+.frame {
   border: 0;
 }
-.video__icon-play {
-  margin: auto;
+
+.play-button {
   width: 90px;
   height: 90px;
-  background: #c4c4c4;
   border-radius: 50%;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z' fill='%23CECECE'/%3E%3C/svg%3E%0A");
+  cursor: pointer;
 }
 
-.video__notation-text {
-  display: flex;
-  flex-direction: row;
-  height: 16px;
-  margin-right: 5px;
-  font-size: 12px;
-  line-height: 16px;
-  color: #666666;
-}
-.video__notation-link {
-  display: flex;
-  flex-direction: row;
-  height: 16px;
-  font-size: 12px;
-  line-height: 16px;
-  color: #666666;
-}
-.video__notation {
-  display: flex;
-  flex-direction: row;
-  width: 867px;
-  height: 16px;
-  margin: 0px 0px 74px 0px;
-  font-size: 12px;
-  line-height: 16px;
-  color: #666666;
+.play-button:hover {
+  background-image: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
 }
 
-.video__rectangle {
-  width: 1320px;
+.video-notation {
+  font-size: 12px;
+  line-height: 16px;
+  grid-column: 2 / span 1;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 867px;
+  justify-self: end;
+}
+
+.video-notation__link {
+  color: #666;
+}
+
+.hashtag-band {
   height: 86px;
-  margin: 0px auto;
   background: #613a93;
-  border: 1px solid #000000;
-  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   display: flex;
-}
-.rectangle__description {
-  display: flex;
-  width: 750px;
-  height: 46px;
-  justify-content: center;
   font-size: 30px;
   line-height: 46px;
-  text-align: center;
-  color: #ffffff;
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
 }
-.bold {
-  font-weight: bold;
+
+.hashtag {
+  font-weight: 700;
   font-size: 40px;
+  display: contents;
 }
 
-@media all and (min-width: 1024px) and (max-width: 1440px) {
-  .video__description {
-    width: 29vw;
+@media all and (min-width: 1280px) and (max-width: 1439px) {
+  .video {
+    padding: 90px 0 0 0;
   }
 
-  .video__description-title {
-    display: flex;
+  .container_video {
+    margin-bottom: 90px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    line-height: 32px;
+    max-width: 370px;
+  }
+
+  .section-description {
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 310px;
+  }
+
+  .frame-container {
+    max-width: 773px;
+    height: 400px;
+    justify-self: end;
+  }
+
+  .play-button {
+    width: 76px;
+    height: 76px;
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23CECECE'/%3E%3C/svg%3E%0A");
+  }
+
+  .play-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  }
+
+  .hashtag-band {
+    font-size: 28px;
+    line-height: 46px;
+  }
+
+  .hashtag {
+    font-size: 38px;
+  }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1279px) {
+  .video {
+    padding: 80px 0 0 0;
+  }
+
+  .container_video {
+    margin-bottom: 80px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    line-height: 28px;
+    max-width: 290px;
+    margin-bottom: 20px;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 260px;
+  }
+
+  .frame-container {
+    max-width: 606px;
+    height: 314px;
+    justify-self: end;
+  }
+
+  .play-button {
+    width: 76px;
+    height: 76px;
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23CECECE'/%3E%3C/svg%3E%0A");
+  }
+
+  .play-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  }
+
+  .hashtag-band {
+    height: 80px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .hashtag {
+    font-size: 34px;
+  }
+}
+
+@media all and (min-width: 730px) and (max-width: 1023px) {
+  .video {
+    padding: 80px 0 0 0;
+  }
+
+  .container_video {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    margin-bottom: 80px;
+  }
+
+  .text-content {
+    grid-column-start: span 3;
     width: 100%;
+    max-width: 380px;
+    margin: 0 auto 60px;
+    padding: 0;
   }
 
-  .video__description-subtitle {
-    display: flex;
-    width: 80%;
+  .section-title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 25px;
   }
 
-  .video__selector {
-    display: flex;
-    width: 20%;
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 380px;
   }
 
-  .video__button_left {
-    display: flex;
+  .selector {
+    grid-column: 1/4;
+    grid-row: 2/3;
     width: 100%;
-    height: 100%;
+    justify-content: space-between;
+    align-self: center;
   }
 
-  .video__button_right {
-    display: flex;
+  .frame-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 580px;
+    height: 300px;
+  }
+
+  .play-button {
+    width: 76px;
+    height: 76px;
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23CECECE'/%3E%3C/svg%3E%0A");
+  }
+
+  .play-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  }
+
+  .video-notation {
+    margin-top: 15px;
+  }
+
+  .hashtag-band {
+    height: 100px;
+    font-size: 22px;
+    line-height: 36px;
+    flex-direction: column;
+  }
+
+  .hashtag {
+    display: inline-block;
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 729px) {
+  .video {
+    padding: 40px 0 0 0;
+  }
+
+  .container_video {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    margin-bottom: 45px;
+  }
+
+  .text-content {
+    grid-column-start: span 3;
     width: 100%;
-    height: 100%;
+    max-width: 290px;
+    margin: 0 auto 40px;
   }
 
-  .video__frame {
-    width: 60vw;
+  .section-title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 15px;
   }
 
-  .video__container {
+  .section-description {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 100%;
+  }
+
+  .selector {
+    grid-column: 2/3;
+    grid-row: 2/3;
     width: 100%;
-    height: 100%;
-    display: flex;
+    justify-content: space-between;
+    align-self: center;
   }
 
-  .video__notation {
-    width: 60%;
+  .selector__button {
+    width: 20px;
+    background-color: transparent;
+    z-index: 2;
   }
 
-  .video__rectangle {
-    width: 92vw;
-    height: 86px;
-    display: flex;
+  .frame-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 290px;
+    height: 150px;
   }
 
-  .rectangle__description {
-    display: flex;
-    /* width: 57%; */
+  .play-button {
+    width: 38px;
+    height: 38px;
+    background-image: url("data:image/svg+xml,%3Csvg width='38' height='39' viewBox='0 0 38 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M19 38.6987C29.4934 38.6987 38 30.1921 38 19.6987C38 9.20532 29.4934 0.69873 19 0.69873C8.50659 0.69873 0 9.20532 0 19.6987C0 30.1921 8.50659 38.6987 19 38.6987ZM25.1808 21.3912C26.4263 20.6067 26.4263 18.791 25.1808 18.0066L17.0002 12.8542C15.6684 12.0153 13.9344 12.9725 13.9344 14.5465V24.8513C13.9344 26.4253 15.6684 27.3824 17.0002 26.5436L25.1808 21.3912Z' fill='%23CECECE'/%3E%3C/svg%3E%0A");
+  }
+
+  .play-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='38' height='39' viewBox='0 0 38 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M19 38.6987C29.4934 38.6987 38 30.1921 38 19.6987C38 9.20532 29.4934 0.69873 19 0.69873C8.50659 0.69873 0 9.20532 0 19.6987C0 30.1921 8.50659 38.6987 19 38.6987ZM25.1808 21.3912C26.4263 20.6067 26.4263 18.791 25.1808 18.0066L17.0002 12.8542C15.6684 12.0153 13.9344 12.9725 13.9344 14.5465V24.8513C13.9344 26.4253 15.6684 27.3824 17.0002 26.5436L25.1808 21.3912Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  }
+
+  .video-notation {
+    display: none;
+  }
+
+  .hashtag-band {
+    font-size: 16px;
+    line-height: 24px;
+    flex-direction: column;
+  }
+
+  .hashtag {
+    display: inline-block;
+    font-size: 22px;
   }
 }
 </style>
