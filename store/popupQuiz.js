@@ -31,6 +31,15 @@ export const actions = {
       currentQuestion: currentQuestion - 1,
     });
   },
+  async FIRST_STEP({ commit, state }) {
+    const { currentQuestion } = state;
+    if (currentQuestion < 13) {
+      return;
+    }
+    await commit('setCurrentQuestion', {
+      currentQuestion: currentQuestion - 12,
+    });
+  },
 };
 
 const QUESTIONS = {
@@ -96,6 +105,6 @@ const QUESTIONS = {
       'Укажите удобный для вас формат связи. После обработки анкеты координатор проекта свяжется с Вами для размещения Вашей истории на сайте.',
   },
   13: {
-    step: 'Спасибо за внимание',
+    step: 'Thank you',
   },
 };
