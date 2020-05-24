@@ -146,8 +146,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  z-index: 123;
-  position: fixed;
 }
 .popup__step {
   display: flex;

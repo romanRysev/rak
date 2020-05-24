@@ -10,4 +10,8 @@ export const mutations = {
   openquizForm(state) {
     state.quizFormOpened = true;
   },
+  closeForm(state) {
+    state.contactFormOpened = false;
+    state.quizFormOpened = false;
+  },
 };

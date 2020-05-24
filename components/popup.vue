@@ -4,14 +4,20 @@
       <div :class="['modalWindow', className]">
         <div class="overlay"></div>
         <div :class="['popup', className]">
-          <img
+          <!--<img
             v-if="isLastPage"
             class="icon__close"
             @click="$store.commit('popup/close')"
             src="/images/icon__close.svg"
             alt="Кнопка закрытия формы отправки сообщения"
-          />
+          />-->
           <!-- <popupQuiz /> -->
+          <button-close
+            class="popup__button-close"
+            @closeClick="
+              [$store.commit('popup/close'), $store.commit('form/closeForm')]
+            "
+          />
           <slot></slot>
         </div>
       </div>
@@ -23,7 +29,11 @@
 // import popupQuiz from '@/components/popupQuiz';
 // import optionFirst from '@/components/ui/optionFirst';
 // import optionSecond from '@/components/ui/optionSecond';
+import ButtonClose from '@/components/ui/ButtonClose';
 export default {
+  components: {
+    'button-close': ButtonClose,
+  },
   props: ['className'],
   // components: {
   //   popupQuiz,
@@ -61,22 +71,28 @@ export default {
   z-index: 12;
 }
 .popup {
-  /*
-  width: 920px;
-  height: 600px;
-  */
+  max-width: 920px;
+  max-height: 720px;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+.popup__button-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 50;
+}
+
 .popup__header {
   display: flex;
 }
+
 .popup__step {
   display: flex;
   width: 177px;
@@ -205,6 +221,13 @@ export default {
     top: 267px;
     left: 617px;
     position: absolute;
+  }
+
+  .popup__button-close {
+    width: 24px;
+    height: 24px;
+    top: 15px;
+    right: 15px;
   }
 }
 @media all and (max-width: 455px) {
