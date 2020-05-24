@@ -17,6 +17,7 @@ export default {
   color: #000;
   text-decoration: none;
   transition: 0.3s;
+  border-bottom: 1px solid currentColor;
 }
 
 .link:hover {
