@@ -23,7 +23,7 @@ export default {
   line-height: 24px;
   width: fit-content;
   grid-area: Share;
-  background-color: #fff;
+  background-color: transparent;
   color: #121212;
 }
 

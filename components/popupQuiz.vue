@@ -45,6 +45,7 @@
         @custom-click="nextQuestion"
         class="buttonNext"
         type="button"
+        :disabled="emptyField()"
       >
         <p v-if="isLastPage" class="buttonNext__description">
           {{ isLastQuestion ? 'Далее' : 'Отправить' }}
@@ -133,6 +134,9 @@ export default {
     async prevQuestion() {
       await this.$store.dispatch('popupQuiz/PREV_QUESTION');
       this.answer = this.initialAnswer;
+    },
+    emptyField() {
+      return this.answer.length === 0;
     },
   },
 };

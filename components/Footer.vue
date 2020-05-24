@@ -86,6 +86,10 @@ export default {
 </script>
 
 <style scoped>
+.footer {
+  background-color: #fbfbfb;
+}
+
 .container_footer {
   min-height: 356px;
   width: 100%;
