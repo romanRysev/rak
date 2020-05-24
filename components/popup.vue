@@ -61,8 +61,10 @@ export default {
   z-index: 12;
 }
 .popup {
+  /*
   width: 920px;
   height: 600px;
+  */
   position: fixed;
   display: flex;
   align-items: center;

@@ -58,7 +58,9 @@
 
       <popupbutton
         v-if="variantOneShown"
-        @custom-click="$store.commit('popup/open')"
+        @custom-click="
+          [$store.commit('popup/open'), $store.commit('form/openquizForm')]
+        "
         class="popup__button"
       >
         <p class="popup__button-description">
@@ -68,7 +70,9 @@
 
       <popupbutton
         v-if="variantTwoShown"
-        @custom-click="$store.commit('popup/open')"
+        @custom-click="
+          [$store.commit('popup/open'), $store.commit('form/openContactForm')]
+        "
         class="popup__button"
       >
         <p class="popup__button-description">

@@ -13,6 +13,7 @@
         placeholder="Напишите тут"
         :bottomBorder="true"
         v-model="answer"
+        required
       />
     </popup-label>
     <div class="popup-contacts__contacts">
@@ -35,6 +36,7 @@
           :bottomBorder="true"
           type="tel"
           v-model="answer"
+          required
         />
       </popup-label>
     </div>
@@ -50,7 +52,7 @@
       />
     </popup-label>
     <div class="popup-contacts__submit-block">
-      <button-submit class="popup-contacts__button-submit"
+      <button-submit type="submit" class="popup-contacts__button-submit"
         >Отправить</button-submit
       >
       <p class="popup-contacts__terms">
@@ -142,6 +144,12 @@ export default {
   line-height: 19px;
   background-color: #613a93;
   color: #fff;
+  transition: 0.7s ease;
+}
+
+.popup-contacts__button-submit:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 .popup-contacts__terms {

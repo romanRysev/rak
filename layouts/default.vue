@@ -12,8 +12,10 @@
     <break-line class="break-line_mobile-menu" />
     <main-header />
     <break-line class="break-line" v-if="$route.path !== '/'" />
-    <!--<popup v-if="this.$store.state.popup.popupShown"><popupQuiz /></popup>-->
-    <popup v-if="this.$store.state.popup.popupShown"><popup-contacts /></popup>
+    <popup v-if="this.$store.state.popup.popupShown"
+      ><popupQuiz v-if="this.$store.state.form.quizFormOpened"/><popup-contacts
+        v-if="this.$store.state.form.contactFormOpened"
+    /></popup>
     <nuxt />
     <social v-if="socialShown" />
     <main-footer @shareClick="showSocial" />
