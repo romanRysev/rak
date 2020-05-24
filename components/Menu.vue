@@ -39,7 +39,7 @@
 }
 
 .menu__link_active {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid currentColor;
 }
 
 .menu__link_active:hover {

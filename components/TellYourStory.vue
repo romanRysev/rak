@@ -185,6 +185,7 @@ export default {
 
 .popup__button:hover {
   opacity: 0.9;
+  transition: 0.3s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {

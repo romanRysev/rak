@@ -1,5 +1,5 @@
 <template>
-  <div class="stories-page__container">
+  <container class="stories-page__container">
     <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
     <div class="stories-page__search">
       <input class="stories-page__space" type="text" />
@@ -34,13 +34,15 @@
         <span class="stories-page__number">7</span>
       </li>
     </ul>
-  </div>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StoryGrid from '@/components/ui/StoryGrid';
 export default {
   components: {
+    container: Container,
     storyGrid: StoryGrid,
   },
 };
@@ -48,13 +50,15 @@ export default {
 
 <style scoped>
 .stories-page__container {
-  margin: 0 auto;
-  min-height: 100vh;
+  /*margin: 0 auto;*/
+  /*min-height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 100px 60px 120px 60px;
+  /*padding: 100px 60px 120px 60px;*/
+  padding-top: 100px;
+  padding-bottom: 120px;
 }
 .stories-page__title {
   font-family: 'Inter';
@@ -88,27 +92,33 @@ export default {
 
 .stories-page__button {
   background-color: #613a93;
-  border: 2px solid white;
+  /*border: 2px solid white;*/
+  border: none;
   width: 226px;
   height: 52px;
   padding: 0px;
 
-  color: #ffffff;
+  color: #fff;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
+  /*transition: border 0.25s linear, color 0.25s linear,*/
+  /*  background-color 0.25s linear;*/
   cursor: pointer;
 }
 .stories-page__button:hover {
-  background-color: white;
+  /*background-color: white;
   border: 2px solid #613a93;
   color: #613a93;
 
   transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
+    background-color 0.25s linear;*/
+
+  /* Прикольный hover, но не по макету (захотите – так раскомментите) */
+
+  opacity: 0.9;
+  transition: 0.3s;
 }
 .stories-page__button-magnifier {
   display: none;
