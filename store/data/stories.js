@@ -129,26 +129,32 @@ export const state = () => ({
       ],
     },
   ],
-  currentStory: {},
-  searchExport: [],
 });
 
 export const mutations = {
+  setStoryesProperties(state) {
+    state.searchExport = [];
+    state.paginationExport = [];
+  },
+
   setCurrentStory(state, route) {
     return (state.currentStory = state.storyCards[route.params.id]);
   },
 
   setSearchExport(state, req) {
-    //   state.searchExport = []
     return (state.searchExport = state.storyCards.filter(elem => {
-      let res = false;
+      let inSearch = false;
       elem.articles.forEach(elem => {
         if (elem.includes(req)) {
-          return (res = true);
+          return (inSearch = true);
         }
       });
-      return res;
+      return inSearch;
     }));
+  },
+
+  setPaginationExport(state, startElement, size) {
+    return state.storyCards.slice(startElement, size + 1);
   },
 };
 
@@ -163,5 +169,9 @@ export const getters = {
 
   getSearchExport(state) {
     return state.searchExport;
+  },
+
+  getPaginationExport(state) {
+    return state.paginationExport;
   },
 };

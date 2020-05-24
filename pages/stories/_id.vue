@@ -64,17 +64,19 @@ export default {
     'button-share': ButtonShare,
   },
   created() {
-    return this.$store.commit('data/stories/setCurrentStory', this.$route);
+    this.$store.commit('data/stories/setStoryesProperties');
+    this.$store.commit('data/stories/setCurrentStory', this.$route);
   },
+
   data() {
     return {
       links: [
         {
-          text: 'Поделитесь <span>&#8599</span>',
+          text: 'Поделитесь <span>&#8599;</span>',
         },
         {
           text:
-            'Поделитесь этой статьей в своих социальных сетях <span>&#8599</span>',
+            'Поделитесь этой статьей в своих социальных сетях <span>&#8599;</span>',
         },
       ],
     };
@@ -85,6 +87,9 @@ export default {
     },
     getCurrentStory() {
       return this.$store.getters['data/stories/getCurrentStory'];
+    },
+    setStoryesProperties() {
+      return this.$store.commit('data/stories/setStoryesProperties');
     },
   },
   methods: {

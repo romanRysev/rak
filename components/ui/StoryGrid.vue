@@ -35,6 +35,11 @@ export default {
       return 'stories/' + id;
     },
   },
+
+  created() {
+    return this.$store.commit('data/stories/setStoryesProperties');
+  },
+
   computed: {
     storyCards() {
       return this.$store.getters['data/stories/getStories'];
