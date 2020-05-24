@@ -38,20 +38,10 @@ export default {
   components: {
     container: Container,
   },
-
-  data() {
-    return {
-      instaCards: [
-        { id: 1, photo: '' },
-        { id: 2, photo: '' },
-        { id: 3, photo: '' },
-        { id: 4, photo: '' },
-        { id: 5, photo: '' },
-        { id: 6, photo: '' },
-        { id: 7, photo: '' },
-        { id: 8, photo: '' },
-      ],
-    };
+  computed: {
+    instaCards() {
+      return this.$store.getters['data/instagram/getinstaCards'];
+    },
   },
 };
 </script>
@@ -272,7 +262,7 @@ export default {
     line-height: 16px;
   }
 
-  .instagram__insta-grid {
+  .instagram__grid {
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     grid-gap: 20px;

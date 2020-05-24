@@ -4,28 +4,21 @@
       <div class="story-header">
         <div class="photo-wrapper">
           <div class="inner-wrapper">
-            <img
-              src="/images/card__photo/photo1.jpg"
-              alt=""
-              class="story-photo"
-            />
+            <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
           </div>
         </div>
         <div class="story-header story-header__text-content">
           <h1 class="story-title">
-            <span class="story-title semi-bold">Александр Тарханов:</span> «Я не
-            могу победить свою пунктуальность в отличии от рака»
+            <span class="story-title semi-bold"
+              >{{ getCurrentStory.title }}: </span
+            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
           </h1>
           <ul class="story-header story-header__bottom-string">
             <li>
-              <share-link
-                class="share-link"
-                :url="links[0].url"
-                :text="links[0].text"
-              />
+              <button-share :text="links[0].text" @shareClick="showSocial" />
             </li>
             <li>
-              <p>20 апреля 2018</p>
+              <p>{{ getCurrentStory.date }}</p>
             </li>
           </ul>
         </div>
@@ -34,61 +27,24 @@
 
     <container class="container container_article">
       <article class="story-article">
-        <p class="story-article story-article__paragraph">
-          Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал
-          в ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными.
-        </p>
-        <p class="story-article story-article__paragraph">
-          У меня дома до сих пор стоят часы в каждой комнате, хотя они и не
-          нужны особо — я сам чувствую, опаздываю куда-то или нет, отстаю от
-          нужного графика или опережаю. Вот такие встроенные внутренние часы!
-          Будильник мне тоже не нужен — я всегда встаю раньше. Одеваюсь тоже
-          быстро, как в армии, за 45 секунд.
-        </p>
-        <p class="story-article story-article__paragraph">
-          <span class="story-article__paragraph semi-bold"
-            >«В футболе если команда опоздала на 15 минут, ей засчитывается
-            поражение».</span
-          >
-        </p>
-        <p class="story-article story-article__paragraph">
-          Опаздывать я тоже не люблю, на все встречи прихожу заранее. Если знаю,
-          что могу попасть по дороге в пробку, то не еду на машине. В аэропорт
-          приезжаю задолго до начала регистрации. Лучше подожду и кофе попью,
-          чем опоздаю!
-        </p>
-        <p class="story-article story-article__paragraph">
-          Когда мне было 16 лет, мне в школе геометрию нужно было пересдавать. Я
-          билеты выучил, знал абсолютно все. Пришел в нужное время, а
-          учительница — нет. Ну, я какое-то время подождал ее и ушел. Потом она
-          спрашивала: «Почему не дождался?». Я ответил: «В футболе если команда
-          опоздала на 15 минут, ей засчитывается поражение». Экзамен мне
-          все-таки поставили! Сейчас если кто-то из футболистов моей команды
-          опаздывает — начинаю злиться, могу и прикрикнуть потом. А если кто-то
-          опоздал на тренировку перед игрой — все, подготовка насмарку. Я сразу
-          начинаю думать тогда: «Значит, точно проиграем». Такая болезненная
-          пунктуальность уже не лечится. В отличие от рака.
-        </p>
-        <p class="story-article story-article__paragraph">
-          «Сейчас если кто-то из футболистов моей команды опаздывает — начинаю
-          злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку
-          перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда:
-          «Значит, точно проиграем». Такая болезненная пунктуальность уже не
-          лечится».
+        <p
+          class="story-article story-article__paragraph"
+          v-for="article in getCurrentStory.articles"
+          :key="article"
+        >
+          {{ article }}
         </p>
       </article>
-
-      <share-link
+      <button-share
         class="share-link share-link_article"
-        :url="links[1].url"
         :text="links[1].text"
+        @shareClick="showSocial"
       />
     </container>
 
     <container>
       <story-grid class="story-grid" />
     </container>
-
     <more-articles class="more-button" />
   </div>
 </template>
@@ -96,6 +52,7 @@
 <script>
 import Container from '~/components/Container';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
+import ButtonShare from '@/components/ui/ButtonShare';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
 export default {
@@ -104,21 +61,36 @@ export default {
     'share-link': Link,
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
+    'button-share': ButtonShare,
+  },
+  created() {
+    return this.$store.commit('data/stories/setCurrentStory', this.$route);
   },
   data() {
     return {
       links: [
         {
-          url: '#',
           text: 'Поделитесь <span>&#8599</span>',
         },
         {
-          url: '#',
           text:
             'Поделитесь этой статьей в своих социальных сетях <span>&#8599</span>',
         },
       ],
     };
+  },
+  computed: {
+    socialShown() {
+      return this.$store.getters['data/social/getSocialShown'];
+    },
+    getCurrentStory() {
+      return this.$store.getters['data/stories/getCurrentStory'];
+    },
+  },
+  methods: {
+    showSocial() {
+      this.$store.commit('data/social/toggleSocial');
+    },
   },
 };
 </script>
@@ -126,13 +98,9 @@ export default {
 <style scoped>
 .page-container {
   margin: 0 auto;
-  /*max-width: 1320px;*/
-  /*min-width: 290px;*/
-  /*color: #000;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: center;*/
 }
 
 .container {
@@ -222,8 +190,6 @@ export default {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
   height: 84px;
-  display: inline-grid;
-  align-items: center;
   text-align: center;
   margin-top: 70px;
   font-size: 18px;
