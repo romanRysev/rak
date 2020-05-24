@@ -92,7 +92,6 @@ export default {
 
 .stories-page__button {
   background-color: #613a93;
-  /*border: 2px solid white;*/
   border: none;
   width: 226px;
   height: 52px;
