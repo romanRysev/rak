@@ -26,14 +26,16 @@ export default {
 .mobile-button {
   width: 32px;
   height: 27px;
-  background-image: url('/static/images/menu-hamburger.svg');
+  background-image: url('../../static/images/menu-hamburger.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
 
 .mobile-button_type_close {
-  background-image: url('/static/images/menu-close.svg');
+  background-image: url('../../static/images/menu-close.svg');
 }
 
 @media screen and (max-width: 730px) {
