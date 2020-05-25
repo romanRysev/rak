@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <container class="container container_header">
+    <container class="container-header">
       <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
         >Проект Благотворительного Фонда Константина Хабенского
       </nuxt-link>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.container_header {
+.container-header {
   min-height: 76px;
   width: 100%;
   background-color: #fff;
@@ -85,7 +85,7 @@ export default {
 }
 
 @media screen and (max-width: 1429px) {
-  .container_header {
+  .container-header {
     min-height: 72px;
   }
   .header__logo {
@@ -107,7 +107,7 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .container_header {
+  .container-header {
     min-height: 64px;
   }
   .header__logo {
