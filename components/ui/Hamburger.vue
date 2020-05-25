@@ -1,12 +1,14 @@
 <template>
-  <div
+  <button
     :class="['mobile-button', { 'mobile-button_type_close': isMenuOpened }]"
     @click="toggleMobile"
-  ></div>
+  ></button>
 </template>
 
 <script>
+import Button from '~/components/button';
 export default {
+  components: { Button },
   computed: {
     isMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
