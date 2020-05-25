@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <a :href="url" v-html="text" class="link" target="_blank"></a>
-  </div>
+  <a :href="url" v-html="text" class="link" target="_blank"></a>
 </template>
 
 <script>
