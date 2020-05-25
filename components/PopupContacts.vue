@@ -1,5 +1,5 @@
 <template>
-  <div class="popup-contacts">
+  <form class="popup-contacts" @submit.prevent="submitContactForm">
     <h3 class="popup-contacts__heading">Оставьте контакт для связи</h3>
     <p class="popup-contacts__text">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -8,10 +8,11 @@
     <popup-label class="popup-contacts__label"
       ><span class="popup-contacts__label-text">Как вас зовут?</span>
       <popup-input
-        class="popup-contacts__input"
-        placeholder="Напишите тут"
-        v-model="answer"
-        required
+        :class="popup - contacts__input"
+        :placeholder="'Напишите тут'"
+        :type="'text'"
+        :required="'required'"
+        v-model="name"
       />
     </popup-label>
     <div class="popup-contacts__contacts">
@@ -19,20 +20,21 @@
         ><span class="popup-contacts__label-text">Электронная почта</span>
         <popup-input
           class="popup-contacts__input"
-          placeholder="pochta@example.com"
-          type="email"
-          v-model="answer"
-          required
+          :placeholder="'pochta@example.com'"
+          :type="'email'"
+          :required="'required'"
+          v-model="email"
         />
       </popup-label>
       <popup-label class="popup-contacts__label"
         ><span class="popup-contacts__label-text">Телефон</span>
         <popup-input
           class="popup-contacts__input"
-          placeholder="+7 000 000 00 00"
-          type="tel"
-          v-model="answer"
-          required
+          :placeholder="'+7 000 000 00 00'"
+          :type="'tel'"
+          :required="'required'"
+          pattern="^[0-9-+s()]{1,}"
+          v-model="tel"
         />
       </popup-label>
     </div>
@@ -42,11 +44,12 @@
       >
       <popup-input
         class="popup-contacts__input"
-        placeholder="Телефон / почта и удобное время"
-        v-model="answer"
+        :placeholder="'Телефон / почта и удобное время'"
+        v-model="message"
       />
     </popup-label>
     <div class="popup-contacts__submit-block">
+      <!--Здесь надо разблокировать кнопку, если данные корректные-->
       <button-submit type="submit" class="popup-contacts__button-submit"
         >Отправить</button-submit
       >
@@ -57,7 +60,7 @@
         >
       </p>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -72,6 +75,21 @@ export default {
     'popup-input': InputContacts,
     'popup-label': Label,
     'button-submit': button,
+  },
+  methods: {
+    submitContactForm() {
+      //здесь надо сохранять данные
+      this.$store.commit('popup/close');
+      this.$store.commit('form/closeForm');
+    },
+  },
+  data() {
+    return {
+      name: '',
+      email: '',
+      tel: '',
+      message: '',
+    };
   },
 };
 </script>
