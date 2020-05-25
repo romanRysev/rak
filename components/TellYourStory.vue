@@ -1,6 +1,6 @@
 <template>
   <section class="your-story">
-    <container class="container container_your-story">
+    <container class="container_your-story">
       <h3 class="your-story__header">Расскажите свою историю</h3>
       <div class="your-story__description-container">
         <div class="your-story__description-side">
