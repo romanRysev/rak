@@ -1,7 +1,7 @@
 <template>
   <section class="about-project">
-    <container>
-      <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
+    <container class="about-container">
+      <h2 class="about-project__title">&#35;раклечится</h2>
       <p class="about-project__subtitle">О проекте</p>
 
       <div class="about-project__place-container">
@@ -87,9 +87,15 @@ export default {
 .about-project {
   background-color: #613a93;
   width: 100%;
-  padding: 90px 60px 100px 60px;
+  /*padding: 90px 60px 100px 60px;*/
   min-height: 650px;
 }
+
+.about-container {
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
 .about-project__title {
   font-style: normal;
   font-weight: 800;
@@ -98,6 +104,7 @@ export default {
   text-align: center;
   color: #fff;
   margin: 0 0 70px 0;
+  text-transform: uppercase;
 }
 .about-project__subtitle {
   font-style: normal;
@@ -176,8 +183,12 @@ export default {
 
 @media screen and (max-width: 1279px) {
   .about-project {
-    padding: 80px 50px 90px 50px;
     min-height: 570px;
+  }
+
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 90px;
   }
 
   .about-project__title {
@@ -224,7 +235,10 @@ export default {
 @media screen and (max-width: 767px) {
   .about-project {
     min-height: 660px;
-    padding: 80px 0 80px 0;
+  }
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .about-project__title {
     display: none;
@@ -257,8 +271,9 @@ export default {
   }
 }
 @media screen and (max-width: 730px) {
-  .about-project {
-    padding: 80px 0 80px 0;
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .about-project__title {
     display: none;
@@ -292,8 +307,9 @@ export default {
 }
 
 @media screen and (max-width: 457px) {
-  .about-project {
-    padding: 80px 15px 80px 15px;
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 08px;
   }
   .about-project__subtitle {
     margin-left: 0;
