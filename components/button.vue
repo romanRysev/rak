@@ -1,7 +1,7 @@
 <template>
   <button
     :class="[
-      'popup__button',
+      'popup-button',
       className,
       {
         button_disabled: disabled,

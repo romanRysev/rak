@@ -3,7 +3,7 @@
     <container>
       <h3 class="stories__title">Истории неизлечимых привычек</h3>
       <storiesgrid />
-      <morearticles class="more-button" />
+      <morearticles class="stories__more-button" />
     </container>
   </section>
 </template>
@@ -26,17 +26,13 @@ export default {
   padding: 100px 0;
 }
 .stories__title {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
-  text-align: left;
   max-width: 413px;
   margin-bottom: 70px;
 }
-.more-button {
+.stories__more-button {
   padding: 0;
   margin-top: 70px;
 }
@@ -50,7 +46,7 @@ export default {
     font-size: 28px;
     line-height: 32px;
   }
-  .more-button {
+  .stories__more-button {
     margin-top: 40px;
   }
 }
@@ -63,7 +59,7 @@ export default {
     line-height: 28px;
     margin-bottom: 46px;
   }
-  .more-button {
+  .stories__more-button {
     margin-top: 40px;
   }
 }

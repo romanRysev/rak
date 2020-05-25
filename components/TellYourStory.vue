@@ -1,6 +1,6 @@
 <template>
   <section class="your-story">
-    <container class="container container_your-story">
+    <container class="container_your-story">
       <h3 class="your-story__header">Расскажите свою историю</h3>
       <div class="your-story__description-container">
         <div class="your-story__description-side">
@@ -59,7 +59,7 @@
       <popupbutton
         v-if="variantOneShown"
         @custom-click="$store.commit('popup/open')"
-        class="popup__button"
+        class="popup-button"
       >
         <p class="popup__button-description">
           <slot>Заполнить форму</slot>
@@ -69,7 +69,7 @@
       <popupbutton
         v-if="variantTwoShown"
         @custom-click="$store.commit('popup/open')"
-        class="popup__button"
+        class="popup-button"
       >
         <p class="popup__button-description">
           <slot>Оставить контакт</slot>
@@ -168,7 +168,7 @@ export default {
   cursor: default;
 }
 
-.popup__button {
+.popup-button {
   width: 280px;
   max-width: 280px;
   min-width: 180px;
@@ -183,7 +183,7 @@ export default {
   cursor: pointer;
 }
 
-.popup__button:hover {
+.popup-button:hover {
   opacity: 0.9;
   transition: 0.3s;
 }
@@ -213,7 +213,7 @@ export default {
     line-height: 1.5em;
   }
 
-  .popup__button {
+  .popup-button {
     height: 48px;
     width: 230px;
   }
@@ -255,7 +255,7 @@ export default {
     line-height: 19px;
   }
 
-  .popup__button {
+  .popup-button {
     height: 46px;
     width: 230px;
     left: calc(50% + 15px);
@@ -322,7 +322,7 @@ export default {
     min-height: 95px;
   }
 
-  .popup__button {
+  .popup-button {
     position: inherit;
     width: 230px;
     height: 46px;
@@ -383,7 +383,7 @@ export default {
     min-height: 95px;
   }
 
-  .popup__button {
+  .popup-button {
     position: inherit;
     width: 100%;
     max-width: 100%;
