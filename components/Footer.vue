@@ -126,9 +126,6 @@ export default {
 .footer__links {
   font-size: 18px;
   line-height: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   width: 300px;
   grid-area: Links;
   justify-self: end;
