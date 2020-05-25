@@ -74,7 +74,7 @@ html {
   margin: 0;
 }
 
-.container_mobile-menu {
+.mobile-menu__list {
   display: none;
 }
 
@@ -92,7 +92,7 @@ html {
 }
 
 @media screen and (max-width: 1023px) {
-  .container_mobile-menu {
+  .mobile-menu__list {
     width: 100%;
     font-size: 16px;
     line-height: 1;
@@ -128,10 +128,10 @@ html {
 }
 
 @media screen and (max-width: 730px) {
-  .container_mobile-menu {
+  .mobile-menu__list {
     font-size: 13px;
     grid-template-columns: 1fr;
-    grid-gap: 18px;
+    grid-gap: 20px;
   }
 
   .header__share {
