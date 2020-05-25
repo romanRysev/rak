@@ -1,20 +1,20 @@
 <template>
   <footer class="footer">
-    <container class="container container_footer">
+    <container class="footer-container">
       <p class="footer__text">
         Спасибо всем, кто помог состояться этому проекту
       </p>
 
       <main-menu class="footer__menu" />
 
-      <ul class="footer__links">
-        <li class="footer__social">
+      <div class="footer__links">
+        <p class="footer__social">
           Мы в
           <page-link class="link" :url="links[0].url" :text="links[0].text" />
           и
           <page-link class="link" :url="links[1].url" :text="links[1].text" />
-        </li>
-        <li class="footer__link_share">
+        </p>
+        <p class="footer__link_share">
           <!--<button
             class="footer__share"
             type="button"
@@ -26,8 +26,8 @@
             :text="links[2].text"
             @shareClick="$emit('shareClick')"
           />
-        </li>
-      </ul>
+        </p>
+      </div>
 
       <p class="footer__copyright footer__copyright_project">
         Рак Лечится {{ date }}
@@ -90,10 +90,11 @@ export default {
   background-color: #fbfbfb;
 }
 
-.container_footer {
+.footer-container {
   min-height: 356px;
   width: 100%;
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(2, min-content) 1fr;
@@ -125,9 +126,6 @@ export default {
 .footer__links {
   font-size: 18px;
   line-height: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   width: 300px;
   grid-area: Links;
   justify-self: end;
@@ -172,9 +170,10 @@ export default {
 }
 
 @media screen and (max-width: 1439px) {
-  .container_footer {
+  .footer-container {
     min-height: 316px;
-    padding: 50px 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .footer__text {
@@ -201,9 +200,10 @@ export default {
 }
 
 @media screen and (max-width: 1279px) {
-  .container_footer {
+  .footer-container {
     min-height: 292px;
-    padding: 50px 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .footer__text {
@@ -239,7 +239,7 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .container_footer {
+  .footer-container {
     min-height: 402px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, min-content);
