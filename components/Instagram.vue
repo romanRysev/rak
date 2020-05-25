@@ -104,7 +104,7 @@ export default {
 }
 
 .instagram__card {
-  background-image: url('/Images/shitty_lobster_photo.jpeg');
+  background-image: url('/images/shitty_lobster_photo.jpeg');
   background-size: cover;
   background-position: center;
 }
