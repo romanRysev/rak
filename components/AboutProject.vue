@@ -30,7 +30,7 @@
         </div>
 
         <ul class="about-project__description">
-          <li v-if="rakLechitsa" class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__description-content">
             Есть вещи, которые не лечатся. Особенности характера, страстные
             увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
             приобрели в детстве. Список можно продолжать до бесконечности, но
@@ -38,13 +38,13 @@
             и лучшее доказательство — люди с их неизлечимыми особенностями,
             которые сумели победить рак.
           </li>
-          <li v-if="rakLechitsa" class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__description-content">
             Рак лечится — проект Благотворительного Фонда Константина Хабенского
             и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение
             людей к раку и заставить каждого поверить: онкологическое
             заболевание — это не приговор.
           </li>
-          <li v-if="fondKhabenskogo" class="about-project__paragraph">
+          <li v-if="fondKhabenskogo" class="about-project__description-content">
             Благотворительный Фонд Константина Хабенского с 2008 года помогает
             детям с онкологическими и другими тяжелыми заболеваниями головного
             мозга. Фонд не только поддерживает семью заболевшего ребенка в самый
@@ -141,10 +141,10 @@ export default {
   padding-left: 0;
   list-style-type: none;
 }
-.about-project__paragraph:first-child {
+.about-project__description-content:first-child {
   margin-bottom: 20px;
 }
-.about-project__paragraph {
+.about-project__description-content {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -216,7 +216,7 @@ export default {
   .about-project__name_active {
     border-bottom: 2px solid currentColor;
   }
-  .about-project__paragraph {
+  .about-project__description-content {
     font-size: 15px;
     line-height: 19px;
   }
