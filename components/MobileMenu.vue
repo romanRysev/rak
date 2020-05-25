@@ -40,15 +40,18 @@
           <slot></slot>
         </li>
       </ul>
+      <break-line class="mobile-breakline" />
     </nav>
   </container>
 </template>
 
 <script>
 import Container from '~/components/Container';
+import BreakLine from '~/components/ui/BreakLine';
 export default {
   components: {
     container: Container,
+    'break-line': BreakLine,
   },
 };
 </script>
@@ -71,5 +74,17 @@ export default {
 
 .mobile-menu__link:hover {
   opacity: 0.8;
+}
+
+.mobile-breakline {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .mobile-breakline {
+    display: block;
+  }
 }
 </style>

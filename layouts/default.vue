@@ -9,7 +9,7 @@
         Рассказать историю
       </button>
     </mobile-menu>
-    <break-line class="break-line_mobile-menu" />
+    <!--    <break-line class="break-line_mobile-menu" />  – перенес в MobileMenu -->
     <main-header />
     <break-line class="break-line" v-if="$route.path !== '/'" />
     <popup v-if="this.$store.state.popup.popupShown"><popupQuiz /></popup>
@@ -78,9 +78,9 @@ html {
   display: none;
 }
 
-.break-line_mobile-menu {
+/*.break-line_mobile-menu {
   display: none;
-}
+}*/
 
 .mobile-menu__link {
   text-decoration: none;
@@ -122,9 +122,9 @@ html {
     opacity: 0.8;
   }
 
-  .break-line_mobile-menu {
+  /*.break-line_mobile-menu {
     display: block;
-  }
+  }*/
 }
 
 @media screen and (max-width: 730px) {
