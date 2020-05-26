@@ -62,12 +62,17 @@
 }
 
 .menu__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mobile-menu__link {
   color: #000;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.menu__link:hover {
+.mobile-menu__link:hover {
   opacity: 0.8;
 }
 

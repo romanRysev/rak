@@ -3,13 +3,13 @@
     <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu">
       <button
         type="button"
-        class="menu__link header__share"
+        class="mobile-menu__link mobile-menu__share"
         @click="$store.commit('popup/open')"
       >
         Рассказать историю
       </button>
     </mobile-menu>
-    <break-line class="break-line_mobile-menu" />
+    <!--    <break-line class="break-line_mobile-menu" />    – перенес в MobileMenu -->
     <main-header />
     <break-line class="break-line" v-if="$route.path !== '/'" />
     <popup v-if="this.$store.state.popup.popupShown"><popupQuiz /></popup>
@@ -78,9 +78,9 @@ html {
   display: none;
 }
 
-.break-line_mobile-menu {
+/*.break-line_mobile-menu {
   display: none;
-}
+}*/
 
 .mobile-menu__link {
   text-decoration: none;
@@ -104,7 +104,7 @@ html {
     margin: 18px 0;
   }
 
-  .header__share {
+  .mobile-menu__share {
     width: fit-content;
     border: none;
     margin: 0;
@@ -117,14 +117,14 @@ html {
     transition: 0.3s;
   }
 
-  .header__share:hover {
+  .mobile-menu__share:hover {
     cursor: pointer;
     opacity: 0.8;
   }
 
-  .break-line_mobile-menu {
+  /*.break-line_mobile-menu {
     display: block;
-  }
+  }*/
 }
 
 @media screen and (max-width: 730px) {
@@ -134,7 +134,7 @@ html {
     grid-gap: 20px;
   }
 
-  .header__share {
+  .mobile-menu__share {
     font-size: 13px;
   }
 }

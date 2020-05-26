@@ -21,7 +21,7 @@ export default {
 
   methods: {
     storyHref(id) {
-      return 'stories/' + id;
+      return `stories/${id}`;
     },
   },
   computed: {

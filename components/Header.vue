@@ -10,7 +10,7 @@
       <main-menu class="header__menu">
         <button
           type="button"
-          class="menu__link header__share"
+          class="mobile-menu__link mobile-menu__share"
           @click="$store.commit('popup/open')"
         >
           Рассказать историю
@@ -62,7 +62,7 @@ export default {
   color: #000;
 }
 
-.header__share {
+.mobile-menu__share {
   width: fit-content;
   border: none;
   margin: 0;
@@ -75,7 +75,7 @@ export default {
   transition: 0.3s;
 }
 
-.header__share:hover {
+.mobile-menu__share:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -91,7 +91,7 @@ export default {
   .header__logo {
     line-height: 18px;
   }
-  .header__share {
+  .mobile-menu__share {
     font-size: 16px;
   }
 }

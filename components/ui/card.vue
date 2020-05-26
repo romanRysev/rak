@@ -1,13 +1,11 @@
 <template>
-  <a :href="href" class="card__link">
-    <div class="card">
-      <div class="card__photo-contaimer">
-        <img class="card__photo" :src="photo" alt="Фото автора" />
-      </div>
-
-      <h3 class="card__title">{{ title }}</h3>
-      <p class="card__subtitle">{{ subtitle }}</p>
+  <a :href="href" class="card">
+    <div class="card__photo-contaimer">
+      <img class="card__photo" :src="photo" alt="Фото автора" />
     </div>
+
+    <h3 class="card__title">{{ title }}</h3>
+    <p class="card__subtitle">{{ subtitle }}</p>
   </a>
 </template>
 
@@ -24,9 +22,6 @@ export default {
 <style scoped>
 .card {
   text-align: left;
-}
-
-.card__link {
   text-decoration: none;
 }
 
