@@ -78,7 +78,14 @@ export default {
   },
   methods: {
     submitContactForm() {
-      //здесь надо сохранять данные
+      //Просто заглушка, ответы сохраняются в массив, но никуда не отправляются
+      const contacts = [];
+      contacts.unshift({
+        name: `${this.name}`,
+        email: `${this.email}`,
+        tel: `${this.tel}`,
+        message: `${this.message}`,
+      });
       this.$store.commit('popup/close');
       this.$store.commit('form/closeForm');
     },

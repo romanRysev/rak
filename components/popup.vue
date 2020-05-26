@@ -2,7 +2,12 @@
   <div>
     <div>
       <div :class="['modalWindow', className]">
-        <div class="overlay"></div>
+        <div
+          class="overlay"
+          @click="
+            [$store.commit('popup/close'), $store.commit('form/closeForm')]
+          "
+        ></div>
         <div :class="['popup', className]">
           <!--<img
             v-if="isLastPage"
@@ -48,6 +53,15 @@ export default {
       }
       return true;
     },
+  },
+  mounted() {
+    // Закрыть по ESC
+    document.addEventListener('keydown', evt => {
+      if (evt.keyCode == 27) {
+        this.$store.commit('popup/close');
+        this.$store.commit('form/closeForm');
+      }
+    });
   },
 };
 </script>
