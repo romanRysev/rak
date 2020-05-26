@@ -29,18 +29,17 @@
           src="https://www.youtube.com/embed/coOppM34GtI"
           allowfullscreen
         />
-
         <button class="play-button" />
-
-        <p class="video-notation">
-          Все видео вы можете найти на нашем
-          <a
-            class="video-notation video-notation__link"
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >YouTube канале</a
-          >.
-        </p>
       </div>
+
+      <p class="video-notation">
+        Все видео вы можете найти на нашем
+        <a
+          class="video-notation video-notation__link"
+          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+          >YouTube канале</a
+        >.
+      </p>
     </container>
 
     <container>
@@ -67,10 +66,10 @@ export default {
 }
 
 .container_video {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: repeat(3, auto);
 }
 
 .text-content {
@@ -153,15 +152,17 @@ export default {
 .frame-container {
   grid-column: 2/3;
   grid-row: 1/3;
-  width: 100%;
-  max-width: 867px;
-  height: 450px;
-  justify-self: end;
   position: relative;
+  padding-bottom: 52%; /* Сохраняет пропорции фрейма при растягивании */
 }
 
 .frame {
   border: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .play-button {
@@ -190,7 +191,6 @@ export default {
   grid-column: 2 / span 1;
   margin-top: 5px;
   width: 100%;
-  max-width: 867px;
   justify-self: end;
 }
 
@@ -228,7 +228,7 @@ export default {
   }
 
   .container_video {
-    margin-bottom: 90px;
+    margin-bottom: 60px;
   }
 
   .section-title {
@@ -241,12 +241,6 @@ export default {
     font-size: 16px;
     line-height: 20px;
     max-width: 310px;
-  }
-
-  .frame-container {
-    max-width: 773px;
-    height: 400px;
-    justify-self: end;
   }
 
   .play-button {
@@ -275,7 +269,7 @@ export default {
   }
 
   .container_video {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 
   .section-title {
@@ -289,12 +283,6 @@ export default {
     font-size: 13px;
     line-height: 16px;
     max-width: 260px;
-  }
-
-  .frame-container {
-    max-width: 606px;
-    height: 314px;
-    justify-self: end;
   }
 
   .play-button {
@@ -324,9 +312,9 @@ export default {
   }
 
   .container_video {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 50px 1fr 50px;
     grid-template-rows: repeat(2, minmax(min-content, max-content));
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .text-content {
@@ -361,8 +349,6 @@ export default {
   .frame-container {
     grid-column: 2/3;
     grid-row: 2/3;
-    width: 580px;
-    height: 300px;
   }
 
   .play-button {
@@ -398,13 +384,14 @@ export default {
   }
 
   .container_video {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(240px, 500px);
     grid-template-rows: repeat(2, minmax(min-content, max-content));
+    justify-content: center;
     margin-bottom: 45px;
   }
 
   .text-content {
-    grid-column-start: span 3;
+    grid-column: 1/2;
     width: 100%;
     max-width: 290px;
     margin: 0 auto 40px;
@@ -423,7 +410,7 @@ export default {
   }
 
   .selector {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 2/3;
     width: 100%;
     justify-content: space-between;
@@ -437,10 +424,8 @@ export default {
   }
 
   .frame-container {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 2/3;
-    width: 290px;
-    height: 150px;
   }
 
   .play-button {
