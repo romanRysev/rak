@@ -1,7 +1,18 @@
 <template>
   <div class="story-grid">
     <card
+      v-if="searchCards.length == 0"
       v-for="card in storyCards"
+      :key="card.id"
+      :title="card.title"
+      :subtitle="card.subtitle"
+      :photo="card.photo"
+      :href="storyHref(card.id)"
+    />
+
+    <card
+      v-if="searchCards.length !== 0"
+      v-for="card in searchCards"
       :key="card.id"
       :title="card.title"
       :subtitle="card.subtitle"
@@ -24,9 +35,17 @@ export default {
       return 'stories/' + id;
     },
   },
+
+  created() {
+    return this.$store.commit('data/stories/setStoryesProperties');
+  },
+
   computed: {
     storyCards() {
       return this.$store.getters['data/stories/getStories'];
+    },
+    searchCards() {
+      return this.$store.getters['data/stories/getSearchExport'];
     },
   },
 };
