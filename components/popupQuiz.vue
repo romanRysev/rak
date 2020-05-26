@@ -52,7 +52,9 @@
       </Button>
       <Button
         v-if="!isLastPage"
-        @custom-click="$store.commit('popup/close')"
+        @custom-click="
+          [$store.commit('popup/close'), $store.commit('form/closeForm')]
+        "
         class="buttonLast"
         type="button"
       >
@@ -146,8 +148,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  z-index: 123;
-  position: fixed;
 }
 .popup__step {
   display: flex;

@@ -40,6 +40,14 @@ export default {
       this.$store.commit('data/social/toggleSocial');
     },
   },
+  mounted() {
+    // Закрыть по ESC
+    document.addEventListener('keydown', evt => {
+      if (evt.keyCode == 27) {
+        this.$store.commit('data/social/toggleSocial');
+      }
+    });
+  },
 };
 </script>
 
