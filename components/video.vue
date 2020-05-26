@@ -45,7 +45,7 @@
 
     <container>
       <h3 class="hashtag-band">
-        и в отличие от рака, <span class="hashtag">#этонелечится</span>
+        и в отличие от рака, <span class="hashtag">&#35;этонелечится</span>
       </h3>
     </container>
   </section>
@@ -112,6 +112,12 @@ export default {
   border: none;
   cursor: pointer;
 }
+
+.selector__button:hover {
+  background-color: #f4f4f4;
+  transition: 0.3s;
+}
+
 .selector__button_left {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='black'/%3E%3C/svg%3E");
 }
@@ -131,9 +137,17 @@ export default {
   cursor: default;
 }
 
+.selector__button_left_disabled:hover {
+  background-color: #fbfbfb;
+}
+
 .selector__button_right_disabled {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17L9 9L1 1' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
   cursor: default;
+}
+
+.selector__button_right_disabled:hover {
+  background-color: #fbfbfb;
 }
 
 .frame-container {
@@ -167,6 +181,7 @@ export default {
 
 .play-button:hover {
   background-image: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  transition: 0.3s;
 }
 
 .video-notation {
@@ -181,6 +196,11 @@ export default {
 
 .video-notation__link {
   color: #666;
+}
+
+.video-notation__link:hover {
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 .hashtag-band {

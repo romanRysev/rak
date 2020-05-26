@@ -56,6 +56,10 @@ export default {
   cursor: pointer;
 }
 
+.head-banner__arrow:hover {
+  background-size: 120% 120%;
+}
+
 @media screen and (max-width: 1399px) {
   .head-banner__title {
     font-size: 78px;
