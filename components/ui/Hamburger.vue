@@ -35,6 +35,10 @@ export default {
   cursor: pointer;
 }
 
+.mobile-button:focus {
+  outline: none;
+}
+
 .mobile-button_type_close {
   background-image: url('../../static/images/menu-close.svg');
 }

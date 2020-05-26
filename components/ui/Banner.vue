@@ -60,6 +60,10 @@ export default {
   background-size: 120% 120%;
 }
 
+.head-banner__arrow:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 1399px) {
   .head-banner__title {
     font-size: 78px;
