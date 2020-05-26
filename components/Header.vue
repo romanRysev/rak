@@ -11,7 +11,9 @@
         <button
           type="button"
           class="menu__link header__share"
-          @click="$store.commit('popup/open')"
+          @click="
+            [$store.commit('popup/open'), $store.commit('form/openquizForm')]
+          "
         >
           Рассказать историю
         </button>
