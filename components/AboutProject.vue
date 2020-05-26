@@ -140,6 +140,7 @@ export default {
 }
 .about-project__name:hover {
   color: #fff;
+  transition: 0.3s;
 }
 .about-project__name_active {
   font-weight: 500;

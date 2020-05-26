@@ -72,6 +72,10 @@ export default {
   border-bottom: 1px solid #e7e7e7;
 }
 
+.popup__input:focus {
+  outline: none;
+}
+
 @media all and (max-width: 1279px) {
   .popup__input {
     width: 720px;

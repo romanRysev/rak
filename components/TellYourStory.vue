@@ -40,22 +40,6 @@
         </div>
       </div>
 
-      <!--<Button
-        v-if="variantOneShown"
-        @custom-click="$store.commit('popup/open')"
-        class="popup__button"
-        type="button"
-        >Заполнить форму</Button
-      >
-
-      <Button
-        v-if="variantTwoShown"
-        @custom-click="$store.commit('popup/open')"
-        class="popup__button"
-        type="button"
-        >Оставить контакт</Button
-      >-->
-
       <popupbutton
         v-if="variantOneShown"
         @custom-click="
@@ -164,6 +148,7 @@ export default {
 
 .your-story__variant:hover {
   color: black;
+  transition: 0.3s;
 }
 
 .your-story__variant_active {
@@ -190,6 +175,10 @@ export default {
 .popup-button:hover {
   opacity: 0.9;
   transition: 0.3s;
+}
+
+.popup-button:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
