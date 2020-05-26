@@ -101,7 +101,7 @@ html {
     display: grid;
     grid-template-columns: repeat(2, min-content) max-content;
     grid-gap: 30px;
-    margin: 18px 0;
+    /*margin: 18px 0;*/
   }
 
   .mobile-menu__share {
@@ -109,7 +109,7 @@ html {
     border: none;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: transparent;
     color: #121212;
     font-size: 16px;
     line-height: 1;

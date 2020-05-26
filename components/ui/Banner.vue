@@ -2,8 +2,6 @@
   <section class="head-banner" ref="banner">
     <container>
       <h1 class="head-banner__title">&#35;раклечится</h1>
-      <!-- todo: заменить хештег на юникод? -->
-      <!--      <img class="head-banner__arrow" src="/banner-arrow.svg" alt="" />-->
       <button class="head-banner__arrow" @click="scrollBanner"></button>
     </container>
   </section>

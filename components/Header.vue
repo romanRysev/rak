@@ -7,15 +7,17 @@
       <p class="header__logo" v-else>
         Проект Благотворительного Фонда Константина Хабенского
       </p>
-      <main-menu class="header__menu">
-        <button
-          type="button"
-          class="mobile-menu__link mobile-menu__share"
-          @click="$store.commit('popup/open')"
-        >
-          Рассказать историю
-        </button>
-      </main-menu>
+      <nav class="header__menu">
+        <main-menu>
+          <button
+            type="button"
+            class="mobile-menu__link mobile-menu__share"
+            @click="$store.commit('popup/open')"
+          >
+            Рассказать историю
+          </button>
+        </main-menu>
+      </nav>
       <hamburger-menu class="header__mobile-icon" />
     </container>
   </header>
