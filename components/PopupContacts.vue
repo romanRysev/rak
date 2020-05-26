@@ -8,10 +8,13 @@
     <popup-label class="popup-contacts__label"
       ><span class="popup-contacts__label-text">Как вас зовут?</span>
       <popup-input
-        :class="popup - contacts__input"
+        class="popup-contacts__input"
         :placeholder="'Напишите тут'"
         :type="'text'"
         :required="'required'"
+        pattern="[А-Я][а-яё]+(-?[А-Я][а-яё]+)?"
+        minlength="2"
+        maxlength="20"
         v-model="name"
       />
     </popup-label>
@@ -23,6 +26,7 @@
           :placeholder="'pochta@example.com'"
           :type="'email'"
           :required="'required'"
+          pattern="((\w){1,}\.)?([\w-]{1,}@[\w]{0,}\.[\w]{2,3}(\.[\w]{2,3})?)"
           v-model="email"
         />
       </popup-label>
@@ -33,7 +37,9 @@
           :placeholder="'+7 000 000 00 00'"
           :type="'tel'"
           :required="'required'"
-          pattern="^[0-9-+s()]{1,}"
+          pattern="(8|\+7)([0-9]{3}|\([0-9]{3}\)|\s[0-9]{3}-)(-|\s)?[0-9]{3}(-|\s)?[0-9]{2}(-|\s)?[0-9]{2}"
+          minlength="10"
+          maxlength="18"
           v-model="tel"
         />
       </popup-label>
@@ -49,10 +55,10 @@
       />
     </popup-label>
     <div class="popup-contacts__submit-block">
-      <!--Здесь надо разблокировать кнопку, если данные корректные-->
-      <button-submit type="submit" class="popup-contacts__button-submit"
-        >Отправить</button-submit
-      >
+      <!--В итоге использовала обычную кнопку сабмит, с ней работает вроде-->
+      <button type="submit" class="popup-contacts__button-submit">
+        Отправить
+      </button>
       <p class="popup-contacts__terms">
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link to="/policy" target="_blank" class="popup-contacts__link"
@@ -67,14 +73,14 @@
 import ButtonClose from '@/components/ui/ButtonClose';
 import InputContacts from '@/components/ui/InputContacts';
 import Label from '@/components/ui/Label';
-import button from '@/components/button';
+//import button from '@/components/button';
 
 export default {
   components: {
     'button-close': ButtonClose,
     'popup-input': InputContacts,
     'popup-label': Label,
-    'button-submit': button,
+    //'button-submit': button,
   },
   methods: {
     submitContactForm() {
@@ -86,6 +92,8 @@ export default {
         tel: `${this.tel}`,
         message: `${this.message}`,
       });
+      //Пока только в консоль
+      console.log(contacts);
       this.$store.commit('popup/close');
       this.$store.commit('form/closeForm');
     },
@@ -127,6 +135,14 @@ export default {
 .popup-contacts__label-text {
   display: inline-block;
   margin-bottom: 40px;
+}
+
+.popup-contacts__input:valid:not(:placeholder-shown) {
+  border-color: #e7e7e7;
+}
+
+.popup-contacts__input:invalid:not(:placeholder-shown) {
+  border-color: #df4b41;
 }
 
 .popup-contacts__contacts {
