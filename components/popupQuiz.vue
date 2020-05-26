@@ -52,7 +52,9 @@
       </Button>
       <Button
         v-if="!isLastPage"
-        @custom-click="$store.commit('popup/close')"
+        @custom-click="
+          [$store.commit('popup/close'), $store.commit('form/closeForm')]
+        "
         class="buttonLast"
         type="button"
       >
