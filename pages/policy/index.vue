@@ -1,11 +1,11 @@
 <template>
-  <container class="policy__container">
-    <h2 class="policy__heading">
+  <container class="policy-container">
+    <h2 class="heading">
       Политика проекта в отношении обработки персональных данных.
     </h2>
-    <ol class="policy__terms">
-      <li class="policy__article" v-for="article in articles" :key="article.id">
-        <h3 class="policy__subtitle">{{ article.name }}</h3>
+    <ol class="terms">
+      <li class="article" v-for="article in articles" :key="article.id">
+        <h3 class="subtitle">{{ article.name }}</h3>
         <div
           :class="{
             'policy__article-text': article.articleText !== '',
@@ -13,9 +13,9 @@
           }"
           v-html="article.articleText"
         ></div>
-        <ol class="policy__subsection">
+        <ol class="subsection">
           <li
-            class="policy__subsection-text"
+            class="subsection subsection__text"
             v-for="subsection in article.subsections"
             :key="subsection.id"
           >
@@ -42,12 +42,12 @@ export default {
 </script>
 
 <style scoped>
-.policy__container {
+.policy-container {
   max-width: 780px;
   margin: 0 auto;
 }
 
-.policy__heading {
+.heading {
   font-size: 38px;
   line-height: 48px;
   text-align: center;
@@ -57,7 +57,7 @@ export default {
   border-bottom: 1px solid #efefef;
 }
 
-.policy__terms {
+.terms {
   list-style-type: none;
   counter-reset: article-num;
   margin: 0;
@@ -67,18 +67,18 @@ export default {
   line-height: 30px;
 }
 
-.policy__article {
+.article {
   margin-bottom: 90px;
 }
 
-.policy__article::before {
+.article::before {
   counter-increment: article-num;
   content: counter(article-num) '.';
   font-weight: 600;
   margin-right: 5px;
 }
 
-.policy__subtitle {
+.subtitle {
   font-size: 22px;
   line-height: 30px;
   font-weight: 600;
@@ -94,17 +94,17 @@ export default {
   margin-top: 40px;
 }
 
-.policy__subsection {
+.subsection {
   list-style-type: none;
   counter-reset: subsection-num;
 }
 
-.policy__subsection-text {
+.subsection__text {
   margin: 0 0 30px;
   position: relative;
 }
 
-.policy__subsection-text::before {
+.subsection__text::before {
   counter-increment: subsection-num;
   content: counter(subsection-num) '.';
   position: absolute;
@@ -113,69 +113,69 @@ export default {
 }
 
 @media screen and (max-width: 1429px) {
-  .policy__container {
+  .policy-container {
     max-width: 700px;
     margin: 0 auto;
   }
 
-  .policy__heading {
+  .heading {
     font-size: 34px;
     line-height: 44px;
     margin: 90px auto;
   }
 
-  .policy__terms {
+  .terms {
     font-size: 20px;
     line-height: 28px;
   }
 
-  .policy__subtitle {
+  .subtitle {
     font-size: 20px;
     line-height: 28px;
   }
 }
 
 @media screen and (max-width: 1279px) {
-  .policy__container {
+  .policy-container {
     max-width: 640px;
     margin: 0 auto;
   }
 
-  .policy__heading {
+  .heading {
     font-size: 30px;
     line-height: 38px;
     margin: 80px auto;
   }
 
-  .policy__terms {
+  .terms {
     font-size: 18px;
     line-height: 27px;
   }
 
-  .policy__article {
+  .article {
     margin-bottom: 40px;
   }
 
-  .policy__subtitle {
+  .subtitle {
     font-size: 18px;
     line-height: 27px;
   }
 }
 
 @media screen and (max-width: 670px) {
-  .policy__container {
+  .policy-container {
     max-width: 640px;
     margin: 0 15px;
   }
 
-  .policy__heading {
+  .heading {
     font-size: 18px;
     line-height: 21px;
     margin: 50px auto;
     padding: 20px 0;
   }
 
-  .policy__terms {
+  .terms {
     font-size: 13px;
     line-height: 16px;
   }
@@ -188,16 +188,16 @@ export default {
     margin-top: 40px;
   }
 
-  .policy__subtitle {
+  .subtitle {
     font-size: 13px;
     line-height: 16px;
   }
 
-  .policy__subsection {
+  .subsection {
     padding-left: 26px;
   }
 
-  .policy__subsection-text::before {
+  .subsection__text::before {
     left: -26px;
   }
 }
