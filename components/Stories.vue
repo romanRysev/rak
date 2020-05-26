@@ -37,7 +37,7 @@ export default {
   margin-top: 70px;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1280px) {
   .stories {
     padding: 90px 0;
   }
@@ -47,10 +47,10 @@ export default {
     line-height: 32px;
   }
   .stories__more-button {
-    margin-top: 40px;
+    margin-top: 60px;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .stories {
     padding: 80px 0;
   }
@@ -58,12 +58,13 @@ export default {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 46px;
+    width: 340px;
   }
   .stories__more-button {
-    margin-top: 40px;
+    margin-top: 35px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .stories {
     display: flex;
     flex-direction: column;
@@ -71,20 +72,30 @@ export default {
   }
   .stories__title {
     max-width: 380px;
-    margin-bottom: 60px;
     text-align: center;
+    margin: 0 auto 60px;
+  }
+
+  .stories__more-button {
+    margin-top: 45px;
   }
 }
 @media screen and (max-width: 455px) {
   .stories {
-    padding: 50px 0;
+    /*padding: 50px 0;*/
+    padding-top: 50px;
   }
   .stories__title {
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 40px;
-    text-align: start;
-    margin-right: auto;
+    text-align: left;
+    /*margin-right: auto;*/
+    width: 100%;
+  }
+
+  .stories__more-button {
+    margin-top: 40px;
   }
 }
 </style>

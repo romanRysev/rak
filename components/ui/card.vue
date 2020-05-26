@@ -1,6 +1,6 @@
 <template>
   <a :href="href" class="card">
-    <div class="card__photo-contaimer">
+    <div class="card__photo-container">
       <img class="card__photo" :src="photo" alt="Фото автора" />
     </div>
 
@@ -40,7 +40,7 @@ export default {
   line-height: 18px;
   color: #666666;
 }
-.card__photo-contaimer {
+.card__photo-container {
   width: 100%;
   padding-top: 100%;
   position: relative;
@@ -63,6 +63,16 @@ export default {
   .card__subtitle {
     font-size: 13px;
     line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .card__photo-container {
+    margin-bottom: 15px;
+  }
+
+  .card__title {
+    margin-bottom: 12px;
   }
 }
 </style>
