@@ -61,6 +61,11 @@
   grid-gap: 40px;
 }
 
+.menu__link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .mobile-menu__link {
   color: #000;
   text-decoration: none;
