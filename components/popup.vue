@@ -4,13 +4,13 @@
       <div :class="['modalWindow', className]">
         <div class="overlay"></div>
         <div :class="['popup', className]">
-          <img
+          <!-- <img
             v-if="isLastPage"
             class="icon__close"
             @click="$store.commit('popup/close')"
             src="/images/icon__close.svg"
             alt="Кнопка закрытия формы отправки сообщения"
-          />
+          /> -->
           <!-- <popupQuiz /> -->
           <slot></slot>
         </div>

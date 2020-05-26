@@ -37,7 +37,7 @@ export const actions = {
       return;
     }
     await commit('setCurrentQuestion', {
-      currentQuestion: currentQuestion - 12,
+      currentQuestion: 1,
     });
   },
 };

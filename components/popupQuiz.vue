@@ -3,6 +3,13 @@
     <h3 v-if="isLastPage" class="popup__step">
       {{ currentQuestion.step }}
     </h3>
+    <img
+      v-if="isLastPage"
+      class="icon__close"
+      @click="$store.commit('popup/close')"
+      src="/images/icon__close.svg"
+      alt="Кнопка закрытия формы отправки сообщения"
+    />
     <h3 v-if="!isLastPage" class="popup__thanks">
       Спасибо что приняли участие!
     </h3>
@@ -48,6 +55,7 @@
       <p class="popup__processingPersInfo" v-if="isTwentyPage">
         Нажимая на кнопку «отправить», вы даете согласие на <nuxt-link
         to=/policy target="_blank">обработку персональных данных
+        <!-- </nuxt-link> -->
       </p>
 
       <Button
@@ -388,7 +396,7 @@ export default {
   .icon__close {
     width: 17.36px;
     position: absolute;
-    top: 310px;
+    top: 40px;
     left: 757px;
 
     /* top: 165px;
