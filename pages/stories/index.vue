@@ -13,25 +13,25 @@
 
     <ul class="page-list">
       <li class="page-list__element">
-        <span class="element__number">1</span>
+        <span class="element-number">1</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">2</span>
+        <span class="element-number">2</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">3</span>
+        <span class="element-number">3</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">4</span>
+        <span class="element-number">4</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">5</span>
+        <span class="element-number">5</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">6</span>
+        <span class="element-number">6</span>
       </li>
       <li class="page-list__element">
-        <span class="element__number">7</span>
+        <span class="element-number">7</span>
       </li>
     </ul>
   </container>
@@ -142,7 +142,7 @@ export default {
 .page-list__element:hover {
   background-color: #f4f4f4;
 }
-.element__number {
+.element-number {
   color: #181818;
   font-style: normal;
   font-weight: 500;
