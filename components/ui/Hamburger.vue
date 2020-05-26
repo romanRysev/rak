@@ -32,6 +32,7 @@ export default {
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .mobile-button_type_close {

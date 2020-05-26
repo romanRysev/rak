@@ -1,22 +1,4 @@
 <template>
-  <!--<nav class="mobile-menu">
-    <container class="container container_mobile-menu">
-      <nuxt-link
-        to="/"
-        class="mobile-menu__link"
-        :class="{ menu__link_active: $route.path == '/' }"
-        >Главная
-      </nuxt-link>
-      <nuxt-link
-        to="/stories"
-        class="mobile-menu__link"
-        :class="{ menu__link_active: $route.path == '/stories' }"
-        >Истории
-      </nuxt-link>
-      <slot></slot>
-    </container>
-  </nav>-->
-
   <container>
     <nav class="mobile-menu">
       <ul class="mobile-menu__list">
@@ -40,8 +22,8 @@
           <slot></slot>
         </li>
       </ul>
-      <break-line class="mobile-breakline" />
     </nav>
+    <break-line class="mobile-breakline" />
   </container>
 </template>
 
@@ -58,7 +40,7 @@ export default {
 
 <style scoped>
 .mobile-menu {
-  /*padding: 18px 0;*/
+  margin: 18px 0;
 }
 
 .mobile-menu__list {

@@ -1,17 +1,4 @@
 <template>
-  <!--<nav class="menu">
-    <nuxt-link
-      to="/"
-      :class="['menu__link', { menu__link_active: $route.path == '/' }]"
-      >Главная</nuxt-link
-    >
-    <nuxt-link
-      to="/stories"
-      :class="['menu__link', { menu__link_active: $route.path == '/stories' }]"
-      >Истории</nuxt-link
-    >
-    <slot></slot>
-  </nav>-->
   <nav class="menu">
     <ul class="menu__list">
       <li>
@@ -46,10 +33,6 @@
   line-height: 24px;
   font-weight: normal;
   position: relative;
-  /*display: grid;*/
-  /*grid-template-columns: repeat(2, min-content) 1fr;*/
-  /*grid-template-rows: 1fr;*/
-  /*grid-gap: 40px;*/
 }
 
 .menu__list {
