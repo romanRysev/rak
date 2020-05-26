@@ -4,7 +4,10 @@
     <search />
 
     <storyGrid />
-    <pagination :totalElements="16" :elementsPerPage="3" />
+    <pagination
+      :totalElements="storyCards.length"
+      :elementsPerPage="elementsPerPage"
+    />
   </div>
 </template>
 
@@ -19,8 +22,18 @@ export default {
     pagination: Pagination,
   },
 
+  computed: {
+    storyCards() {
+      return this.$store.getters['data/stories/getStories'];
+    },
+  },
+
   created() {
     this.$store.commit('data/stories/setStoryesProperties');
+  },
+
+  data() {
+    return { elementsPerPage: 3 };
   },
 };
 </script>
