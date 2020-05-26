@@ -20,17 +20,6 @@
           </button>
         </main-menu>
       </nav>
-      <main-menu class="header__menu">
-        <button
-          type="button"
-          class="menu__link header__share"
-          @click="
-            [$store.commit('popup/open'), $store.commit('form/openquizForm')]
-          "
-        >
-          Рассказать историю
-        </button>
-      </main-menu>
       <hamburger-menu class="header__mobile-icon" />
     </container>
   </header>
