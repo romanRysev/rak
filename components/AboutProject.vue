@@ -87,7 +87,6 @@ export default {
 .about-project {
   background-color: #613a93;
   width: 100%;
-  /*padding: 90px 60px 100px 60px;*/
   min-height: 650px;
 }
 
@@ -136,6 +135,9 @@ export default {
   color: #c9c9c9;
   cursor: pointer;
 }
+.about-project__name:not(:last-child) {
+  margin-bottom: 15px;
+}
 .about-project__name:hover {
   color: #fff;
 }
@@ -177,13 +179,7 @@ export default {
 
 @media screen and (max-width: 1439px) {
   .about-project {
-    min-height: 620px;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .about-project {
-    min-height: 570px;
+    min-height: 626px;
   }
 
   .about-container {
@@ -194,14 +190,58 @@ export default {
   .about-project__title {
     font-size: 58px;
     line-height: 70px;
+    margin: 0 0 60px 0;
   }
+
   .about-project__subtitle {
     font-size: 28px;
     line-height: 32px;
   }
+
   .about-project__company-creator {
     font-size: 16px;
     line-height: 20px;
+    max-width: 310px;
+  }
+
+  .about-project__name:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    min-height: 570px;
+  }
+
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+
+  .about-project__title {
+    font-size: 52px;
+    line-height: 63px;
+    margin: 0 0 45px 0;
+  }
+  .about-project__subtitle {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 30px;
+  }
+  .about-project__company-creator {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 260px;
+  }
+  .about-project__name {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .about-project__description-content {
+    font-size: 15px;
+    line-height: 19px;
   }
 }
 @media screen and (max-width: 1023px) {
@@ -224,21 +264,20 @@ export default {
     font-size: 15px;
     line-height: 19px;
   }
-  .about-project__name_active {
-    border-bottom: 2px solid currentColor;
-  }
   .about-project__description-content {
     font-size: 15px;
     line-height: 19px;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 910px) {
   .about-project {
-    min-height: 660px;
+    min-height: 662px;
   }
   .about-container {
     padding-top: 80px;
     padding-bottom: 80px;
+    max-width: 460px;
   }
   .about-project__title {
     display: none;
@@ -246,6 +285,7 @@ export default {
   .about-project__subtitle {
     margin-left: auto;
     margin-bottom: 26px;
+    text-align: center;
   }
   .about-project__company-creator {
     max-width: 380px;
@@ -260,31 +300,47 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__name {
-    margin: 0 30px 30px 0;
-  }
   .about-project__list-names {
     display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
+    margin-bottom: 15px;
+  }
+
+  .about-project__name {
+    height: 24px;
+  }
+
+  .about-project__name:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  .about-project__name_active {
+    border-bottom: 2px solid currentColor;
   }
 }
+
 @media screen and (max-width: 730px) {
+  .about-project {
+    min-height: 628px;
+  }
+
   .about-container {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 350px;
   }
   .about-project__title {
     display: none;
   }
   .about-project__subtitle {
     margin-left: auto;
-    margin-bottom: 26px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
   }
   .about-project__company-creator {
     max-width: 380px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
   .about-project__place-container {
     display: flex;
@@ -295,29 +351,18 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__name {
-    margin: 0 30px 30px 0;
-  }
   .about-project__list-names {
     display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
+    margin-bottom: 5px;
   }
-}
 
-@media screen and (max-width: 457px) {
-  .about-container {
-    padding-top: 80px;
-    padding-bottom: 08px;
+  .about-project__name {
+    font-size: 13px;
+    line-height: 19px;
   }
-  .about-project__subtitle {
-    margin-left: 0;
-    margin-bottom: 16px;
-  }
-  .about-project__company-creator {
-    max-width: 290px;
-    margin-bottom: 40px;
+
+  .about-project__name:not(:last-child) {
+    margin-right: 20px;
   }
 }
 </style>
