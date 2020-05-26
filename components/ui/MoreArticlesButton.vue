@@ -27,6 +27,11 @@ export default {
   background-color: #fbfbfb;
   text-decoration: none;
   color: #000;
+  cursor: pointer;
+}
+
+.more-articles-button:hover {
+  background-color: #f8f8f8;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
