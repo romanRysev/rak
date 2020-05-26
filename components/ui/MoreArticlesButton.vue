@@ -32,6 +32,7 @@ export default {
 
 .more-articles-button:hover {
   background-color: #f8f8f8;
+  transition: 0.3s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {

@@ -117,6 +117,10 @@ export default {
   transition: 0.3s;
 }
 
+.selector__button:focus {
+  outline: none;
+}
+
 .selector__button_left {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='black'/%3E%3C/svg%3E");
 }
