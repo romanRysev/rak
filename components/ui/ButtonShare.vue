@@ -31,4 +31,11 @@ export default {
   opacity: 0.8;
   cursor: pointer;
 }
+
+@media screen and (max-width: 729px) {
+  .button-share {
+    font-size: 13px;
+    line-height: 15px;
+  }
+}
 </style>

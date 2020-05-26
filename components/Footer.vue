@@ -5,7 +5,9 @@
         Спасибо всем, кто помог состояться этому проекту
       </p>
 
-      <main-menu class="footer__menu" />
+      <nav class="footer__menu">
+        <main-menu />
+      </nav>
 
       <div class="footer__links">
         <p class="footer__social">
@@ -15,13 +17,6 @@
           <page-link class="link" :url="links[1].url" :text="links[1].text" />
         </p>
         <p class="footer__link_share">
-          <!--<button
-            class="footer__share"
-            type="button"
-            @click="$emit('shareClick')"
-          >
-            Поделитесь &#8599;
-          </button>-->
           <button-share
             :text="links[2].text"
             @shareClick="$emit('shareClick')"
@@ -202,8 +197,6 @@ export default {
 @media screen and (max-width: 1279px) {
   .footer-container {
     min-height: 292px;
-    padding-top: 50px;
-    padding-bottom: 50px;
   }
 
   .footer__text {
@@ -223,7 +216,11 @@ export default {
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (min-width: 731px) and (max-width: 1023px) {
+  .footer-container {
+    padding: 50px;
+  }
+
   .footer__text {
     width: 268px;
   }
@@ -290,7 +287,7 @@ export default {
   }
 
   .footer__copyright_project {
-    padding-bottom: 18px;
+    padding-bottom: 15px;
   }
 
   .footer__copyright_authors {
