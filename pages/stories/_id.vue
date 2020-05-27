@@ -1,19 +1,19 @@
 <template>
   <div class="page-container">
-    <container class="container">
-      <div class="story-header">
+    <container>
+      <!--<div class="story__header">
         <div class="photo-wrapper">
           <div class="inner-wrapper">
-            <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
+            <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
           </div>
         </div>
-        <div class="story-header story-header__text-content">
+        <div class="story__header story-header__text-content">
           <h1 class="story-title">
             <span class="story-title semi-bold"
               >{{ getCurrentStory.title }}: </span
             >&laquo;{{ getCurrentStory.subtitle }}&raquo;
           </h1>
-          <ul class="story-header story-header__bottom-string">
+          <ul class="story__header story-header__bottom-string">
             <li>
               <button-share :text="links[0].text" @shareClick="showSocial" />
             </li>
@@ -22,24 +22,55 @@
             </li>
           </ul>
         </div>
+      </div>-->
+
+      <div class="story__header">
+        <div class="photo-wrapper">
+          <div class="inner-wrapper">
+            <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
+          </div>
+        </div>
+
+        <div class="story__header story-header__text-content">
+          <h1 class="story-title">
+            <span class="story-title semi-bold"
+              >{{ getCurrentStory.title }}: </span
+            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
+          </h1>
+        </div>
+
+        <ul class="story-header__bottom-string">
+          <li>
+            <button-share
+              class="header-share"
+              :text="links[0].text"
+              @shareClick="showSocial"
+            />
+          </li>
+          <li>
+            <p>{{ getCurrentStory.date }}</p>
+          </li>
+        </ul>
       </div>
     </container>
 
-    <container class="container container_article">
+    <container class="article-container">
       <article class="story-article">
         <p
-          class="story-article story-article__paragraph"
+          class="story-article__paragraph"
           v-for="article in getCurrentStory.articles"
           :key="article"
         >
           {{ article }}
         </p>
       </article>
+      <break-line class="brr" />
       <button-share
         class="share-link share-link_article"
         :text="links[1].text"
         @shareClick="showSocial"
       />
+      <break-line class="brr" />
     </container>
 
     <container>
@@ -52,9 +83,11 @@
 <script>
 import Container from '~/components/Container';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
-import ButtonShare from '@/components/ui/ButtonShare';
+import ButtonShare from '~/components/ui/ButtonShare';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
+import BreakLine from '~/components/ui/BreakLine';
+
 export default {
   components: {
     container: Container,
@@ -62,6 +95,7 @@ export default {
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
     'button-share': ButtonShare,
+    'break-line': BreakLine,
   },
   created() {
     return this.$store.commit('data/stories/setCurrentStory', this.$route);
@@ -96,6 +130,10 @@ export default {
 </script>
 
 <style scoped>
+.brr {
+  background-color: deeppink;
+}
+
 .page-container {
   margin: 0 auto;
   display: flex;
@@ -103,21 +141,21 @@ export default {
   align-items: center;
 }
 
-.container {
-  padding: 0;
-}
-
-.story-header {
+.story__header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   padding-top: 100px;
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(508px, 1fr) minmax(680px, 1fr);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 60px;
+  justify-content: space-between;
 }
 
 .photo-wrapper {
-  width: 50%;
-  max-width: 580px;
+  width: 100%;
+  height: 100%;
+  grid-column: 1/2;
+  grid-row: 1/3;
 }
 
 .inner-wrapper {
@@ -126,7 +164,7 @@ export default {
   position: relative;
 }
 
-.story-photo {
+.story__photo {
   position: absolute;
   left: 0;
   top: 0;
@@ -136,17 +174,18 @@ export default {
 }
 
 .story-header__text-content {
+  display: flex;
   flex-direction: column;
-  max-width: 680px;
   padding: 30px 0 0 0;
   border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+  grid-column: 2/3;
 }
 
 .story-title {
   font-weight: normal;
   font-size: 38px;
   line-height: 48px;
+  align-self: baseline;
 }
 
 .semi-bold {
@@ -157,12 +196,15 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
-  margin-bottom: 30px;
   list-style: none;
-  padding: 0;
+  padding: 0 0 30px 0;
+  align-self: end;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
 }
 
-.container_article {
+.article-container {
   max-width: 780px;
   padding: 130px 0 0 0;
   margin: 0 auto;
@@ -171,6 +213,7 @@ export default {
 .story-article {
   font-size: 22px;
   line-height: 30px;
+  margin-bottom: 70px;
 }
 
 .story-article__paragraph {
@@ -181,17 +224,10 @@ export default {
   margin-bottom: 30px;
 }
 
-.share-link {
-  color: #121212;
-}
-
 .share-link_article {
   width: 100%;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
   height: 84px;
   text-align: center;
-  margin-top: 70px;
   font-size: 18px;
   line-height: 24px;
 }
@@ -205,16 +241,8 @@ export default {
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .page-container {
-    max-width: 1180px;
-  }
-
-  .photo-wrapper {
-    max-width: 518px;
-  }
-
-  .story-header__text-content {
-    max-width: 600px;
+  .story__header {
+    grid-template-columns: minmax(518px, 580px) minmax(602px, 1fr);
   }
 
   .story-title {
@@ -222,7 +250,7 @@ export default {
     line-height: 44px;
   }
 
-  .container_article {
+  .article-container {
     max-width: 720px;
     padding: 120px 0 0 0;
   }
@@ -230,6 +258,7 @@ export default {
   .story-article {
     font-size: 20px;
     line-height: 28px;
+    margin-bottom: 60px;
   }
 
   .story-article__paragraph {
@@ -251,16 +280,12 @@ export default {
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .page-container {
-    max-width: 924px;
-  }
-
-  .photo-wrapper {
-    max-width: 407px;
+  .story__header {
+    grid-template-columns: minmax(407px, 518px) minmax(477px, 1fr);
+    grid-gap: 40px;
   }
 
   .story-header__text-content {
-    max-width: 477px;
     padding: 20px 0 0 0;
   }
 
@@ -272,10 +297,15 @@ export default {
   .story-header__bottom-string {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 15px;
+    padding: 0 0 15px 0;
   }
 
-  .container_article {
+  .header-share {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .article-container {
     max-width: 640px;
     padding: 90px 0 0 0;
   }
@@ -283,6 +313,7 @@ export default {
   .story-article {
     font-size: 18px;
     line-height: 27px;
+    margin-bottom: 45px;
   }
 
   .story-article__paragraph {
@@ -302,7 +333,6 @@ export default {
     font-size: 16px;
     line-height: 22px;
     height: 70px;
-    margin: 50px 0 0 0;
   }
 
   .story-grid {
@@ -315,28 +345,29 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .page-container {
-    max-width: 688px;
+  .story__header {
+    padding-top: 80px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, max-content);
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .photo-wrapper {
     width: 420px;
     max-width: 580px;
-    position: absolute;
-    top: calc(50% - 140px);
-    left: calc(50% - 210px);
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 60px 0;
+    margin: 0 auto;
   }
-
-  .story-header {
-    padding-top: 80px;
-  }
-
   .story-header__text-content {
-    max-width: 640px;
     padding: 20px 0 0 0;
     text-align: center;
-    height: 675px;
     margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
   }
 
   .story-title {
@@ -347,10 +378,13 @@ export default {
   .story-header__bottom-string {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 15px;
+    grid-column: 1/2;
+    max-width: 640px;
+    margin: 0 0 15px 0;
+    padding: 0;
   }
 
-  .container_article {
+  .article-container {
     max-width: 640px;
     padding: 100px 0 0 0;
   }
@@ -358,6 +392,7 @@ export default {
   .story-article {
     font-size: 18px;
     line-height: 27px;
+    margin-bottom: 80px;
   }
 
   .story-article__paragraph {
@@ -377,7 +412,6 @@ export default {
     font-size: 16px;
     line-height: 22px;
     height: 70px;
-    margin: 80px 0 0 0;
   }
 
   .story-grid {
@@ -390,28 +424,31 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .page-container {
-    max-width: 290px;
+  .story__header {
+    padding-top: 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, max-content);
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .photo-wrapper {
-    width: 290px;
-    max-width: 580px;
-    position: absolute;
-    top: calc(50% - 100px);
-    left: 0;
+    /*width: 420px;*/
+    /*max-width: 580px;*/
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 30px 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 290px;
   }
-
-  .story-header {
-    padding-top: 50px;
-  }
-
   .story-header__text-content {
-    max-width: 640px;
     padding: 20px 0 0 0;
     text-align: center;
-    height: 465px;
     margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
   }
 
   .story-title {
@@ -422,10 +459,13 @@ export default {
   .story-header__bottom-string {
     font-size: 13px;
     line-height: 16px;
-    margin-bottom: 15px;
+    grid-column: 1/2;
+    max-width: 640px;
+    margin: 0 0 15px 0;
+    padding: 0;
   }
 
-  .container_article {
+  .article-container {
     max-width: 640px;
     padding: 40px 0 0 0;
   }
@@ -433,6 +473,7 @@ export default {
   .story-article {
     font-size: 13px;
     line-height: 16px;
+    margin-bottom: 40px;
   }
 
   .story-article__paragraph {
@@ -453,7 +494,7 @@ export default {
     font-size: 13px;
     line-height: 16px;
     height: 74px;
-    margin: 40px 0 0 0;
+    /*margin: 40px 0 0 0;*/
   }
 
   .story-grid {
