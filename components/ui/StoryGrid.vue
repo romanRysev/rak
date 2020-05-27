@@ -50,7 +50,7 @@ export default {
 @media screen and (max-width: 1024px) {
   .story-grid {
     column-gap: 30px;
-    row-gap: 30px;
+    row-gap: 50px;
   }
 }
 
