@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 export const state = () => ({
-  storyCards: [
+  /*storyCards: [
     {
       id: 0,
       photo: '/images/card__photo/photo1.jpg',
@@ -128,17 +130,15 @@ export const state = () => ({
         '«Сейчас если кто-то из футболистов моей команды опаздывает — начинаю злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда: «Значит, точно проиграем». Такая болезненная пунктуальность уже не лечится».',
       ],
     },
-  ],
+  ],*/
+  storyCards: [],
+  currentStory: {},
 });
 
 export const mutations = {
   setStoryesProperties(state) {
     state.searchExport = [];
     state.paginationExport = [];
-  },
-
-  setCurrentStory(state, route) {
-    return (state.currentStory = state.storyCards[route.params.id]);
   },
 
   setSearchExport(state, req) {
@@ -155,6 +155,25 @@ export const mutations = {
 
   setPaginationExport(state, startElement, size) {
     return state.storyCards.slice(startElement, size + 1);
+  },
+
+  setStories(state, { name, value }) {
+    return (state[name] = value);
+  },
+
+  setCurrentStory(state, route) {
+    return (state.currentStory = state.storyCards[route.params.id]);
+  },
+};
+
+export const actions = {
+  fetchStories(state) {
+    return axios.get('https://strapi.kruzhok.io/stories').then(res => {
+      return state.commit('setStories', {
+        name: 'storyCards',
+        value: res.data,
+      });
+    });
   },
 };
 

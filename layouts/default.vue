@@ -40,6 +40,11 @@ export default {
     social: Social,
     'main-footer': Footer,
   },
+
+  created() {
+    this.$store.commit('data/stories/setStoryesProperties');
+  },
+
   computed: {
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];

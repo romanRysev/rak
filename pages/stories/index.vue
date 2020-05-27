@@ -3,7 +3,7 @@
     <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
     <search />
 
-    <storyGrid />
+    <storyGrid :storiesPerPage="storyCards.length" />
     <pagination
       :totalElements="storyCards.length"
       :elementsPerPage="elementsPerPage"
@@ -29,7 +29,7 @@ export default {
   },
 
   created() {
-    this.$store.commit('data/stories/setStoryesProperties');
+    this.$store.dispatch('data/stories/fetchStories');
   },
 
   data() {

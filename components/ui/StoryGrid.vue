@@ -4,9 +4,9 @@
       v-if="searchCards.length == 0"
       v-for="card in storyCards"
       :key="card.id"
-      :title="card.title"
-      :subtitle="card.subtitle"
-      :photo="card.photo"
+      :title="card.author"
+      :subtitle="card.title"
+      :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
       :href="storyHref(card.id)"
     />
 
@@ -30,20 +30,22 @@ export default {
     card: Card,
   },
 
+  props: {
+    storiesPerPage: Number,
+  },
+
   methods: {
     storyHref(id) {
       return 'stories/' + id;
     },
   },
 
-  created() {
-    return this.$store.commit('data/stories/setStoryesProperties');
-  },
-
   computed: {
     storyCards() {
-      return this.$store.getters['data/stories/getStories'];
+      const stories = this.$store.getters['data/stories/getStories'];
+      return stories.slice(0, this.storiesPerPage);
     },
+
     searchCards() {
       return this.$store.getters['data/stories/getSearchExport'];
     },

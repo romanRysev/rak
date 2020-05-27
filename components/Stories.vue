@@ -2,7 +2,7 @@
   <section class="stories">
     <container>
       <h3 class="stories__title">Истории неизлечимых привычек</h3>
-      <storiesgrid />
+      <storiesgrid :storiesPerPage="8" />
       <morearticles class="more-button" />
     </container>
   </section>

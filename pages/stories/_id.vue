@@ -4,21 +4,30 @@
       <div class="story-header">
         <div class="photo-wrapper">
           <div class="inner-wrapper">
-            <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
+            <img
+              :src="
+                'https://strapi.kruzhok.io' +
+                  getCurrentStory /*.ImageUrl[0].url*/
+              "
+              alt="фото"
+              class="story-photo"
+            />
           </div>
         </div>
         <div class="story-header story-header__text-content">
           <h1 class="story-title">
             <span class="story-title semi-bold"
-              >{{ getCurrentStory.title }}: </span
-            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
+              >{{ getCurrentStory.author }}: </span
+            >&laquo;{{ getCurrentStory.title }}&raquo;
           </h1>
           <ul class="story-header story-header__bottom-string">
             <li>
               <button-share :text="links[0].text" @shareClick="showSocial" />
             </li>
             <li>
-              <p>{{ getCurrentStory.date }}</p>
+              <p>
+                {{ /*getCurrentStory.date*/ getCurrentStory.ImageUrl[0].url }}
+              </p>
             </li>
           </ul>
         </div>
@@ -27,12 +36,8 @@
 
     <container class="container container_article">
       <article class="story-article">
-        <p
-          class="story-article story-article__paragraph"
-          v-for="article in getCurrentStory.articles"
-          :key="article"
-        >
-          {{ article }}
+        <p>
+          {{ getCurrentStory.text }}
         </p>
       </article>
       <button-share
@@ -43,7 +48,7 @@
     </container>
 
     <container>
-      <story-grid class="story-grid" />
+      <story-grid class="story-grid" :storiesPerPage="4" />
     </container>
     <more-articles class="more-button" />
   </div>
@@ -55,6 +60,7 @@ import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
 import ButtonShare from '@/components/ui/ButtonShare';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
+import route from '../../plugins/route';
 export default {
   components: {
     container: Container,
@@ -63,9 +69,11 @@ export default {
     'story-grid': StoryGrid,
     'button-share': ButtonShare,
   },
+
   created() {
-    this.$store.commit('data/stories/setStoryesProperties');
-    this.$store.commit('data/stories/setCurrentStory', this.$route);
+    this.$store.dispatch('data/stories/fetchStories').then(() => {
+      this.$store.commit('data/stories/setCurrentStory', this.$route);
+    });
   },
 
   data() {
@@ -87,9 +95,6 @@ export default {
     },
     getCurrentStory() {
       return this.$store.getters['data/stories/getCurrentStory'];
-    },
-    setStoryesProperties() {
-      return this.$store.commit('data/stories/setStoryesProperties');
     },
   },
   methods: {

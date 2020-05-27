@@ -29,6 +29,10 @@ export default {
     banner: Banner,
     about: AboutProject,
   },
+
+  created() {
+    return this.$store.dispatch('data/stories/fetchStories');
+  },
 };
 </script>
 
