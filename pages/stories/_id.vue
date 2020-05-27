@@ -1,60 +1,35 @@
 <template>
-  <div class="page-container">
-    <container>
-      <!--<div class="story__header">
-        <div class="photo-wrapper">
-          <div class="inner-wrapper">
-            <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
-          </div>
+  <container>
+    <div class="story__header">
+      <div class="photo-wrapper">
+        <div class="inner-wrapper">
+          <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
         </div>
-        <div class="story__header story-header__text-content">
-          <h1 class="story-title">
-            <span class="story-title semi-bold"
-              >{{ getCurrentStory.title }}: </span
-            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
-          </h1>
-          <ul class="story__header story-header__bottom-string">
-            <li>
-              <button-share :text="links[0].text" @shareClick="showSocial" />
-            </li>
-            <li>
-              <p>{{ getCurrentStory.date }}</p>
-            </li>
-          </ul>
-        </div>
-      </div>-->
-
-      <div class="story__header">
-        <div class="photo-wrapper">
-          <div class="inner-wrapper">
-            <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
-          </div>
-        </div>
-
-        <div class="story__header story-header__text-content">
-          <h1 class="story-title">
-            <span class="story-title semi-bold"
-              >{{ getCurrentStory.title }}: </span
-            >&laquo;{{ getCurrentStory.subtitle }}&raquo;
-          </h1>
-        </div>
-
-        <ul class="story-header__bottom-string">
-          <li>
-            <button-share
-              class="header-share"
-              :text="links[0].text"
-              @shareClick="showSocial"
-            />
-          </li>
-          <li>
-            <p>{{ getCurrentStory.date }}</p>
-          </li>
-        </ul>
       </div>
-    </container>
 
-    <container class="article-container">
+      <div class="story__header story-header__text-content">
+        <h1 class="story-title">
+          <span class="story-title semi-bold"
+            >{{ getCurrentStory.title }}: </span
+          >&laquo;{{ getCurrentStory.subtitle }}&raquo;
+        </h1>
+      </div>
+
+      <ul class="story-header__bottom-string">
+        <li>
+          <button-share
+            class="header-share"
+            :text="links[0].text"
+            @shareClick="showSocial"
+          />
+        </li>
+        <li>
+          <p>{{ getCurrentStory.date }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="article-container">
       <article class="story-article">
         <p
           class="story-article__paragraph"
@@ -64,20 +39,19 @@
           {{ article }}
         </p>
       </article>
-      <break-line class="brr" />
+
+      <break-line />
       <button-share
         class="share-link share-link_article"
         :text="links[1].text"
         @shareClick="showSocial"
       />
-      <break-line class="brr" />
-    </container>
+      <break-line />
+    </div>
 
-    <container>
-      <story-grid class="story-grid" />
-    </container>
+    <story-grid class="story-grid" />
     <more-articles class="more-button" />
-  </div>
+  </container>
 </template>
 
 <script>
@@ -130,17 +104,6 @@ export default {
 </script>
 
 <style scoped>
-.brr {
-  background-color: deeppink;
-}
-
-.page-container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .story__header {
   width: 100%;
   padding-top: 100px;
@@ -206,14 +169,13 @@ export default {
 
 .article-container {
   max-width: 780px;
-  padding: 130px 0 0 0;
   margin: 0 auto;
 }
 
 .story-article {
   font-size: 22px;
   line-height: 30px;
-  margin-bottom: 70px;
+  margin: 130px auto 70px;
 }
 
 .story-article__paragraph {
@@ -252,13 +214,12 @@ export default {
 
   .article-container {
     max-width: 720px;
-    padding: 120px 0 0 0;
   }
 
   .story-article {
     font-size: 20px;
     line-height: 28px;
-    margin-bottom: 60px;
+    margin: 120px auto 60px;
   }
 
   .story-article__paragraph {
@@ -307,13 +268,12 @@ export default {
 
   .article-container {
     max-width: 640px;
-    padding: 90px 0 0 0;
   }
 
   .story-article {
     font-size: 18px;
     line-height: 27px;
-    margin-bottom: 45px;
+    margin: 90px auto 45px;
   }
 
   .story-article__paragraph {
@@ -380,19 +340,17 @@ export default {
     line-height: 24px;
     grid-column: 1/2;
     max-width: 640px;
-    margin: 0 0 15px 0;
-    padding: 0;
+    padding: 0 0 15px 0;
   }
 
   .article-container {
     max-width: 640px;
-    padding: 100px 0 0 0;
   }
 
   .story-article {
     font-size: 18px;
     line-height: 27px;
-    margin-bottom: 80px;
+    margin: 100px auto 80px;
   }
 
   .story-article__paragraph {
@@ -400,7 +358,7 @@ export default {
   }
 
   .story-article__paragraph:not(:last-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 
   .share-link {
@@ -434,8 +392,6 @@ export default {
   }
 
   .photo-wrapper {
-    /*width: 420px;*/
-    /*max-width: 580px;*/
     grid-column: 1/2;
     grid-row: 2/3;
     padding: 30px 0;
@@ -461,19 +417,17 @@ export default {
     line-height: 16px;
     grid-column: 1/2;
     max-width: 640px;
-    margin: 0 0 15px 0;
-    padding: 0;
+    padding: 0 0 20px 0;
   }
 
   .article-container {
-    max-width: 640px;
-    padding: 40px 0 0 0;
+    max-width: 420px;
   }
 
   .story-article {
     font-size: 13px;
     line-height: 16px;
-    margin-bottom: 40px;
+    margin: 40px auto;
   }
 
   .story-article__paragraph {
@@ -481,7 +435,7 @@ export default {
   }
 
   .story-article__paragraph:not(:last-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 
   .share-link {
@@ -494,7 +448,6 @@ export default {
     font-size: 13px;
     line-height: 16px;
     height: 74px;
-    /*margin: 40px 0 0 0;*/
   }
 
   .story-grid {
