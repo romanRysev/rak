@@ -52,7 +52,7 @@ export default {
 }
 @media screen and (max-width: 1024px) {
   .stories {
-    padding: 80px 0 50px;
+    padding: 80px 0 80px;
   }
   .stories__title {
     font-size: 24px;
@@ -77,20 +77,18 @@ export default {
   }
 
   .stories__more-button {
-    margin-top: 45px;
+    margin-top: 50px;
   }
 }
 @media screen and (max-width: 455px) {
   .stories {
-    /*padding: 50px 0;*/
-    padding-top: 50px;
+    padding: 50px 0;
   }
   .stories__title {
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 40px;
     text-align: left;
-    /*margin-right: auto;*/
     width: 100%;
   }
 

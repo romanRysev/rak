@@ -69,8 +69,8 @@ export default {
 
 @media screen and (max-width: 1279px) {
   .stat-card {
-    width: 216px;
-    height: 216px;
+    width: 208px;
+    height: 208px;
     padding: 10px;
   }
 
@@ -88,6 +88,13 @@ export default {
   .stat-card__card-description {
     font-size: 10px;
     line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .stat-card {
+    width: 216px;
+    height: 216px;
   }
 }
 
