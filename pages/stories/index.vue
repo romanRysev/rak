@@ -55,7 +55,7 @@ export default {
   align-items: center;
   text-align: center;
   padding-top: 100px;
-  padding-bottom: 120px;
+  padding-bottom: 100px;
 }
 .page-title {
   /*font-family: 'Inter';*/
@@ -66,60 +66,53 @@ export default {
   color: #000;
   text-align: left;
   max-width: 413px;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   margin-right: auto;
 }
 .stories-search {
   width: 100%;
+  height: 52px;
   margin-bottom: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .search-input {
   border: 1px solid #e8e8e8;
   box-sizing: border-box;
-  width: calc(100% - 251px);
-  height: 52px;
-  margin-right: 20px;
+  width: 100%;
+  height: 100%;
   padding: 3px 10px;
-
   font-size: 24px;
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 .search-button {
   background-color: #613a93;
   border: none;
-  width: 226px;
-  height: 52px;
-  padding: 0px;
-
+  width: 280px;
+  height: 100%;
+  padding: 0;
   color: #fff;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  /*transition: border 0.25s linear, color 0.25s linear,*/
-  /*  background-color 0.25s linear;*/
   cursor: pointer;
+  margin-left: 20px;
 }
 .search-button:hover {
-  /*background-color: white;
-  border: 2px solid #613a93;
-  color: #613a93;
-
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;*/
-
-  /* Прикольный hover, но не по макету (захотите – так раскомментите) */
-
-  opacity: 0.9;
+  opacity: 0.8;
   transition: 0.3s;
 }
 .search-button_magnifier {
   display: none;
   width: 46px;
-  height: 46px;
+  height: 100%;
   padding: 13px;
 }
 
@@ -150,9 +143,10 @@ export default {
   line-height: 22px;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1280px) {
   .stories-container {
-    padding: 90px 50px;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
   .page-title {
     font-size: 28px;
@@ -161,7 +155,13 @@ export default {
   }
   .stories-search {
     margin-bottom: 60px;
+    height: 48px;
   }
+
+  .search-button {
+    width: 290px;
+  }
+
   .page-list {
     margin-top: 130px;
   }
@@ -171,20 +171,22 @@ export default {
     padding: 19px;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .stories-container {
-    padding: 80px 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .page-title {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 40px;
+    max-width: 40%;
   }
   .search-input {
-    width: calc(100% - 231px);
+    width: 100%;
   }
   .search-button {
-    width: 208px;
+    width: 280px;
   }
   .stories-search {
     margin-bottom: 46px;
@@ -198,9 +200,10 @@ export default {
     padding: 15px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .stories-container {
-    padding: 80px 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .page-title {
     margin-left: auto;
@@ -208,42 +211,61 @@ export default {
     max-width: 380px;
     text-align: center;
   }
+
+  .stories-search {
+    height: 46px;
+    margin-bottom: 60px;
+  }
+
+  .search-button {
+    width: 315px;
+    margin-left: 20px;
+  }
+
   .page-list {
     margin-top: 130px;
   }
 }
 @media screen and (max-width: 600px) {
-  .search-button {
-    width: 108px;
-  }
-  .search-input {
-    width: calc(100% - 131px);
-  }
   .page-list__element:nth-child(n + 5) {
     display: none;
   }
 }
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 729px) {
   .stories-container {
-    padding: 68px 15px 50px 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   .page-title {
     max-width: 290px;
     margin-left: 0;
-
     font-size: 18px;
     line-height: 21px;
     text-align: left;
+    margin-bottom: 40px;
   }
+
+  .stories-search {
+    margin-bottom: 30px;
+  }
+
+  .search-input {
+    height: 100%;
+    width: 100%;
+  }
+
   .search-button {
     display: none;
   }
   .search-button_magnifier {
     display: block;
+    height: 100%;
+    width: 50px;
+    margin-left: 8px;
   }
-  .search-input {
-    height: 46px;
-    width: calc(100% - 62px);
+
+  .page-list {
+    margin-top: 50px;
   }
 }
 </style>
