@@ -183,7 +183,7 @@ export default {
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
   .your-story {
-    padding: 90px 0;
+    padding: 90px 0 140px;
   }
 
   .your-story__header {
@@ -216,7 +216,7 @@ export default {
   .your-story {
     font-size: 13px;
     line-height: 16px;
-    padding: 80px 0;
+    padding: 80px 0 125px;
   }
 
   .your-story__header {
