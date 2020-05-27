@@ -12,11 +12,13 @@
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StoryGrid from '@/components/ui/StoryGrid';
 import Search from '@/components/Search';
 import Pagination from '@/components/ui/pagination';
 export default {
   components: {
+    container: Container,
     storyGrid: StoryGrid,
     search: Search,
     pagination: Pagination,
@@ -39,35 +41,34 @@ export default {
 </script>
 
 <style scoped>
-.stories-page__container {
-  margin: 0 auto;
-  min-height: 100vh;
+.stories-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 100px 60px 120px 60px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.stories-page__title {
-  font-family: 'Inter';
+.page-title {
+  /*font-family: 'Inter';*/
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
+  color: #000;
   text-align: left;
   max-width: 413px;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   margin-right: auto;
 }
-.stories-page__page-list-container {
+.page-list {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   margin-top: 140px;
   padding: 0;
 }
-.stories-page__element-list {
+.page-list__element {
   display: block;
   width: 58px;
   height: 58px;
@@ -76,10 +77,10 @@ export default {
   padding: 20px;
   cursor: pointer;
 }
-.stories-page__element-list:hover {
+.page-list__element:hover {
   background-color: #f4f4f4;
 }
-.stories-page__number {
+.element-number {
   color: #181818;
   font-style: normal;
   font-weight: 500;
@@ -87,43 +88,52 @@ export default {
   line-height: 22px;
 }
 
-@media screen and (max-width: 1279px) {
-  .stories-page__container {
-    padding: 90px 50px;
+@media screen and (max-width: 1280px) {
+  .stories-container {
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
-  .stories-page__title {
+  .page-title {
     font-size: 28px;
     line-height: 32px;
     margin-bottom: 50px;
   }
-  .stories-page__search {
+  .stories-search {
     margin-bottom: 60px;
+    height: 48px;
+  }
+
+  .search-button {
+    width: 290px;
   }
 }
-@media screen and (max-width: 1023px) {
-  .stories-page__container {
-    padding: 80px 50px;
+@media screen and (max-width: 1024px) {
+  .stories-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-  .stories-page__title {
+  .page-title {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 40px;
+    max-width: 40%;
   }
-  .stories-page__space {
-    width: calc(100% - 231px);
+  .search-input {
+    width: 100%;
   }
-  .stories-page__button {
-    width: 208px;
+  .search-button {
+    width: 280px;
   }
-  .stories-page__search {
+  .stories-search {
     margin-bottom: 46px;
   }
 }
-@media screen and (max-width: 767px) {
-  .stories-page__container {
-    padding: 80px 40px;
+@media screen and (max-width: 768px) {
+  .stories-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-  .stories-page__title {
+  .page-title {
     margin-left: auto;
     margin-bottom: 50px;
     max-width: 380px;
@@ -131,37 +141,45 @@ export default {
   }
 }
 @media screen and (max-width: 600px) {
-  .stories-page__button {
-    width: 108px;
-  }
-  .stories-page__space {
-    width: calc(100% - 131px);
-  }
-  .stories-page__element-list:nth-child(n + 5) {
+  .page-list__element:nth-child(n + 5) {
     display: none;
   }
 }
-@media screen and (max-width: 455px) {
-  .stories-page__container {
-    padding: 68px 15px 50px 15px;
+@media screen and (max-width: 729px) {
+  .stories-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  .stories-page__title {
+  .page-title {
     max-width: 290px;
     margin-left: 0;
-
     font-size: 18px;
     line-height: 21px;
     text-align: left;
+    margin-bottom: 40px;
   }
-  .stories-page__button {
+
+  .stories-search {
+    margin-bottom: 30px;
+  }
+
+  .search-input {
+    height: 100%;
+    width: 100%;
+  }
+
+  .search-button {
     display: none;
   }
-  .stories-page__button-magnifier {
+  .search-button_magnifier {
     display: block;
+    height: 100%;
+    width: 50px;
+    margin-left: 8px;
   }
-  .stories-page__space {
-    height: 46px;
-    width: calc(100% - 62px);
+
+  .page-list {
+    margin-top: 50px;
   }
 }
 </style>

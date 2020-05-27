@@ -61,20 +61,26 @@ export default {
   row-gap: 70px;
   column-gap: 40px;
 }
+
+@media screen and (max-width: 1280px) {
+  .story-grid {
+    row-gap: 60px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .story-grid {
     column-gap: 30px;
-    row-gap: 46px;
+    row-gap: 50px;
   }
 }
-@media screen and (max-width: 1279px) {
-}
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 768px) {
   .story-grid {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 20px;
-    grid-row-gap: 40px;
+    grid-row-gap: 50px;
   }
 }
 @media screen and (max-width: 455px) {

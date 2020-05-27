@@ -1,12 +1,14 @@
 <template>
-  <div
+  <button
     :class="['mobile-button', { 'mobile-button_type_close': isMenuOpened }]"
     @click="toggleMobile"
-  ></div>
+  ></button>
 </template>
 
 <script>
+import Button from '~/components/button';
 export default {
+  components: { Button },
   computed: {
     isMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
@@ -28,6 +30,13 @@ export default {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-button:focus {
+  outline: none;
 }
 
 .mobile-button_type_close {

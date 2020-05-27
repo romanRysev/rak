@@ -44,7 +44,6 @@ export default {
 
 <style scoped>
 .stats {
-  /*max-width: 1440px;*/
   width: 100%;
   padding: 100px 0;
 }
@@ -77,7 +76,7 @@ export default {
 
 @media screen and (max-width: 1279px) {
   .stats {
-    padding: 90px 0;
+    padding: 80px 0;
   }
 
   .stats__header {
@@ -113,12 +112,12 @@ export default {
 
 @media screen and (max-width: 320px) {
   .stats {
-    padding: 50px 10px;
+    padding: 50px 0;
     text-align: left;
   }
 
   .stats__header {
-    margin: 0 auto 30px;
+    margin: 0 0 30px;
     max-width: 280px;
     font-size: 18px;
     line-height: 21px;

@@ -29,23 +29,22 @@
           src="https://www.youtube.com/embed/coOppM34GtI"
           allowfullscreen
         />
-
         <button class="play-button" />
-
-        <p class="video-notation">
-          Все видео вы можете найти на нашем
-          <a
-            class="video-notation video-notation__link"
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >YouTube канале</a
-          >.
-        </p>
       </div>
+
+      <p class="video-notation">
+        Все видео вы можете найти на нашем
+        <a
+          class="video-notation video-notation__link"
+          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+          >YouTube канале</a
+        >.
+      </p>
     </container>
 
     <container>
       <h3 class="hashtag-band">
-        и в отличие от рака, <span class="hashtag">#этонелечится</span>
+        и в отличие от рака, <span class="hashtag">&#35;этонелечится</span>
       </h3>
     </container>
   </section>
@@ -67,10 +66,10 @@ export default {
 }
 
 .container_video {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: repeat(3, auto);
 }
 
 .text-content {
@@ -112,6 +111,16 @@ export default {
   border: none;
   cursor: pointer;
 }
+
+.selector__button:hover {
+  background-color: #f4f4f4;
+  transition: 0.3s;
+}
+
+.selector__button:focus {
+  outline: none;
+}
+
 .selector__button_left {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='black'/%3E%3C/svg%3E");
 }
@@ -131,23 +140,33 @@ export default {
   cursor: default;
 }
 
+.selector__button_left_disabled:hover {
+  background-color: #fbfbfb;
+}
+
 .selector__button_right_disabled {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17L9 9L1 1' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
   cursor: default;
 }
 
+.selector__button_right_disabled:hover {
+  background-color: #fbfbfb;
+}
+
 .frame-container {
   grid-column: 2/3;
   grid-row: 1/3;
-  width: 100%;
-  max-width: 867px;
-  height: 450px;
-  justify-self: end;
   position: relative;
+  padding-bottom: 52%; /* Сохраняет пропорции фрейма при растягивании */
 }
 
 .frame {
   border: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .play-button {
@@ -167,6 +186,7 @@ export default {
 
 .play-button:hover {
   background-image: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M45 90C69.8528 90 90 69.8528 90 45C90 20.1472 69.8528 0 45 0C20.1472 0 0 20.1472 0 45C0 69.8528 20.1472 90 45 90ZM36.0659 63.8536L63.3131 46.6923C64.5586 45.9078 64.5586 44.0922 63.3131 43.3077L36.0659 26.1464C34.734 25.3076 33 26.2647 33 27.8387V62.1613C33 63.7353 34.734 64.6924 36.0659 63.8536Z' fill='%23613A93'/%3E%3C/svg%3E%0A");
+  transition: 0.3s;
 }
 
 .video-notation {
@@ -175,12 +195,16 @@ export default {
   grid-column: 2 / span 1;
   margin-top: 5px;
   width: 100%;
-  max-width: 867px;
   justify-self: end;
 }
 
 .video-notation__link {
   color: #666;
+}
+
+.video-notation__link:hover {
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 .hashtag-band {
@@ -208,7 +232,7 @@ export default {
   }
 
   .container_video {
-    margin-bottom: 90px;
+    margin-bottom: 60px;
   }
 
   .section-title {
@@ -221,12 +245,6 @@ export default {
     font-size: 16px;
     line-height: 20px;
     max-width: 310px;
-  }
-
-  .frame-container {
-    max-width: 773px;
-    height: 400px;
-    justify-self: end;
   }
 
   .play-button {
@@ -255,7 +273,7 @@ export default {
   }
 
   .container_video {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 
   .section-title {
@@ -269,12 +287,6 @@ export default {
     font-size: 13px;
     line-height: 16px;
     max-width: 260px;
-  }
-
-  .frame-container {
-    max-width: 606px;
-    height: 314px;
-    justify-self: end;
   }
 
   .play-button {
@@ -304,9 +316,9 @@ export default {
   }
 
   .container_video {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 50px 1fr 50px;
     grid-template-rows: repeat(2, minmax(min-content, max-content));
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .text-content {
@@ -341,8 +353,6 @@ export default {
   .frame-container {
     grid-column: 2/3;
     grid-row: 2/3;
-    width: 580px;
-    height: 300px;
   }
 
   .play-button {
@@ -378,13 +388,14 @@ export default {
   }
 
   .container_video {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(240px, 500px);
     grid-template-rows: repeat(2, minmax(min-content, max-content));
+    justify-content: center;
     margin-bottom: 45px;
   }
 
   .text-content {
-    grid-column-start: span 3;
+    grid-column: 1/2;
     width: 100%;
     max-width: 290px;
     margin: 0 auto 40px;
@@ -403,7 +414,7 @@ export default {
   }
 
   .selector {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 2/3;
     width: 100%;
     justify-content: space-between;
@@ -417,10 +428,8 @@ export default {
   }
 
   .frame-container {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 2/3;
-    width: 290px;
-    height: 150px;
   }
 
   .play-button {

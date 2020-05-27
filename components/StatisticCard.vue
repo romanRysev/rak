@@ -91,6 +91,13 @@ export default {
   }
 }
 
+@media screen and (max-width: 1023px) {
+  .stat-card {
+    width: 216px;
+    height: 216px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .stat-card {
     width: 216px;
