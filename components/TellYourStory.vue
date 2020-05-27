@@ -102,7 +102,7 @@ export default {
   line-height: 22px;
   text-align: left;
   color: #666666;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   position: relative;
 }
 
@@ -118,7 +118,7 @@ export default {
 .your-story__description-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
+  margin-bottom: 55px;
 }
 
 .your-story__description-side {
