@@ -93,6 +93,11 @@ export default {
   width: max-content;
 }
 
+.instagram__subtitle:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
 .instagram__paragraph {
   font-size: 18px;
   line-height: 22px;
@@ -109,11 +114,18 @@ export default {
   background-image: url('/images/shitty_lobster_photo.jpeg');
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 .instagram__card:before {
   content: '';
   padding-top: 100%;
   float: left;
+}
+
+.instagram__card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px #666;
+  transition: 0.3s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
