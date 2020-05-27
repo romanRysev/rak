@@ -27,7 +27,7 @@ export default {
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 5px #666;
+  box-shadow: 0 0 5px #7f828b;
   transition: 0.3s;
 }
 
