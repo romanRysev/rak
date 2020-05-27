@@ -216,7 +216,7 @@ export default {
   .your-story {
     font-size: 13px;
     line-height: 16px;
-    padding: 75px 0;
+    padding: 80px 0;
   }
 
   .your-story__header {
@@ -275,12 +275,13 @@ export default {
     line-height: 28px;
     text-align: center;
     width: 100%;
+    margin-bottom: 25px;
   }
 
   .your-story__description-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
   }
 
   .your-story__description-side {
@@ -325,15 +326,15 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .container_your-story {
-    width: 290px;
-    padding: 0;
-  }
-
   .your-story {
     font-size: 13px;
     line-height: 16px;
-    padding: 45px 0 50px;
+    padding: 50px 0 50px;
+  }
+
+  .container_your-story {
+    width: 100%;
+    max-width: 360px;
   }
 
   .your-story__header {
@@ -359,7 +360,7 @@ export default {
   .your-story__variant-toggler {
     width: 100%;
     display: flex;
-    margin: 36px 0 17px;
+    margin: 40px 0 15px;
     line-height: 1.8em;
   }
 
