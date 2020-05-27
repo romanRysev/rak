@@ -3,7 +3,7 @@
     <container>
       <h3 class="instagram__header">
         Рассказывайте ваши истории в инстаграм
-        <span class="instagram__header-tag">#этонелечится</span>
+        <span class="instagram__header-tag">&#35;этонелечится</span>
       </h3>
       <div class="instagram__content-container">
         <div class="instagram__text-content">
@@ -71,9 +71,12 @@ export default {
 }
 
 .instagram__content-container {
-  display: flex;
   justify-content: space-between;
   margin: 100px 0;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
 }
 
 .instagram__text-content {
@@ -97,7 +100,6 @@ export default {
 }
 
 .instagram__grid {
-  width: 870px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 30px;
@@ -125,6 +127,7 @@ export default {
 
   .instagram__content-container {
     margin: 90px 0;
+    grid-gap: 30px;
   }
 
   .instagram__text-content {
@@ -144,7 +147,6 @@ export default {
   }
 
   .instagram__grid {
-    width: 770px;
     grid-gap: 27px;
   }
 }
@@ -161,6 +163,7 @@ export default {
 
   .instagram__content-container {
     margin: 80px 0;
+    grid-gap: 20px;
   }
 
   .instagram__text-content {
@@ -171,18 +174,17 @@ export default {
   .instagram__subtitle {
     margin-top: 10px;
     font-size: 24px;
-    line-height: 28px;
+    line-height: 26px;
   }
 
   .instagram__paragraph {
     font-size: 13px;
     line-height: 16px;
-    margin: 15px 0 0 0;
+    margin: 20px 0 0 0;
   }
 
   .instagram__grid {
-    width: 610px;
-    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
 }
@@ -199,17 +201,18 @@ export default {
   }
 
   .instagram__content-container {
-    flex-direction: column;
     margin: 80px 0;
     align-items: center;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 
   .instagram__text-content {
     width: 380px;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto 60px;
   }
 
   .instagram__subtitle {
@@ -231,7 +234,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 729px) {
+@media screen and (max-width: 729px) {
   .instagram__header {
     font-size: 16px;
     line-height: 18px;
@@ -244,51 +247,16 @@ export default {
   }
 
   .instagram__content-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .instagram__text-content {
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  .instagram__paragraph {
-    font-size: 13px;
-    line-height: 16px;
-  }
-
-  .instagram__grid {
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    grid-gap: 20px;
-  }
-}
-
-@media screen and (max-width: 399px) {
-  .instagram__header {
-    font-size: 16px;
-    line-height: 18px;
-    padding: 10px;
-  }
-
-  .instagram__header-tag {
-    font-size: 22px;
-    line-height: 26px;
-  }
-
-  .instagram__content-container {
-    flex-direction: column;
     margin: 50px 0;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 
   .instagram__text-content {
     width: 100%;
-    margin-bottom: 40px;
+    max-width: 380px;
+    align-items: center;
+    margin: 0 auto 40px;
   }
 
   .instagram__subtitle {
@@ -306,7 +274,7 @@ export default {
 
   .instagram__grid {
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     grid-gap: 10px;
   }
 }
