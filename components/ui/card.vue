@@ -31,14 +31,14 @@ export default {
   font-weight: 600;
   font-size: 22px;
   line-height: 22px;
-  color: #000000;
+  color: #000;
 }
 .card__subtitle {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #666666;
+  color: #666;
 }
 .card__photo-container {
   width: 100%;
@@ -56,7 +56,7 @@ export default {
   object-position: top;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .card__title {
     font-size: 18px;
   }
@@ -64,9 +64,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-}
+  /*}*/
 
-@media screen and (max-width: 1023px) {
+  /*@media screen and (max-width: 1023px) {*/
   .card__photo-container {
     margin-bottom: 15px;
   }

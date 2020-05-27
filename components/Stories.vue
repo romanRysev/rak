@@ -61,7 +61,7 @@ export default {
     width: 340px;
   }
   .stories__more-button {
-    margin-top: 35px;
+    margin-top: 40px;
   }
 }
 @media screen and (max-width: 768px) {
