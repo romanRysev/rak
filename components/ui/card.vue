@@ -25,6 +25,12 @@ export default {
   text-decoration: none;
 }
 
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px #666;
+  transition: 0.3s;
+}
+
 .card__title {
   margin-bottom: 14px;
   font-style: normal;
