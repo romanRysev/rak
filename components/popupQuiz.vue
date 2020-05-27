@@ -45,6 +45,7 @@
         @custom-click="nextQuestion"
         class="buttonNext"
         type="button"
+        :disabled="emptyField()"
       >
         <p v-if="isLastPage" class="buttonNext__description">
           {{ isLastQuestion ? 'Далее' : 'Отправить' }}
@@ -136,6 +137,9 @@ export default {
       await this.$store.dispatch('popupQuiz/PREV_QUESTION');
       this.answer = this.initialAnswer;
     },
+    emptyField() {
+      return this.answer.length === 0;
+    },
   },
 };
 </script>
@@ -197,7 +201,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   text-align: left;
 }
 .popup__questionAdditional {
@@ -206,10 +210,15 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   text-align: left;
   opacity: 0.5;
 }
+
+.popup-button:focus {
+  outline: none;
+}
+
 .button__block {
   display: flex;
   padding: 0;
@@ -242,6 +251,10 @@ export default {
   border: 0;
   cursor: pointer;
 }
+/*.buttonNext:hover {*/
+/*  opacity: 0.8;*/
+/*  transition: 0.3s;*/
+/*}*/
 .buttonNext__description {
   display: flex;
   /* width: 16px;

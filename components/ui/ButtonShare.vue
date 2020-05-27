@@ -23,12 +23,20 @@ export default {
   line-height: 24px;
   width: fit-content;
   grid-area: Share;
-  background-color: #fff;
+  background-color: transparent;
   color: #121212;
+  cursor: pointer;
 }
 
 .button-share:hover {
   opacity: 0.8;
-  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 729px) {
+  .button-share {
+    font-size: 13px;
+    line-height: 15px;
+  }
 }
 </style>

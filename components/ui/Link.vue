@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <a :href="url" v-html="text" class="link" target="_blank"></a>
-  </div>
+  <a :href="url" v-html="text" class="link" target="_blank"></a>
 </template>
 
 <script>
@@ -17,6 +15,7 @@ export default {
   color: #000;
   text-decoration: none;
   transition: 0.3s;
+  border-bottom: 1px solid currentColor;
 }
 
 .link:hover {

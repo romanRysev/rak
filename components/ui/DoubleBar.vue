@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="bar-content" :style="upperWidth">
-      <div class="bar-fill" :style="lowerWidth"></div>
-    </div>
+  <div class="bar-content" :style="upperWidth">
+    <div class="bar-fill" :style="lowerWidth"></div>
   </div>
 </template>
 
