@@ -52,7 +52,7 @@ export default {
 }
 @media screen and (max-width: 1024px) {
   .stories {
-    padding: 80px 0;
+    padding: 80px 0 50px;
   }
   .stories__title {
     font-size: 24px;
