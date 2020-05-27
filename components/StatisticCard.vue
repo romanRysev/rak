@@ -69,8 +69,8 @@ export default {
 
 @media screen and (max-width: 1279px) {
   .stat-card {
-    width: 208px;
-    height: 208px;
+    width: 216px;
+    height: 216px;
     padding: 10px;
   }
 
