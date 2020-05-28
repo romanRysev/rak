@@ -1,5 +1,5 @@
 <template>
-  <form class="popup-contacts" @submit.prevent="submitContactForm">
+  <form class="popup-contacts" @submit.prevent="submitContactForm()">
     <h3 class="popup-contacts__heading">Оставьте контакт для связи</h3>
     <p class="popup-contacts__text">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -16,6 +16,7 @@
         minlength="2"
         maxlength="20"
         v-model="name"
+        name="name"
       />
     </popup-label>
     <div class="popup-contacts__contacts">
@@ -35,12 +36,12 @@
         <popup-input
           class="popup-contacts__input"
           :placeholder="'+7 000 000 00 00'"
-          :type="'tel'"
+          :type="'phone'"
           :required="'required'"
           pattern="(8|\+7)([0-9]{3}|\([0-9]{3}\)|\s[0-9]{3}-)(-|\s)?[0-9]{3}(-|\s)?[0-9]{2}(-|\s)?[0-9]{2}"
           minlength="10"
           maxlength="18"
-          v-model="tel"
+          v-model="phone"
         />
       </popup-label>
     </div>
@@ -56,7 +57,11 @@
     </popup-label>
     <div class="popup-contacts__submit-block">
       <!--В итоге использовала обычную кнопку сабмит, с ней работает вроде-->
-      <button type="submit" class="popup-contacts__button-submit">
+      <button
+        type="submit"
+        class="popup-contacts__button-submit"
+        :disabled="checkValidity()"
+      >
         Отправить
       </button>
       <p class="popup-contacts__terms">
@@ -83,15 +88,17 @@ export default {
     //'button-submit': button,
   },
   methods: {
+    checkValidity() {
+      if (!this.name || !this.email || !this.phone) return true;
+    },
     submitContactForm() {
       //Просто заглушка, ответы сохраняются в массив, но никуда не отправляются
-      const contacts = [];
-      contacts.unshift({
-        name: `${this.name}`,
+      const contacts = {
+        fullName: `${this.name}`,
         email: `${this.email}`,
-        tel: `${this.tel}`,
-        message: `${this.message}`,
-      });
+        phone: `${this.phone}`,
+        preferred: `${this.message}`,
+      };
       //Пока только в консоль
       console.log(contacts);
       this.$store.commit('popup/close');
@@ -102,7 +109,7 @@ export default {
     return {
       name: '',
       email: '',
-      tel: '',
+      phone: '',
       message: '',
     };
   },
@@ -174,9 +181,20 @@ export default {
   transition: 0.7s ease;
 }
 
+.popup-contacts__button-submit:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .popup-contacts__button-submit:hover {
   opacity: 0.9;
   cursor: pointer;
+}
+
+.popup-contacts__button-submit:disabled:hover {
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
 }
 
 .popup-contacts__terms {
