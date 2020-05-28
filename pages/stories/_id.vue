@@ -1,19 +1,16 @@
 <template>
   <container>
-    <div class="story__header">
+    <div class="story-header">
       <div class="photo-wrapper">
         <div class="inner-wrapper">
-          <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
+          <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
         </div>
       </div>
 
-      <div class="story__header story-header__text-content">
-        <h1 class="story-title">
-          <span class="story-title semi-bold"
-            >{{ getCurrentStory.title }}: </span
-          >&laquo;{{ getCurrentStory.subtitle }}&raquo;
-        </h1>
-      </div>
+      <h1 class="story-title">
+        <span class="story-title semi-bold">{{ getCurrentStory.title }}: </span
+        >&laquo;{{ getCurrentStory.subtitle }}&raquo;
+      </h1>
 
       <ul class="story-header__bottom-string">
         <li>
@@ -30,9 +27,9 @@
     </div>
 
     <div class="article-container">
-      <article class="story-article">
+      <article class="article">
         <p
-          class="story-article__paragraph"
+          class="article__paragraph"
           v-for="article in getCurrentStory.articles"
           :key="article"
         >
@@ -104,7 +101,7 @@ export default {
 </script>
 
 <style scoped>
-.story__header {
+.story-header {
   width: 100%;
   padding-top: 100px;
   display: grid;
@@ -127,7 +124,7 @@ export default {
   position: relative;
 }
 
-.story__photo {
+.story-photo {
   position: absolute;
   left: 0;
   top: 0;
@@ -136,15 +133,11 @@ export default {
   object-fit: cover;
 }
 
-.story-header__text-content {
-  display: flex;
-  flex-direction: column;
+.story-title {
   padding: 30px 0 0 0;
   border-top: 1px solid #efefef;
   grid-column: 2/3;
-}
 
-.story-title {
   font-weight: normal;
   font-size: 38px;
   line-height: 48px;
@@ -172,17 +165,17 @@ export default {
   margin: 0 auto;
 }
 
-.story-article {
+.article {
   font-size: 22px;
   line-height: 30px;
   margin: 130px auto 70px;
 }
 
-.story-article__paragraph {
+.article__paragraph {
   padding: 0;
 }
 
-.story-article__paragraph:not(:last-of-type) {
+.article__paragraph:not(:last-of-type) {
   margin-bottom: 30px;
 }
 
@@ -203,7 +196,7 @@ export default {
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .story__header {
+  .story-header {
     grid-template-columns: minmax(518px, 580px) minmax(602px, 1fr);
   }
 
@@ -216,13 +209,13 @@ export default {
     max-width: 720px;
   }
 
-  .story-article {
+  .article {
     font-size: 20px;
     line-height: 28px;
     margin: 120px auto 60px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
@@ -241,16 +234,14 @@ export default {
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .story__header {
+  .story-header {
     grid-template-columns: minmax(407px, 518px) minmax(477px, 1fr);
     grid-gap: 40px;
   }
 
-  .story-header__text-content {
-    padding: 20px 0 0 0;
-  }
-
   .story-title {
+    padding: 20px 0 0 0;
+
     font-size: 30px;
     line-height: 38px;
   }
@@ -270,17 +261,17 @@ export default {
     max-width: 640px;
   }
 
-  .story-article {
+  .article {
     font-size: 18px;
     line-height: 27px;
     margin: 90px auto 45px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
+  .article__paragraph:not(:last-of-type) {
     margin-bottom: 30px;
   }
 
@@ -305,7 +296,7 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .story__header {
+  .story-header {
     padding-top: 80px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);
@@ -322,15 +313,14 @@ export default {
     padding: 60px 0;
     margin: 0 auto;
   }
-  .story-header__text-content {
+
+  .story-title {
     padding: 20px 0 0 0;
     text-align: center;
     margin: 0 auto;
     grid-column: 1/2;
     grid-row: 1/2;
-  }
 
-  .story-title {
     font-size: 30px;
     line-height: 38px;
   }
@@ -347,17 +337,17 @@ export default {
     max-width: 640px;
   }
 
-  .story-article {
+  .article {
     font-size: 18px;
     line-height: 27px;
     margin: 100px auto 80px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
+  .article__paragraph:not(:last-of-type) {
     margin-bottom: 30px;
   }
 
@@ -382,7 +372,7 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .story__header {
+  .story-header {
     padding-top: 50px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);
@@ -399,15 +389,14 @@ export default {
     width: 100%;
     max-width: 290px;
   }
-  .story-header__text-content {
+
+  .story-title {
     padding: 20px 0 0 0;
     text-align: center;
     margin: 0 auto;
     grid-column: 1/2;
     grid-row: 1/2;
-  }
 
-  .story-title {
     font-size: 18px;
     line-height: 21px;
   }
@@ -424,17 +413,17 @@ export default {
     max-width: 420px;
   }
 
-  .story-article {
+  .article {
     font-size: 13px;
     line-height: 16px;
     margin: 40px auto;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
+  .article__paragraph:not(:last-of-type) {
     margin-bottom: 15px;
   }
 
