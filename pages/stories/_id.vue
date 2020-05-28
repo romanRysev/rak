@@ -163,6 +163,9 @@ export default {
 .article-container {
   max-width: 780px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .article {
@@ -180,11 +183,12 @@ export default {
 }
 
 .share-link_article {
-  width: 100%;
-  height: 84px;
   text-align: center;
   font-size: 18px;
   line-height: 24px;
+  width: fit-content;
+  height: fit-content;
+  margin: 30px 0;
 }
 
 .story-grid {
@@ -285,7 +289,7 @@ export default {
   .share-link_article {
     font-size: 16px;
     line-height: 22px;
-    height: 70px;
+    margin: 24px 0;
   }
 
   .story-grid {
@@ -362,7 +366,7 @@ export default {
   .share-link_article {
     font-size: 16px;
     line-height: 22px;
-    height: 70px;
+    margin: 24px 0;
   }
 
   .story-grid {
@@ -440,7 +444,7 @@ export default {
   .share-link_article {
     font-size: 13px;
     line-height: 16px;
-    height: 74px;
+    margin: 20px 0;
   }
 
   .story-grid {
