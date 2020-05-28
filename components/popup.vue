@@ -98,8 +98,8 @@ export default {
 
 .popup__button-close {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 30px;
+  right: 30px;
   z-index: 50;
 }
 
@@ -127,7 +127,7 @@ export default {
   margin: 43px 42px 0px 0px;
   border: 0;
 } */
-.popup__question {
+.question__main {
   display: flex;
   width: 840px;
   height: 48px;
