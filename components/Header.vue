@@ -77,6 +77,7 @@ export default {
   line-height: 24px;
   font-weight: normal;
   transition: 0.3s;
+  outline: none;
 }
 
 .mobile-menu__share:hover {
