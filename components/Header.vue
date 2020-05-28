@@ -1,21 +1,25 @@
 <template>
   <header class="header">
-    <container class="container container_header">
+    <container class="container-header">
       <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
         >Проект Благотворительного Фонда Константина Хабенского
       </nuxt-link>
       <p class="header__logo" v-else>
         Проект Благотворительного Фонда Константина Хабенского
       </p>
-      <main-menu class="header__menu">
-        <button
-          type="button"
-          class="menu__link header__share"
-          @click="$store.commit('popup/open')"
-        >
-          Рассказать историю
-        </button>
-      </main-menu>
+      <nav class="header__menu">
+        <main-menu>
+          <button
+            type="button"
+            class="mobile-menu__link mobile-menu__share"
+            @click="
+              [$store.commit('popup/open'), $store.commit('form/openquizForm')]
+            "
+          >
+            Рассказать историю
+          </button>
+        </main-menu>
+      </nav>
       <hamburger-menu class="header__mobile-icon" />
     </container>
   </header>
@@ -36,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-.container_header {
+.container-header {
   min-height: 76px;
   width: 100%;
   background-color: #fff;
@@ -62,7 +66,7 @@ export default {
   color: #000;
 }
 
-.header__share {
+.mobile-menu__share {
   width: fit-content;
   border: none;
   margin: 0;
@@ -75,7 +79,7 @@ export default {
   transition: 0.3s;
 }
 
-.header__share:hover {
+.mobile-menu__share:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -85,13 +89,13 @@ export default {
 }
 
 @media screen and (max-width: 1429px) {
-  .container_header {
+  .container-header {
     min-height: 72px;
   }
   .header__logo {
     line-height: 18px;
   }
-  .header__share {
+  .mobile-menu__share {
     font-size: 16px;
   }
 }
@@ -107,7 +111,7 @@ export default {
 }
 
 @media screen and (max-width: 730px) {
-  .container_header {
+  .container-header {
     min-height: 64px;
   }
   .header__logo {

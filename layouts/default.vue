@@ -3,16 +3,19 @@
     <mobile-menu v-if="isMobileMenuOpened" class="mobile-menu">
       <button
         type="button"
-        class="menu__link header__share"
+        class="mobile-menu__link mobile-menu__share"
         @click="$store.commit('popup/open')"
       >
         Рассказать историю
       </button>
     </mobile-menu>
-    <break-line class="break-line_mobile-menu" />
+    <!--    <break-line class="break-line_mobile-menu" />    – перенес в MobileMenu -->
     <main-header />
     <break-line class="break-line" v-if="$route.path !== '/'" />
-    <popup v-if="this.$store.state.popup.popupShown"><popupQuiz /></popup>
+    <popup v-if="this.$store.state.popup.popupShown"
+      ><popupQuiz v-if="this.$store.state.form.quizFormOpened"/><popup-contacts
+        v-if="this.$store.state.form.contactFormOpened"
+    /></popup>
     <nuxt />
     <social v-if="socialShown" />
     <main-footer @shareClick="showSocial" />
@@ -28,6 +31,7 @@ import popup from '@/components/popup';
 import Social from '@/components/Social';
 import Footer from '@/components/Footer';
 import popupQuiz from '@/components/popupQuiz';
+import PopupContacts from '@/components/PopupContacts';
 
 export default {
   components: {
@@ -37,6 +41,7 @@ export default {
     'main-header': Header,
     popup,
     popupQuiz,
+    'popup-contacts': PopupContacts,
     social: Social,
     'main-footer': Footer,
   },
@@ -74,13 +79,13 @@ html {
   margin: 0;
 }
 
-.container_mobile-menu {
+.mobile-menu__list {
   display: none;
 }
 
-.break-line_mobile-menu {
+/*.break-line_mobile-menu {
   display: none;
-}
+}*/
 
 .mobile-menu__link {
   text-decoration: none;
@@ -92,7 +97,7 @@ html {
 }
 
 @media screen and (max-width: 1023px) {
-  .container_mobile-menu {
+  .mobile-menu__list {
     width: 100%;
     font-size: 16px;
     line-height: 1;
@@ -101,15 +106,15 @@ html {
     display: grid;
     grid-template-columns: repeat(2, min-content) max-content;
     grid-gap: 30px;
-    margin: 18px 0;
+    /*margin: 18px 0;*/
   }
 
-  .header__share {
+  .mobile-menu__share {
     width: fit-content;
     border: none;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: transparent;
     color: #121212;
     font-size: 16px;
     line-height: 1;
@@ -117,24 +122,24 @@ html {
     transition: 0.3s;
   }
 
-  .header__share:hover {
+  .mobile-menu__share:hover {
     cursor: pointer;
     opacity: 0.8;
   }
 
-  .break-line_mobile-menu {
+  /*.break-line_mobile-menu {
     display: block;
-  }
+  }*/
 }
 
 @media screen and (max-width: 730px) {
-  .container_mobile-menu {
+  .mobile-menu__list {
     font-size: 13px;
     grid-template-columns: 1fr;
-    grid-gap: 18px;
+    grid-gap: 20px;
   }
 
-  .header__share {
+  .mobile-menu__share {
     font-size: 13px;
   }
 }

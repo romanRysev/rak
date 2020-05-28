@@ -46,6 +46,7 @@
         class="buttonNext"
         :class="{ buttonPageTwenty: isTwentyPage }"
         type="button"
+        :disabled="emptyField()"
       >
         <p v-if="isLastPage" class="buttonNext__description">
           {{ isLastQuestion ? 'Далее' : 'Отправить' }}
@@ -59,7 +60,9 @@
 
       <Button
         v-if="!isLastPage"
-        @custom-click="firstStep"
+        @custom-click="
+          [$store.commit('popup/close'), $store.commit('form/closeForm')]
+        "
         class="buttonLast"
         type="button"
       >
@@ -152,10 +155,8 @@ export default {
       await this.$store.dispatch('popupQuiz/PREV_QUESTION');
       this.answer = this.initialAnswer;
     },
-    firstStep() {
-      // this.$store.commit('popupQuiz/FIRST_STEP')
-      this.$store.commit('popup/close');
-      this.$store.dispatch('popupQuiz/FIRST_STEP');
+    emptyField() {
+      return this.answer.length === 0;
     },
   },
 };
@@ -169,8 +170,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  z-index: 123;
-  position: fixed;
 }
 .popup__step {
   display: flex;
@@ -220,7 +219,7 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   text-align: left;
 }
 .popup__questionAdditional {
@@ -229,10 +228,15 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   text-align: left;
   opacity: 0.5;
 }
+
+.popup-button:focus {
+  outline: none;
+}
+
 .button__block {
   display: flex;
   padding: 0;
@@ -265,6 +269,10 @@ export default {
   border: 0;
   cursor: pointer;
 }
+/*.buttonNext:hover {*/
+/*  opacity: 0.8;*/
+/*  transition: 0.3s;*/
+/*}*/
 .buttonNext__description {
   display: flex;
   /* width: 16px;

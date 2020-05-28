@@ -1,138 +1,129 @@
 <template>
-  <div class="stories-page__container">
-    <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
-    <div class="stories-page__search">
-      <input class="stories-page__space" type="text" />
-      <button class="stories-page__button">Поиск</button>
-      <button class="stories-page__button-magnifier">
-        <img src="/Images/lupa.svg" />
+  <container class="stories-container">
+    <h3 class="page-title">Истории неизлечимых привычек</h3>
+    <div class="stories-search">
+      <input class="search-input" type="text" />
+      <button class="search-button">Поиск</button>
+      <button class="search-button search-button_magnifier">
+        <img src="/Images/lupa.svg" alt="" />
       </button>
     </div>
 
     <storyGrid />
 
-    <ul class="stories-page__page-list-container">
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">1</span>
+    <ul class="page-list">
+      <li class="page-list__element">
+        <span class="element-number">1</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">2</span>
+      <li class="page-list__element">
+        <span class="element-number">2</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">3</span>
+      <li class="page-list__element">
+        <span class="element-number">3</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">4</span>
+      <li class="page-list__element">
+        <span class="element-number">4</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">5</span>
+      <li class="page-list__element">
+        <span class="element-number">5</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">6</span>
+      <li class="page-list__element">
+        <span class="element-number">6</span>
       </li>
-      <li class="stories-page__element-list">
-        <span class="stories-page__number">7</span>
+      <li class="page-list__element">
+        <span class="element-number">7</span>
       </li>
     </ul>
-  </div>
+  </container>
 </template>
 
 <script>
+import Container from '~/components/Container';
 import StoryGrid from '@/components/ui/StoryGrid';
 export default {
   components: {
+    container: Container,
     storyGrid: StoryGrid,
   },
 };
 </script>
 
 <style scoped>
-.stories-page__container {
-  margin: 0 auto;
-  min-height: 100vh;
+.stories-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 100px 60px 120px 60px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.stories-page__title {
-  font-family: 'Inter';
+.page-title {
+  /*font-family: 'Inter';*/
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
+  color: #000;
   text-align: left;
   max-width: 413px;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   margin-right: auto;
 }
-.stories-page__search {
+.stories-search {
   width: 100%;
+  height: 52px;
   margin-bottom: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
-.stories-page__space {
+.search-input {
   border: 1px solid #e8e8e8;
   box-sizing: border-box;
-  width: calc(100% - 251px);
-  height: 52px;
-  margin-right: 20px;
+  width: 100%;
+  height: 100%;
   padding: 3px 10px;
-
   font-size: 24px;
 }
 
-.stories-page__button {
-  background-color: #613a93;
-  border: 2px solid white;
-  width: 226px;
-  height: 52px;
-  padding: 0px;
+.search-input:focus {
+  outline: none;
+}
 
-  color: #ffffff;
+.search-button {
+  background-color: #613a93;
+  border: none;
+  width: 280px;
+  height: 100%;
+  padding: 0;
+  color: #fff;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
   cursor: pointer;
+  margin-left: 20px;
 }
-.stories-page__button:hover {
-  background-color: white;
-  border: 2px solid #613a93;
-  color: #613a93;
-
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
+.search-button:hover {
+  opacity: 0.8;
+  transition: 0.3s;
 }
-.stories-page__button-magnifier {
+.search-button_magnifier {
   display: none;
-  background-color: #613a93;
-  border: 2px solid white;
   width: 46px;
-  height: 46px;
+  height: 100%;
   padding: 13px;
-
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  cursor: pointer;
 }
-.stories-page__page-list-container {
+
+.page-list {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   margin-top: 140px;
   padding: 0;
 }
-.stories-page__element-list {
+.page-list__element {
   display: block;
   width: 58px;
   height: 58px;
@@ -141,10 +132,10 @@ export default {
   padding: 20px;
   cursor: pointer;
 }
-.stories-page__element-list:hover {
+.page-list__element:hover {
   background-color: #f4f4f4;
 }
-.stories-page__number {
+.element-number {
   color: #181818;
   font-style: normal;
   font-weight: 500;
@@ -152,100 +143,129 @@ export default {
   line-height: 22px;
 }
 
-@media screen and (max-width: 1279px) {
-  .stories-page__container {
-    padding: 90px 50px;
+@media screen and (max-width: 1280px) {
+  .stories-container {
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
-  .stories-page__title {
+  .page-title {
     font-size: 28px;
     line-height: 32px;
     margin-bottom: 50px;
   }
-  .stories-page__search {
+  .stories-search {
     margin-bottom: 60px;
+    height: 48px;
   }
-  .stories-page__page-list-container {
+
+  .search-button {
+    width: 290px;
+  }
+
+  .page-list {
     margin-top: 130px;
   }
-  .stories-page__element-list {
+  .page-list__element {
     width: 56px;
     height: 56px;
     padding: 19px;
   }
 }
-@media screen and (max-width: 1023px) {
-  .stories-page__container {
-    padding: 80px 50px;
+@media screen and (max-width: 1024px) {
+  .stories-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-  .stories-page__title {
+  .page-title {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 40px;
+    max-width: 40%;
   }
-  .stories-page__space {
-    width: calc(100% - 231px);
+  .search-input {
+    width: 100%;
   }
-  .stories-page__button {
-    width: 208px;
+  .search-button {
+    width: 280px;
   }
-  .stories-page__search {
+  .stories-search {
     margin-bottom: 46px;
   }
-  .stories-page__page-list-container {
+  .page-list {
     margin-top: 110px;
   }
-  .stories-page__element-list {
+  .page-list__element {
     width: 50px;
     height: 50px;
     padding: 15px;
   }
 }
-@media screen and (max-width: 767px) {
-  .stories-page__container {
-    padding: 80px 40px;
+@media screen and (max-width: 768px) {
+  .stories-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-  .stories-page__title {
+  .page-title {
     margin-left: auto;
     margin-bottom: 50px;
     max-width: 380px;
     text-align: center;
   }
-  .stories-page__page-list-container {
+
+  .stories-search {
+    height: 46px;
+    margin-bottom: 60px;
+  }
+
+  .search-button {
+    width: 315px;
+    margin-left: 20px;
+  }
+
+  .page-list {
     margin-top: 130px;
   }
 }
 @media screen and (max-width: 600px) {
-  .stories-page__button {
-    width: 108px;
-  }
-  .stories-page__space {
-    width: calc(100% - 131px);
-  }
-  .stories-page__element-list:nth-child(n + 5) {
+  .page-list__element:nth-child(n + 5) {
     display: none;
   }
 }
-@media screen and (max-width: 455px) {
-  .stories-page__container {
-    padding: 68px 15px 50px 15px;
+@media screen and (max-width: 729px) {
+  .stories-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  .stories-page__title {
+  .page-title {
     max-width: 290px;
     margin-left: 0;
-
     font-size: 18px;
     line-height: 21px;
     text-align: left;
+    margin-bottom: 40px;
   }
-  .stories-page__button {
+
+  .stories-search {
+    margin-bottom: 30px;
+  }
+
+  .search-input {
+    height: 100%;
+    width: 100%;
+  }
+
+  .search-button {
     display: none;
   }
-  .stories-page__button-magnifier {
+  .search-button_magnifier {
     display: block;
+    height: 100%;
+    width: 50px;
+    margin-left: 8px;
   }
-  .stories-page__space {
-    height: 46px;
-    width: calc(100% - 62px);
+
+  .page-list {
+    margin-top: 50px;
   }
 }
 </style>
