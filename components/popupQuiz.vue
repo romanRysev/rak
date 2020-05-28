@@ -54,7 +54,7 @@
 
       <p class="popup__processingPersInfo" v-if="isTwentyPage">
         Нажимая на кнопку «отправить», вы даете согласие на <nuxt-link
-        to=/policy target="_blank">обработку персональных данных
+        to=/policy target="_blank">обработку персональных данных</nuxt-link>
       </p>
 
       <Button
