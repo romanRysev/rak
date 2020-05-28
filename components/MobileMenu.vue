@@ -1,35 +1,51 @@
 <template>
-  <nav class="mobile-menu">
-    <container class="container container_mobile-menu">
-      <nuxt-link
-        to="/"
-        class="mobile-menu__link"
-        :class="{ menu__link_active: $route.path == '/' }"
-        >Главная
-      </nuxt-link>
-      <nuxt-link
-        to="/stories"
-        class="mobile-menu__link"
-        :class="{ menu__link_active: $route.path == '/stories' }"
-        >Истории
-      </nuxt-link>
-      <slot></slot>
-    </container>
-  </nav>
+  <container>
+    <nav class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li>
+          <nuxt-link
+            to="/"
+            class="mobile-menu__link"
+            :class="{ menu__link_active: $route.path == '/' }"
+            >Главная
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            to="/stories"
+            class="mobile-menu__link"
+            :class="{ menu__link_active: $route.path == '/stories' }"
+            >Истории
+          </nuxt-link>
+        </li>
+        <li>
+          <slot></slot>
+        </li>
+      </ul>
+    </nav>
+    <break-line class="mobile-breakline" />
+  </container>
 </template>
 
 <script>
 import Container from '~/components/Container';
+import BreakLine from '~/components/ui/BreakLine';
 export default {
   components: {
     container: Container,
+    'break-line': BreakLine,
   },
 };
 </script>
 
 <style scoped>
 .mobile-menu {
-  padding: 18px 0;
+  margin: 18px 0;
+}
+
+.mobile-menu__list {
+  list-style: none;
+  padding: 0;
 }
 
 .mobile-menu__link {
@@ -40,5 +56,17 @@ export default {
 
 .mobile-menu__link:hover {
   opacity: 0.8;
+}
+
+.mobile-breakline {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .mobile-breakline {
+    display: block;
+  }
 }
 </style>

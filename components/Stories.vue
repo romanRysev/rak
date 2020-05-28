@@ -3,7 +3,7 @@
     <container>
       <h3 class="stories__title">Истории неизлечимых привычек</h3>
       <storiesgrid />
-      <morearticles class="more-button" />
+      <morearticles class="stories__more-button" />
     </container>
   </section>
 </template>
@@ -26,22 +26,18 @@ export default {
   padding: 100px 0;
 }
 .stories__title {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
-  text-align: left;
   max-width: 413px;
   margin-bottom: 70px;
 }
-.more-button {
+.stories__more-button {
   padding: 0;
   margin-top: 70px;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1280px) {
   .stories {
     padding: 90px 0;
   }
@@ -50,24 +46,25 @@ export default {
     font-size: 28px;
     line-height: 32px;
   }
-  .more-button {
-    margin-top: 40px;
+  .stories__more-button {
+    margin-top: 60px;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .stories {
-    padding: 80px 0;
+    padding: 80px 0 80px;
   }
   .stories__title {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 46px;
+    width: 340px;
   }
-  .more-button {
+  .stories__more-button {
     margin-top: 40px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .stories {
     display: flex;
     flex-direction: column;
@@ -75,8 +72,12 @@ export default {
   }
   .stories__title {
     max-width: 380px;
-    margin-bottom: 60px;
     text-align: center;
+    margin: 0 auto 60px;
+  }
+
+  .stories__more-button {
+    margin-top: 50px;
   }
 }
 @media screen and (max-width: 455px) {
@@ -87,8 +88,12 @@ export default {
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 40px;
-    text-align: start;
-    margin-right: auto;
+    text-align: left;
+    width: 100%;
+  }
+
+  .stories__more-button {
+    margin-top: 40px;
   }
 }
 </style>

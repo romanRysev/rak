@@ -1,7 +1,7 @@
 <template>
   <section class="about-project">
-    <container>
-      <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
+    <container class="about-container">
+      <h2 class="about-project__title">&#35;раклечится</h2>
       <p class="about-project__subtitle">О проекте</p>
 
       <div class="about-project__place-container">
@@ -30,7 +30,7 @@
         </div>
 
         <ul class="about-project__description">
-          <li v-if="rakLechitsa" class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__description-content">
             Есть вещи, которые не лечатся. Особенности характера, страстные
             увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
             приобрели в детстве. Список можно продолжать до бесконечности, но
@@ -38,13 +38,13 @@
             и лучшее доказательство — люди с их неизлечимыми особенностями,
             которые сумели победить рак.
           </li>
-          <li v-if="rakLechitsa" class="about-project__paragraph">
+          <li v-if="rakLechitsa" class="about-project__description-content">
             Рак лечится — проект Благотворительного Фонда Константина Хабенского
             и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение
             людей к раку и заставить каждого поверить: онкологическое
             заболевание — это не приговор.
           </li>
-          <li v-if="fondKhabenskogo" class="about-project__paragraph">
+          <li v-if="fondKhabenskogo" class="about-project__description-content">
             Благотворительный Фонд Константина Хабенского с 2008 года помогает
             детям с онкологическими и другими тяжелыми заболеваниями головного
             мозга. Фонд не только поддерживает семью заболевшего ребенка в самый
@@ -87,9 +87,14 @@ export default {
 .about-project {
   background-color: #613a93;
   width: 100%;
-  padding: 90px 60px 100px 60px;
   min-height: 650px;
 }
+
+.about-container {
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
 .about-project__title {
   font-style: normal;
   font-weight: 800;
@@ -98,6 +103,7 @@ export default {
   text-align: center;
   color: #fff;
   margin: 0 0 70px 0;
+  text-transform: uppercase;
 }
 .about-project__subtitle {
   font-style: normal;
@@ -129,8 +135,12 @@ export default {
   color: #c9c9c9;
   cursor: pointer;
 }
+.about-project__name:not(:last-child) {
+  margin-bottom: 15px;
+}
 .about-project__name:hover {
   color: #fff;
+  transition: 0.3s;
 }
 .about-project__name_active {
   font-weight: 500;
@@ -141,10 +151,10 @@ export default {
   padding-left: 0;
   list-style-type: none;
 }
-.about-project__paragraph:first-child {
+.about-project__description-content:first-child {
   margin-bottom: 20px;
 }
-.about-project__paragraph {
+.about-project__description-content {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -170,27 +180,69 @@ export default {
 
 @media screen and (max-width: 1439px) {
   .about-project {
-    min-height: 620px;
+    min-height: 626px;
   }
-}
 
-@media screen and (max-width: 1279px) {
-  .about-project {
-    padding: 80px 50px 90px 50px;
-    min-height: 570px;
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 90px;
   }
 
   .about-project__title {
     font-size: 58px;
     line-height: 70px;
+    margin: 0 0 60px 0;
   }
+
   .about-project__subtitle {
     font-size: 28px;
     line-height: 32px;
   }
+
   .about-project__company-creator {
     font-size: 16px;
     line-height: 20px;
+    max-width: 310px;
+  }
+
+  .about-project__name:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    min-height: 570px;
+  }
+
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+
+  .about-project__title {
+    font-size: 52px;
+    line-height: 63px;
+    margin: 0 0 45px 0;
+  }
+  .about-project__subtitle {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 30px;
+  }
+  .about-project__company-creator {
+    font-size: 13px;
+    line-height: 16px;
+    max-width: 260px;
+  }
+  .about-project__name {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .about-project__description-content {
+    font-size: 15px;
+    line-height: 19px;
   }
 }
 @media screen and (max-width: 1023px) {
@@ -213,18 +265,20 @@ export default {
     font-size: 15px;
     line-height: 19px;
   }
-  .about-project__name_active {
-    border-bottom: 2px solid currentColor;
-  }
-  .about-project__paragraph {
+  .about-project__description-content {
     font-size: 15px;
     line-height: 19px;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 910px) {
   .about-project {
-    min-height: 660px;
-    padding: 80px 0 80px 0;
+    min-height: 662px;
+  }
+  .about-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    max-width: 460px;
   }
   .about-project__title {
     display: none;
@@ -232,6 +286,7 @@ export default {
   .about-project__subtitle {
     margin-left: auto;
     margin-bottom: 26px;
+    text-align: center;
   }
   .about-project__company-creator {
     max-width: 380px;
@@ -246,30 +301,47 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__name {
-    margin: 0 30px 30px 0;
-  }
   .about-project__list-names {
     display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
+    margin-bottom: 15px;
+  }
+
+  .about-project__name {
+    height: 24px;
+  }
+
+  .about-project__name:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  .about-project__name_active {
+    border-bottom: 2px solid currentColor;
   }
 }
+
 @media screen and (max-width: 730px) {
   .about-project {
-    padding: 80px 0 80px 0;
+    min-height: 628px;
+  }
+
+  .about-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 350px;
   }
   .about-project__title {
     display: none;
   }
   .about-project__subtitle {
     margin-left: auto;
-    margin-bottom: 26px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
   }
   .about-project__company-creator {
     max-width: 380px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
   .about-project__place-container {
     display: flex;
@@ -280,28 +352,18 @@ export default {
     flex-direction: column;
   }
 
-  .about-project__name {
-    margin: 0 30px 30px 0;
-  }
   .about-project__list-names {
     display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
+    margin-bottom: 5px;
   }
-}
 
-@media screen and (max-width: 457px) {
-  .about-project {
-    padding: 80px 15px 80px 15px;
+  .about-project__name {
+    font-size: 13px;
+    line-height: 19px;
   }
-  .about-project__subtitle {
-    margin-left: 0;
-    margin-bottom: 16px;
-  }
-  .about-project__company-creator {
-    max-width: 290px;
-    margin-bottom: 40px;
+
+  .about-project__name:not(:last-child) {
+    margin-right: 20px;
   }
 }
 </style>

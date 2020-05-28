@@ -24,4 +24,8 @@ export default {
   font-size: 18px;
   line-height: 24px;
 }
+
+.input:focus {
+  outline: none;
+}
 </style>

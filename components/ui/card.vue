@@ -1,13 +1,11 @@
 <template>
-  <a :href="href" class="card__link">
-    <div class="card">
-      <div class="card__photo-contaimer">
-        <img class="card__photo" :src="photo" alt="Фото автора" />
-      </div>
-
-      <h3 class="card__title">{{ title }}</h3>
-      <p class="card__subtitle">{{ subtitle }}</p>
+  <a :href="href" class="card">
+    <div class="card__photo-container">
+      <img class="card__photo" :src="photo" alt="Фото автора" />
     </div>
+
+    <h3 class="card__title">{{ title }}</h3>
+    <p class="card__subtitle">{{ subtitle }}</p>
   </a>
 </template>
 
@@ -24,10 +22,13 @@ export default {
 <style scoped>
 .card {
   text-align: left;
+  text-decoration: none;
 }
 
-.card__link {
-  text-decoration: none;
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px #7f828b;
+  transition: 0.3s;
 }
 
 .card__title {
@@ -36,16 +37,16 @@ export default {
   font-weight: 600;
   font-size: 22px;
   line-height: 22px;
-  color: #000000;
+  color: #000;
 }
 .card__subtitle {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #666666;
+  color: #666;
 }
-.card__photo-contaimer {
+.card__photo-container {
   width: 100%;
   padding-top: 100%;
   position: relative;
@@ -61,13 +62,23 @@ export default {
   object-position: top;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .card__title {
     font-size: 18px;
   }
   .card__subtitle {
     font-size: 13px;
     line-height: 16px;
+  }
+  /*}*/
+
+  /*@media screen and (max-width: 1023px) {*/
+  .card__photo-container {
+    margin-bottom: 15px;
+  }
+
+  .card__title {
+    margin-bottom: 12px;
   }
 }
 </style>

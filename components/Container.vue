@@ -11,8 +11,9 @@ export default {};
 <style scoped>
 .container {
   width: 100%;
-  max-width: 1320px;
-  min-width: 240px;
+  max-width: 1440px;
+  padding: 0 60px;
+  min-width: 270px;
   margin: 0 auto;
 }
 
