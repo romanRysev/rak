@@ -92,15 +92,14 @@ export default {
       if (!this.name || !this.email || !this.phone) return true;
     },
     submitContactForm() {
-      //Просто заглушка, ответы сохраняются в массив, но никуда не отправляются
+      //Ответы выводятся в консоль
       const contacts = {
         fullName: `${this.name}`,
         email: `${this.email}`,
         phone: `${this.phone}`,
         preferred: `${this.message}`,
       };
-      //Пока только в консоль
-      console.log(contacts);
+      console.log({ contacts });
       this.$store.commit('popup/close');
       this.$store.commit('form/closeForm');
     },
