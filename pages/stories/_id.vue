@@ -193,6 +193,7 @@ export default {
 
 .more-button {
   margin: 70px 0 100px;
+  padding: 0;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
