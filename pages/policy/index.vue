@@ -15,7 +15,7 @@
         ></div>
         <ol class="subsection">
           <li
-            class="subsection subsection__text"
+            class="subsection__text"
             v-for="subsection in article.subsections"
             :key="subsection.id"
           >
