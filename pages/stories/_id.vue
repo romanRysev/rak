@@ -188,7 +188,7 @@ export default {
 }
 
 .story-grid {
-  margin-top: 160px;
+  margin-top: 150px;
 }
 
 .more-button {
@@ -226,7 +226,8 @@ export default {
   }
 
   .story-grid {
-    margin: 150px 0 60px;
+    margin-top: 140px;
+    margin-bottom: 50px;
   }
 
   .more-button {
@@ -288,7 +289,8 @@ export default {
   }
 
   .story-grid {
-    margin: 120px 0 45px;
+    margin-top: 110px;
+    margin-bottom: 35px;
   }
 
   .more-button {
@@ -364,7 +366,8 @@ export default {
   }
 
   .story-grid {
-    margin: 120px 0 40px;
+    margin-top: 110px;
+    margin-bottom: 30px;
   }
 
   .more-button {
@@ -441,7 +444,7 @@ export default {
   }
 
   .story-grid {
-    margin: 100px 0 40px;
+    margin: 90px -10px 30px;
   }
 
   .more-button {
