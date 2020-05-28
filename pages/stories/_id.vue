@@ -8,8 +8,9 @@
       </div>
 
       <h1 class="story-title">
-        <span class="story-title semi-bold">{{ getCurrentStory.title }}: </span
-        >&laquo;{{ getCurrentStory.subtitle }}&raquo;
+        <span class="semi-bold">{{ getCurrentStory.title }}: </span>&laquo;{{
+          getCurrentStory.subtitle
+        }}&raquo;
       </h1>
 
       <ul class="story-header__bottom-string">
