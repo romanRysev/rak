@@ -297,6 +297,9 @@ export default {
     line-height: 16px;
     max-width: 260px;
   }
+  .video-notation {
+    padding-left: 25px;
+  }
 
   .play-button {
     width: 76px;

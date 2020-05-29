@@ -15,8 +15,8 @@
         />
       </SwiperSlide>
     </Swiper>
-    <div class="swiper-button-prev-uniq" slot="button-prev"></div>
-    <div class="swiper-button-next-uniq" slot="button-next"></div>
+    <div class="swiper-button-prev-uniq"></div>
+    <div class="swiper-button-next-uniq"></div>
   </div>
 </template>
 <script>
@@ -68,7 +68,6 @@ export default {
   width: 40px;
   height: 40px;
   left: 103px;
-  /* top: 340px; */
   position: absolute;
   z-index: 2;
   background-color: #fbfbfb;
@@ -80,7 +79,6 @@ export default {
   width: 40px;
   height: 40px;
   left: 63px;
-  /* top: 340px; */
   position: absolute;
   z-index: 2;
   background-color: #fbfbfb;
