@@ -15,8 +15,8 @@
         />
       </SwiperSlide>
     </Swiper>
-    <div class="swiper-button-prev-uniq" slot="button-prev"></div>
-    <div class="swiper-button-next-uniq" slot="button-next"></div>
+    <div class="swiper-button-prev-uniq"></div>
+    <div class="swiper-button-next-uniq"></div>
   </div>
 </template>
 <script>
