@@ -11,15 +11,15 @@
           с их историями.
         </p>
       </div>
-
-      <div class="selector">
+      <slider />
+      <!-- <div class="selector">
         <button
           class="selector selector__button selector__button_left selector__button_left_disabled"
         />
         <button class="selector selector__button selector__button_right" />
       </div>
-
       <div class="frame-container">
+            
         <iframe
           class="frame"
           id="ytplayer"
@@ -29,8 +29,8 @@
           src="https://www.youtube.com/embed/coOppM34GtI"
           allowfullscreen
         />
-        <button class="play-button" />
-      </div>
+      <button class="play-button" />
+      </div> -->
 
       <p class="video-notation">
         Все видео вы можете найти на нашем
@@ -52,9 +52,16 @@
 
 <script>
 import Container from '~/components/Container';
+import Slider from '~/components/Slider';
 export default {
   components: {
     container: Container,
+    slider: Slider,
+  },
+  props: {
+    videos: {
+      type: Array,
+    },
   },
 };
 </script>
@@ -196,10 +203,12 @@ export default {
   margin-top: 5px;
   width: 100%;
   justify-self: end;
+  padding-left: 73px;
 }
 
 .video-notation__link {
   color: #666;
+  padding-left: 0px;
 }
 
 .video-notation__link:hover {
