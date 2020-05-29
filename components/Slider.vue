@@ -68,7 +68,6 @@ export default {
   width: 40px;
   height: 40px;
   left: 103px;
-  /* top: 340px; */
   position: absolute;
   z-index: 2;
   background-color: #fbfbfb;
@@ -80,7 +79,6 @@ export default {
   width: 40px;
   height: 40px;
   left: 63px;
-  /* top: 340px; */
   position: absolute;
   z-index: 2;
   background-color: #fbfbfb;
