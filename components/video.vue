@@ -58,6 +58,11 @@ export default {
     container: Container,
     slider: Slider,
   },
+  props: {
+    videos: {
+      type: Array,
+    },
+  },
 };
 </script>
 

@@ -1,68 +1,67 @@
 <template>
-  <swiper class="slider" v-swiper:mySwiper="swiperOption">
-    <!-- <div class="swiper-wrapper"> -->
-    <swiper-slide
+  <Swiper class="slider" :options="swiperOption">
+    <SwiperSlide
       class="swiper-slide"
       v-for="(video, index) in videos"
       :key="index"
     >
-      <VideoIframe :url="video.url" />
-    </swiper-slide>
-
+      <iframe
+        :src="video.url"
+        width="733"
+        height="400"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </SwiperSlide>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-  </swiper>
+    <div class="swiper-button-next">></div>
+  </Swiper>
 </template>
 <script>
 import VideoIframe from '@/components/VideoIframe';
-
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
 export default {
   components: {
     VideoIframe,
+    Swiper,
+    SwiperSlide,
   },
-  props: {
-    videos: {
-      type: Array,
-    },
+  data() {
+    return {
+      swiperOption: {
+        loop: true,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+        },
+      },
+    };
   },
   computed: {
-    Video() {
-      const { videos } = this.$store.state;
-      return videos;
-    },
-    data() {
-      return {
-        swiperOption: {
-          loop: true,
-          slidesPerView: 'auto',
-          centeredSlides: true,
-          spaceBetween: 30,
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          keyboard: {
-            enabled: true,
-            onlyInViewport: false,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-          },
-        },
-      };
+    videos() {
+      const { videos } = this.$store.state.data;
+      return videos.videos;
     },
   },
 };
 </script>
-
 <style scoped>
-.swiper-slide {
-  /* width: 100% !important; */
-  width: 100px !important;
-  height: 500px;
-  background: red !important;
-  height: 300px !important;
+.slider {
+  width: 733px;
+  height: 400px;
+  position: relative;
 }
 </style>
