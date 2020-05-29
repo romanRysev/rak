@@ -203,10 +203,12 @@ export default {
   margin-top: 5px;
   width: 100%;
   justify-self: end;
+  padding-left: 73px;
 }
 
 .video-notation__link {
   color: #666;
+  padding-left: 0px;
 }
 
 .video-notation__link:hover {
