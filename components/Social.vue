@@ -23,14 +23,62 @@
 import Overlay from '@/components/ui/Overlay';
 import ButtonClose from '@/components/ui/ButtonClose';
 export default {
+  data() {
+    return {
+      social: [
+        {
+          id: '1',
+          name: 'Facebook',
+          src: '/images/social/fb.svg',
+          link: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(
+            window.location.href
+          )}&title=${document.querySelector('title').innerText}`,
+        },
+        {
+          id: '2',
+          name: 'Twitter',
+          src: '/images/social/twitter.svg',
+          link: `https://twitter.com/intent/tweet?text=${
+            document.querySelector('title').innerText
+          }&url=${encodeURI(window.location.href)}`,
+        },
+        {
+          id: '3',
+          name: 'ВКонтакте',
+          src: '/images/social/vk.svg',
+          link: `https://vk.com/share.php?url=${encodeURI(
+            window.location.href
+          )}&title=${document.querySelector('title').innerText}`,
+        },
+        {
+          id: '4',
+          name: 'Одноклассники',
+          src: '/images/social/ok.svg',
+          link: `https://connect.ok.ru/offer?url=${encodeURI(
+            window.location.href
+          )}&amp;title=${document.querySelector('title').innerText}`,
+        },
+        {
+          id: '5',
+          name: 'Instagram',
+          src: '/images/social/instagram.svg',
+          link: 'https://www.instagram.com/raklechitsa/',
+        },
+        {
+          id: '6',
+          name: 'YouTube',
+          src: '/images/social/youtube.svg',
+          link:
+            'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
+        },
+      ],
+    };
+  },
   components: {
     overlay: Overlay,
     'button-close': ButtonClose,
   },
   computed: {
-    social() {
-      return this.$store.getters['data/social/getSocial'];
-    },
     socialShown() {
       return this.$store.getters['data/social/getSocialShown'];
     },
