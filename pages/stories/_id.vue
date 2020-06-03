@@ -1,9 +1,9 @@
 <template>
   <container>
-    <div class="story-header">
-      <div class="photo-wrapper">
-        <div class="inner-wrapper">
-          <img :src="getCurrentStory.photo" alt="фото" class="story-photo" />
+    <div class="story__header">
+      <div class="story__photo-wrapper">
+        <div class="story__inner-wrapper">
+          <img :src="getCurrentStory.photo" alt="фото" class="story__photo" />
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export default {
 </script>
 
 <style scoped>
-.story-header {
+.story__header {
   width: 100%;
   padding-top: 100px;
   display: grid;
@@ -112,20 +112,20 @@ export default {
   justify-content: space-between;
 }
 
-.photo-wrapper {
+.story__photo-wrapper {
   width: 100%;
   height: 100%;
   grid-column: 1/2;
   grid-row: 1/3;
 }
 
-.inner-wrapper {
+.story__inner-wrapper {
   width: 100%;
   padding-top: 100%;
   position: relative;
 }
 
-.story-photo {
+.story__photo {
   position: absolute;
   left: 0;
   top: 0;
@@ -202,7 +202,7 @@ export default {
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .story-header {
+  .story__header {
     grid-template-columns: minmax(518px, 580px) minmax(602px, 1fr);
   }
 
@@ -241,7 +241,7 @@ export default {
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .story-header {
+  .story__header {
     grid-template-columns: minmax(407px, 518px) minmax(477px, 1fr);
     grid-gap: 40px;
   }
@@ -304,7 +304,7 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .story-header {
+  .story__header {
     padding-top: 80px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);
@@ -313,7 +313,7 @@ export default {
     margin: 0 auto;
   }
 
-  .photo-wrapper {
+  .story__photo-wrapper {
     width: 420px;
     max-width: 580px;
     grid-column: 1/2;
@@ -381,7 +381,7 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .story-header {
+  .story__header {
     padding-top: 50px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);
@@ -390,7 +390,7 @@ export default {
     margin: 0 auto;
   }
 
-  .photo-wrapper {
+  .story__photo-wrapper {
     grid-column: 1/2;
     grid-row: 2/3;
     padding: 30px 0;
