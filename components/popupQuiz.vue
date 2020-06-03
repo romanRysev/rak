@@ -192,7 +192,7 @@ export default {
   font-size: 18px;
   line-height: 24px;
   max-height: 240px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .question__additional {
