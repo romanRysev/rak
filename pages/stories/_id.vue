@@ -6,8 +6,7 @@
           <div class="inner-wrapper">
             <img
               :src="
-                'https://strapi.kruzhok.io' +
-                  getCurrentStory /*.ImageUrl[0].url*/
+                'https://strapi.kruzhok.io' + getCurrentStory.ImageUrl[0].url
               "
               alt="фото"
               class="story-photo"
@@ -26,7 +25,7 @@
             </li>
             <li>
               <p>
-                {{ /*getCurrentStory.date*/ getCurrentStory.ImageUrl[0].url }}
+                {{ getCurrentStory.date.slice(0, 10) }}
               </p>
             </li>
           </ul>
@@ -36,9 +35,7 @@
 
     <container class="container container_article">
       <article class="story-article">
-        <p>
-          {{ getCurrentStory.text }}
-        </p>
+        <div v-html="getCurrentStory.text"></div>
       </article>
       <button-share
         class="share-link share-link_article"
@@ -70,10 +67,9 @@ export default {
     'button-share': ButtonShare,
   },
 
-  created() {
-    this.$store.dispatch('data/stories/fetchStories').then(() => {
-      this.$store.commit('data/stories/setCurrentStory', this.$route);
-    });
+  async fetch({ store, route }) {
+    await store.dispatch('data/stories/fetchStories');
+    await store.commit('data/stories/setCurrentStory', route);
   },
 
   data() {

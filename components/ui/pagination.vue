@@ -5,6 +5,7 @@
         class="stories-page__element-list"
         v-for="elem in pagesCount"
         :key="elem"
+        @click="setPagination(elem)"
       >
         <span class="stories-page__number">{{ elem }}</span>
       </li>
@@ -22,6 +23,15 @@ export default {
   computed: {
     pagesCount() {
       return Math.ceil(this.totalElements / this.elementsPerPage);
+    },
+  },
+
+  methods: {
+    setPagination(pageNumber) {
+      return this.$store.commit('data/stories/setPaginationExport', {
+        pageNumber: pageNumber,
+        pageSize: this.elementsPerPage,
+      });
     },
   },
 };

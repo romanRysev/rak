@@ -2,7 +2,7 @@
   <div class="story-grid">
     <card
       v-if="searchCards.length == 0"
-      v-for="card in storyCards"
+      v-for="card in pagination"
       :key="card.id"
       :title="card.author"
       :subtitle="card.title"
@@ -16,7 +16,7 @@
       :key="card.id"
       :title="card.title"
       :subtitle="card.subtitle"
-      :photo="card.photo"
+      :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
       :href="storyHref(card.id)"
     />
   </div>
@@ -40,6 +40,13 @@ export default {
     },
   },
 
+  created() {
+    return this.$store.commit('data/stories/setPaginationExport', {
+      pageNumber: 1,
+      pageSize: this.storiesPerPage,
+    });
+  },
+
   computed: {
     storyCards() {
       const stories = this.$store.getters['data/stories/getStories'];
@@ -48,6 +55,10 @@ export default {
 
     searchCards() {
       return this.$store.getters['data/stories/getSearchExport'];
+    },
+
+    pagination() {
+      return this.$store.getters['data/stories/getPaginationExport'];
     },
   },
 };

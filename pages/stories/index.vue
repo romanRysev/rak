@@ -3,7 +3,7 @@
     <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
     <search />
 
-    <storyGrid :storiesPerPage="storyCards.length" />
+    <storyGrid :storiesPerPage="elementsPerPage" />
     <pagination
       :totalElements="storyCards.length"
       :elementsPerPage="elementsPerPage"
@@ -30,18 +30,18 @@ export default {
     },
   },
 
-  created() {
-    this.$store.dispatch('data/stories/fetchStories');
+  async fetch({ store }) {
+    await store.dispatch('data/stories/fetchStories');
   },
 
   data() {
-    return { elementsPerPage: 3 };
+    return { elementsPerPage: 16 };
   },
 };
 </script>
 
 <style scoped>
-.stories-container {
+.stories-page__container {
   display: flex;
   flex-direction: column;
   align-items: center;

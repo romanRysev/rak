@@ -3,13 +3,9 @@
     <container class="container container_video">
       <div class="text-content">
         <h3 class="section-title">
-          Истории людей, победивших рак, но не свои привычки
+          {{ title }}
         </h3>
-        <p class="section-description">
-          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
-          с их историями.
-        </p>
+        <p class="section-description" v-html="text"></p>
       </div>
 
       <div class="selector">
@@ -44,7 +40,7 @@
 
     <container>
       <h3 class="hashtag-band">
-        и в отличие от рака, <span class="hashtag">&#35;этонелечится</span>
+        {{ tagTitle }}<span class="hashtag"> {{ tag }}</span>
       </h3>
     </container>
   </section>
@@ -55,6 +51,13 @@ import Container from '~/components/Container';
 export default {
   components: {
     container: Container,
+  },
+
+  props: {
+    tag: String,
+    tagTitle: String,
+    text: String,
+    title: String,
   },
 };
 </script>
