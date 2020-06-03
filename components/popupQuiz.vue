@@ -3,16 +3,16 @@
     <h3 v-if="isLastPage" class="popup__step">
       {{ currentQuestion.step }}
     </h3>
-    <h3 v-if="!isLastPage" class="popup__thanks">
-      Спасибо что приняли участие!
-    </h3>
-    <!-- <img v-if="isLastPage"
+    <img
+      v-if="isLastPage"
       class="icon__close"
       @click="$store.commit('popup/close')"
       src="/images/icon__close.svg"
       alt="Кнопка закрытия формы отправки сообщения"
-    /> -->
-
+    />
+    <h3 v-if="!isLastPage" class="popup__thanks">
+      Спасибо что приняли участие!
+    </h3>
     <p class="popup__questions_block">
       <span v-if="isLastPage" class="popup__question">{{
         currentQuestion.question
@@ -44,6 +44,7 @@
         v-if="isLastPage"
         @custom-click="nextQuestion"
         class="buttonNext"
+        :class="{ buttonPageTwenty: isTwentyPage }"
         type="button"
         :disabled="emptyField()"
       >
@@ -51,6 +52,13 @@
           {{ isLastQuestion ? 'Далее' : 'Отправить' }}
         </p>
       </Button>
+
+      <p class="popup__processingPersInfo" v-if="isTwentyPage">
+        Нажимая на кнопку «отправить», вы даете согласие на <nuxt-link
+        to=/policy target="_blank">обработку персональных данных
+        <!-- </nuxt-link> -->
+      </p>
+
       <Button
         v-if="!isLastPage"
         @custom-click="
@@ -123,6 +131,17 @@ export default {
         return false;
       }
       return true;
+    },
+    isTwentyPage() {
+      const { popupQuiz } = this.$store.state;
+      const { questions, currentQuestion } = popupQuiz;
+      const questionsLength = Object.keys(questions).length;
+      console.log(currentQuestion);
+      console.log(questionsLength);
+      if (questionsLength - 1 === currentQuestion) {
+        return true;
+      }
+      return false;
     },
   },
 
@@ -280,6 +299,24 @@ export default {
   border: 0;
   cursor: pointer;
 }
+.buttonPageTwenty {
+  margin-right: 30px;
+}
+.popup__processingPersInfo {
+  display: inline-block;
+  width: 378px;
+  height: 34px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
+  text-align: left;
+  margin: 0px 168px 49px 30px;
+  cursor: pointer;
+}
+
 .icon__close {
   width: 20px;
   height: 20px;
@@ -289,6 +326,7 @@ export default {
   border: 0;
   cursor: pointer;
 }
+
 @media all and (max-width: 1279px) {
   .popupQuiz {
     max-width: 800px;
@@ -366,7 +404,7 @@ export default {
   .icon__close {
     width: 17.36px;
     position: absolute;
-    top: 310px;
+    top: 40px;
     left: 757px;
 
     /* top: 165px;
