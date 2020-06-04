@@ -1,42 +1,34 @@
 <template>
-  <div class="page-container">
-    <container class="container">
-      <div class="story__header">
-        <div class="story__photo-wrapper">
-          <div class="story__inner-wrapper">
-            <img
-              :src="
-                'https://strapi.kruzhok.io' + getCurrentStory.ImageUrl[0].url
-              "
-              alt="фото"
-              class="story__photo"
-            />
-          </div>
-        </div>
-        <div class="story__header story-header__text-content">
-          <h1 class="story__title">
-            <span class="story__title semi-bold"
-              >{{ getCurrentStory.author }}: </span
-            >&laquo;{{ getCurrentStory.title }}&raquo;
-          </h1>
-          <ul class="story__header story-header__bottom-string">
-            <li>
-              <button-share :text="links[0].text" @shareClick="showSocial" />
-            </li>
-            <li>
-              <p>
-                {{ getCurrentStory.date.slice(0, 10) }}
-              </p>
-            </li>
-          </ul>
+  <container>
+    <div class="story__header">
+      <div class="story__photo-wrapper">
+        <div class="story__inner-wrapper">
+          <img
+            :src="'https://strapi.kruzhok.io' + getCurrentStory.ImageUrl[0].url"
+            alt="фото"
+            class="story__photo"
+          />
         </div>
       </div>
-    </container>
-    <container class="container container_article">
-      <article class="story-article">
-        <div v-html="getCurrentStory.text"></div>
-      </article>
-    </container>
+
+      <h1 class="story__title">
+        <span class="story__title semi-bold"
+          >{{ getCurrentStory.author }}: </span
+        >&laquo;{{ getCurrentStory.title }}&raquo;
+      </h1>
+      <ul class="story__header story-header__bottom-string">
+        <li>
+          <button-share :text="links[0].text" @shareClick="showSocial" />
+        </li>
+        <li>
+          <p>
+            {{ getCurrentStory.date.slice(0, 10) }}
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <article class="story__article-container" v-html="getCurrentStory.text" />
     <break-line />
     <button-share
       class="share-link share-link_article"
@@ -44,11 +36,9 @@
       @shareClick="showSocial"
     />
     <break-line />
-    <container>
-      <story-grid class="story-grid" :storiesPerPage="4" />
-      <more-articles class="more-button" />
-    </container>
-  </div>
+    <story-grid class="story-grid" :storiesPerPage="4" />
+    <more-articles class="more-button" />
+  </container>
 </template>
 
 <script>
@@ -137,11 +127,10 @@ export default {
   object-fit: cover;
 }
 
-.story-title {
+.story__title {
   padding: 30px 0 0 0;
   border-top: 1px solid #efefef;
   grid-column: 2/3;
-
   font-weight: normal;
   font-size: 38px;
   line-height: 48px;
@@ -164,12 +153,11 @@ export default {
   justify-content: space-between;
 }
 
-.article-container {
+.story__article-container {
   max-width: 780px;
-  margin: 0 auto;
+  margin: 120px auto 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .article {
@@ -192,11 +180,13 @@ export default {
   line-height: 24px;
   width: fit-content;
   height: fit-content;
-  margin: 30px 0;
+  margin: 30px auto;
+  display: block;
 }
 
 .story-grid {
   margin-top: 150px;
+  grid-template-rows: 1fr;
 }
 
 .more-button {
@@ -325,13 +315,13 @@ export default {
     margin: 0 auto;
   }
 
-  .story-title {
+  .story__title {
     padding: 20px 0 0 0;
     text-align: center;
     margin: 0 auto;
     grid-column: 1/2;
     grid-row: 1/2;
-
+    border-top: 1px solid #efefef;
     font-size: 30px;
     line-height: 38px;
   }

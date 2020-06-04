@@ -1,14 +1,16 @@
 <template>
-  <div class="stories-page__container">
-    <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
-    <search />
+  <container>
+    <div class="stories-page__container">
+      <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
+      <search />
 
-    <storyGrid :storiesPerPage="elementsPerPage" />
-    <pagination
-      :totalElements="storyCards.length"
-      :elementsPerPage="elementsPerPage"
-    />
-  </div>
+      <storyGrid :storiesPerPage="elementsPerPage" />
+      <pagination
+        :totalElements="storyCards.length"
+        :elementsPerPage="elementsPerPage"
+      />
+    </div>
+  </container>
 </template>
 
 <script>
@@ -49,7 +51,7 @@ export default {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-.page-title {
+.stories-page__title {
   /*font-family: 'Inter';*/
   font-style: normal;
   font-weight: 600;
