@@ -160,7 +160,7 @@ export default {
   grid-column: 2/3;
   grid-row: 1/3;
   position: relative;
-  padding-bottom: 52%; /* Сохраняет пропорции фрейма при растягивании */
+  padding-bottom: 52%;
 }
 
 .frame {

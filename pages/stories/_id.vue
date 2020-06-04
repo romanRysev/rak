@@ -1,25 +1,25 @@
 <template>
   <div class="page-container">
     <container class="container">
-      <div class="story-header">
-        <div class="photo-wrapper">
-          <div class="inner-wrapper">
+      <div class="story__header">
+        <div class="story__photo-wrapper">
+          <div class="story__inner-wrapper">
             <img
               :src="
                 'https://strapi.kruzhok.io' + getCurrentStory.ImageUrl[0].url
               "
               alt="фото"
-              class="story-photo"
+              class="story__photo"
             />
           </div>
         </div>
-        <div class="story-header story-header__text-content">
-          <h1 class="story-title">
-            <span class="story-title semi-bold"
+        <div class="story__header story-header__text-content">
+          <h1 class="story__title">
+            <span class="story__title semi-bold"
               >{{ getCurrentStory.author }}: </span
             >&laquo;{{ getCurrentStory.title }}&raquo;
           </h1>
-          <ul class="story-header story-header__bottom-string">
+          <ul class="story__header story-header__bottom-string">
             <li>
               <button-share :text="links[0].text" @shareClick="showSocial" />
             </li>
@@ -32,32 +32,34 @@
         </div>
       </div>
     </container>
-
     <container class="container container_article">
       <article class="story-article">
         <div v-html="getCurrentStory.text"></div>
       </article>
-      <button-share
-        class="share-link share-link_article"
-        :text="links[1].text"
-        @shareClick="showSocial"
-      />
     </container>
-
+    <break-line />
+    <button-share
+      class="share-link share-link_article"
+      :text="links[1].text"
+      @shareClick="showSocial"
+    />
+    <break-line />
     <container>
       <story-grid class="story-grid" :storiesPerPage="4" />
+      <more-articles class="more-button" />
     </container>
-    <more-articles class="more-button" />
   </div>
 </template>
 
 <script>
 import Container from '~/components/Container';
 import MoreArticlesButton from '~/components/ui/MoreArticlesButton';
-import ButtonShare from '@/components/ui/ButtonShare';
+import ButtonShare from '~/components/ui/ButtonShare';
 import Link from '~/components/ui/Link';
 import StoryGrid from '~/components/ui/StoryGrid';
 import route from '../../plugins/route';
+import BreakLine from '~/components/ui/BreakLine';
+
 export default {
   components: {
     container: Container,
@@ -65,6 +67,7 @@ export default {
     'more-articles': MoreArticlesButton,
     'story-grid': StoryGrid,
     'button-share': ButtonShare,
+    'break-line': BreakLine,
   },
 
   async fetch({ store, route }) {
@@ -102,37 +105,30 @@ export default {
 </script>
 
 <style scoped>
-.page-container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container {
-  padding: 0;
-}
-
-.story-header {
+.story__header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   padding-top: 100px;
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(508px, 1fr) minmax(680px, 1fr);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 60px;
+  justify-content: space-between;
 }
 
-.photo-wrapper {
-  width: 50%;
-  max-width: 580px;
+.story__photo-wrapper {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/2;
+  grid-row: 1/3;
 }
 
-.inner-wrapper {
+.story__inner-wrapper {
   width: 100%;
   padding-top: 100%;
   position: relative;
 }
 
-.story-photo {
+.story__photo {
   position: absolute;
   left: 0;
   top: 0;
@@ -141,18 +137,15 @@ export default {
   object-fit: cover;
 }
 
-.story-header__text-content {
-  flex-direction: column;
-  max-width: 680px;
+.story-title {
   padding: 30px 0 0 0;
   border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
-}
+  grid-column: 2/3;
 
-.story-title {
   font-weight: normal;
   font-size: 38px;
   line-height: 48px;
+  align-self: baseline;
 }
 
 .semi-bold {
@@ -163,64 +156,57 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
-  margin-bottom: 30px;
   list-style: none;
-  padding: 0;
+  padding: 0 0 30px 0;
+  align-self: end;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
 }
 
-.container_article {
+.article-container {
   max-width: 780px;
-  padding: 130px 0 0 0;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.story-article {
+.article {
   font-size: 22px;
   line-height: 30px;
+  margin: 130px auto 70px;
 }
 
-.story-article__paragraph {
+.article__paragraph {
   padding: 0;
 }
 
-.story-article__paragraph:not(:last-of-type) {
+.article__paragraph:not(:last-of-type) {
   margin-bottom: 30px;
-}
-
-.share-link {
-  color: #121212;
 }
 
 .share-link_article {
-  width: 100%;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
-  height: 84px;
   text-align: center;
-  margin-top: 70px;
   font-size: 18px;
   line-height: 24px;
+  width: fit-content;
+  height: fit-content;
+  margin: 30px 0;
 }
 
 .story-grid {
-  margin-top: 160px;
+  margin-top: 150px;
 }
 
 .more-button {
   margin: 70px 0 100px;
+  padding: 0;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .page-container {
-    max-width: 1180px;
-  }
-
-  .photo-wrapper {
-    max-width: 518px;
-  }
-
-  .story-header__text-content {
-    max-width: 600px;
+  .story__header {
+    grid-template-columns: minmax(518px, 580px) minmax(602px, 1fr);
   }
 
   .story-title {
@@ -228,17 +214,17 @@ export default {
     line-height: 44px;
   }
 
-  .container_article {
+  .article-container {
     max-width: 720px;
-    padding: 120px 0 0 0;
   }
 
-  .story-article {
+  .article {
     font-size: 20px;
     line-height: 28px;
+    margin: 120px auto 60px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
@@ -248,7 +234,8 @@ export default {
   }
 
   .story-grid {
-    margin: 150px 0 60px;
+    margin-top: 140px;
+    margin-bottom: 50px;
   }
 
   .more-button {
@@ -257,20 +244,14 @@ export default {
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1279px) {
-  .page-container {
-    max-width: 924px;
-  }
-
-  .photo-wrapper {
-    max-width: 407px;
-  }
-
-  .story-header__text-content {
-    max-width: 477px;
-    padding: 20px 0 0 0;
+  .story__header {
+    grid-template-columns: minmax(407px, 518px) minmax(477px, 1fr);
+    grid-gap: 40px;
   }
 
   .story-title {
+    padding: 20px 0 0 0;
+
     font-size: 30px;
     line-height: 38px;
   }
@@ -278,24 +259,29 @@ export default {
   .story-header__bottom-string {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 15px;
+    padding: 0 0 15px 0;
   }
 
-  .container_article {
+  .header-share {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .article-container {
     max-width: 640px;
-    padding: 90px 0 0 0;
   }
 
-  .story-article {
+  .article {
     font-size: 18px;
     line-height: 27px;
+    margin: 90px auto 45px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
+  .article__paragraph:not(:last-of-type) {
     margin-bottom: 30px;
   }
 
@@ -307,12 +293,12 @@ export default {
   .share-link_article {
     font-size: 16px;
     line-height: 22px;
-    height: 70px;
-    margin: 50px 0 0 0;
+    margin: 24px 0;
   }
 
   .story-grid {
-    margin: 120px 0 45px;
+    margin-top: 110px;
+    margin-bottom: 35px;
   }
 
   .more-button {
@@ -321,31 +307,31 @@ export default {
 }
 
 @media screen and (min-width: 730px) and (max-width: 1022px) {
-  .page-container {
-    max-width: 688px;
+  .story__header {
+    padding-top: 80px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, max-content);
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
-  .photo-wrapper {
+  .story__photo-wrapper {
     width: 420px;
     max-width: 580px;
-    position: absolute;
-    top: calc(50% - 140px);
-    left: calc(50% - 210px);
-  }
-
-  .story-header {
-    padding-top: 80px;
-  }
-
-  .story-header__text-content {
-    max-width: 640px;
-    padding: 20px 0 0 0;
-    text-align: center;
-    height: 675px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 60px 0;
     margin: 0 auto;
   }
 
   .story-title {
+    padding: 20px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
+
     font-size: 30px;
     line-height: 38px;
   }
@@ -353,25 +339,27 @@ export default {
   .story-header__bottom-string {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 15px;
-  }
-
-  .container_article {
+    grid-column: 1/2;
     max-width: 640px;
-    padding: 100px 0 0 0;
+    padding: 0 0 15px 0;
   }
 
-  .story-article {
+  .article-container {
+    max-width: 640px;
+  }
+
+  .article {
     font-size: 18px;
     line-height: 27px;
+    margin: 100px auto 80px;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
-    margin-bottom: 25px;
+  .article__paragraph:not(:last-of-type) {
+    margin-bottom: 30px;
   }
 
   .share-link {
@@ -382,12 +370,12 @@ export default {
   .share-link_article {
     font-size: 16px;
     line-height: 22px;
-    height: 70px;
-    margin: 80px 0 0 0;
+    margin: 24px 0;
   }
 
   .story-grid {
-    margin: 120px 0 40px;
+    margin-top: 110px;
+    margin-bottom: 30px;
   }
 
   .more-button {
@@ -396,31 +384,31 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  .page-container {
-    max-width: 290px;
-  }
-
-  .photo-wrapper {
-    width: 290px;
-    max-width: 580px;
-    position: absolute;
-    top: calc(50% - 100px);
-    left: 0;
-  }
-
-  .story-header {
+  .story__header {
     padding-top: 50px;
-  }
-
-  .story-header__text-content {
-    max-width: 640px;
-    padding: 20px 0 0 0;
-    text-align: center;
-    height: 465px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, max-content);
+    width: 100%;
+    max-width: 420px;
     margin: 0 auto;
   }
 
+  .story__photo-wrapper {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 30px 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 290px;
+  }
+
   .story-title {
+    padding: 20px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
+
     font-size: 18px;
     line-height: 21px;
   }
@@ -428,25 +416,27 @@ export default {
   .story-header__bottom-string {
     font-size: 13px;
     line-height: 16px;
-    margin-bottom: 15px;
-  }
-
-  .container_article {
+    grid-column: 1/2;
     max-width: 640px;
-    padding: 40px 0 0 0;
+    padding: 0 0 20px 0;
   }
 
-  .story-article {
+  .article-container {
+    max-width: 420px;
+  }
+
+  .article {
     font-size: 13px;
     line-height: 16px;
+    margin: 40px auto;
   }
 
-  .story-article__paragraph {
+  .article__paragraph {
     padding: 0;
   }
 
-  .story-article__paragraph:not(:last-of-type) {
-    margin-bottom: 25px;
+  .article__paragraph:not(:last-of-type) {
+    margin-bottom: 15px;
   }
 
   .share-link {
@@ -458,12 +448,11 @@ export default {
   .share-link_article {
     font-size: 13px;
     line-height: 16px;
-    height: 74px;
-    margin: 40px 0 0 0;
+    margin: 20px 0;
   }
 
   .story-grid {
-    margin: 100px 0 40px;
+    margin: 90px -10px 30px;
   }
 
   .more-button {

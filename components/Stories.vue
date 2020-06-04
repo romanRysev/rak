@@ -80,7 +80,7 @@ export default {
   }
 
   .stories__more-button {
-    margin-top: 50px;
+    margin-top: 45px;
   }
 }
 @media screen and (max-width: 455px) {

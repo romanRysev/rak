@@ -4,7 +4,9 @@
       <button
         type="button"
         class="mobile-menu__link mobile-menu__share"
-        @click="$store.commit('popup/open')"
+        @click="
+          [$store.commit('popup/open'), $store.commit('form/openquizForm')]
+        "
       >
         Рассказать историю
       </button>
@@ -99,6 +101,10 @@ html {
 
 .mobile-menu__link:hover {
   opacity: 0.8;
+}
+
+.mobile-menu__share {
+  outline: none;
 }
 
 @media screen and (max-width: 1023px) {
