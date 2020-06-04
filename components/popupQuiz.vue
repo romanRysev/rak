@@ -1,41 +1,41 @@
 <template>
-  <div class="popupQuiz">
-    <h3 v-if="isLastPage" class="popup__step">
-      {{ currentQuestion.step }}
-    </h3>
-    <h3 v-if="!isLastPage" class="popup__thanks">
-      Спасибо что приняли участие!
-    </h3>
-    <!-- <img v-if="isLastPage"
-      class="icon__close"
-      @click="$store.commit('popup/close')"
-      src="/images/icon__close.svg"
-      alt="Кнопка закрытия формы отправки сообщения"
-    /> -->
+  <div class="quiz-popup">
+    <div class="text-area">
+      <div class="question-block">
+        <h3 v-if="isLastPage" class="quiz-step">
+          {{ currentQuestion.step }}
+        </h3>
+        <h3 v-if="!isLastPage" class="quiz-thanks">
+          Спасибо что приняли участие!
+        </h3>
 
-    <p class="popup__questions_block">
-      <span v-if="isLastPage" class="popup__question">{{
-        currentQuestion.question
-      }}</span>
-      <span
-        v-if="currentQuestion.questionAdditional"
-        class="popup__questionAdditional"
-      >
-        {{ currentQuestion.questionAdditional }}</span
-      >
-    </p>
+        <p class="question">
+          <span v-if="isLastPage" class="question__main">{{
+            currentQuestion.question
+          }}</span>
+          <span
+            v-if="currentQuestion.questionAdditional"
+            class="question__additional"
+          >
+            {{ currentQuestion.questionAdditional }}</span
+          >
+        </p>
+      </div>
 
-    <Input
-      v-if="isLastPage"
-      placeholder="Напишите тут"
-      :bottomBorder="true"
-      v-model="answer"
-    />
-    <div class="button__block">
+      <Input
+        class="quiz-input"
+        v-if="isLastPage"
+        placeholder="Напишите тут"
+        :bottomBorder="true"
+        v-model="answer"
+      />
+    </div>
+
+    <div class="button-block">
       <Button
         v-if="isLastPage"
         @custom-click="prevQuestion"
-        class="buttonBack"
+        class="button-back"
         type="button"
         >Назад</Button
       >
@@ -43,11 +43,11 @@
       <Button
         v-if="isLastPage"
         @custom-click="nextQuestion"
-        class="buttonNext"
+        class="button-next"
         type="button"
         :disabled="emptyField()"
       >
-        <p v-if="isLastPage" class="buttonNext__description">
+        <p v-if="isLastPage" class="button-next__description">
           {{ isLastQuestion ? 'Далее' : 'Отправить' }}
         </p>
       </Button>
@@ -56,10 +56,10 @@
         @custom-click="
           [$store.commit('popup/close'), $store.commit('form/closeForm')]
         "
-        class="buttonLast"
+        class="button-last"
         type="button"
       >
-        <p v-if="!isLastPage" class="buttonNext__description">Закрыть</p>
+        <p v-if="!isLastPage" class="button-next__description">Закрыть</p>
       </Button>
     </div>
   </div>
@@ -145,379 +145,230 @@ export default {
 </script>
 
 <style scoped>
-.popupQuiz {
+.quiz-popup {
   width: 920px;
+  min-width: 240px;
+  max-width: 80vw;
   height: 600px;
-  background: #ffffff;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-.popup__step {
+  background: #fff;
+  padding: 40px;
   display: flex;
-  width: 177px;
-  height: 36px;
-  margin: 40px 647px 40px 40px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 27px;
-  line-height: 36px;
-  display: flex;
-  align-items: flex-end;
-  color: #000000;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.popup__thanks {
-  width: 840px;
-  height: 36px;
-  font-family: Inter;
-  font-style: normal;
+
+.text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 270px;
+  max-height: 80%;
+}
+
+.question-block {
+  color: #000;
+}
+
+.quiz-step {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px auto 0px;
-  color: #000000;
+  margin-bottom: 40px;
+  max-width: 90%;
 }
 
-.popup__questions_block {
+.quiz-thanks {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  text-align: center;
+  margin: 40px auto 0;
+  max-width: 90%;
+}
+
+.question {
   display: inline-block;
-  width: 840px;
-  height: 24px;
-  margin: 0px 40px 134px 40px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
-  text-align: left;
+  max-height: 240px;
+  overflow: auto;
 }
-.popup__question {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  color: #000;
-  text-align: left;
-}
-.popup__questionAdditional {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  color: #000;
-  text-align: left;
+
+.question__additional {
   opacity: 0.5;
 }
 
-.popup-button:focus {
+.popup-button {
   outline: none;
 }
 
-.button__block {
-  display: flex;
-  padding: 0;
-  justify-content: center;
+.quiz-input {
+  margin-top: 30px;
+  width: 100%;
 }
-.buttonBack {
+
+.button-block {
   display: flex;
-  width: 48px;
-  height: 20px;
-  margin: 16px 30px 56px 40px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
+  align-items: center;
+}
+
+.button-back {
   font-size: 16px;
   line-height: 19px;
-  text-align: center;
   color: #c0c0c0;
-  background: white;
+  background: transparent;
   padding: 0;
   border: 0;
   cursor: pointer;
+  margin-right: 30px;
 }
-.buttonNext {
-  display: flex;
+
+.button-next {
   width: 226px;
   height: 52px;
-  margin: 0px 576px 40px 0px;
   background: #613a93;
   padding: 0;
   border: 0;
   cursor: pointer;
 }
-/*.buttonNext:hover {*/
-/*  opacity: 0.8;*/
-/*  transition: 0.3s;*/
-/*}*/
-.buttonNext__description {
-  display: flex;
-  /* width: 16px;
-  height: 10px; */
-  font-family: Inter;
-  font-style: normal;
+
+.button-next:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.button-next__description {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   margin: auto;
   padding: 0;
 }
 
-.buttonLast {
+.button-last {
   display: flex;
   width: 226px;
   height: 52px;
-  margin: 280px 0px 40px 0px;
   background: #613a93;
   padding: 0;
   border: 0;
   cursor: pointer;
+  margin: 0 auto;
 }
-.icon__close {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  bottom: 79px;
-  left: 870px;
-  border: 0;
-  cursor: pointer;
-}
-@media all and (max-width: 1279px) {
-  .popupQuiz {
-    max-width: 800px;
+
+@media all and (max-width: 1280px) {
+  .quiz-popup {
+    width: 800px;
     height: 520px;
-    display: flex;
-    flex-direction: column;
   }
-  .popup__step {
-    height: 32px;
-    max-width: 155px;
-    height: 36px;
-    margin: 40px 605px 40px 40px;
-    font-weight: 600;
-    font-size: 24px;
+
+  .text-area {
+    min-height: 225px;
+  }
+
+  .quiz-step {
+    font-size: 28px;
     line-height: 32px;
   }
-  .popup__thanks {
-    width: 840px;
-    height: 36px;
-    font-family: Inter;
-    font-style: normal;
+
+  .quiz-thanks {
     font-weight: 600;
     font-size: 32px;
     line-height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px auto 0px;
-    color: #000000;
   }
-  .popup__questions_block {
-    max-width: 720px;
-    height: 20px;
-    margin: 0px 40px 100px 40px;
+
+  .question {
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 220px;
   }
-  .popup__question {
+
+  .quiz-input {
     font-size: 16px;
     line-height: 22px;
   }
-  .popup__questionAdditional {
-    font-size: 16px;
-    line-height: 22px;
-  }
-  .button__block {
-    display: flex;
-    padding: 0;
-    justify-content: center;
-  }
-  .buttonBack {
-    margin: 16px 30px 54px 40px;
+
+  .button-back {
     max-width: 48px;
     height: 20px;
     font-size: 16px;
     line-height: 19px;
   }
-  .buttonLast {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+
+  .button-last {
     max-width: 200px;
     height: 48px;
-    margin-top: 234px;
   }
-  .buttonNext {
+
+  .button-next {
     max-width: 200px;
     height: 48px;
-    margin: 0px 482px 40px 0px;
   }
-  .buttonNext__description {
+
+  .button-next__description {
     width: 66px;
     height: 20px;
     font-size: 16px;
     line-height: 19px;
   }
-  .icon__close {
-    width: 17.36px;
-    position: absolute;
-    top: 310px;
-    left: 757px;
-
-    /* top: 165px;
-    left: 997px; */
-  }
-  .display_none {
-    display: none;
-  }
 }
 
-@media all and (max-width: 1023px) {
-  .popupQuiz {
-    max-width: 800px;
+@media all and (max-width: 1024px) {
+  .quiz-popup {
+    width: 800px;
     height: 520px;
   }
-  .popup__step {
-    width: 720px;
-    height: 20px;
+
+  .text-area {
+    min-height: 220px;
+  }
+
+  .quiz-step {
     font-weight: 500;
-    font-size: 15px;
-    line-height: 22px;
-    margin: 40px 611px 40px 40px;
-  }
-  .popup__questions_block {
-    margin: 0px 40px 100px 40px;
-    max-width: 720px;
-    height: 20px;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 22px;
-  }
-  .popup__question {
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 500;
-  }
-  .popup__questionAdditional {
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 500;
-  }
-  .button__block {
-    display: flex;
-    padding: 0;
-    justify-content: center;
-  }
-  .buttonBack {
-    margin: 16px 30px 53px 40px;
-    max-width: 48px;
-    height: 20px;
-    font-size: 15px;
-    line-height: 18px;
-  }
-  .buttonNext {
-    max-width: 200px;
-    height: 46px;
-    margin: 0px 482px 40px 0px;
-  }
-  .buttonNext__description {
-    margin: auto;
-    max-width: 66px;
-    height: 20px;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-  }
-  .buttonLast {
-    margin: auto;
-    display: flex;
-    width: 226px;
-    height: 52px;
-    background: #613a93;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-    position: relative;
-    top: 270px;
-    left: 0px;
-  }
-  .icon__close {
-    width: 17.36px;
-    top: 35px;
-    left: 757px;
-    position: absolute;
-  }
-  .popup__thanks {
-    display: contents;
-  }
-  .buttonLast {
-    margin: auto;
-    display: flex;
-    width: 226px;
-    height: 52px;
-    background: #613a93;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-    position: relative;
-    left: 0px;
-    top: 110px;
-  }
-}
-@media all and (max-width: 767px) {
-  .popupQuiz {
-    max-width: 580px;
-    height: 520px;
-  }
-  .popup__step {
-    max-width: 144px;
-    height: 30px;
-    font-weight: 600;
-    font-size: 23px;
+    font-size: 26px;
     line-height: 30px;
-    margin: 40px 396px 40px 40px;
   }
-  .popup__questions_block {
-    margin: 0px 40px 100px 40px;
-    max-width: 500px;
-    height: 20px;
+
+  .question {
     font-weight: 500;
     font-size: 15px;
-    line-height: 19px;
+    line-height: 22px;
+    max-height: 220px;
   }
-  .popup__question {
-    font-weight: 500;
+
+  .question__main {
     font-size: 15px;
-    line-height: 19px;
-  }
-  .popup__questionAdditional {
+    line-height: 22px;
     font-weight: 500;
+  }
+
+  .question__additional {
     font-size: 15px;
-    line-height: 19px;
+    line-height: 22px;
+    font-weight: 500;
   }
-  .button__block {
-    display: flex;
-    padding: 0;
-    justify-content: center;
+
+  .quiz-input {
+    font-size: 15px;
+    line-height: 22px;
   }
-  .buttonBack {
-    margin: 16px 30px 53px 40px;
+
+  .button-back {
     max-width: 48px;
     height: 20px;
     font-size: 15px;
     line-height: 18px;
   }
-  .buttonNext {
-    margin: 0px 262px 40px 0px;
+
+  .button-next {
     max-width: 200px;
     height: 46px;
   }
-  .buttonNext__description {
+
+  .button-next__description {
     margin: auto;
     max-width: 66px;
     height: 20px;
@@ -525,91 +376,109 @@ export default {
     font-size: 15px;
     line-height: 18px;
   }
-  .icon__close {
-    width: 20px;
+
+  .button-last {
+    width: 226px;
+    height: 52px;
+  }
+
+  .quiz-thanks {
+    font-size: 30px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .quiz-popup {
+    width: 580px;
+    height: 520px;
+  }
+
+  .quiz-step {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .question {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .button-back {
+    max-width: 48px;
     height: 20px;
-    top: 47px;
-    left: 537px;
-    position: absolute;
+    font-size: 15px;
+    line-height: 18px;
   }
-  .popup__thanks {
-    display: contents;
+
+  .button-next {
+    max-width: 200px;
+    height: 46px;
   }
-  .buttonLast {
-    margin: auto;
+
+  .button-next__description {
+    max-width: 66px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .quiz-thanks {
+    font-size: 24px;
   }
 }
 @media all and (max-width: 455px) {
-  .popupQuiz {
+  .quiz-popup {
     max-width: 290px;
+    width: 95vw;
     height: 520px;
+    padding: 15px;
   }
-  .popup__step {
-    max-width: 100px;
-    height: 21px;
+
+  .text-area {
+    min-height: 195px;
+  }
+
+  .quiz-step {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 21px;
-    margin: 15px 175px 30px 15px;
+    margin-bottom: 30px;
   }
-  .popup__questions_block {
-    margin: 0px 15px 100px 15px;
+
+  .question {
     max-width: 260px;
-    height: 20px;
+    max-height: 300px;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
   }
-  .popup__question {
-    font-weight: 500;
+
+  .button-back {
     font-size: 13px;
     line-height: 16px;
+    margin-right: 15px;
   }
-  .popup__questionAdditional {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-  }
-  .button__block {
-    display: flex;
-    padding: 0;
-    justify-content: center;
-  }
-  .buttonBack {
-    margin: 16px 15px 27px 15px;
-    max-width: 39px;
-    height: 16px;
-    font-size: 13px;
-    line-height: 16px;
-  }
-  .buttonNext {
-    margin: 0px 15px 15px 0px;
+
+  .button-next {
     max-width: 206px;
     height: 40px;
   }
-  .buttonNext__description {
+
+  .button-next__description {
     max-width: 42px;
     height: 16px;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
-    margin: auto;
   }
-  .icon__close {
-    width: 20px;
-    height: 20px;
-    top: 23px;
-    left: 257px;
-    position: absolute;
-  }
-  .popup__thanks {
-    display: contents;
+
+  .quiz-thanks {
     font-weight: 500;
     font-size: 17px;
     line-height: 19px;
-  }
-  .buttonLast {
-    margin: auto;
   }
 }
 </style>
