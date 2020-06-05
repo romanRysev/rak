@@ -1,5 +1,5 @@
 <template>
-  <container class="policy-container">
+  <div class="policy-container">
     <h2 class="heading">
       Политика проекта в отношении обработки персональных данных.
     </h2>
@@ -15,7 +15,7 @@
         ></div>
         <ol class="subsection">
           <li
-            class="subsection subsection__text"
+            class="subsection__text"
             v-for="subsection in article.subsections"
             :key="subsection.id"
           >
@@ -24,7 +24,7 @@
         </ol>
       </li>
     </ol>
-  </container>
+  </div>
 </template>
 
 <script>
@@ -50,6 +50,7 @@ export default {
 .heading {
   font-size: 38px;
   line-height: 48px;
+  font-weight: 500;
   text-align: center;
   margin: 100px auto;
   padding: 30px 0;
@@ -171,7 +172,7 @@ export default {
   .heading {
     font-size: 18px;
     line-height: 21px;
-    margin: 50px auto;
+    margin: 50px auto 40px;
     padding: 20px 0;
   }
 

@@ -23,6 +23,7 @@ export default {
 .card {
   text-align: left;
   text-decoration: none;
+  padding: 10px;
 }
 
 .card:hover {
