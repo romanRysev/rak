@@ -25,7 +25,6 @@
           src="https://www.youtube.com/embed/coOppM34GtI"
           allowfullscreen
         />
-        <button class="play-button" />
       </div>
 
       <p class="video-notation">
