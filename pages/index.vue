@@ -1,12 +1,31 @@
 <template>
   <div class="page-container">
-    <banner />
-    <videoblock />
-    <stories />
-    <instagram />
-    <tellstory />
-    <statistic />
-    <about />
+    <banner :tag="blocks[0].hashtag" />
+    <videoblock
+      :tag="blocks[1].hashtag"
+      :tagTitle="blocks[1].title"
+      :text="blocks[3].text"
+      :title="blocks[3].title"
+    />
+    <stories :title="blocks[4].title" />
+    <instagram
+      :tag="blocks[2].hashtag"
+      :tagTitle="blocks[2].title"
+      :title="blocks[5].title"
+      :text="blocks[5].text"
+    />
+    <tellstory
+      :title="blocks[9].title"
+      :text="blocks[9].text"
+      :extraText="blocks[9].extraTexts"
+    />
+    <statistic :title="blocks[6].title" />
+    <about
+      :title="blocks[10].title"
+      :text="blocks[10].text"
+      :extraText="blocks[10].extraTexts"
+      :tag="blocks[10].hashtag"
+    />
   </div>
 </template>
 
@@ -38,6 +57,17 @@ export default {
       return {
         variantTwoShown: true,
       };
+    },
+  },
+
+  async fetch({ store }) {
+    await store.dispatch('data/blocks/fetchBlocks');
+    await store.dispatch('data/stories/fetchStories');
+  },
+
+  computed: {
+    blocks() {
+      return this.$store.getters['data/blocks/getBlocks'];
     },
   },
 };

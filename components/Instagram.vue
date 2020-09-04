@@ -2,8 +2,8 @@
   <section class="instagram">
     <container>
       <h3 class="instagram__header">
-        Рассказывайте ваши истории в инстаграм
-        <span class="instagram__header-tag">&#35;этонелечится</span>
+        {{ title }}
+        <span class="instagram__header-tag">{{ tag }}</span>
       </h3>
       <div class="instagram__content-container">
         <div class="instagram__text-content">
@@ -11,14 +11,9 @@
             class="instagram__subtitle"
             href="https://www.instagram.com/raklechitsa/"
             target="_blank"
-            >Инстаграм</a
+            >{{ title }}</a
           >
-          <p class="instagram__paragraph">
-            Два раза в неделю мы просматриваем все посты по хештегу
-            #этонелечится. Все истории, где нет нецензурных выражений и
-            запрещенного контента попадают сюда. Следите за правильным
-            написанием хештега, чтобы мы не пропустили вашу историю.
-          </p>
+          <p class="instagram__paragraph" v-html="text"></p>
         </div>
         <div class="instagram__grid">
           <div
@@ -38,6 +33,14 @@ export default {
   components: {
     container: Container,
   },
+
+  props: {
+    tag: String,
+    tagTitle: String,
+    title: String,
+    text: String,
+  },
+
   computed: {
     instaCards() {
       return this.$store.getters['data/instagram/getinstaCards'];

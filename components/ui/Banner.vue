@@ -1,7 +1,7 @@
 <template>
   <section class="head-banner" ref="banner">
     <container>
-      <h1 class="head-banner__title">&#35;раклечится</h1>
+      <h1 class="head-banner__title">{{ tag }}</h1>
       <button class="head-banner__arrow" @click="scrollBanner"></button>
     </container>
   </section>
@@ -13,6 +13,11 @@ export default {
   components: {
     container: Container,
   },
+
+  props: {
+    tag: String,
+  },
+
   methods: {
     scrollBanner() {
       const nextBlock = this.$refs.banner.nextElementSibling;

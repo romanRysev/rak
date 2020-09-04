@@ -1,9 +1,9 @@
 <template>
   <section class="stories">
     <container>
-      <h3 class="stories__title">Истории неизлечимых привычек</h3>
-      <storiesgrid />
-      <morearticles class="stories__more-button" />
+      <h3 class="stories__title">{{ title }}</h3>
+      <storiesgrid :storiesPerPage="8" />
+      <morearticles class="more-button" />
     </container>
   </section>
 </template>
@@ -17,6 +17,9 @@ export default {
     container: Container,
     storiesgrid: StoryGrid,
     morearticles: MoreArticlesButton,
+  },
+  props: {
+    title: String,
   },
 };
 </script>

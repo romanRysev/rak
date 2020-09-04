@@ -1,11 +1,22 @@
 <template>
   <div class="story-grid">
     <card
-      v-for="card in storyCards"
+      v-if="searchCards.length == 0"
+      v-for="card in pagination"
+      :key="card.id"
+      :title="card.author"
+      :subtitle="card.title"
+      :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
+      :href="storyHref(card.id)"
+    />
+
+    <card
+      v-if="searchCards.length !== 0"
+      v-for="card in searchCards"
       :key="card.id"
       :title="card.title"
       :subtitle="card.subtitle"
-      :photo="card.photo"
+      :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
       :href="storyHref(card.id)"
     />
   </div>
@@ -19,14 +30,35 @@ export default {
     card: Card,
   },
 
+  props: {
+    storiesPerPage: Number,
+  },
+
   methods: {
     storyHref(id) {
       return 'stories/' + id;
     },
   },
+
+  created() {
+    return this.$store.commit('data/stories/setPaginationExport', {
+      pageNumber: 1,
+      pageSize: this.storiesPerPage,
+    });
+  },
+
   computed: {
     storyCards() {
-      return this.$store.getters['data/stories/getStories'];
+      const stories = this.$store.getters['data/stories/getStories'];
+      return stories.slice(0, this.storiesPerPage);
+    },
+
+    searchCards() {
+      return this.$store.getters['data/stories/getSearchExport'];
+    },
+
+    pagination() {
+      return this.$store.getters['data/stories/getPaginationExport'];
     },
   },
 };

@@ -1,42 +1,38 @@
 <template>
   <section class="your-story">
     <container class="container_your-story">
-      <h3 class="your-story__header">Расскажите свою историю</h3>
+      <h3 class="your-story__header">{{ title }}</h3>
       <div class="your-story__description-container">
         <div class="your-story__description-side">
-          <p class="your-story__description-text">
-            Мы публикуем новые истории на сайте раз в неделю. Есть
-            2&nbsp;варианта поделиться своей историей неизлечимых привычек,
-            навязчивых идей и болезненных привязанностей.
-          </p>
+          <p class="your-story__description-text" v-html="text"></p>
           <div class="your-story__variant-toggler">
             <p
               ref="variantOne"
               @click="variantToggler"
               class="your-story__variant your-story__variant_active"
             >
-              1-й вариант
+              {{ extraText[0].title }}
             </p>
             <p
               ref="variantTwo"
               @click="variantToggler"
               class="your-story__variant"
             >
-              2-й вариант
+              {{ extraText[1].title }}
             </p>
           </div>
         </div>
         <div class="your-story__variant-side">
-          <p v-if="variantOneShown" class="your-story__variant-text">
-            Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-            историю после проверки. Пожалуйста, заполняйте все пункты корректно,
-            если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м
-            вариантом.
-          </p>
-          <p v-if="variantTwoShown" class="your-story__variant-text">
-            Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-            зададим вопросы, уточним детали вашей истории.
-          </p>
+          <p
+            v-if="variantOneShown"
+            class="your-story__variant-text"
+            v-html="extraText[0].text"
+          ></p>
+          <p
+            v-if="variantTwoShown"
+            class="your-story__variant-text"
+            v-html="extraText[1].text"
+          ></p>
         </div>
       </div>
 
@@ -75,6 +71,13 @@ export default {
     popupbutton: button,
     container: Container,
   },
+
+  props: {
+    title: String,
+    text: String,
+    extraText: Array,
+  },
+
   methods: {
     variantToggler(e) {
       if (!e.target.classList.contains('your-story__variant_active')) {

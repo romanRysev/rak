@@ -1,7 +1,7 @@
 <template>
   <section class="stats">
     <container>
-      <h2 class="stats__header">Статистика по онкозаболеваниям</h2>
+      <h2 class="stats__header">{{ title }}</h2>
       <div class="stats__container">
         <statscard
           v-for="bar in bars"
@@ -34,6 +34,11 @@ export default {
     bar: Bar,
     doublebar: DoubleBar,
   },
+
+  props: {
+    title: String,
+  },
+
   computed: {
     bars() {
       return this.$store.getters['data/statistic/getBars'];
