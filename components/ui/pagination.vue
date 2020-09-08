@@ -37,15 +37,15 @@ export default {
 
   methods: {
     setCurrentPage(element) {
+      if (Object.keys(this.currentPage).length !== 0) {
+        this.currentPage.classList.remove('stories-page__element_active');
+      }
       this.currentPage = element;
-      element.classList.add('stories-page__element_active');
+      this.currentPage.classList.add('stories-page__element_active');
     },
 
     setPagination(pageNumber) {
       if (event.target.classList.contains('stories-page__element')) {
-        event.target.parentElement.childNodes.forEach(element => {
-          element.classList.remove('stories-page__element_active');
-        });
         this.setCurrentPage(event.target);
       } else {
         this.setCurrentPage(event.target.parentElement);
