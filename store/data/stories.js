@@ -3,15 +3,17 @@ import axios from 'axios';
 export const state = () => ({
   storyCards: [],
   currentStory: {},
+  paginationMode: 'main',
+  paginationExport: [],
 });
 
 export const mutations = {
   setStoryesProperties(state) {
     state.searchExport = [];
-    state.paginationExport = [];
   },
 
   setSearchExport(state, req) {
+    // возвращает полный список статей с ключевым словом
     return (state.searchExport = state.storyCards.filter(elem => {
       let inSearch = false;
       if (elem.text.includes(req)) {
@@ -22,12 +24,23 @@ export const mutations = {
   },
 
   setPaginationExport(state, payload) {
+    // возвращает 1 страницу статей для пагинации (получает на вход данные о кол-ве статей на странице и номер страницы в пагинации).
+    //Контент определяется в зависимости от режима (общий или поиск).
     const startElem = (payload.pageNumber - 1) * payload.pageSize;
     const endElem = startElem + payload.pageSize - 1;
-    return (state.paginationExport = state.storyCards.slice(
-      startElem,
-      endElem + 1
-    ));
+    if (state.paginationMode == 'main') {
+      return (state.paginationExport = state.storyCards.slice(
+        startElem,
+        endElem + 1
+      ));
+    }
+
+    if (state.paginationMode == 'search') {
+      return (state.paginationExport = state.searchExport.slice(
+        startElem,
+        endElem + 1
+      ));
+    }
   },
 
   setStories(state, { name, value }) {
@@ -38,6 +51,10 @@ export const mutations = {
     return (state.currentStory = state.storyCards.find(
       card => card.id == route.params.id
     ));
+  },
+
+  setPaginationMode(state, mode) {
+    return (state.paginationMode = mode.mode);
   },
 };
 
@@ -67,5 +84,9 @@ export const getters = {
 
   getPaginationExport(state) {
     return state.paginationExport;
+  },
+
+  getPaginationMode(state) {
+    return state.paginationMode;
   },
 };

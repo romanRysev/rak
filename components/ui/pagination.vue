@@ -25,11 +25,18 @@ export default {
   },
 
   props: {
-    totalElements: Number,
     elementsPerPage: Number,
   },
 
   computed: {
+    totalElements() {
+      if (this.$store.getters['data/stories/getPaginationMode'] == 'main') {
+        return this.$store.getters['data/stories/getStories'].length;
+      } else {
+        return this.$store.getters['data/stories/getSearchExport'].length;
+      }
+    },
+
     pagesCount() {
       return Math.ceil(this.totalElements / this.elementsPerPage);
     },
@@ -50,7 +57,6 @@ export default {
       } else {
         this.setCurrentPage(event.target.parentElement);
       }
-
       return this.$store.commit('data/stories/setPaginationExport', {
         pageNumber: pageNumber,
         pageSize: this.elementsPerPage,
