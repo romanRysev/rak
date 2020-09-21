@@ -14,15 +14,17 @@ export default {
     return { message: '' };
   },
 
-  computed: {
-    storyCards() {
-      return this.$store.getters['data/stories/getStories'];
-    },
-  },
-
   methods: {
     find(message) {
-      return this.$store.commit('data/stories/setSearchExport', message);
+      this.$store.commit('data/stories/setSearchExport', message);
+      this.$store.commit('data/stories/setPaginationMode', {
+        mode: 'search',
+      });
+
+      return this.$store.commit('data/stories/setPaginationExport', {
+        pageNumber: 1,
+        pageSize: 16,
+      });
     },
   },
 };

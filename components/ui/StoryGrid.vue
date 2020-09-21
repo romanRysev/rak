@@ -1,7 +1,6 @@
 <template>
   <div class="story-grid">
     <card
-      v-if="searchCards.length == 0"
       v-for="card in pagination"
       :key="card.id"
       :title="card.author"
@@ -9,21 +8,11 @@
       :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
       :href="storyHref(card.id)"
     />
-
-    <card
-      v-if="searchCards.length !== 0"
-      v-for="card in searchCards"
-      :key="card.id"
-      :title="card.title"
-      :subtitle="card.subtitle"
-      :photo="'https://strapi.kruzhok.io' + card.ImageUrl[0].url"
-      :href="storyHref(card.id)"
-    />
   </div>
 </template>
 
 <script>
-import Card from '@/components/ui/Card';
+import Card from '@/components/ui/card';
 
 export default {
   components: {
@@ -39,8 +28,11 @@ export default {
       return 'stories/' + id;
     },
   },
-
   created() {
+    this.$store.commit('data/stories/setPaginationMode', {
+      mode: 'main',
+    });
+
     return this.$store.commit('data/stories/setPaginationExport', {
       pageNumber: 1,
       pageSize: this.storiesPerPage,
@@ -48,17 +40,24 @@ export default {
   },
 
   computed: {
-    storyCards() {
-      const stories = this.$store.getters['data/stories/getStories'];
-      return stories.slice(0, this.storiesPerPage);
-    },
-
     searchCards() {
       return this.$store.getters['data/stories/getSearchExport'];
     },
 
     pagination() {
-      return this.$store.getters['data/stories/getPaginationExport'];
+      if (this.searchCards.length == 0) {
+        this.$store.commit('data/stories/setPaginationMode', {
+          mode: 'main',
+        });
+        return this.$store.getters['data/stories/getPaginationExport'];
+      }
+
+      if (this.searchCards.length !== 0) {
+        this.$store.commit('data/stories/setPaginationMode', {
+          mode: 'search',
+        });
+        return this.$store.getters['data/stories/getPaginationExport'];
+      }
     },
   },
 };

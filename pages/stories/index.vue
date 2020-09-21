@@ -2,7 +2,7 @@
   <container>
     <div class="stories-page__container">
       <h3 class="stories-page__title">Истории неизлечимых привычек</h3>
-      <search />
+      <search :storiesPerPage="elementsPerPage" />
 
       <storyGrid :storiesPerPage="elementsPerPage" />
       <pagination
